@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let apiSecvice = ApiTimetableService()
+        
+        apiSecvice.loadGroupsAndGroupsHash { optionalHash, optionalGroups in
+            print(optionalHash)
+            print(optionalGroups)
+        }
+        
+        
         return true
     }
 
