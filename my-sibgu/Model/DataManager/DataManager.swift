@@ -67,18 +67,21 @@ class DataManager {
 // MARK: - Getting Entities
 extension DataManager {
     
-    func getGroups() -> Results<RGroup> {
-        let groups = downloadedRealm.objects(RGroup.self)
+    func getGroups() -> [Group] {
+        let rGroups = downloadedRealm.objects(RGroup.self)
+        let groups = Translator.shared.converteGroups(from: rGroups)
         return groups
     }
     
-    func getFavoriteGruops() -> Results<RGroup> {
-        let groups = userRealm.objects(RGroup.self)
+    func getFavoriteGruops() -> [Group] {
+        let rGroups = userRealm.objects(RGroup.self)
+        let groups = Translator.shared.converteGroups(from: rGroups)
         return groups
     }
     
-    func getGroup(withId id: Int) -> RGroup? {
-        let group = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: 1)
+    func getGroup(withId id: Int) -> Group? {
+        guard let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: id) else { return nil }
+        let group = Translator.shared.converteGroup(from: rGroup)
         return group
     }
     

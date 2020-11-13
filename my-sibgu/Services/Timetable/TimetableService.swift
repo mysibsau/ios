@@ -10,7 +10,7 @@ import Foundation
 class TimetableService {
     
     // MARK: - Get Groups
-    func getGroups(completion: @escaping (_ groups: [RGroup]?) -> Void) {
+    func getGroups(completion: @escaping (_ groups: [Group]?) -> Void) {
         let groups = DataManager.shared.getGroups()
         
         // Если есть, то даем
@@ -35,7 +35,7 @@ class TimetableService {
         }
     }
     
-    func getGroup(withId id: Int, completion: @escaping (_ groups: RGroup?) -> Void) {
+    func getGroup(withId id: Int, completion: @escaping (_ groups: Group?) -> Void) {
         let group = DataManager.shared.getGroup(withId: id)
         
         // Если есть, то даем

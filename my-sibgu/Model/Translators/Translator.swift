@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class Translator {
     
@@ -93,6 +94,20 @@ class Translator {
         guard times.count == 2 else { return nil }
         
         return "\(times[0]) - \(times[1])"
+    }
+    
+    func converteGroups(from rGroups: Results<RGroup>) -> [Group] {
+        var groups = [Group]()
+        rGroups.forEach { rGroup in
+            let group = Group(id: rGroup.id, name: rGroup.name, email: rGroup.email)
+            groups.append(group)
+        }
+        
+        return groups
+    }
+    
+    func converteGroup(from rGroup: RGroup) -> Group {
+        return Group(id: rGroup.id, name: rGroup.name, email: rGroup.email)
     }
     
 }
