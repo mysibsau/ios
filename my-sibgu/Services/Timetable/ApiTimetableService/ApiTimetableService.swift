@@ -70,7 +70,6 @@ class ApiTimetableService {
                             completionIfNeedNotLoadGroups: @escaping (_ groupsHash: String?, _ groupTimetable: RGroupTimetable?) -> Void,
                             startIfNeedLoadGroups: @escaping () -> Void,
                             completionIfNeedLoadGroups: @escaping (_ groupsHash: String?, _ groups: [RGroup]?, _ groupTimetable: RGroupTimetable?) -> Void) {
-        
         var downloadedGroupTimetable: RGroupTimetable?
         var downloadedGroupsHash: String?
         
