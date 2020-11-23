@@ -10,7 +10,6 @@
 		3A8079B519B64497324F2163 /* Pods_my_sibgu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */; };
 		4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD84255D89020022B6A9 /* AppDelegate.swift */; };
 		4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD86255D89020022B6A9 /* SceneDelegate.swift */; };
-		4A07DD89255D89020022B6A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD88255D89020022B6A9 /* ViewController.swift */; };
 		4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A07DD8A255D89020022B6A9 /* Main.storyboard */; };
 		4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A07DD8D255D89050022B6A9 /* Assets.xcassets */; };
 		4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A07DD8F255D89050022B6A9 /* LaunchScreen.storyboard */; };
@@ -39,14 +38,29 @@
 		4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */; };
 		4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */; };
 		4A27A860255EE79D0018186B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A85F255EE79D0018186B /* Group.swift */; };
+		4A27A867255F088E0018186B /* ApiUniversityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A866255F088E0018186B /* ApiUniversityInfo.swift */; };
+		4A27A86B255F09230018186B /* UniversityInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A86A255F09230018186B /* UniversityInfoService.swift */; };
 		4A436416255E85C400C11E03 /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A436415255E85C400C11E03 /* TimetableService.swift */; };
+		4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */; };
+		4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */; };
+		4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */; };
+		4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */; };
+		4A7A56F3256BF5BF00E2CE0F /* UnionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */; };
+		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
+		4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6DE25637977005F6CBE /* Institute.swift */; };
+		4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6E225637B41005F6CBE /* Institute+Director.swift */; };
+		4AEBE6E625637B6C005F6CBE /* Institute+Departmetn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6E525637B6C005F6CBE /* Institute+Departmetn.swift */; };
+		4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6E825637BC1005F6CBE /* Institute+Soviet.swift */; };
+		4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6EB25637BF9005F6CBE /* Union.swift */; };
+		4AEBE6EF25637DE9005F6CBE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6EE25637DE9005F6CBE /* Event.swift */; };
+		4AEBE6F225637F7C005F6CBE /* Event+Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6F125637F7C005F6CBE /* Event+Link.swift */; };
+		4AEBE6F625639388005F6CBE /* union.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBE6F525639388005F6CBE /* union.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A07DD81255D89020022B6A9 /* my-sibgu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-sibgu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A07DD84255D89020022B6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A07DD86255D89020022B6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4A07DD88255D89020022B6A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A07DD8B255D89020022B6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A07DD8D255D89050022B6A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A07DD90255D89050022B6A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,7 +90,23 @@
 		4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
 		4A27A85F255EE79D0018186B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		4A27A866255F088E0018186B /* ApiUniversityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUniversityInfo.swift; sourceTree = "<group>"; };
+		4A27A86A255F09230018186B /* UniversityInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityInfoService.swift; sourceTree = "<group>"; };
 		4A436415255E85C400C11E03 /* TimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableService.swift; sourceTree = "<group>"; };
+		4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsViewController.swift; sourceTree = "<group>"; };
+		4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
+		4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
+		4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionsViewController.swift; sourceTree = "<group>"; };
+		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		4AEBE6DE25637977005F6CBE /* Institute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Institute.swift; sourceTree = "<group>"; };
+		4AEBE6E225637B41005F6CBE /* Institute+Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institute+Director.swift"; sourceTree = "<group>"; };
+		4AEBE6E525637B6C005F6CBE /* Institute+Departmetn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institute+Departmetn.swift"; sourceTree = "<group>"; };
+		4AEBE6E825637BC1005F6CBE /* Institute+Soviet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institute+Soviet.swift"; sourceTree = "<group>"; };
+		4AEBE6EB25637BF9005F6CBE /* Union.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Union.swift; sourceTree = "<group>"; };
+		4AEBE6EE25637DE9005F6CBE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4AEBE6F125637F7C005F6CBE /* Event+Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Link.swift"; sourceTree = "<group>"; };
+		4AEBE6F525639388005F6CBE /* union.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = union.json; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,9 +147,10 @@
 			children = (
 				4A07DD84255D89020022B6A9 /* AppDelegate.swift */,
 				4A07DD86255D89020022B6A9 /* SceneDelegate.swift */,
-				4A07DD88255D89020022B6A9 /* ViewController.swift */,
+				4A7A56E5256BF4A900E2CE0F /* View Controllers */,
 				4A07DDDD255DA2F90022B6A9 /* Services */,
 				4A07DD99255D8DBF0022B6A9 /* Model */,
+				4AEBE6F425639326005F6CBE /* Resourses */,
 				4A07DD8A255D89020022B6A9 /* Main.storyboard */,
 				4A07DD8D255D89050022B6A9 /* Assets.xcassets */,
 				4A07DD8F255D89050022B6A9 /* LaunchScreen.storyboard */,
@@ -141,9 +172,8 @@
 		4A07DD9E255D93340022B6A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4A27A85E255EE77D0018186B /* Entities */,
-				4A07DDDE255DA35D0022B6A9 /* Enums */,
-				4A27A85D255EE76A0018186B /* Timetable */,
+				4AEBE6D3256376D1005F6CBE /* Info */,
+				4AEBE6D2256376C0005F6CBE /* Timetable */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,9 +192,9 @@
 		4A07DDAD255D95300022B6A9 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				4A07DE03255DA64B0022B6A9 /* UserDefaults */,
 				4A07DDB5255D964A0022B6A9 /* Extensions */,
 				4A07DDD8255DA0D90022B6A9 /* DataManager.swift */,
+				4A07DE03255DA64B0022B6A9 /* UserDefaults */,
 				4A07DDAE255D95880022B6A9 /* RModels */,
 			);
 			path = DataManager;
@@ -237,6 +267,7 @@
 			children = (
 				4A07DDF4255DA5330022B6A9 /* DownloadOperation.swift */,
 				4A436414255E859300C11E03 /* Timetable */,
+				4A27A864255F08190018186B /* University Info */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -249,7 +280,7 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		4A07DDE3255DA39A0022B6A9 /* ApiTimetableService */ = {
+		4A07DDE3255DA39A0022B6A9 /* Api Timetable Service */ = {
 			isa = PBXGroup;
 			children = (
 				4A07DDE7255DA4100022B6A9 /* ResponseObjects */,
@@ -257,7 +288,7 @@
 				4A07DDE4255DA3B70022B6A9 /* ApiTimetable.swift */,
 				4A07DDFF255DA5E20022B6A9 /* TimetableResponseHandler.swift */,
 			);
-			path = ApiTimetableService;
+			path = "Api Timetable Service";
 			sourceTree = "<group>";
 		};
 		4A07DDE7255DA4100022B6A9 /* ResponseObjects */ = {
@@ -303,13 +334,75 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		4A27A864255F08190018186B /* University Info */ = {
+			isa = PBXGroup;
+			children = (
+				4A27A86A255F09230018186B /* UniversityInfoService.swift */,
+				4A27A865255F084D0018186B /* Api University Info Service */,
+			);
+			path = "University Info";
+			sourceTree = "<group>";
+		};
+		4A27A865255F084D0018186B /* Api University Info Service */ = {
+			isa = PBXGroup;
+			children = (
+				4A27A866255F088E0018186B /* ApiUniversityInfo.swift */,
+			);
+			path = "Api University Info Service";
+			sourceTree = "<group>";
+		};
 		4A436414255E859300C11E03 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
 				4A436415255E85C400C11E03 /* TimetableService.swift */,
-				4A07DDE3255DA39A0022B6A9 /* ApiTimetableService */,
+				4A07DDE3255DA39A0022B6A9 /* Api Timetable Service */,
 			);
 			path = Timetable;
+			sourceTree = "<group>";
+		};
+		4A7A56E5256BF4A900E2CE0F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
+				4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */,
+				4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */,
+				4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */,
+				4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				4A27A85E255EE77D0018186B /* Entities */,
+				4A07DDDE255DA35D0022B6A9 /* Enums */,
+				4A27A85D255EE76A0018186B /* Timetable */,
+			);
+			path = Timetable;
+			sourceTree = "<group>";
+		};
+		4AEBE6D3256376D1005F6CBE /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				4AEBE6D425637700005F6CBE /* Building.swift */,
+				4AEBE6DE25637977005F6CBE /* Institute.swift */,
+				4AEBE6E225637B41005F6CBE /* Institute+Director.swift */,
+				4AEBE6E525637B6C005F6CBE /* Institute+Departmetn.swift */,
+				4AEBE6E825637BC1005F6CBE /* Institute+Soviet.swift */,
+				4AEBE6EB25637BF9005F6CBE /* Union.swift */,
+				4AEBE6EE25637DE9005F6CBE /* Event.swift */,
+				4AEBE6F125637F7C005F6CBE /* Event+Link.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		4AEBE6F425639326005F6CBE /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				4AEBE6F525639388005F6CBE /* union.json */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 		8202915E8C5B172EB76B9257 /* Pods */ = {
@@ -391,6 +484,7 @@
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
+				4AEBE6F625639388005F6CBE /* union.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,34 +538,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A07DDED255DA4450022B6A9 /* GroupTimetableResponse.swift in Sources */,
-				4A07DD89255D89020022B6A9 /* ViewController.swift in Sources */,
 				4A07DDE5255DA3B70022B6A9 /* ApiTimetable.swift in Sources */,
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
+				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
+				4AEBE6EF25637DE9005F6CBE /* Event.swift in Sources */,
+				4AEBE6F225637F7C005F6CBE /* Event+Link.swift in Sources */,
+				4AEBE6E625637B6C005F6CBE /* Institute+Departmetn.swift in Sources */,
+				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
+				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
+				4A27A86B255F09230018186B /* UniversityInfoService.swift in Sources */,
+				4A7A56F3256BF5BF00E2CE0F /* UnionsViewController.swift in Sources */,
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
 				4A07DDA4255D94800022B6A9 /* GroupDay.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
 				4A07DDD9255DA0D90022B6A9 /* DataManager.swift in Sources */,
+				4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */,
 				4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */,
 				4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */,
+				4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */,
+				4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */,
+				4A27A867255F088E0018186B /* ApiUniversityInfo.swift in Sources */,
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RGroup+newObject.swift in Sources */,
+				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
 				4A07DDAA255D94AD0022B6A9 /* GroupTimetable.swift in Sources */,
 				4A07DDCB255D9F190022B6A9 /* RGroupWeek.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
+				4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
+				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

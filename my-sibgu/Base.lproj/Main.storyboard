@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ty-nN-Csw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ty-nN-Csw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Events View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EventsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="1751" y="-1315"/>
         </scene>
-        <!--View Controller-->
+        <!--Buildings View Controller-->
         <scene sceneID="dR4-a3-xrO">
             <objects>
-                <viewController id="swa-9B-w1P" sceneMemberID="viewController">
+                <viewController id="swa-9B-w1P" customClass="BuildingsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hkY-nQ-wAv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="1751" y="-622"/>
         </scene>
-        <!--View Controller-->
+        <!--Timetable View Controller-->
         <scene sceneID="0lh-Pi-AZL">
             <objects>
-                <viewController id="2Ms-Ei-Vnq" sceneMemberID="viewController">
+                <viewController id="2Ms-Ei-Vnq" customClass="TimetableViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pRV-OM-3FQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1751" y="94"/>
         </scene>
-        <!--View Controller-->
+        <!--Institutions View Controller-->
         <scene sceneID="Eq5-oH-fWz">
             <objects>
-                <viewController id="L8L-ly-2Er" sceneMemberID="viewController">
+                <viewController id="L8L-ly-2Er" customClass="InstitutionsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yga-NP-leo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="1751" y="811"/>
         </scene>
-        <!--View Controller-->
+        <!--Unions View Controller-->
         <scene sceneID="ugt-od-3VF">
             <objects>
-                <viewController id="QwC-3I-fkS" sceneMemberID="viewController">
+                <viewController id="QwC-3I-fkS" customClass="UnionsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jXU-Zu-1nA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +95,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4Ty-nN-Csw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SNY-kL-3TS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
