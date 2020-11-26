@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UINavigationBar.appearance().layer.shadowColor = UIColor.black.cgColor
+        UINavigationBar.appearance().layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        UINavigationBar.appearance().layer.shadowRadius = 4.0
+        UINavigationBar.appearance().layer.shadowOpacity = 0.5
+        UINavigationBar.appearance().layer.masksToBounds = false
+        
+        
 //        let timetableService = TimetableService()
 //        timetableService.getGroups { groups in
 //            print(groups)

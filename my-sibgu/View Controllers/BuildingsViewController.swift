@@ -12,7 +12,9 @@ class BuildingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController?.configurateNavigationBar()
+        self.navigationItem.configurate()
+        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Корпуса")
     }
     
 
