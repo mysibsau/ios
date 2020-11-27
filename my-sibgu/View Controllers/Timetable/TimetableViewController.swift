@@ -10,7 +10,6 @@ import UIKit
 class TimetableViewController: UIViewController {
     
     var rightBarButton: UIButton?
-    var leftBarItem: UIBarButtonItem?
     
     var i = 0
 

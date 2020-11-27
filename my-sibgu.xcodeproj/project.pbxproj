@@ -48,6 +48,7 @@
 		4A7A56F3256BF5BF00E2CE0F /* UnionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */; };
 		4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */; };
 		4A7A56FC256C029E00E2CE0F /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56FB256C029E00E2CE0F /* UIView+constraints.swift */; };
+		4AB027482570FFE700974D08 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB027472570FFE700974D08 /* Colors.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
 		4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6DE25637977005F6CBE /* Institute.swift */; };
 		4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6E225637B41005F6CBE /* Institute+Director.swift */; };
@@ -109,6 +110,7 @@
 		4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionsViewController.swift; sourceTree = "<group>"; };
 		4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
 		4A7A56FB256C029E00E2CE0F /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
+		4AB027472570FFE700974D08 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		4AEBE6DE25637977005F6CBE /* Institute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Institute.swift; sourceTree = "<group>"; };
 		4AEBE6E225637B41005F6CBE /* Institute+Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institute+Director.swift"; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 		4A7A56F6256C015F00E2CE0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4AB027462570FFD900974D08 /* Style */,
 				4A7A56F7256C016600E2CE0F /* Extensions */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
 			);
@@ -411,6 +414,14 @@
 				4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AB027462570FFD900974D08 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				4AB027472570FFE700974D08 /* Colors.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
@@ -635,6 +646,7 @@
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
+				4AB027482570FFE700974D08 /* Colors.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
 				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
