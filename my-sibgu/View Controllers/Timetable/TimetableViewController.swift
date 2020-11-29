@@ -14,7 +14,6 @@ class TimetableViewController: UIPageViewController {
 
 
     private var group: Group!
-//    private var groupTimetable: GroupTimetable!
 
     var rightBarButton: UIButton?
 
@@ -55,12 +54,14 @@ class TimetableViewController: UIPageViewController {
         self.delegate = self
         
         self.startActivityIndicator()
+        rightBarButton?.isUserInteractionEnabled = false
         timetableSercive.loadTimetable(
             withId: group.id,
             completionIfNeedNotLoadGroups: { groupTimetable in
                 guard let gt = groupTimetable else {
                     DispatchQueue.main.async {
                         self.stopActivityIndicator()
+                        self.rightBarButton?.isUserInteractionEnabled = true
                     }
                     return
                 }
@@ -68,6 +69,7 @@ class TimetableViewController: UIPageViewController {
                 DispatchQueue.main.async {
                     self.set(timetable: gt)
                     self.stopActivityIndicator()
+                    self.rightBarButton?.isUserInteractionEnabled = true
                 }
             },
             startIfNeedLoadGroups: {
@@ -77,6 +79,7 @@ class TimetableViewController: UIPageViewController {
                 guard let gt = groupTimetable else {
                     DispatchQueue.main.async {
                         self.stopActivityIndicator()
+                        self.rightBarButton?.isUserInteractionEnabled = true
                     }
                     return
                 }
@@ -84,6 +87,7 @@ class TimetableViewController: UIPageViewController {
                 DispatchQueue.main.async {
                     self.set(timetable: gt)
                     self.stopActivityIndicator()
+                    self.rightBarButton?.isUserInteractionEnabled = true
                 }
             }
         )
@@ -212,9 +216,15 @@ extension TimetableViewController: UIPageViewControllerDataSource {
 extension TimetableViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed {
+        self.navigationController?.navigationBar.isUserInteractionEnabled = true
+        if completed && previousViewControllers.first! == weekViewControllers[displayedWeek] {
             toggleWeekNumber()
         }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        // выключаем кнопки на нав бар, когда начинается скролл (чтобы не нажали на кнопку смены экранов)
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false
     }
     
 }

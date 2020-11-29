@@ -181,10 +181,16 @@ class TimetableSearchViewController: UIViewController {
     @IBAction func goToTimetableButtonTapped(_ sender: UIButton) {
         guard let group = filtredGroups.first else { return }
         
+        prepareForGoToTimetable()
+        
         let timetableVC = TimetableViewController(group: group)
-        filtredGroups = []
-        helpTableView.isHidden = true
         navigationController?.pushViewController(timetableVC, animated: true)
+    }
+    
+    private func prepareForGoToTimetable() {
+        filtredGroups = []
+        textField.text = ""
+        helpTableView.isHidden = true
     }
     
 }
@@ -231,11 +237,11 @@ extension TimetableSearchViewController: UITableViewDataSource {
 extension TimetableSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let group = filtredGroups.first else { return }
+        let group = filtredGroups[indexPath.row]
+        
+        prepareForGoToTimetable()
         
         let timetableVC = TimetableViewController(group: group)
-        filtredGroups = []
-        helpTableView.isHidden = true
         navigationController?.pushViewController(timetableVC, animated: true)
     }
     
