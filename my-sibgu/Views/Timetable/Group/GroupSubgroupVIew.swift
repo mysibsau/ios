@@ -48,7 +48,6 @@ class GroupSubgroupView: UIView {
     }
     
     private func setupViews() {
-        contentView.backgroundColor = .purple
         setupLabels()
     }
     
@@ -61,9 +60,9 @@ class GroupSubgroupView: UIView {
         place.textAlignment = .right
         place.textColor = .gray
         
-        subject.textColor = .blue
-        type.textColor = .green
-        professor.textColor = .systemGray
+        subject.textColor = Colors.sibsuBlue
+        type.textColor = Colors.sibsuGreen
+        professor.textColor = .gray
     }
     
     // MARK: - Recongnizers

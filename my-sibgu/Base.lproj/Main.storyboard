@@ -61,7 +61,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Группа / преподаватель" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="td6-Gx-JcW">
                                                         <rect key="frame" x="8" y="0.0" width="296" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epo-lp-FbZ">
                                                         <rect key="frame" x="304" y="0.0" width="70" height="50"/>
@@ -72,6 +72,9 @@
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                             <color key="titleShadowColor" systemColor="labelColor"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="goToTimetableButtonTapped:" destination="2Ms-Ei-Vnq" eventType="touchUpInside" id="Qe7-QH-Qd1"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

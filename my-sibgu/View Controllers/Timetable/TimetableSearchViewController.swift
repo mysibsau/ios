@@ -13,19 +13,23 @@ class TimetableSearchViewController: UIViewController {
     
     let timetableService = TimetableService()
     
+    // MARK: Properties
     private var groups: [Group]?
     private var filtredGroups = [Group]()
     
+    // MARK: Outlets
     @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var wrapView: UIView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var goToTimetableButton: UIButton!
     
-    private let activityIndicator = UIActivityIndicatorView()
+    // MARK: Private UI
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
     private let helpTableView = UITableView(frame: .zero, style: .plain)
     
     
+    // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +39,9 @@ class TimetableSearchViewController: UIViewController {
         
         wrapView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
         wrapView.layer.cornerRadius = 10
+        goToTimetableButton.makeShadow(color: .black, opacity: 0.2, shadowOffser: .zero, radius: 2)
+        goToTimetableButton.backgroundColor = .systemBackground
+        goToTimetableButton.layer.cornerRadius = 10
         
         textField.delegate = self
         
@@ -45,19 +52,21 @@ class TimetableSearchViewController: UIViewController {
         tap.cancelsTouchesInView = false
         contentView.addGestureRecognizer(tap)
         
-        startAnimating()
+        startActivityIndicator()
         textField.isUserInteractionEnabled = false
         goToTimetableButton.isUserInteractionEnabled = false
         timetableService.getGroups { groups in
             self.textField.isUserInteractionEnabled = true
             self.goToTimetableButton.isUserInteractionEnabled = true
-            self.stopAnimating()
-            
+            self.stopActivityIndicator()
+
             guard let g = groups else { return }
             self.groups = g
         }
     }
     
+    
+    // MARK: - Setup Views
     private func setupLessonTimetable() {
         let vStackView = UIStackView()
         vStackView.axis = .vertical
@@ -126,72 +135,6 @@ class TimetableSearchViewController: UIViewController {
         }
     }
     
-    private func _hStackView() -> UIStackView {
-        let hStackView = UIStackView()
-        hStackView.axis = .horizontal
-        hStackView.distribution = .fillEqually
-        hStackView.backgroundColor = .systemBackground
-        hStackView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
-        hStackView.layer.cornerRadius = 10
-        
-        return hStackView
-    }
-    
-    private func configureNabBar() {
-        self.navigationController?.configurateNavigationBar()
-        self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: " Мое расписание")
-    }
-    
-    @objc private func bbb() {
-        let vc = TimetableViewController()
-        vc.view.backgroundColor = .white
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    private func startAnimating() {
-        if !contentView.subviews.contains(activityIndicator) {
-            contentView.addSubview(activityIndicator)
-            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-            activityIndicator.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor).isActive = true
-            activityIndicator.centerXAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        }
-        
-        activityIndicator.startAnimating()
-    }
-    
-    private func stopAnimating() {
-        activityIndicator.stopAnimating()
-    }
-    
-    @objc private func hideKeyboard() {
-        view.endEditing(true)
-    }
-
-}
-
-extension TimetableSearchViewController: UITextFieldDelegate {
-
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let searchText = textField.text?.lowercased() else {
-            filtredGroups = []
-            showHelpTable()
-            return
-        }
-        guard !searchText.isEmpty else {
-            filtredGroups = []
-            showHelpTable()
-            return
-        }
-        let filtred = groups?.filter { $0.name.lowercased().contains(searchText) }.prefix(20)
-        self.filtredGroups = Array(filtred!)
-        showHelpTable()
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        showHelpTable()
-    }
-    
     private func showHelpTable() {
         if !contentView.subviews.contains(helpTableView) {
             contentView.addSubview(helpTableView)
@@ -210,6 +153,62 @@ extension TimetableSearchViewController: UITextFieldDelegate {
             helpTableView.isHidden = false
             helpTableView.reloadData()
         }
+    }
+    
+    private func configureNabBar() {
+        self.navigationController?.configurateNavigationBar()
+        self.navigationItem.configurate()
+        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: " Мое расписание")
+    }
+    
+    // MARK: - Helper UI
+    private func _hStackView() -> UIStackView {
+        let hStackView = UIStackView()
+        hStackView.axis = .horizontal
+        hStackView.distribution = .fillEqually
+        hStackView.backgroundColor = .systemBackground
+        hStackView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+        hStackView.layer.cornerRadius = 10
+        
+        return hStackView
+    }
+    
+    // MARK: - Activity
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+
+    @IBAction func goToTimetableButtonTapped(_ sender: UIButton) {
+        guard let group = filtredGroups.first else { return }
+        
+        let timetableVC = TimetableViewController(group: group)
+        filtredGroups = []
+        helpTableView.isHidden = true
+        navigationController?.pushViewController(timetableVC, animated: true)
+    }
+    
+}
+
+extension TimetableSearchViewController: UITextFieldDelegate {
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let searchText = textField.text?.lowercased() else {
+            filtredGroups = []
+            showHelpTable()
+            return
+        }
+        guard !searchText.isEmpty else {
+            filtredGroups = []
+            showHelpTable()
+            return
+        }
+        let filtred = groups?.filter { $0.name.lowercased().contains(searchText) }//.prefix(20)
+        self.filtredGroups = Array(filtred!)
+        showHelpTable()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        showHelpTable()
     }
     
 }
@@ -232,7 +231,25 @@ extension TimetableSearchViewController: UITableViewDataSource {
 extension TimetableSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello")
+        guard let group = filtredGroups.first else { return }
+        
+        let timetableVC = TimetableViewController(group: group)
+        filtredGroups = []
+        helpTableView.isHidden = true
+        navigationController?.pushViewController(timetableVC, animated: true)
+    }
+    
+}
+
+
+extension TimetableSearchViewController: AnimatingNetworkProtocol {
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        return activityIndicator
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        return contentView
     }
     
 }

@@ -7,27 +7,95 @@
 
 import UIKit
 
-class TimetableViewController: UIViewController {
-    
-    var rightBarButton: UIButton?
-    
-    var i = 0
+class TimetableViewController: UIPageViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationController?.configurateNavigationBar()
-        self.navigationItem.configurate()
-        self.navigationItem.setLeftExitButtonAndLeftTitle(title: "Филимонова М. Н", vc: self)
-        
-        setupRightBarButton()
+    private let timetableSercive = TimetableService()
+    private let dateTimeService = DateTimeService()
+
+
+    private var group: Group!
+//    private var groupTimetable: GroupTimetable!
+
+    var rightBarButton: UIButton?
+
+    private var weekViewControllers = [WeekViewController]()
+    private var displayedWeek = 0
+
+    // MARK: - Private UI
+    private let activityIndicatorView = UIActivityIndicatorView()
+
+
+    // MARK: - Initialization
+    convenience init(group: Group) {
+        self.init()
+        self.group = group
     }
     
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Ovverides
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.navigationController?.configurateNavigationBar()
+        self.navigationItem.configurate()
+        self.navigationItem.setLeftExitButtonAndLeftTitle(title: group.name, vc: self)
+
+        setupRightBarButton()
+
+        view.backgroundColor = .systemBackground
+        
+        self.dataSource = self
+        self.delegate = self
+        
+        self.startActivityIndicator()
+        timetableSercive.loadTimetable(
+            withId: group.id,
+            completionIfNeedNotLoadGroups: { groupTimetable in
+                guard let gt = groupTimetable else {
+                    DispatchQueue.main.async {
+                        self.stopActivityIndicator()
+                    }
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    self.set(timetable: gt)
+                    self.stopActivityIndicator()
+                }
+            },
+            startIfNeedLoadGroups: {
+                print("Hello")
+            },
+            completionIfNeedLoadGroups: { groupTimetable in
+                guard let gt = groupTimetable else {
+                    DispatchQueue.main.async {
+                        self.stopActivityIndicator()
+                    }
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    self.set(timetable: gt)
+                    self.stopActivityIndicator()
+                }
+            }
+        )
+    }
+    
+    // MARK: - Setup Views
+    // MARK: Setup Nav Bar
     private func setupRightBarButton() {
         rightBarButton = UIButton()
         rightBarButton?.setTitle("1 неделя", for: .normal)
         rightBarButton?.setTitleColor(.gray, for: .normal)
-        rightBarButton?.addTarget(self, action: #selector(aaa), for: .touchUpInside)
+        rightBarButton?.addTarget(self, action: #selector(scrollToOtherWeek), for: .touchUpInside)
         
         let viewRightBarButton = UIView()
         viewRightBarButton.addSubview(rightBarButton!)
@@ -46,17 +114,107 @@ class TimetableViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewRightBarButton)
     }
     
-    @objc private func aaa() {
-        rightBarButton?.setTitle("\(i) неделя", for: .normal)
-        i += 1
+    
+    // MARK: - Private Methods
+    private func set(timetable: GroupTimetable) {
+        let currWeekNumber = dateTimeService.currWeekNumber()
+        let currWeekdayNumber = dateTimeService.currWeekdayNumber() - 1
+        
+        weekViewControllers = [
+            WeekViewController(week: timetable.weeks[0], weekNumber: 0, todayNumber: (currWeekNumber == 0 ? currWeekdayNumber : nil)),
+            WeekViewController(week: timetable.weeks[1], weekNumber: 1, todayNumber: (currWeekNumber == 1 ? currWeekdayNumber : nil))
+        ]
+        
+        horisontalScrollToViewController(viewController: weekViewControllers[currWeekNumber])
+        setWeekNumber(number: currWeekNumber)
     }
     
+    private func horisontalScrollToViewController(viewController: UIViewController, direction: UIPageViewController.NavigationDirection = .forward) {
+        navigationController?.view.isUserInteractionEnabled = false
+        setViewControllers(
+            [viewController],
+            direction: direction,
+            animated: true,
+            completion: { finished in
+                self.navigationController?.view.isUserInteractionEnabled = true
+            })
+    }
+    
+    @objc private func scrollToOtherWeek() {
+        if displayedWeek == 0 {
+            horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
+            toggleWeekNumber()
+        } else if displayedWeek == 1 {
+            horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
+            toggleWeekNumber()
+        }
+    }
+    
+    private func toggleWeekNumber() {
+        if displayedWeek == 0 {
+            setWeekNumber(number: 1)
+        } else if displayedWeek == 1 {
+            setWeekNumber(number: 0)
+        }
+    }
+    
+    private func setWeekNumber(number: Int) {
+        displayedWeek = number
+        rightBarButton?.setTitle("\(number + 1) неделя", for: .normal)
+    }
+
 }
 
 extension TimetableViewController: PopableViewController {
-    
+
     func popViewController() {
         navigationController?.popViewController(animated: true)
+    }
+
+}
+
+extension TimetableViewController: AnimatingNetworkProtocol {
+
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        return activityIndicatorView
+    }
+
+    func animatingSuperViewForDisplay() -> UIView {
+        return view
+    }
+
+}
+
+extension TimetableViewController: UIPageViewControllerDataSource {
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let currVC = viewController as? WeekViewController else { return nil }
+        let currIndex = currVC.weekNumber!
+
+        if currIndex == 0 { return nil }
+
+        let vc = weekViewControllers[currIndex - 1]
+        return vc
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let currVC = viewController as? WeekViewController else { return nil }
+        let currIndex = currVC.weekNumber!
+
+        if currIndex == 1 { return nil }
+
+        let vc = weekViewControllers[currIndex + 1]
+        return vc
+    }
+
+}
+
+extension TimetableViewController: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            toggleWeekNumber()
+        }
     }
     
 }

@@ -36,10 +36,9 @@ class LessonView: UIView {
         
         setupStackView()
         
-        subgroupStackView.backgroundColor = .clear
-        contentView.backgroundColor = .red
-        wrapperView.backgroundColor = .green
-        wrapperView.layer.cornerRadius = 15
+        contentView.backgroundColor = .systemBackground
+        contentView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        contentView.layer.cornerRadius = 15
     }
     
     private func setupStackView() {
@@ -88,6 +87,7 @@ extension LessonView {
         
         var numberSubgroup = 1
         for subgroup in lesson.subgroups {
+            addSeparatorLine()
             // добавляем номер подргуппы, если это необходимо
             if subgroup.number != 0 {
                 addNumberSubgroup(with: subgroup.number)
@@ -97,10 +97,10 @@ extension LessonView {
             //let professors = subgroup.professors.reduce("", { $0 + ($0 != "" ? ";\n": "") + $1 })
             addSubgroup(subject: subgroup.subject, type: subgroup.type, proffesor: subgroup.professor, place: subgroup.place)
             
-            // добавляем разделительную если это необходимо
-            if lesson.subgroups.count > 1 && lesson.subgroups.count != numberSubgroup {
-                addSeparatorLine()
-            }
+//            // добавляем разделительную если это необходимо
+//            if lesson.subgroups.count > 1 && lesson.subgroups.count != numberSubgroup {
+//                addSeparatorLine()
+//            }
             numberSubgroup += 1
         }
     }
@@ -161,13 +161,10 @@ extension LessonView {
     
     // MARK: Добавление времени к занятию
     private func addTime(time: String) {
-        let attribetedTime = NSMutableAttributedString(string: time)
-        attribetedTime.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 0, length: 5))
-        
         let timeLabel = UILabel()
-        timeLabel.font = UIFont.systemFont(ofSize: 16)
-        timeLabel.attributedText = attribetedTime
-        timeLabel.textAlignment = .left
+        timeLabel.font = UIFont.systemFont(ofSize: 19)
+        timeLabel.text = time
+        timeLabel.textAlignment = .center
         subgroupStackView.addArrangedSubview(timeLabel)
         timeLabel.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
     }
@@ -196,24 +193,24 @@ extension LessonView {
         let separator = UIView()
         let line = UIView()
         separator.backgroundColor = .clear
-        line.backgroundColor = .yellow
+        line.backgroundColor = .gray
 
         separator.addSubview(line)
         line.translatesAutoresizingMaskIntoConstraints = false
         line.topAnchor.constraint(equalTo: separator.topAnchor).isActive = true
         line.bottomAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
-        line.widthAnchor.constraint(equalTo: separator.widthAnchor, multiplier: 7.0 / 10.0).isActive = true
+        line.widthAnchor.constraint(equalTo: separator.widthAnchor, multiplier: 8.0 / 10.0).isActive = true
         line.centerXAnchor.constraint(equalTo: separator.centerXAnchor).isActive = true
 
         subgroupStackView.addArrangedSubview(separator)
-        separator.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
         separator.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
         
         // добавление дополнительного отступа после лини
         let spaceAfterLine = UIView()
         spaceAfterLine.backgroundColor = .clear
         subgroupStackView.addArrangedSubview(spaceAfterLine)
-        spaceAfterLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        spaceAfterLine.heightAnchor.constraint(equalToConstant: 3).isActive = true
         spaceAfterLine.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
     }
     

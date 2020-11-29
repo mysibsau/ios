@@ -13,9 +13,9 @@ extension UINavigationController {
         self.navigationBar.isTranslucent = true
         self.navigationBar.makeShadow(
             color: .black,
-            opacity: 0.5,
+            opacity: 0.2,
             shadowOffser: CGSize(width: 0, height: 2),
-            radius: 4
+            radius: 3
         )
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
