@@ -12,6 +12,8 @@ class TimetableViewController: UIPageViewController {
     private let timetableSercive = TimetableService()
     private let dateTimeService = DateTimeService()
 
+    
+    private weak var alertingDelegate: AlertingViewController?
 
     private var group: Group!
 
@@ -25,9 +27,10 @@ class TimetableViewController: UIPageViewController {
 
 
     // MARK: - Initialization
-    convenience init(group: Group) {
+    convenience init(group: Group, alertingDelegate: AlertingViewController? = nil) {
         self.init()
         self.group = group
+        self.alertingDelegate = alertingDelegate
     }
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
@@ -100,8 +103,7 @@ class TimetableViewController: UIPageViewController {
             completionIfNeedNotLoadGroups: { groupTimetable in
                 guard let gt = groupTimetable else {
                     DispatchQueue.main.async {
-                        self.stopActivityIndicator()
-                        self.rightBarButton?.isUserInteractionEnabled = true
+                        self.actionIfNotDownloaded()
                     }
                     return
                 }
@@ -113,13 +115,13 @@ class TimetableViewController: UIPageViewController {
                 }
             },
             startIfNeedLoadGroups: {
+                // Тут лучше бы говорить, что скачиваются группы
                 print("Hello")
             },
             completionIfNeedLoadGroups: { groupTimetable in
                 guard let gt = groupTimetable else {
                     DispatchQueue.main.async {
-                        self.stopActivityIndicator()
-                        self.rightBarButton?.isUserInteractionEnabled = true
+                        self.actionIfNotDownloaded()
                     }
                     return
                 }
@@ -131,6 +133,13 @@ class TimetableViewController: UIPageViewController {
                 }
             }
         )
+    }
+    
+    private func actionIfNotDownloaded() {
+        stopActivityIndicator()
+        rightBarButton?.isUserInteractionEnabled = true
+        popViewController()
+        alertingDelegate?.showNetworkAlert()
     }
     
     private func set(timetable: GroupTimetable) {

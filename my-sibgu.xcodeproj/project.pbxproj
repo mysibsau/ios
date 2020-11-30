@@ -50,6 +50,8 @@
 		4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A16452574EEF100F5D652 /* SubgroupType.swift */; };
 		4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A16482574F25D00F5D652 /* UIColor+hex.swift */; };
 		4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */; };
+		4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819925755DD0006C1F6C /* AlertingViewController.swift */; };
+		4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819D25755FBB006C1F6C /* AlertView.swift */; };
 		4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */; };
 		4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */; };
 		4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */; };
@@ -123,6 +125,8 @@
 		4A5A16452574EEF100F5D652 /* SubgroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubgroupType.swift; sourceTree = "<group>"; };
 		4A5A16482574F25D00F5D652 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+shortDateFormatter.swift"; sourceTree = "<group>"; };
+		4A75819925755DD0006C1F6C /* AlertingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingViewController.swift; sourceTree = "<group>"; };
+		4A75819D25755FBB006C1F6C /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsViewController.swift; sourceTree = "<group>"; };
 		4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
@@ -423,6 +427,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		4A75819C25755FB1006C1F6C /* General */ = {
+			isa = PBXGroup;
+			children = (
+				4A75819D25755FBB006C1F6C /* AlertView.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		4A7A56E5256BF4A900E2CE0F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +452,7 @@
 		4A7A56F6256C015F00E2CE0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A75819C25755FB1006C1F6C /* General */,
 				4AB027462570FFD900974D08 /* Style */,
 				4A7A56F7256C016600E2CE0F /* Extensions */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
@@ -552,6 +565,7 @@
 			children = (
 				4AEE181E2570203100DD7D9F /* PopableViewController.swift */,
 				4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */,
+				4A75819925755DD0006C1F6C /* AlertingViewController.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -733,6 +747,7 @@
 				4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */,
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
 				4A27A867255F088E0018186B /* ApiUniversityInfo.swift in Sources */,
+				4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */,
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RGroup+newObject.swift in Sources */,
@@ -748,6 +763,7 @@
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */,
+				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,

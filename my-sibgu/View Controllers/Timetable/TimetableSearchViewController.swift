@@ -25,6 +25,7 @@ class TimetableSearchViewController: UIViewController {
     @IBOutlet weak var goToTimetableButton: UIButton!
     
     // MARK: Private UI
+    private let alertView = AlertView()
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
     private let helpTableView = UITableView(frame: .zero, style: .plain)
     
@@ -54,7 +55,12 @@ class TimetableSearchViewController: UIViewController {
                 self.goToTimetableButton.isUserInteractionEnabled = true
                 self.stopActivityIndicator()
                 
-                guard let g = groups else { return }
+                guard let g = groups else {
+                    DispatchQueue.main.async {
+                        self.showNetworkAlert()
+                    }
+                    return
+                }
                 self.groups = g
                 
                 DispatchQueue.main.async {
@@ -244,7 +250,7 @@ class TimetableSearchViewController: UIViewController {
     private func showTimetable(forGroup group: Group, animated: Bool) {
         prepareForGoToTimetable(entityType: .group, id: group.id)
         
-        let timetableVC = TimetableViewController(group: group)
+        let timetableVC = TimetableViewController(group: group, alertingDelegate: self)
         navigationController?.pushViewController(timetableVC, animated: animated)
     }
     
@@ -309,6 +315,18 @@ extension TimetableSearchViewController: AnimatingNetworkProtocol {
     
     func animatingSuperViewForDisplay() -> UIView {
         return contentView
+    }
+    
+}
+
+extension TimetableSearchViewController: AlertingViewController {
+    
+    func alertingSuperViewForDisplay() -> UIView {
+        return contentView
+    }
+    
+    func alertingAlertView() -> AlertView {
+        return alertView
     }
     
 }
