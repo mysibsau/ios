@@ -35,6 +35,11 @@ class TimetableService {
         }
     }
     
+    func getGroupsFromLocal() -> [Group] {
+        let groups = DataManager.shared.getGroups()
+        return groups
+    }
+    
     func getGroup(withId id: Int, completion: @escaping (_ groups: Group?) -> Void) {
         let group = DataManager.shared.getGroup(withId: id)
         
@@ -100,6 +105,24 @@ class TimetableService {
                 }
             }
         )
+    }
+    
+    // MARK: - Helpers Method
+    func saveTimetableTypeAndIdToUserDefaults(type: EntitiesType?, id: Int?) {
+        UserDefaultsConfig.timetableType = type?.raw ?? nil
+        UserDefaultsConfig.timetableId = id
+    }
+    
+    func getTimetableTypeAndIdFromUserDefaults() -> (EntitiesType?, id: Int?) {
+        let stringType = UserDefaultsConfig.timetableType
+        let id = UserDefaultsConfig.timetableId
+        
+        var type: EntitiesType? = nil
+        if let st = stringType {
+            type = EntitiesType(rawValue: st)
+        }
+        
+        return (type, id)
     }
     
 }

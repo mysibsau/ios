@@ -34,34 +34,42 @@ class TimetableSearchViewController: UIViewController {
         super.viewDidLoad()
         
         configureNabBar()
-        
         setupLessonTimetable()
+        configurateSearchViews()
+        setupHelpTableView()
+        addRecognizerToHideKeyboard()
         
-        wrapView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
-        wrapView.layer.cornerRadius = 10
-        goToTimetableButton.makeShadow(color: .black, opacity: 0.2, shadowOffser: .zero, radius: 2)
-        goToTimetableButton.backgroundColor = .systemBackground
-        goToTimetableButton.layer.cornerRadius = 10
+        let groupsFromLocal = timetableService.getGroupsFromLocal()
         
-        textField.delegate = self
+        if !groupsFromLocal.isEmpty {
+            self.groups = groupsFromLocal
+            tryLoadFromUserDefaults()
+        } else {
+            // Берем группы (загружаем или нет)
+            startActivityIndicator()
+            textField.isUserInteractionEnabled = false
+            goToTimetableButton.isUserInteractionEnabled = false
+            timetableService.getGroups { groups in
+                self.textField.isUserInteractionEnabled = true
+                self.goToTimetableButton.isUserInteractionEnabled = true
+                self.stopActivityIndicator()
+                
+                guard let g = groups else { return }
+                self.groups = g
+                
+                DispatchQueue.main.async {
+                    self.tryLoadFromUserDefaults()
+                }
+            }
+        }
+    }
+    
+    private func tryLoadFromUserDefaults() {
+        let (type, id) = self.timetableService.getTimetableTypeAndIdFromUserDefaults()
         
-        helpTableView.dataSource = self
-        helpTableView.delegate = self
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        tap.cancelsTouchesInView = false
-        contentView.addGestureRecognizer(tap)
-        
-        startActivityIndicator()
-        textField.isUserInteractionEnabled = false
-        goToTimetableButton.isUserInteractionEnabled = false
-        timetableService.getGroups { groups in
-            self.textField.isUserInteractionEnabled = true
-            self.goToTimetableButton.isUserInteractionEnabled = true
-            self.stopActivityIndicator()
-
-            guard let g = groups else { return }
-            self.groups = g
+        if type != nil, id != nil {
+            guard let groupForShowing = groups?.first(where: { $0.id == id }) else { return }
+            self.showTimetable(forGroup: groupForShowing, animated: false)
         }
     }
     
@@ -147,19 +155,25 @@ class TimetableSearchViewController: UIViewController {
         }
     }
     
+    private func setupHelpTableView() {
+        contentView.addSubview(helpTableView)
+        helpTableView.translatesAutoresizingMaskIntoConstraints = false
+        helpTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        helpTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        helpTableView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 4).isActive = true
+        helpTableView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        helpTableView.layer.cornerRadius = 10
+        helpTableView.layer.borderWidth = 0.5
+        helpTableView.layer.borderColor = UIColor.gray.cgColor
+        
+        helpTableView.dataSource = self
+        helpTableView.delegate = self
+        
+        helpTableView.isHidden = true
+    }
+    
     private func showHelpTable() {
-        if !contentView.subviews.contains(helpTableView) {
-            contentView.addSubview(helpTableView)
-            helpTableView.translatesAutoresizingMaskIntoConstraints = false
-            helpTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-            helpTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-            helpTableView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 4).isActive = true
-            helpTableView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-            
-            helpTableView.layer.cornerRadius = 10
-            helpTableView.layer.borderWidth = 0.5
-            helpTableView.layer.borderColor = UIColor.gray.cgColor
-        }
         helpTableView.isHidden = true
         if !self.filtredGroups.isEmpty {
             helpTableView.isHidden = false
@@ -167,10 +181,21 @@ class TimetableSearchViewController: UIViewController {
         }
     }
     
+    private func configurateSearchViews() {
+        wrapView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+        wrapView.layer.cornerRadius = 10
+        
+        goToTimetableButton.makeShadow(color: .black, opacity: 0.2, shadowOffser: .zero, radius: 2)
+        goToTimetableButton.backgroundColor = .systemBackground
+        goToTimetableButton.layer.cornerRadius = 10
+        
+        textField.delegate = self
+    }
+    
     private func configureNabBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: " Мое расписание")
+        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Мое расписание")
     }
     
     // MARK: - Helper UI
@@ -192,6 +217,12 @@ class TimetableSearchViewController: UIViewController {
     }
     
     // MARK: - Activity
+    private func addRecognizerToHideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.cancelsTouchesInView = false
+        contentView.addGestureRecognizer(tap)
+    }
+    
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
@@ -199,16 +230,22 @@ class TimetableSearchViewController: UIViewController {
     @IBAction func goToTimetableButtonTapped(_ sender: UIButton) {
         guard let group = filtredGroups.first else { return }
         
-        prepareForGoToTimetable()
-        
-        let timetableVC = TimetableViewController(group: group)
-        navigationController?.pushViewController(timetableVC, animated: true)
+        showTimetable(forGroup: group, animated: true)
     }
     
-    private func prepareForGoToTimetable() {
+    private func prepareForGoToTimetable(entityType: EntitiesType, id: Int) {
         filtredGroups = []
         textField.text = ""
         helpTableView.isHidden = true
+        
+        timetableService.saveTimetableTypeAndIdToUserDefaults(type: entityType, id: id)
+    }
+    
+    private func showTimetable(forGroup group: Group, animated: Bool) {
+        prepareForGoToTimetable(entityType: .group, id: group.id)
+        
+        let timetableVC = TimetableViewController(group: group)
+        navigationController?.pushViewController(timetableVC, animated: animated)
     }
     
 }
@@ -257,10 +294,7 @@ extension TimetableSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let group = filtredGroups[indexPath.row]
         
-        prepareForGoToTimetable()
-        
-        let timetableVC = TimetableViewController(group: group)
-        navigationController?.pushViewController(timetableVC, animated: true)
+        showTimetable(forGroup: group, animated: true)
     }
     
 }

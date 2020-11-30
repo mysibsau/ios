@@ -9,11 +9,11 @@ import Foundation
 
 struct UserDefaultsConfig {
     
-//    @UserDefaultsWrapper(key: "com.sibsu.user.timetableType", defaultValue: String?(nil))
-//    static var timetableType: String?
-//
-//    @UserDefaultsWrapper(key: "com.sibsu.user.timetableId", defaultValue: Int?(nil))
-//    static var timetableId: Int?
+    @UserDefaultsWrapper(key: "com.sibsu.user.timetableType", defaultValue: String?(nil))
+    static var timetableType: String?
+
+    @UserDefaultsWrapper(key: "com.sibsu.user.timetableId", defaultValue: Int?(nil))
+    static var timetableId: Int?
     
     @UserDefaultsWrapper(key: "com.sibsu.system.firstWeekIsEven", defaultValue: true)
     static var firstWeekIsEven: Bool

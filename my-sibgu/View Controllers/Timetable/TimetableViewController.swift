@@ -53,10 +53,50 @@ class TimetableViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
+        loadTimetable(withId: group.id)
+        
+//        let v = UIView()
+//        self.view.addSubview(v)
+//        v.backgroundColor = .green
+//        v.translatesAutoresizingMaskIntoConstraints = false
+//        v.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        v.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        v.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+//        v.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+    
+    // MARK: - Setup Views
+    // MARK: Setup Nav Bar
+    private func setupRightBarButton() {
+        rightBarButton = UIButton()
+        rightBarButton?.setTitle("1 неделя", for: .normal)
+        rightBarButton?.setTitleColor(.gray, for: .normal)
+        rightBarButton?.addTarget(self, action: #selector(scrollToOtherWeek), for: .touchUpInside)
+        
+        let viewRightBarButton = UIView()
+        viewRightBarButton.addSubview(rightBarButton!)
+        viewRightBarButton.makeShadow(color: .black, opacity: 0.5, shadowOffser: .zero, radius: 3)
+        viewRightBarButton.layer.cornerRadius = 15
+        
+        rightBarButton?.translatesAutoresizingMaskIntoConstraints = false
+        rightBarButton?.centerYAnchor.constraint(equalTo: viewRightBarButton.centerYAnchor).isActive = true
+        rightBarButton?.centerXAnchor.constraint(equalTo: viewRightBarButton.centerXAnchor).isActive = true
+        
+        viewRightBarButton.backgroundColor = .white
+        viewRightBarButton.translatesAutoresizingMaskIntoConstraints = false
+        viewRightBarButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        viewRightBarButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewRightBarButton)
+    }
+    
+    
+    // MARK: - Private Methods
+    private func loadTimetable(withId id: Int) {
         self.startActivityIndicator()
         rightBarButton?.isUserInteractionEnabled = false
         timetableSercive.loadTimetable(
-            withId: group.id,
+            withId: id,
             completionIfNeedNotLoadGroups: { groupTimetable in
                 guard let gt = groupTimetable else {
                     DispatchQueue.main.async {
@@ -91,50 +131,11 @@ class TimetableViewController: UIPageViewController {
                 }
             }
         )
-        
-        let v = UIView()
-        self.view.addSubview(v)
-        v.backgroundColor = .green
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        v.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        v.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        v.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
-    // MARK: - Setup Views
-    // MARK: Setup Nav Bar
-    private func setupRightBarButton() {
-        rightBarButton = UIButton()
-        rightBarButton?.setTitle("1 неделя", for: .normal)
-        rightBarButton?.setTitleColor(.gray, for: .normal)
-        rightBarButton?.addTarget(self, action: #selector(scrollToOtherWeek), for: .touchUpInside)
-        
-        let viewRightBarButton = UIView()
-        viewRightBarButton.addSubview(rightBarButton!)
-        viewRightBarButton.makeShadow(color: .black, opacity: 0.5, shadowOffser: .zero, radius: 3)
-        viewRightBarButton.layer.cornerRadius = 15
-        
-        rightBarButton?.translatesAutoresizingMaskIntoConstraints = false
-        rightBarButton?.centerYAnchor.constraint(equalTo: viewRightBarButton.centerYAnchor).isActive = true
-        rightBarButton?.centerXAnchor.constraint(equalTo: viewRightBarButton.centerXAnchor).isActive = true
-        
-        viewRightBarButton.backgroundColor = .white
-        viewRightBarButton.translatesAutoresizingMaskIntoConstraints = false
-        viewRightBarButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        viewRightBarButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewRightBarButton)
-    }
-    
-    
-    // MARK: - Private Methods
     private func set(timetable: GroupTimetable) {
         let currWeekNumber = dateTimeService.currWeekNumber()
         let currWeekdayNumber = dateTimeService.currWeekdayNumber() - 1
-        
-        print(currWeekNumber)
-        print(currWeekdayNumber)
         
         weekViewControllers = [
             WeekViewController(week: timetable.weeks[0], weekNumber: 0, todayNumber: (currWeekNumber == 0 ? currWeekdayNumber : nil)),
@@ -185,6 +186,7 @@ class TimetableViewController: UIPageViewController {
 extension TimetableViewController: PopableViewController {
 
     func popViewController() {
+        timetableSercive.saveTimetableTypeAndIdToUserDefaults(type: nil, id: nil)
         navigationController?.popViewController(animated: true)
     }
 
