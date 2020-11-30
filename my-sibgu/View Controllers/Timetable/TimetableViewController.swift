@@ -124,6 +124,9 @@ class TimetableViewController: UIPageViewController {
         let currWeekNumber = dateTimeService.currWeekNumber()
         let currWeekdayNumber = dateTimeService.currWeekdayNumber() - 1
         
+        print(currWeekNumber)
+        print(currWeekdayNumber)
+        
         weekViewControllers = [
             WeekViewController(week: timetable.weeks[0], weekNumber: 0, todayNumber: (currWeekNumber == 0 ? currWeekdayNumber : nil)),
             WeekViewController(week: timetable.weeks[1], weekNumber: 1, todayNumber: (currWeekNumber == 1 ? currWeekdayNumber : nil))

@@ -10,6 +10,7 @@ import UIKit
 class WeekViewController: UIViewController {
     
     private let timetableSercive = TimetableService()
+    private let dateTimeService = DateTimeService()
     
     
     private var week: GroupWeek!
@@ -69,8 +70,15 @@ class WeekViewController: UIViewController {
     
     // MARK: - Set Lesson Days
     private func set(lessonWeek: GroupWeek) {
+        let weekdaysAndDates: [(weekday: String, date: String)]
+        if weekNumber == 0 {
+            weekdaysAndDates = dateTimeService.getDatesNotEvenWeek()
+        } else {
+            weekdaysAndDates = dateTimeService.getDatesEvenWeek()
+        }
+        
         for (i, day) in lessonWeek.days.enumerated() {
-            let lessonDayView = LessonDayView(number: i, day: day)
+            let lessonDayView = LessonDayView(dayNamber: i, dayDate: weekdaysAndDates[i].date, day: day)
             lessonDayViews.append(lessonDayView)
             dayStackView.addArrangedSubview(lessonDayView)
         }
@@ -78,7 +86,7 @@ class WeekViewController: UIViewController {
         // Если сегодняшний день на этой недели
         if let todayNumber = todayNumber {
             view.layoutIfNeeded()
-            guard todayNumber > 0 && todayNumber < 5 else { return }
+            guard todayNumber >= 0 && todayNumber < 5 else { return }
             let todayView = lessonDayViews[todayNumber]
             todayView.makeToday()
             scrollView.setContentOffset(todayView.frame.origin, animated: true)

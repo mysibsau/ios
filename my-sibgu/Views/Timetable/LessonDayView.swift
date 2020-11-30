@@ -11,6 +11,7 @@ class LessonDayView: UIView {
     
     private let dateTimeService = DateTimeService()
     
+    private let dateLabel = UILabel()
     private let dayNameLabel = UILabel()
     private let todayView = UIView()
     private let todayLabel = UILabel()
@@ -30,10 +31,11 @@ class LessonDayView: UIView {
         setupViews()
     }
     
-    convenience init(number: Int, day: GroupDay?) {
+    convenience init(dayNamber: Int, dayDate: String, day: GroupDay?) {
         self.init()
-        self.dayNumber = number
-        self.dayNameLabel.text = dateTimeService.dayOfWeek(number: number)
+        self.dayNumber = dayNamber
+        self.dayNameLabel.text = dateTimeService.dayOfWeek(number: dayNamber)
+        self.dateLabel.text = dayDate
         self.lessonDay = day
         set(day: day)
     }
@@ -68,10 +70,19 @@ class LessonDayView: UIView {
     }
     
     private func setupLabels() {
+        self.addSubview(dateLabel)
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        dateLabel.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        dateLabel.font = UIFont.systemFont(ofSize: 13)
+        dateLabel.textColor = .gray
+        dateLabel.text = "21.01"
+        
         self.addSubview(dayNameLabel)
         dayNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        dayNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        dayNameLabel.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor).isActive = true
+        dayNameLabel.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 15).isActive = true
         dayNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         dayNameLabel.textColor = Colors.sibsuBlue
     }
@@ -108,6 +119,7 @@ class LessonDayView: UIView {
         weekendView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
         
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textColor = Colors.sibsuBlue
         label.text = "Нет пар"
         

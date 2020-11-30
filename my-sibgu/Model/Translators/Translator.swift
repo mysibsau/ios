@@ -13,9 +13,9 @@ class Translator {
     static let shared = Translator()
     
     private let subgroupType = [
-        1: "(Лекция)",
-        2: "(Лабораторная работа)",
-        3: "(Практика)",
+        1: SubgroupType.lecrute,
+        2: SubgroupType.laboratoryWork,
+        3: SubgroupType.practice,
     ]
     
     // MARK: Перевод объекта РАСПИСАНИЯ ГРУППЫ Realm к структуре, используемой в приложении
@@ -43,7 +43,7 @@ class Translator {
                         let groupSubgroup = GroupSubgroup(
                             number: subgroup.number,
                             subject: subgroup.subject.capitalizinFirstLetter(),
-                            type: subgroupType[subgroup.type] ?? "(Неопознанный)",
+                            type: subgroupType[subgroup.type] ?? SubgroupType.undefined,
                             professor: subgroup.professor,
                             place: subgroup.place)
 

@@ -85,6 +85,18 @@ class Colors {
     static var myBlue: UIColor {
         return UIColor(red: 22.0/255.0, green: 89.0/255.0, blue: 132.0/255.0, alpha: 1.0)
     }
+    
+    static var orange: UIColor {
+        return UIColor(hexString: "#F48041")
+    }
+    
+    static var green: UIColor {
+        return UIColor(hexString: "#4DC71F")
+    }
+    
+//    static var blue: UIColor {
+//        return UIColor(hexString: "#097ABB")
+//    }
 //
 //    static var black: UIColor {
 //        if #available(iOS 13, *) {

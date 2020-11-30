@@ -31,7 +31,7 @@ class DateTimeService {
         let currWeekIsEven = (currWeek % 2 == 1 && firstWeekIsEven)
                               || (currWeek % 2 == 0 && !firstWeekIsEven)
         
-        return currWeekIsEven ? 1 : 0
+        return currWeekIsEven ? 0 : 1
     }
     
     func currWeekdayNumber() -> Int {
@@ -42,6 +42,61 @@ class DateTimeService {
         }
         
         return currWeekdayNumber
+    }
+    
+    // FIXME: Объединить с нижним методом
+    func getDatesEvenWeek() -> [(weekday: String, date: String)] {
+        let evenWeekMonday: Date
+        if currWeekNumber() == 1 {
+            /// если четная, то понедельник четной недели - предыдущий
+            evenWeekMonday = Date.today.previous(.monday, considerToday: true)
+        } else {
+            /// если не четная, то понедельник четной недели - следующий
+            evenWeekMonday = Date.today.next(.monday)
+        }
+        
+        let calendar = Calendar.current
+        
+        var weekdaysAndDates = [(String, String)]()
+        
+        let shortWeekdaysInRussian = Date.shortWeekdaysInRussian
+        
+        // добавляем все дни недели и даты, соответствующие им
+        for (i, weekday) in shortWeekdaysInRussian.enumerated() {
+            let date = calendar.date(byAdding: DateComponents(day: i), to: evenWeekMonday)!
+            let shortDate = DateFormatter.shortDateFormatter.string(from: date)
+            let weekdayAndDate = (weekday, shortDate)
+            weekdaysAndDates.append(weekdayAndDate)
+        }
+        
+        return weekdaysAndDates
+    }
+    
+    func getDatesNotEvenWeek() -> [(weekday: String, date: String)] {
+        let evenWeekMonday: Date
+        if currWeekNumber() == 0 {
+            /// если четная, то понедельник четной недели - предыдущий
+            evenWeekMonday = Date.today.previous(.monday, considerToday: true)
+        } else {
+            /// если не четная, то понедельник четной недели - следующий
+            evenWeekMonday = Date.today.next(.monday)
+        }
+        
+        let calendar = Calendar.current
+        
+        var weekdaysAndDates = [(String, String)]()
+        
+        let shortWeekdaysInRussian = Date.shortWeekdaysInRussian
+        
+        // добавляем все дни недели и даты, соответствующие им
+        for (i, weekday) in shortWeekdaysInRussian.enumerated() {
+            let date = calendar.date(byAdding: DateComponents(day: i), to: evenWeekMonday)!
+            let shortDate = DateFormatter.shortDateFormatter.string(from: date)
+            let weekdayAndDate = (weekday, shortDate)
+            weekdaysAndDates.append(weekdayAndDate)
+        }
+        
+        return weekdaysAndDates
     }
     
 }

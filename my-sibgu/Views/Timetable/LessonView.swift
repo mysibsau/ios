@@ -50,7 +50,7 @@ class LessonView: UIView {
         contentView.addSubview(wrapperView)
         // расставляем констрейнты для подВью к контентВью
         wrapperView.translatesAutoresizingMaskIntoConstraints = false
-        wrapperView.addConstraintsOnAllSides(to: contentView, withConstantForTop: 8, leadint: 8, trailing: -8, bottom: -4)
+        wrapperView.addConstraintsOnAllSides(to: contentView, withConstantForTop: 4, leadint: 8, trailing: -8, bottom: -4)
         
         wrapperView.addSubview(subgroupStackView)
         // расставляем констрейнты для стекВью с отступами в 8 к подВью
@@ -215,10 +215,19 @@ extension LessonView {
     }
     
     // MARK: Добавление подргуппы (испльзутеся и тогда, когда подргуппа одна) (для ГРУПП)
-    private func addSubgroup(subject: String, type: String, proffesor: String, place: String) {
+    private func addSubgroup(subject: String, type: SubgroupType, proffesor: String, place: String) {
         let subgroupView = GroupSubgroupView()
         subgroupView.subject.text = subject
-        subgroupView.type.text = type
+        subgroupView.type.text = type.rawValue
+        if type == .lecrute {
+            subgroupView.type.textColor = Colors.orange
+        } else if type == .practice {
+            subgroupView.type.textColor = Colors.green
+        } else if type == .laboratoryWork {
+            subgroupView.type.textColor = .purple
+        } else {
+            subgroupView.type.textColor = .gray
+        }
         subgroupView.professor.text = proffesor
         subgroupView.place.text = place
         

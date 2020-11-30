@@ -248,6 +248,7 @@ extension TimetableSearchViewController: UITableViewDelegate {
 }
 
 
+
 extension TimetableSearchViewController: AnimatingNetworkProtocol {
     
     func animatingActivityIndicatorView() -> UIActivityIndicatorView {

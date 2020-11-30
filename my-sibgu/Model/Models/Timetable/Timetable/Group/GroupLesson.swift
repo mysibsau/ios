@@ -18,7 +18,7 @@ struct GroupSubgroup {
     
     let number: Int
     let subject: String
-    let type: String
+    let type: SubgroupType
     let professor: String
     //let professorsId: [Int]
     let place: String
