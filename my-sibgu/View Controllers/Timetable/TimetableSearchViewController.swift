@@ -106,8 +106,15 @@ class TimetableSearchViewController: UIViewController {
         header.addArrangedSubview(numberLabel)
         header.addArrangedSubview(timeLabel)
         header.addArrangedSubview(breakLabel)
+        
+        let wrapView = _wrapView()
+        wrapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        wrapView.addSubview(header)
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.addConstraintsOnAllSides(to: wrapView, withConstant: 0)
 
-        vStackView.addArrangedSubview(header)
+        vStackView.addArrangedSubview(wrapView)
 
         for lessonTime in lessonTimes {
             let hStackView = _hStackView()
@@ -128,10 +135,15 @@ class TimetableSearchViewController: UIViewController {
             hStackView.addArrangedSubview(numberLabel)
             hStackView.addArrangedSubview(timeLabel)
             hStackView.addArrangedSubview(breakLabel)
-
-            hStackView.translatesAutoresizingMaskIntoConstraints = true
+            
+            let wrapView = _wrapView()
+            wrapView.translatesAutoresizingMaskIntoConstraints = false
+            
+            wrapView.addSubview(hStackView)
+            hStackView.translatesAutoresizingMaskIntoConstraints = false
+            hStackView.addConstraintsOnAllSides(to: wrapView, withConstant: 0)
             hStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            vStackView.addArrangedSubview(hStackView)
+            vStackView.addArrangedSubview(wrapView)
         }
     }
     
@@ -166,11 +178,17 @@ class TimetableSearchViewController: UIViewController {
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.distribution = .fillEqually
-        hStackView.backgroundColor = .systemBackground
-        hStackView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
-        hStackView.layer.cornerRadius = 10
         
         return hStackView
+    }
+    
+    private func _wrapView() -> UIView {
+        let v = UIView()
+        v.backgroundColor = .systemBackground
+        v.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+        v.layer.cornerRadius = 10
+        
+        return v
     }
     
     // MARK: - Activity

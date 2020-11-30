@@ -91,6 +91,15 @@ class TimetableViewController: UIPageViewController {
                 }
             }
         )
+        
+        let v = UIView()
+        self.view.addSubview(v)
+        v.backgroundColor = .green
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        v.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        v.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        v.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
     // MARK: - Setup Views
@@ -147,16 +156,6 @@ class TimetableViewController: UIPageViewController {
             })
     }
     
-    @objc private func scrollToOtherWeek() {
-        if displayedWeek == 0 {
-            horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
-            toggleWeekNumber()
-        } else if displayedWeek == 1 {
-            horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
-            toggleWeekNumber()
-        }
-    }
-    
     private func toggleWeekNumber() {
         if displayedWeek == 0 {
             setWeekNumber(number: 1)
@@ -168,6 +167,17 @@ class TimetableViewController: UIPageViewController {
     private func setWeekNumber(number: Int) {
         displayedWeek = number
         rightBarButton?.setTitle("\(number + 1) неделя", for: .normal)
+    }
+    
+    // MARK: - Actions
+    @objc private func scrollToOtherWeek() {
+        if displayedWeek == 0 {
+            horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
+            toggleWeekNumber()
+        } else if displayedWeek == 1 {
+            horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
+            toggleWeekNumber()
+        }
     }
 
 }
