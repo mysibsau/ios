@@ -91,7 +91,15 @@ class Colors {
     }
     
     static var green: UIColor {
-        return UIColor(hexString: "#4DC71F")
+        return UIColor(hexString: "#359f2f")
+    }
+    
+    static var red: UIColor {
+        return UIColor(red: 255.0/255.0, green: 117.0/255.0, blue: 118.0/255.0, alpha: 1)
+    }
+    
+    static var purple: UIColor {
+        return UIColor(hexString: "#c0a747")
     }
     
 //    static var blue: UIColor {

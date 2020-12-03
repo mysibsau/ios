@@ -25,22 +25,6 @@
             </objects>
             <point key="canvasLocation" x="1751" y="-1315"/>
         </scene>
-        <!--Buildings View Controller-->
-        <scene sceneID="dR4-a3-xrO">
-            <objects>
-                <viewController id="swa-9B-w1P" customClass="BuildingsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hkY-nQ-wAv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="RfP-sc-9Mf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8vS-qz-fuV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wc-9c-l90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1751" y="-622"/>
-        </scene>
         <!--Timetable Search View Controller-->
         <scene sceneID="0lh-Pi-AZL">
             <objects>
@@ -213,12 +197,41 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="swa-9B-w1P" kind="relationship" relationship="rootViewController" id="Djd-NX-wit"/>
+                        <segue destination="9qe-6Z-VfJ" kind="relationship" relationship="rootViewController" id="Z3f-V7-1iW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lj2-tl-Rtw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="-622"/>
+        </scene>
+        <!--Buildings View Controller-->
+        <scene sceneID="VPF-Yo-9Lw">
+            <objects>
+                <tableViewController id="9qe-6Z-VfJ" customClass="BuildingsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o72-4z-tZL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UgW-gD-eWg">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UgW-gD-eWg" id="y6o-Ze-m3o">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9qe-6Z-VfJ" id="mWh-rJ-FBl"/>
+                            <outlet property="delegate" destination="9qe-6Z-VfJ" id="jbY-sX-xoc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9Da-sz-gaB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IgD-2x-ibx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="-622"/>
         </scene>
         <!--Расписание-->
         <scene sceneID="WF3-S3-Zo7">

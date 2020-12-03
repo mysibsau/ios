@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class LessonDayView: UIView {
     
@@ -48,7 +49,7 @@ class LessonDayView: UIView {
         todayView.centerYAnchor.constraint(equalTo: dayNameLabel.centerYAnchor).isActive = true
         todayView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        todayView.backgroundColor = .red
+        todayView.backgroundColor = Colors.red
         todayView.layer.cornerRadius = 10
         todayView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
 
@@ -70,28 +71,27 @@ class LessonDayView: UIView {
     }
     
     private func setupLabels() {
+        self.addSubview(dayNameLabel)
+        dayNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        dayNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        dayNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        dayNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        dayNameLabel.textColor = Colors.sibsuBlue
+        
         self.addSubview(dateLabel)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
-        dateLabel.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30).isActive = true
+        dateLabel.centerYAnchor.constraint(equalTo: dayNameLabel.centerYAnchor).isActive = true
         dateLabel.font = UIFont.systemFont(ofSize: 13)
         dateLabel.textColor = .gray
         dateLabel.text = "21.01"
-        
-        self.addSubview(dayNameLabel)
-        dayNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayNameLabel.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor).isActive = true
-        dayNameLabel.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 15).isActive = true
-        dayNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        dayNameLabel.textColor = Colors.sibsuBlue
     }
     
     private func setupStackView() {
         // настраиваем свойства StackView
         lessonStackView.axis = .vertical
         lessonStackView.distribution = .equalSpacing
-        lessonStackView.spacing = 20
+        lessonStackView.spacing = 15
         
         self.addSubview(lessonStackView)
         lessonStackView.translatesAutoresizingMaskIntoConstraints = false

@@ -52,8 +52,9 @@ class WeekViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addConstraintsOnAllSides(to: view.safeAreaLayoutGuide, withConstant: 0)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     private func setupStackView() {
@@ -63,9 +64,11 @@ class WeekViewController: UIViewController {
         dayStackView.spacing = 5
         
         scrollView.addSubview(dayStackView)
-        dayStackView.translatesAutoresizingMaskIntoConstraints = false
-        dayStackView.addConstraintsOnAllSides(to: scrollView, withConstantForTop: 0, leadint: 0, trailing: 0, bottom: -8)
-        dayStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        dayStackView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(scrollView)
+            make.bottom.equalTo(scrollView.snp.bottom)
+            make.width.equalTo(scrollView)
+        }
     }
     
     // MARK: - Set Lesson Days

@@ -46,10 +46,14 @@
 		4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3149FF2572CA5F00FB7FC2 /* DateTimeService.swift */; };
 		4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A314A072572D80700FB7FC2 /* WeekViewController.swift */; };
 		4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */; };
+		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
+		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
+		4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A517257944D500283459 /* BuildingTableViewCell.swift */; };
 		4A436416255E85C400C11E03 /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A436415255E85C400C11E03 /* TimetableService.swift */; };
 		4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A16452574EEF100F5D652 /* SubgroupType.swift */; };
 		4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A16482574F25D00F5D652 /* UIColor+hex.swift */; };
 		4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */; };
+		4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */; };
 		4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819925755DD0006C1F6C /* AlertingViewController.swift */; };
 		4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819D25755FBB006C1F6C /* AlertView.swift */; };
 		4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */; };
@@ -121,10 +125,14 @@
 		4A3149FF2572CA5F00FB7FC2 /* DateTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeService.swift; sourceTree = "<group>"; };
 		4A314A072572D80700FB7FC2 /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+scrollTo.swift"; sourceTree = "<group>"; };
+		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
+		4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingTimetableViewController.swift; sourceTree = "<group>"; };
+		4A42A517257944D500283459 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
 		4A436415255E85C400C11E03 /* TimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableService.swift; sourceTree = "<group>"; };
 		4A5A16452574EEF100F5D652 /* SubgroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubgroupType.swift; sourceTree = "<group>"; };
 		4A5A16482574F25D00F5D652 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+shortDateFormatter.swift"; sourceTree = "<group>"; };
+		4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTimetableViewController.swift; sourceTree = "<group>"; };
 		4A75819925755DD0006C1F6C /* AlertingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingViewController.swift; sourceTree = "<group>"; };
 		4A75819D25755FBB006C1F6C /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -410,6 +418,23 @@
 			path = DateTime;
 			sourceTree = "<group>";
 		};
+		4A42A5122578F79900283459 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */,
+				4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4A42A516257944A000283459 /* Buildings */ = {
+			isa = PBXGroup;
+			children = (
+				4A42A517257944D500283459 /* BuildingTableViewCell.swift */,
+			);
+			path = Buildings;
+			sourceTree = "<group>";
+		};
 		4A436414255E859300C11E03 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,9 +465,9 @@
 			children = (
 				4AEE181D2570202200DD7D9F /* Protocols */,
 				4AEE181125700B0000DD7D9F /* Extensions */,
-				4AEE1801256EB1B600DD7D9F /* Timetable */,
 				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
 				4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */,
+				4AEE1801256EB1B600DD7D9F /* Timetable */,
 				4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */,
 				4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */,
 			);
@@ -455,6 +480,7 @@
 				4A75819C25755FB1006C1F6C /* General */,
 				4AB027462570FFD900974D08 /* Style */,
 				4A7A56F7256C016600E2CE0F /* Extensions */,
+				4A42A516257944A000283459 /* Buildings */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
 			);
 			path = Views;
@@ -526,7 +552,9 @@
 		4AEE1801256EB1B600DD7D9F /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				4A42A5122578F79900283459 /* Protocols */,
 				4AEE17FD256E97C400DD7D9F /* TimetableSearchViewController.swift */,
+				4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */,
 				4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */,
 				4A314A072572D80700FB7FC2 /* WeekViewController.swift */,
 			);
@@ -709,14 +737,17 @@
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
+				4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */,
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AEBE6EF25637DE9005F6CBE /* Event.swift in Sources */,
 				4AEBE6F225637F7C005F6CBE /* Event+Link.swift in Sources */,
 				4AEBE6E625637B6C005F6CBE /* Institute+Departmetn.swift in Sources */,
+				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
+				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AB027482570FFE700974D08 /* Colors.swift in Sources */,
@@ -725,6 +756,7 @@
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
 				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,
+				4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */,
 				4A7A56FC256C029E00E2CE0F /* UIView+constraints.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,

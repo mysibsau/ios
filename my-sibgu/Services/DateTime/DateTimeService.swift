@@ -31,7 +31,7 @@ class DateTimeService {
         let currWeekIsEven = (currWeek % 2 == 1 && firstWeekIsEven)
                               || (currWeek % 2 == 0 && !firstWeekIsEven)
         
-        return currWeekIsEven ? 0 : 1
+        return currWeekIsEven ? 1 : 0
     }
     
     func currWeekdayNumber() -> Int {

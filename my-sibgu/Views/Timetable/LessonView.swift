@@ -224,7 +224,7 @@ extension LessonView {
         } else if type == .practice {
             subgroupView.type.textColor = Colors.green
         } else if type == .laboratoryWork {
-            subgroupView.type.textColor = .purple
+            subgroupView.type.textColor = Colors.purple
         } else {
             subgroupView.type.textColor = .gray
         }

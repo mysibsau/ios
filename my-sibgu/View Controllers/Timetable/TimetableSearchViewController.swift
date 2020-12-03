@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 private typealias LessonTime = (number: String, time: String, break: String)
 
@@ -40,6 +41,7 @@ class TimetableSearchViewController: UIViewController {
         setupHelpTableView()
         addRecognizerToHideKeyboard()
         
+        // Либо открываем расписание, либо показываем интерфейс для выбора группы / препода
         let groupsFromLocal = timetableService.getGroupsFromLocal()
         
         if !groupsFromLocal.isEmpty {
@@ -86,13 +88,13 @@ class TimetableSearchViewController: UIViewController {
         vStackView.axis = .vertical
         vStackView.distribution = .fillEqually
         vStackView.spacing = 8
-
+        
         contentView.addSubview(vStackView)
-        vStackView.translatesAutoresizingMaskIntoConstraints = false
-        vStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        vStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        vStackView.topAnchor.constraint(equalTo: wrapView.bottomAnchor, constant: 50).isActive = true
-        vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        vStackView.snp.makeConstraints { make in
+            make.top.equalTo(self.wrapView.snp.bottom).offset(50)
+            make.leading.trailing.equalTo(contentView).inset(20)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-20)
+        }
 
         let lessonTimes: [LessonTime] = [
             ("1 лента", "08:00 - 09:30", "10 мин."),
@@ -122,11 +124,11 @@ class TimetableSearchViewController: UIViewController {
         header.addArrangedSubview(breakLabel)
         
         let wrapView = _wrapView()
-        wrapView.translatesAutoresizingMaskIntoConstraints = false
         
         wrapView.addSubview(header)
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.addConstraintsOnAllSides(to: wrapView, withConstant: 0)
+        header.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
 
         vStackView.addArrangedSubview(wrapView)
 
@@ -151,23 +153,24 @@ class TimetableSearchViewController: UIViewController {
             hStackView.addArrangedSubview(breakLabel)
             
             let wrapView = _wrapView()
-            wrapView.translatesAutoresizingMaskIntoConstraints = false
             
             wrapView.addSubview(hStackView)
-            hStackView.translatesAutoresizingMaskIntoConstraints = false
-            hStackView.addConstraintsOnAllSides(to: wrapView, withConstant: 0)
-            hStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            hStackView.snp.makeConstraints { make in
+                make.edges.equalTo(wrapView)
+                make.height.equalTo(50)
+            }
+            
             vStackView.addArrangedSubview(wrapView)
         }
     }
     
     private func setupHelpTableView() {
         contentView.addSubview(helpTableView)
-        helpTableView.translatesAutoresizingMaskIntoConstraints = false
-        helpTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        helpTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        helpTableView.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 4).isActive = true
-        helpTableView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        helpTableView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(contentView).inset(20)
+            make.top.equalTo(textField.snp.bottom).offset(4)
+            make.height.equalTo(300)
+        }
         
         helpTableView.layer.cornerRadius = 10
         helpTableView.layer.borderWidth = 0.5
@@ -250,7 +253,7 @@ class TimetableSearchViewController: UIViewController {
     private func showTimetable(forGroup group: Group, animated: Bool) {
         prepareForGoToTimetable(entityType: .group, id: group.id)
         
-        let timetableVC = TimetableViewController(group: group, alertingDelegate: self)
+        let timetableVC = ContainerTimetableViewController(group: group, alertingDelegate: self) //TimetableViewController(group: group, alertingDelegate: self)
         navigationController?.pushViewController(timetableVC, animated: animated)
     }
     

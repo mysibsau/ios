@@ -11,9 +11,9 @@ class TimetableViewController: UIPageViewController {
 
     private let timetableSercive = TimetableService()
     private let dateTimeService = DateTimeService()
-
     
     private weak var alertingDelegate: AlertingViewController?
+    private weak var controlTimetableDelegate: ControlTimetableDelegate?
 
     private var group: Group!
 
@@ -27,9 +27,10 @@ class TimetableViewController: UIPageViewController {
 
 
     // MARK: - Initialization
-    convenience init(group: Group, alertingDelegate: AlertingViewController? = nil) {
+    convenience init(group: Group, controlDelegate: ControlTimetableDelegate, alertingDelegate: AlertingViewController? = nil) {
         self.init()
         self.group = group
+        self.controlTimetableDelegate = controlDelegate
         self.alertingDelegate = alertingDelegate
     }
     
@@ -45,59 +46,19 @@ class TimetableViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.configurateNavigationBar()
-        self.navigationItem.configurate()
-        self.navigationItem.setLeftExitButtonAndLeftTitle(title: group.name, vc: self)
-
-        setupRightBarButton()
-
         view.backgroundColor = .systemBackground
         
         self.dataSource = self
         self.delegate = self
         
         loadTimetable(withId: group.id)
-        
-//        let v = UIView()
-//        self.view.addSubview(v)
-//        v.backgroundColor = .green
-//        v.translatesAutoresizingMaskIntoConstraints = false
-//        v.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        v.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        v.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-//        v.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-    }
-    
-    // MARK: - Setup Views
-    // MARK: Setup Nav Bar
-    private func setupRightBarButton() {
-        rightBarButton = UIButton()
-        rightBarButton?.setTitle("1 неделя", for: .normal)
-        rightBarButton?.setTitleColor(.gray, for: .normal)
-        rightBarButton?.addTarget(self, action: #selector(scrollToOtherWeek), for: .touchUpInside)
-        
-        let viewRightBarButton = UIView()
-        viewRightBarButton.addSubview(rightBarButton!)
-        viewRightBarButton.makeShadow(color: .black, opacity: 0.5, shadowOffser: .zero, radius: 3)
-        viewRightBarButton.layer.cornerRadius = 15
-        
-        rightBarButton?.translatesAutoresizingMaskIntoConstraints = false
-        rightBarButton?.centerYAnchor.constraint(equalTo: viewRightBarButton.centerYAnchor).isActive = true
-        rightBarButton?.centerXAnchor.constraint(equalTo: viewRightBarButton.centerXAnchor).isActive = true
-        
-        viewRightBarButton.backgroundColor = .white
-        viewRightBarButton.translatesAutoresizingMaskIntoConstraints = false
-        viewRightBarButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        viewRightBarButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewRightBarButton)
     }
     
     
     // MARK: - Private Methods
     private func loadTimetable(withId id: Int) {
         self.startActivityIndicator()
-        rightBarButton?.isUserInteractionEnabled = false
+        self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(false)
         timetableSercive.loadTimetable(
             withId: id,
             completionIfNeedNotLoadGroups: { groupTimetable in
@@ -111,7 +72,7 @@ class TimetableViewController: UIPageViewController {
                 DispatchQueue.main.async {
                     self.set(timetable: gt)
                     self.stopActivityIndicator()
-                    self.rightBarButton?.isUserInteractionEnabled = true
+                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
                 }
             },
             startIfNeedLoadGroups: {
@@ -129,7 +90,7 @@ class TimetableViewController: UIPageViewController {
                 DispatchQueue.main.async {
                     self.set(timetable: gt)
                     self.stopActivityIndicator()
-                    self.rightBarButton?.isUserInteractionEnabled = true
+                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
                 }
             }
         )
@@ -138,7 +99,7 @@ class TimetableViewController: UIPageViewController {
     private func actionIfNotDownloaded() {
         stopActivityIndicator()
         rightBarButton?.isUserInteractionEnabled = true
-        popViewController()
+        controlTimetableDelegate?.popTimetableViewController()
         alertingDelegate?.showNetworkAlert()
     }
     
@@ -175,28 +136,8 @@ class TimetableViewController: UIPageViewController {
     }
     
     private func setWeekNumber(number: Int) {
+        controlTimetableDelegate?.setWeekNumber(number: number)
         displayedWeek = number
-        rightBarButton?.setTitle("\(number + 1) неделя", for: .normal)
-    }
-    
-    // MARK: - Actions
-    @objc private func scrollToOtherWeek() {
-        if displayedWeek == 0 {
-            horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
-            toggleWeekNumber()
-        } else if displayedWeek == 1 {
-            horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
-            toggleWeekNumber()
-        }
-    }
-
-}
-
-extension TimetableViewController: PopableViewController {
-
-    func popViewController() {
-        timetableSercive.saveTimetableTypeAndIdToUserDefaults(type: nil, id: nil)
-        navigationController?.popViewController(animated: true)
     }
 
 }
@@ -249,6 +190,20 @@ extension TimetableViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         // выключаем кнопки на нав бар, когда начинается скролл (чтобы не нажали на кнопку смены экранов)
         self.navigationController?.navigationBar.isUserInteractionEnabled = false
+    }
+    
+}
+
+extension TimetableViewController: ShowingTimetableViewController {
+    
+    func scrollToOtherWeek() {
+        if displayedWeek == 0 {
+            horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
+            toggleWeekNumber()
+        } else if displayedWeek == 1 {
+            horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
+            toggleWeekNumber()
+        }
     }
     
 }
