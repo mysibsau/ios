@@ -8,6 +8,8 @@
 import UIKit
 
 class BuildingsViewController: UITableViewController {
+    
+    private var buildings = [[Building]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +33,10 @@ class BuildingsViewController: UITableViewController {
         self.navigationItem.configurate()
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Корпуса")
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "hello world"
-    }
 
 }
 
+// MARK: - UI Table View Data Source
 extension BuildingsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,8 +49,25 @@ extension BuildingsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BuildingTableViewCell.reuseIdentifier, for: indexPath) as! BuildingTableViewCell
-        
+        cell.buildingNameLabel.text = "A\(indexPath.row)"
+        cell.buildingTypeLabel.text = "Корпус"
+        cell.buildingAddressLabel.text = "Адресс большой вроде Красраб хуе мое е е е е \(indexPath.row)"
+        if indexPath.section == 0 {
+            cell.separateLine.backgroundColor = Colors.sibsuBlue
+        } else if indexPath.section == 1 {
+            cell.separateLine.backgroundColor = Colors.sibsuGreen
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Правый берег"
+        } else if section == 1 {
+            return "Левый берег"
+        } else {
+            return nil
+        }
     }
     
 }

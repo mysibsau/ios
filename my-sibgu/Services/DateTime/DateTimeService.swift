@@ -24,7 +24,7 @@ class DateTimeService {
     }
     
     func currWeekNumber() -> Int {
-        let currWeek = Calendar.current.component(.weekday, from: Date.today)
+        let currWeek = Calendar.current.component(.weekOfYear, from: Date.today)
         let firstWeekIsEven = UserDefaultsConfig.firstWeekIsEven
         
         // проверяем, четная ли текущая неделя

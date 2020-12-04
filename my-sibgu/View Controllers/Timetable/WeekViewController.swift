@@ -89,7 +89,7 @@ class WeekViewController: UIViewController {
         // Если сегодняшний день на этой недели
         if let todayNumber = todayNumber {
             view.layoutIfNeeded()
-            guard todayNumber >= 0 && todayNumber < 5 else { return }
+            guard todayNumber >= 0 && todayNumber <= 5 else { return }
             let todayView = lessonDayViews[todayNumber]
             todayView.makeToday()
             scrollView.setContentOffset(todayView.frame.origin, animated: true)

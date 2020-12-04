@@ -15,29 +15,40 @@ class BuildingTableViewCell: UITableViewCell {
     
     private let containerView = UIView()
     
-    private let buildingNameLabel = UILabel()
-    private let buildingTypeLabel: UILabel = {
+    let buildingNameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         return label
     }()
-    private let buildingAddressLabel: UILabel = {
+    
+    let buildingTypeLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13, weight: .light)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+
+    let buildingAddressLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-    private let separateLine = UIView()
+    let separateLine = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         
         self.addSubview(containerView)
         containerView.snp.makeConstraints { make in
             make.top.bottom.equalTo(self).inset(5)
             make.leading.trailing.equalTo(self).inset(20)
-//            make.height.equalTo(40)
         }
         
         containerView.backgroundColor = .systemBackground
@@ -46,12 +57,12 @@ class BuildingTableViewCell: UITableViewCell {
         
         containerView.addSubview(buildingNameLabel)
         buildingNameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(15)
+            make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(40)
+            make.width.equalTo(45)
         }
         
-        buildingNameLabel.text = "\"А\""
+        buildingNameLabel.text = "\"А\"А"
         
         containerView.addSubview(separateLine)
         separateLine.snp.makeConstraints { make in
@@ -64,12 +75,14 @@ class BuildingTableViewCell: UITableViewCell {
         containerView.addSubview(buildingTypeLabel)
         buildingTypeLabel.snp.makeConstraints { make in
             make.leading.equalTo(separateLine.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().offset(-10)
             make.top.equalToSuperview().offset(2)
         }
         
         containerView.addSubview(buildingAddressLabel)
         buildingAddressLabel.snp.makeConstraints { make in
             make.leading.equalTo(separateLine.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().offset(-10)
             make.top.equalTo(buildingTypeLabel.snp.bottom).offset(2)
             make.bottom.equalToSuperview().offset(-2)
         }
@@ -81,23 +94,5 @@ class BuildingTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//
-//        self.addSubview(containerView)
-//        containerView.snp.makeConstraints { make in
-//            make.top.bottom.equalTo(self).inset(20)
-//            make.leading.trailing.equalTo(self).inset(20)
-//            make.height.equalTo(60)
-//        }
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
 
 }
