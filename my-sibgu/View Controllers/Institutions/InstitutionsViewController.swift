@@ -87,7 +87,8 @@ extension InstitutionsViewController: UITableViewDataSource {
 extension InstitutionsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let instituteVC = PersonViewController() // ТУТ ПРИСВАИВАТЬ ИНСТИТУТ
+        navigationController?.pushViewController(instituteVC, animated: true)
     }
 
 }

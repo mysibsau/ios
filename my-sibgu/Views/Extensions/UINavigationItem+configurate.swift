@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 extension UINavigationItem {
     
@@ -32,6 +33,12 @@ extension UINavigationItem {
         let leftTitle = _leftTitle(title: title)
         
         self.leftBarButtonItem = leftTitle
+    }
+    
+    func setCenterTitle(title: String) {
+        let titleView = _centerTitle(title: title)
+        
+        self.titleView = titleView
     }
     
     func setLeftExitButtonAndLeftTitle(title: String, vc: PopableViewController) {
@@ -84,6 +91,21 @@ extension UINavigationItem {
         leftTitle.width = 30
         
         return leftTitle
+    }
+    
+    private func _centerTitle(title: String) -> UIView {
+        let centerTitle = UILabel()
+        centerTitle.text = title
+        centerTitle.textColor = .gray
+        centerTitle.font = UIFont.boldSystemFont(ofSize: 24)
+        
+        let titleView = UIView()
+        titleView.addSubview(centerTitle)
+        centerTitle.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        return titleView
     }
     
 }
