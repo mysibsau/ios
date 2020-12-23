@@ -48,14 +48,15 @@ class LessonView: UIView {
         subgroupStackView.spacing = spacing // было 2
         
         contentView.addSubview(wrapperView)
-        // расставляем констрейнты для подВью к контентВью
-        wrapperView.translatesAutoresizingMaskIntoConstraints = false
-        wrapperView.addConstraintsOnAllSides(to: contentView, withConstantForTop: 4, leadint: 8, trailing: -8, bottom: -4)
+        wrapperView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(4)
+            make.leading.trailing.equalTo(contentView).inset(8)
+        }
         
         wrapperView.addSubview(subgroupStackView)
-        // расставляем констрейнты для стекВью с отступами в 8 к подВью
-        subgroupStackView.translatesAutoresizingMaskIntoConstraints = false
-        subgroupStackView.addConstraintsOnAllSides(to: wrapperView, withConstant: 8)
+        subgroupStackView.snp.makeConstraints { make in
+            make.edges.equalTo(wrapperView).inset(8)
+        }
     }
 }
 
@@ -165,8 +166,11 @@ extension LessonView {
         timeLabel.font = UIFont.systemFont(ofSize: 19)
         timeLabel.text = time
         timeLabel.textAlignment = .center
+        
         subgroupStackView.addArrangedSubview(timeLabel)
-        timeLabel.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
+        timeLabel.snp.makeConstraints { make in
+            make.width.equalTo(subgroupStackView)
+        }
     }
     
     // MARK: Добавление номера группы (для подргупп)
@@ -176,8 +180,11 @@ extension LessonView {
         numberSubgroundLabel.textColor = .gray
         numberSubgroundLabel.text = "[\(number) подгруппа]"
         numberSubgroundLabel.textAlignment = .left
+        
         subgroupStackView.addArrangedSubview(numberSubgroundLabel)
-        numberSubgroundLabel.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
+        numberSubgroundLabel.snp.makeConstraints { make in
+            make.width.equalTo(subgroupStackView)
+        }
     }
     
     // MARK: Добавлени разделительной линии (для подгрупп)
@@ -185,9 +192,12 @@ extension LessonView {
         // добавление дополнительного отступа перед линией
         let spaceBeforeLine = UIView()
         spaceBeforeLine.backgroundColor = .clear
+        
         subgroupStackView.addArrangedSubview(spaceBeforeLine)
-        spaceBeforeLine.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        spaceBeforeLine.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
+        spaceBeforeLine.snp.makeConstraints { make in
+            make.height.equalTo(2)
+            make.width.equalTo(subgroupStackView)
+        }
         
         // добавление разделительной черты
         let separator = UIView()
@@ -196,22 +206,27 @@ extension LessonView {
         line.backgroundColor = .gray
 
         separator.addSubview(line)
-        line.translatesAutoresizingMaskIntoConstraints = false
-        line.topAnchor.constraint(equalTo: separator.topAnchor).isActive = true
-        line.bottomAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
-        line.widthAnchor.constraint(equalTo: separator.widthAnchor, multiplier: 8.0 / 10.0).isActive = true
-        line.centerXAnchor.constraint(equalTo: separator.centerXAnchor).isActive = true
+        line.snp.makeConstraints { make in
+            make.top.bottom.equalTo(separator)
+            make.width.equalTo(separator).multipliedBy(0.8)
+            make.centerX.equalTo(separator)
+        }
 
         subgroupStackView.addArrangedSubview(separator)
-        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        separator.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
+        separator.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.width.equalTo(subgroupStackView)
+        }
         
         // добавление дополнительного отступа после лини
         let spaceAfterLine = UIView()
         spaceAfterLine.backgroundColor = .clear
+        
         subgroupStackView.addArrangedSubview(spaceAfterLine)
-        spaceAfterLine.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        spaceAfterLine.widthAnchor.constraint(equalTo: subgroupStackView.widthAnchor).isActive = true
+        spaceAfterLine.snp.makeConstraints { make in
+            make.height.equalTo(3)
+            make.width.equalTo(subgroupStackView)
+        }
     }
     
     // MARK: Добавление подргуппы (испльзутеся и тогда, когда подргуппа одна) (для ГРУПП)
