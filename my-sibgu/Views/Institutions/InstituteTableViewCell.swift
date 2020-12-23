@@ -66,8 +66,8 @@ class InstituteTableViewCell: UITableViewCell {
         
         longNameLabel.textColor = Colors.sibsuBlue
         
-        shortNameLabel.text = "ИИКТ"
-        longNameLabel.text = "Институт информатики и телекомуникаций"
+//        shortNameLabel.text = "ИИКТ"
+//        longNameLabel.text = "Институт информатики и телекомуникаций"
     }
     
     required init?(coder: NSCoder) {

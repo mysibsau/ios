@@ -44,21 +44,22 @@ class LessonDayView: UIView {
     // MARK: - Methods
     func makeToday() {
         self.addSubview(todayView)
-        todayView.translatesAutoresizingMaskIntoConstraints = false
-        todayView.leadingAnchor.constraint(equalTo: dayNameLabel.trailingAnchor, constant: 15).isActive = true
-        todayView.centerYAnchor.constraint(equalTo: dayNameLabel.centerYAnchor).isActive = true
-        todayView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        todayView.snp.makeConstraints { make in
+            make.leading.equalTo(dayNameLabel.snp.trailing).offset(15)
+            make.centerY.equalTo(dayNameLabel)
+            make.height.equalTo(30)
+        }
 
         todayView.backgroundColor = Colors.red
         todayView.layer.cornerRadius = 10
         todayView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
 
         todayView.addSubview(todayLabel)
-        todayLabel.translatesAutoresizingMaskIntoConstraints = false
-        todayLabel.leadingAnchor.constraint(equalTo: todayView.leadingAnchor, constant: 10).isActive = true
-        todayLabel.trailingAnchor.constraint(equalTo: todayView.trailingAnchor, constant: -10).isActive = true
-        todayLabel.centerYAnchor.constraint(equalTo: todayView.centerYAnchor).isActive = true
-
+        todayLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(todayView).inset(10)
+            make.centerY.equalTo(todayView)
+        }
+        
         todayLabel.textColor = .white
         todayLabel.font = UIFont.boldSystemFont(ofSize: 17)
         todayLabel.text = "Сегодня"
@@ -72,16 +73,20 @@ class LessonDayView: UIView {
     
     private func setupLabels() {
         self.addSubview(dayNameLabel)
-        dayNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        dayNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        dayNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(self).offset(20)
+            make.leading.equalTo(self).offset(30)
+        }
+        
         dayNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         dayNameLabel.textColor = Colors.sibsuBlue
         
         self.addSubview(dateLabel)
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30).isActive = true
-        dateLabel.centerYAnchor.constraint(equalTo: dayNameLabel.centerYAnchor).isActive = true
+        dateLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(self).offset(-30)
+            make.centerY.equalTo(dayNameLabel)
+        }
+        
         dateLabel.font = UIFont.systemFont(ofSize: 13)
         dateLabel.textColor = .gray
         dateLabel.text = "21.01"
@@ -94,11 +99,10 @@ class LessonDayView: UIView {
         lessonStackView.spacing = 15
         
         self.addSubview(lessonStackView)
-        lessonStackView.translatesAutoresizingMaskIntoConstraints = false
-        lessonStackView.topAnchor.constraint(equalTo: dayNameLabel.bottomAnchor, constant: 20).isActive = true
-        lessonStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
-        lessonStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        lessonStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+        lessonStackView.snp.makeConstraints { make in
+            make.top.equalTo(dayNameLabel.snp.bottom).offset(20)
+            make.leading.trailing.bottom.equalTo(self).inset(20)
+        }
     }
     
     private func set(day: GroupDay?) {
@@ -116,6 +120,7 @@ class LessonDayView: UIView {
     private func addWeekday() {
         let weekendView = UIView()
         weekendView.backgroundColor = .systemBackground
+        weekendView.layer.cornerRadius = 15
         weekendView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
         
         let label = UILabel()
@@ -124,15 +129,15 @@ class LessonDayView: UIView {
         label.text = "Нет пар"
         
         weekendView.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerYAnchor.constraint(equalTo: weekendView.centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: weekendView.centerXAnchor).isActive = true
-        
-        weekendView.layer.cornerRadius = 15
-        weekendView.translatesAutoresizingMaskIntoConstraints = false
-        weekendView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        label.snp.makeConstraints { make in
+            make.center.equalTo(weekendView)
+        }
+
         lessonStackView.addArrangedSubview(weekendView)
-        weekendView.widthAnchor.constraint(equalTo: lessonStackView.widthAnchor).isActive = true
+        weekendView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.width.equalTo(lessonStackView)
+        }
     }
     
 }
