@@ -53,8 +53,8 @@ class InstitutionPageViewController: UIPageViewController {
         vc3.view.backgroundColor = .blue
         
         institutionsViewControllers = [
-            PersonViewController(director: institute.director),
             vc2,
+            PersonViewController(director: institute.director),
             PersonViewController(soviet: institute.soviet)
         ]
         
@@ -69,8 +69,6 @@ extension InstitutionPageViewController: UIPageViewControllerDataSource {
         guard let currIndex = institutionsViewControllers.firstIndex(of: viewController) else { return nil }
         guard currIndex >= 1 && currIndex <= 2 else { return nil }
         
-        print(currIndex)
-        
         return institutionsViewControllers[currIndex - 1]
     }
 
@@ -78,21 +76,21 @@ extension InstitutionPageViewController: UIPageViewControllerDataSource {
         guard let currIndex = institutionsViewControllers.firstIndex(of: viewController) else { return nil }
         guard currIndex >= 0 && currIndex <= 1 else { return nil }
         
-        print(currIndex)
-        
         return institutionsViewControllers[currIndex + 1]
     }
 
 }
 
-
 extension InstitutionPageViewController: UIPageViewControllerDelegate {
     
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        guard let vc = pendingViewControllers.first else { return }
-        guard let currIndex = institutionsViewControllers.firstIndex(of: vc) else { return }
-        
-        pageControl.currentPage = currIndex
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard
+            let firstViewController = viewControllers?.first,
+            let index = institutionsViewControllers.firstIndex(of: firstViewController)
+        else {
+            return
+        }
+        pageControl.currentPage = index
     }
-
+    
 }
