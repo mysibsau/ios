@@ -87,8 +87,16 @@ extension InstitutionsViewController: UITableViewDataSource {
 extension InstitutionsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let instituteVC = PersonViewController() // ТУТ ПРИСВАИВАТЬ ИНСТИТУТ
-        navigationController?.pushViewController(instituteVC, animated: true)
+//        let instituteVC = PersonViewController(soviet: Institute.Soviet(headName: "", address: "", phone: "", email: "", headPhotoUrl: URL(string: "https://google.com")!)) //PersonViewController() // ТУТ ПРИСВАИВАТЬ ИНСТИТУТ
+//        navigationController?.pushViewController(instituteVC, animated: true)
+        let conteinetInstituteVC = InstitutionPageViewController()
+        conteinetInstituteVC.institute = Institute(
+            shortName: "ИИКТ",
+            longName: "Инс инф и телеко",
+            director: Institute.Director(name: "Dir", address: "Addres Dir", phone: "44 33 5 56 323", email: "tema270", headPhotoUrl: URL(string: "https://google.com")!, logoUrl: URL(string: "https://google.com")!),
+            departments: [],
+            soviet: Institute.Soviet(headName: "head name", address: "head addre", phone: "454 232 32 3", email: "tts@", headPhotoUrl: URL(string: "https://google.com")!))
+        navigationController?.pushViewController(conteinetInstituteVC, animated: true)
     }
 
 }

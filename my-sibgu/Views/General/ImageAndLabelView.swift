@@ -23,13 +23,13 @@ class ImageAndLabelView: UIView {
         setupView()
     }
     
-    convenience init(text: String, imageName: String) {
+    public init(text: String, imageName: String) {
         self.init()
         self.label.text = text
         self.imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
     }
     
-    private func setupView() {
+    func setupView() {
         self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 20
         self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)

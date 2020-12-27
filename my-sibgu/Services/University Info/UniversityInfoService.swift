@@ -10,10 +10,10 @@ import Foundation
 class UniversityInfoService {
     
     func getBuildings(completion: @escaping (_ buildings: [Building]?) -> Void) {
-        let building1 = Building(coast: "Правый", name: "Корпус \"А\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
-        let building2 = Building(coast: "Правый", name: "Корпус \"Б\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
-        let building3 = Building(coast: "Левый", name: "Корпус \"В\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
-        let building4 = Building(coast: "Левый", name: "Корпус \"Г\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
+        let building1 = Building(coast: .right, name: "Корпус \"А\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
+        let building2 = Building(coast: .right, name: "Корпус \"Б\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
+        let building3 = Building(coast: .left, name: "Корпус \"В\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
+        let building4 = Building(coast: .left, name: "Корпус \"Г\"", urlTo2gis: URL(string: "https://2gis.ru/krasnoyarsk/geo/985798073679672/92.918363%2C56.048699?m=92.91748%2C56.047991%2F17.31")!)
         
         completion([building1, building2, building3, building4])
     }

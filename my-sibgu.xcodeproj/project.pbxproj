@@ -68,11 +68,12 @@
 		4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */; };
 		4A7A56F3256BF5BF00E2CE0F /* UnionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */; };
 		4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */; };
-		4A7A56FC256C029E00E2CE0F /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56FB256C029E00E2CE0F /* UIView+constraints.swift */; };
 		4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D6882573CB3F00EA1E47 /* Common.swift */; };
 		4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
 		4AB027482570FFE700974D08 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB027472570FFE700974D08 /* Colors.swift */; };
+		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
+		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
 		4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6DE25637977005F6CBE /* Institute.swift */; };
 		4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6E225637B41005F6CBE /* Institute+Director.swift */; };
@@ -154,11 +155,12 @@
 		4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
 		4A7A56F2256BF5BF00E2CE0F /* UnionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionsViewController.swift; sourceTree = "<group>"; };
 		4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
-		4A7A56FB256C029E00E2CE0F /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
 		4A91D6882573CB3F00EA1E47 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
 		4AB027472570FFE700974D08 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
+		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		4AEBE6DE25637977005F6CBE /* Institute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Institute.swift; sourceTree = "<group>"; };
 		4AEBE6E225637B41005F6CBE /* Institute+Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institute+Director.swift"; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */,
+				4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */,
 				4A238C0F257B5C6600CB861E /* PersonViewController.swift */,
 			);
 			path = Institutions;
@@ -506,6 +509,7 @@
 				4A75819D25755FBB006C1F6C /* AlertView.swift */,
 				4A238C15257B74F700CB861E /* CenterLabelView.swift */,
 				4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */,
+				4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */,
 				4A238C14257B74BF00CB861E /* People */,
 			);
 			path = General;
@@ -543,7 +547,6 @@
 			children = (
 				4A238BFE257AC1FE00CB861E /* UIImageView+loadImage */,
 				4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */,
-				4A7A56FB256C029E00E2CE0F /* UIView+constraints.swift */,
 				4AEE1807256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift */,
 				4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */,
 				4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */,
@@ -800,6 +803,7 @@
 				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */,
+				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
@@ -812,7 +816,6 @@
 				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,
 				4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */,
-				4A7A56FC256C029E00E2CE0F /* UIView+constraints.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
@@ -859,6 +862,7 @@
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
+				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
 				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

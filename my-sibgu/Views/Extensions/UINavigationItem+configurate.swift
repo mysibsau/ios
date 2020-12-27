@@ -58,14 +58,14 @@ extension UINavigationItem {
         let imageView: UIImageView
         if isSystem {
             imageView = UIImageView(image: UIImage(systemName: name))
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            imageView.snp.makeConstraints { make in
+                make.size.equalTo(30)
+            }
         } else {
             imageView = UIImageView(image: UIImage(named: name))
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            imageView.snp.makeConstraints { make in
+                make.size.equalTo(40)
+            }
         }
         imageView.contentMode = .scaleAspectFit
         

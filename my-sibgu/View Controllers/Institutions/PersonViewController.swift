@@ -30,13 +30,18 @@ class PersonViewController: UIViewController {
     }()
     
     private let positionLabel = UILabel()
-//    private let nameView = CenterLabelView()
-//    private let placeView = ImageAndLabelView()
     
     
     convenience init(soviet: Institute.Soviet) {
         self.init()
         self.person = soviet
+        addNameView(name: "Имя Отчество")
+        addView(text: "Hello ghbdtn t,fyf ye ,kz vse ze xorocho hehehe lol cheburek", imageName: "place")
+        addView(text: "+7 (929) 333-84-54", imageName: "phone")
+        addView(text: "tema2707@icloud.com", imageName: "email")
+        addButton(text: "button", imageName: "phone", action: {
+            print("helloooo")
+        })
     }
     
     convenience init(director: Institute.Director) {
@@ -153,11 +158,6 @@ class PersonViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-20)
         }
-        
-        addNameView(name: "Имя Фамилия Отчество")
-        addView(text: "Hello ghbdtn t,fyf ye ,kz vse ze xorocho hehehe lol cheburek", imageName: "place")
-        addView(text: "+7 (929) 333-84-54", imageName: "phone")
-        addView(text: "tema2707@icloud.com", imageName: "email")
     }
     
     private func addNameView(name: String) {
@@ -168,6 +168,11 @@ class PersonViewController: UIViewController {
     private func addView(text: String, imageName: String) {
         let v = ImageAndLabelView(text: text, imageName: imageName)
         addArrangedSubviewToStackView(view: v)
+    }
+    
+    private func addButton(text: String, imageName: String, action: @escaping () -> Void) {
+        let b = ImageAndLabelButton(text: text, imageName: imageName, action: action)
+        addArrangedSubviewToStackView(view: b)
     }
     
     private func addArrangedSubviewToStackView(view: UIView) {

@@ -9,6 +9,7 @@ import UIKit
 
 class BuildingsViewController: UITableViewController {
     
+    private var universityInfoService = UniversityInfoService()
     private var buildings = [[Building]]()
 
     override func viewDidLoad() {

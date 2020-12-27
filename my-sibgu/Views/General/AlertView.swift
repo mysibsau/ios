@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class AlertView: UIView {
     
@@ -47,8 +48,9 @@ class AlertView: UIView {
         alertLabel.lineBreakMode = .byWordWrapping
         
         addSubview(alertLabel)
-        alertLabel.translatesAutoresizingMaskIntoConstraints = false
-        alertLabel.addConstraintsOnAllSides(to: self, withConstant: 8)
+        alertLabel.snp.makeConstraints { make in
+            make.edges.equalTo(self).inset(8)
+        }
     }
     
     // MARK: - Скрытие view с анимацией

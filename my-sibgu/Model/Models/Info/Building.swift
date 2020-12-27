@@ -9,8 +9,14 @@ import Foundation
 
 struct Building {
     
-    let coast: String
+    let coast: Coast
     let name: String
     let urlTo2gis: URL
+    
+    
+    enum Coast {
+        case left
+        case right
+    }
     
 }
