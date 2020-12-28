@@ -31,7 +31,7 @@ class InstitutionPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
         
         pageControl.numberOfPages = 3
         pageControl.pageIndicatorTintColor = .gray
@@ -43,22 +43,20 @@ class InstitutionPageViewController: UIPageViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         
+        navigationItem.title = institute.shortName
         
         
-        let vc1 = UIViewController()
-        vc1.view.backgroundColor = .yellow
-        let vc2 = UIViewController()
-        vc2.view.backgroundColor = .green
-        let vc3 = UIViewController()
-        vc3.view.backgroundColor = .blue
+        let vc1 = PersonViewController(director: institute.director)
+        let vc2 = DepartmentsViewController()
+        let vc3 = PersonViewController(soviet: institute.soviet)
         
         institutionsViewControllers = [
+            vc1,
             vc2,
-            PersonViewController(director: institute.director),
-            PersonViewController(soviet: institute.soviet)
+            vc3
         ]
         
-        self.setViewControllers([vc2], direction: .forward, animated: true, completion: nil)
+        self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
     }
     
 }
