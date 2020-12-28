@@ -128,22 +128,6 @@
             </objects>
             <point key="canvasLocation" x="1751" y="811"/>
         </scene>
-        <!--Unions View Controller-->
-        <scene sceneID="ugt-od-3VF">
-            <objects>
-                <viewController id="QwC-3I-fkS" customClass="UnionsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jXU-Zu-1nA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="EPn-tw-jbY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="TVX-bE-bMa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KEI-NH-hYF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1751" y="1543"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="U3Q-th-iog">
             <objects>
@@ -273,12 +257,31 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="QwC-3I-fkS" kind="relationship" relationship="rootViewController" id="TtG-qp-7Vl"/>
+                        <segue destination="GF3-nn-IhI" kind="relationship" relationship="rootViewController" id="Fdz-7l-7XE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ls-jj-Zfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="1542.8571428571429"/>
+        </scene>
+        <!--Unions Table View Controller-->
+        <scene sceneID="oeg-te-x2N">
+            <objects>
+                <tableViewController id="GF3-nn-IhI" customClass="UnionsTableViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yGn-fv-8pP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="GF3-nn-IhI" id="pG4-cx-dMI"/>
+                            <outlet property="delegate" destination="GF3-nn-IhI" id="ZEy-JF-HrS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Cmt-an-tqb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmI-Ed-Qe4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="1543"/>
         </scene>
     </scenes>
     <resources>
