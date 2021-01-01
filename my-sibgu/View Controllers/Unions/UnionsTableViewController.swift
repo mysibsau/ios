@@ -8,6 +8,8 @@
 import UIKit
 
 class UnionsTableViewController: UITableViewController {
+    
+    private var unions: [Union] = []
 
     
     override func viewDidLoad() {
@@ -50,6 +52,13 @@ class UnionsTableViewController: UITableViewController {
         cell.nameLabel.text = "sdlkfjsdl fsldkjf lsdjkf"
         
         return cell
+    }
+    
+    // MARK: - Table View Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let personVC = PersonViewController(union: unions[indexPath.row])
+        
+//        navigationController?.pushViewController(personVC, animated: true)
     }
 
 }

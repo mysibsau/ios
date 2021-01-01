@@ -9,22 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Events View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="EventsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="QXf-CC-JPO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1751" y="-1315"/>
-        </scene>
         <!--Timetable Search View Controller-->
         <scene sceneID="0lh-Pi-AZL">
             <objects>
@@ -162,12 +146,38 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nxd-BY-Y1t"/>
+                        <segue destination="M9w-8A-BQ8" kind="relationship" relationship="rootViewController" id="JKv-Vd-OMQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmH-S5-T8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="-1315"/>
+        </scene>
+        <!--Events View Controller-->
+        <scene sceneID="CYB-CG-izK">
+            <objects>
+                <collectionViewController id="M9w-8A-BQ8" customClass="EventsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="slt-Ob-BhV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z3T-Fv-90n">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="M9w-8A-BQ8" id="FPa-yu-aie"/>
+                            <outlet property="delegate" destination="M9w-8A-BQ8" id="MWu-Lu-iZw"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="ETU-Fk-ISG"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gb6-yO-Swr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="-1315"/>
         </scene>
         <!--Корпуса-->
         <scene sceneID="ZrM-8Z-Pf8">

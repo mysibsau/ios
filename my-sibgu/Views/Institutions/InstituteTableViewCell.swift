@@ -17,7 +17,7 @@ class InstituteTableViewCell: UITableViewCell {
     let shortNameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label

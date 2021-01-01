@@ -52,6 +52,7 @@
 		4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3149FF2572CA5F00FB7FC2 /* DateTimeService.swift */; };
 		4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A314A072572D80700FB7FC2 /* WeekViewController.swift */; };
 		4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */; };
+		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
 		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
 		4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A517257944D500283459 /* BuildingTableViewCell.swift */; };
@@ -72,6 +73,7 @@
 		4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */; };
 		4A7A56F3256BF5BF00E2CE0F /* UnionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F2256BF5BF00E2CE0F /* UnionsTableViewController.swift */; };
 		4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */; };
+		4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AE703259F61AD007181E2 /* UILabel+contentSize.swift */; };
 		4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D6882573CB3F00EA1E47 /* Common.swift */; };
 		4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
@@ -143,6 +145,7 @@
 		4A3149FF2572CA5F00FB7FC2 /* DateTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeService.swift; sourceTree = "<group>"; };
 		4A314A072572D80700FB7FC2 /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+scrollTo.swift"; sourceTree = "<group>"; };
+		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
 		4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingTimetableViewController.swift; sourceTree = "<group>"; };
 		4A42A517257944D500283459 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
 		4A7A56F2256BF5BF00E2CE0F /* UnionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionsTableViewController.swift; sourceTree = "<group>"; };
 		4A7A56F8256C017500E2CE0F /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
+		4A7AE703259F61AD007181E2 /* UILabel+contentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+contentSize.swift"; sourceTree = "<group>"; };
 		4A91D6882573CB3F00EA1E47 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
@@ -423,7 +427,6 @@
 			children = (
 				4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */,
 				4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */,
-				4A238C0F257B5C6600CB861E /* PersonViewController.swift */,
 				4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */,
 			);
 			path = Institutions;
@@ -479,6 +482,15 @@
 			path = DateTime;
 			sourceTree = "<group>";
 		};
+		4A3D7D57259C612100B6D38A /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				4A7AE702259F6191007181E2 /* Extensions */,
+				4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		4A42A5122578F79900283459 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +533,30 @@
 			path = Unions;
 			sourceTree = "<group>";
 		};
+		4A54F57A259B1BA500184BC0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				4A238C0F257B5C6600CB861E /* PersonViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		4A54F57C259B3DF800184BC0 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		4A54F57D259B3EFB00184BC0 /* Buildings */ = {
+			isa = PBXGroup;
+			children = (
+				4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */,
+			);
+			path = Buildings;
+			sourceTree = "<group>";
+		};
 		4A5A16442574EECF00F5D652 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,8 +583,9 @@
 			children = (
 				4AEE181D2570202200DD7D9F /* Protocols */,
 				4AEE181125700B0000DD7D9F /* Extensions */,
-				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
-				4A7A56E9256BF52000E2CE0F /* BuildingsViewController.swift */,
+				4A54F57A259B1BA500184BC0 /* General */,
+				4A54F57C259B3DF800184BC0 /* Events */,
+				4A54F57D259B3EFB00184BC0 /* Buildings */,
 				4AEE1801256EB1B600DD7D9F /* Timetable */,
 				4A238C0E257B5C4100CB861E /* Institutions */,
 				4A54F56F259A1EAC00184BC0 /* Unions */,
@@ -562,6 +599,7 @@
 				4A7A56F7256C016600E2CE0F /* Extensions */,
 				4A75819C25755FB1006C1F6C /* General */,
 				4AB027462570FFD900974D08 /* Style */,
+				4A3D7D57259C612100B6D38A /* Events */,
 				4A42A516257944A000283459 /* Buildings */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
 				4A21AA40257AA0CC00BA203A /* Institutions */,
@@ -579,6 +617,14 @@
 				4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */,
 				4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */,
 				4A5A16482574F25D00F5D652 /* UIColor+hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4A7AE702259F6191007181E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A7AE703259F61AD007181E2 /* UILabel+contentSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -850,6 +896,7 @@
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
+				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A27A86B255F09230018186B /* UniversityInfoService.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
 				4A7A56F3256BF5BF00E2CE0F /* UnionsTableViewController.swift in Sources */,
@@ -878,6 +925,7 @@
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RGroup+newObject.swift in Sources */,
+				4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */,
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
 				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,

@@ -77,7 +77,10 @@ extension InstitutionsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: InstituteTableViewCell.reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: InstituteTableViewCell.reuseIdentifier, for: indexPath) as! InstituteTableViewCell
+        
+        cell.shortNameLabel.text = "ИИТК"
+        cell.longNameLabel.text = "Институт информатики и телекоммуникаций"
         
         return cell
     }
