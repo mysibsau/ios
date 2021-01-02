@@ -8,15 +8,12 @@
 import UIKit
 import SnapKit
 
-enum EventCellMode {
-    case short
-    case long
-}
-
 class ShortEventCollectionViewCell: UICollectionViewCell {
     
     static let reuseIdentifier = "ShortEventCell"
     
+    var indexPath: IndexPath!
+    var delegate: EventsCellDelegate?
     
     private var mode: EventCellMode = .short
     
@@ -31,7 +28,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
 
     let textLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 5
+        label.numberOfLines = 1
         return label
     }()
     
@@ -44,12 +41,14 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    // MARK: - Helper
+    // MARK: - Helper Constransts
     lazy var width: NSLayoutConstraint = {
         let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
         width.isActive = true
         return width
     }()
+    
+//    private var textLabelBottomToSuperviewConstraint: Constraint?
     
     // MARK: - Init -
     override init(frame: CGRect) {
@@ -81,8 +80,10 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         contentView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
         contentView.layer.cornerRadius = 5
         
-        self.layoutSubviews()
-        print(textLabel.contentSize, textLabel.bounds.size)
+        readMoreOrLessButton.addTarget(self, action: #selector(readMoreOrLessButtonAction), for: .touchUpInside)
+        
+//        self.layoutSubviews()
+//        print("1", textLabel.contentSize, textLabel.frame.size)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -110,38 +111,40 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Setters -
-    func set(image: UIImage?, text: String? = nil) {
-        guard let image = image else {
-            imageView.image = nil
-            return
-        }
-        
+    func set(mode: EventCellMode, image: UIImage?, text: String?) {
+        set(mode: mode)
+        textLabel.text = text
         imageView.image = image
         
-        self.layoutIfNeeded()
-        
-        let width = self.width.constant //UIScreen.main.bounds.width - 12 //self.imageView.frame.width
-        // я хз почему это работает, но оно дает нужную высоту по такой формуле ... УЖС
-        let height = floor((image.size.height * width) / image.size.width) * 0.99
-        
-        imageView.snp.updateConstraints { update in
-            update.height.equalTo(height)
+        if let image = image {
+            let width = self.width.constant
+            // я хз почему это работает, но оно дает нужную высоту по такой формуле ... УЖС
+            let height = floor((image.size.height * width) / image.size.width) * 0.99
+            
+            imageView.snp.updateConstraints { update in
+                update.height.equalTo(height)
+            }
         }
-        
-        self.layoutIfNeeded()
-        contentView.layoutIfNeeded()
-        imageView.layoutIfNeeded()
-        textLabel.layoutIfNeeded()
-        readMoreOrLessButton.layoutIfNeeded()
     }
     
     func set(mode: EventCellMode) {
         self.mode = mode
         
         if mode == .short {
+            textLabel.numberOfLines = 1
             readMoreOrLessButton.setTitle("[Читать далее]", for: .normal)
         } else if mode == .long {
+            textLabel.numberOfLines = 0
             readMoreOrLessButton.setTitle("[Скрыть]", for: .normal)
+        }
+    }
+    
+    // MARK: - Actions -
+    @objc private func readMoreOrLessButtonAction() {
+        if mode == .short {
+            delegate?.setAndReload(cellMode: .long, at: indexPath)
+        } else if mode == .long {
+            delegate?.setAndReload(cellMode: .short, at: indexPath)
         }
     }
     

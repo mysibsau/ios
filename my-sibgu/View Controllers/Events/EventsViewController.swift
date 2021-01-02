@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 
+private typealias EventsDataSource = [(event: Event, mode: EventCellMode)]
+
 class EventsViewController: UICollectionViewController {
     
-    private var events: [Event]!
+    private var data: EventsDataSource!
     
     // MARK: - Collection View Layout
     private let spacing: CGFloat = 6
@@ -37,6 +39,9 @@ class EventsViewController: UICollectionViewController {
         setupNavBar()
         
         configureCollectionView()
+        
+        data = Common.getEvents().map { ($0, EventCellMode.short) }
+        collectionView.reloadData()
     }
     
     
@@ -61,41 +66,39 @@ class EventsViewController: UICollectionViewController {
     
     // MARK: - Collection View Data Source -
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return data.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShortEventCollectionViewCell.reuseIdentifier, for: indexPath) as! ShortEventCollectionViewCell
         
-        if indexPath.row < 5 || indexPath.row > 10 {
-            cell.set(image: UIImage(named: "test1"))
-        //} else if indexPath.row >= 5 {
-            //cell.set(image: UIImage(named: "test2"))
-        } else {
-            cell.set(image: UIImage(named: "test2"))
-        }
-        
-        if indexPath.row % 5 == 0 {
-            cell.set(image: UIImage(named: "test1"))
-            cell.textLabel.text = "Я ебал"
-        } else if indexPath.row % 5 == 1 {
-            cell.set(image: UIImage(named: "test2"))
-            cell.textLabel.text = "Меня ебали ебали ебали ебали ебали ебали ебали ебали Меня ебали ебали ебали ебали ебали ебали ебали ебали Меня ебали ебали ебали ебали ебали ебали ебали ебали Меня ебали ебали ебали ебали ебали ебали ебали ебали"
-        } else if indexPath.row % 5 == 2 {
-            cell.set(image: UIImage(named: "test3"))
-            cell.textLabel.text = "Я сосал"
-        } else if indexPath.row % 5 == 3 {
-            cell.set(image: UIImage(named: "test4"))
-            cell.textLabel.text = "Меня сосали сосали сосали сосали сосали сосали сосали сосали"
-        } else {
-            cell.set(image: UIImage(named: "test7"))
-            cell.textLabel.text = "Я не ебал"
-        }
-        
-//        cell.label.text = "\(indexPath.row)"
-        cell.layoutIfNeeded()
+        let event = data[indexPath.row]
+        cell.delegate = self
+        cell.indexPath = indexPath
+        cell.set(mode: event.mode, image: UIImage(named: event.event.author), text: event.event.postTest)
+//        cell.set(mode: event.mode, image: nil, text: event.event.postTest)
         
         return cell
     }
 
+}
+
+
+extension EventsViewController: EventsCellDelegate {
+    
+    func setAndReload(cellMode: EventCellMode, at indexPath: IndexPath) {
+        data[indexPath.item].mode = cellMode
+        let offset = collectionView.contentOffset
+        let cell = self.collectionView.cellForItem(at: indexPath) as! ShortEventCollectionViewCell
+        cell.set(mode: cellMode)
+        
+        UIView.performWithoutAnimation {
+            DispatchQueue.main.async {
+                self.collectionView.collectionViewLayout.invalidateLayout()
+                self.collectionView.layoutIfNeeded()
+                self.collectionView.setContentOffset(offset, animated: false)
+            }
+        }
+    }
+    
 }
