@@ -11,9 +11,9 @@ class InstituteResponse: Decodable {
     
     let name: String
     let shortName: String
-    let director: DirectorResponse
+    let director: DirectorResponse?
     let departments: [DepartmentResponse]
-    let soviet: SovietResponse
+    let soviet: SovietResponse?
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -86,12 +86,12 @@ extension InstituteResponse: ConvertableToRealm {
         let i = RInstitute()
         i.name = self.name
         i.shortName = self.shortName
-        i.director = self.director.converteToRealm()
+        i.director = self.director?.converteToRealm()
         i.departments.removeAll()
         for department in self.departments {
             i.departments.append(department.converteToRealm())
         }
-        i.soviet = self.soviet.converteToRealm()
+        i.soviet = self.soviet?.converteToRealm()
         return i
     }
     

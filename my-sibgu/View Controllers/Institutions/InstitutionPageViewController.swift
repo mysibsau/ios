@@ -46,9 +46,9 @@ class InstitutionPageViewController: UIPageViewController {
         navigationItem.title = institute.shortName
         
         
-        let vc1 = PersonViewController(director: institute.director)
+        let vc1 = PersonViewController(director: institute.director!)
         let vc2 = DepartmentsViewController()
-        let vc3 = PersonViewController(soviet: institute.soviet)
+        let vc3 = PersonViewController(soviet: institute.soviet!)
         
         institutionsViewControllers = [
             vc1,

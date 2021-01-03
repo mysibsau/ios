@@ -30,8 +30,24 @@ class CampusService {
         }
     }
     
-    func getInstituts(completion: @escaping ([Institute]) -> Void) {
-        
+    func getInstitutes(completion: @escaping ([Institute]?) -> Void) {
+        let institutsFromLocal = DataManager.shared.getInstitutes()
+        ApiCampusService().loadInstitutes { optionalInstitutes in
+            guard let institutesFromApi = optionalInstitutes else {
+                if institutsFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    completion(Translator.shared.converteInstitutes(from: institutsFromLocal))
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                DataManager.shared.write(institutes: institutesFromApi)
+                let institutesForShowing = DataManager.shared.getInstitutes()
+                completion(Translator.shared.converteInstitutes(from: institutesForShowing))
+            }
+        }
     }
     
     func getUnions(completion: @escaping ([Union]) -> Void) {

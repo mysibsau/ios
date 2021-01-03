@@ -10,9 +10,10 @@ import SnapKit
 
 class InstitutionsViewController: UIViewController {
     
+    private let campusService = CampusService()
     private var indtitutions = [Institute]()
     
-    
+    private let activityIndicatorView = UIActivityIndicatorView(style: .medium)
     private let rocketImageView = UIImageView()
     private let tableView = UITableView()
 
@@ -30,6 +31,8 @@ class InstitutionsViewController: UIViewController {
         setupRocketImage()
         
         setupTableView()
+        
+        loadInstitutes()
     }
     
     private func setupNavBar() {
@@ -66,6 +69,23 @@ class InstitutionsViewController: UIViewController {
             make.leading.equalTo(rocketImageView.snp.trailing)
         }
     }
+    
+    private func loadInstitutes() {
+        self.startActivityIndicator()
+        campusService.getInstitutes { optionalInstitutes in
+            guard let i = optionalInstitutes else {
+                self.stopActivityIndicator()
+                return
+            }
+            
+            self.indtitutions = i.sorted(by: { $0.shortName < $1.shortName })
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.stopActivityIndicator()
+            }
+        }
+    }
 
 }
 
@@ -73,14 +93,14 @@ class InstitutionsViewController: UIViewController {
 extension InstitutionsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return indtitutions.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InstituteTableViewCell.reuseIdentifier, for: indexPath) as! InstituteTableViewCell
-        
-        cell.shortNameLabel.text = "ИИТК"
-        cell.longNameLabel.text = "Институт информатики и телекоммуникаций"
+        let institute = indtitutions[indexPath.row]
+        cell.shortNameLabel.text = institute.shortName
+        cell.longNameLabel.text = institute.name
         
         return cell
     }
@@ -100,6 +120,22 @@ extension InstitutionsViewController: UITableViewDelegate {
 //            departments: [],
 //            soviet: Institute.Soviet(headName: "head name", address: "head addre", phone: "454 232 32 3", email: "tts@", headPhotoUrl: URL(string: "https://google.com")!))
 //        navigationController?.pushViewController(conteinetInstituteVC, animated: true)
+        let instituteVC = InstitutionPageViewController()
+        instituteVC.institute = indtitutions[indexPath.row]
+        navigationController?.pushViewController(instituteVC, animated: true)
     }
 
+}
+
+
+extension InstitutionsViewController: AnimatingNetworkProtocol {
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        return activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        return tableView
+    }
+    
 }

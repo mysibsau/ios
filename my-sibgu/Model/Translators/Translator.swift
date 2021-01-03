@@ -113,17 +113,73 @@ class Translator {
     func converteBuildings(from rBuildings: [RBuilding]) -> [Building] {
         var builginds = [Building]()
         rBuildings.forEach { rBuilding in
-            let building = Building(name: rBuilding.name,
-                                    type: rBuilding.type,
-                                    address: rBuilding.address,
-                                    coast: rBuilding.coast == 0 ? .left : .right,
-                                    urlTo2gis: URL(
-                                        string: rBuilding.urlTo2gis
-                                            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
+            let building = Building(
+                name: rBuilding.name,
+                type: rBuilding.type,
+                address: rBuilding.address,
+                coast: rBuilding.coast == 0 ? .left : .right,
+                urlTo2gis: URL(string: rBuilding.urlTo2gis
+                                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
             builginds.append(building)
         }
         
         return builginds
+    }
+    
+    func converteInstitutes(from rInstitutes: [RInstitute]) -> [Institute] {
+        var institutes = [Institute]()
+        rInstitutes.forEach { rInstitute in
+            let institute = Institute(
+                name: rInstitute.name,
+                shortName: rInstitute.shortName,
+                director: converteDirector(from: rInstitute.director),
+                departments: converteDepartments(from: rInstitute.departments),
+                soviet: converteSoviet(from: rInstitute.soviet)
+            )
+            institutes.append(institute)
+        }
+        return institutes
+    }
+    
+    private func converteDirector(from rDirector: RDirector?) -> Institute.Director? {
+        guard let rDirector = rDirector else { return nil }
+        let director = Institute.Director(
+            name: rDirector.name,
+            imageUrl: URL(string: rDirector.imageUrl
+                            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+            address: rDirector.address,
+            phone: rDirector.phone,
+            email: rDirector.email
+        )
+        return director
+    }
+    
+    private func converteDepartments(from rDepartments: List<RDepartment>) -> [Institute.Department] {
+        var departments = [Institute.Department]()
+        rDepartments.forEach { rDepartment in
+            let department = Institute.Department(
+                name: rDepartment.name,
+                leaderName: rDepartment.leaderName,
+                address: rDepartment.address,
+                phone: rDepartment.phone,
+                email: rDepartment.email
+            )
+            departments.append(department)
+        }
+        return departments
+    }
+    
+    private func converteSoviet(from rSoviet: RSoviet?) -> Institute.Soviet? {
+        guard let rSoviet = rSoviet else { return nil }
+        let soviet = Institute.Soviet(
+            imageUrl: URL(string: rSoviet.imageUrl
+                            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+            leaderName: rSoviet.leaderName,
+            address: rSoviet.address,
+            phone: rSoviet.phone,
+            email: rSoviet.email
+        )
+        return soviet
     }
     
 }
