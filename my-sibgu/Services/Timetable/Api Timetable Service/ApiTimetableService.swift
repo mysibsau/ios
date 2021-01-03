@@ -9,22 +9,7 @@ import Foundation
 
 class ApiTimetableService {
     
-    static let shared = ApiTimetableService()
-    
-    // MARK: - Privates properties
-    private let downloadingQueue: OperationQueue = {
-        let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 2
-        return queue
-    }()
-    
-    private let session = URLSession(configuration: URLSessionConfiguration.default)
-    
-    
-    // MARK: - Прекращение всех загрузок
-    func cancelAllDownloading() {
-        downloadingQueue.cancelAllOperations()
-    }
+    private let baseApiService = BaseApiService()
     
     
     // MARK: - Скачивание группы и хэша
@@ -36,20 +21,20 @@ class ApiTimetableService {
             completion(downloadedGroupsHash, downloadedGroups)
         }
 
-        let groupsDownloadOperation = DownloadOperation(session: session, url: ApiTimetable.groups()) { data, response, error in
+        let groupsDownloadOperation = DownloadOperation(session: baseApiService.session, url: ApiTimetable.groups()) { data, response, error in
             guard let groups = TimetableResponseHandler.handleGroupsResponse(data, response, error) else {
                 completion(nil, nil)
-                self.downloadingQueue.cancelAllOperations()
+                self.baseApiService.cancelAllDownloading()
                 return
             }
             
             downloadedGroups = groups
         }
         
-        let hashDownloadOperation = DownloadOperation(session: session, url: ApiTimetable.groupsHash()) { data, response, error in
+        let hashDownloadOperation = DownloadOperation(session: baseApiService.session, url: ApiTimetable.groupsHash()) { data, response, error in
             guard let hash = TimetableResponseHandler.handleHashResponse(data, response, error) else {
                 completion(nil, nil)
-                self.downloadingQueue.cancelAllOperations()
+                self.baseApiService.cancelAllDownloading()
                 return
             }
             
@@ -59,9 +44,9 @@ class ApiTimetableService {
         completionOperation.addDependency(groupsDownloadOperation)
         completionOperation.addDependency(hashDownloadOperation)
 
-        downloadingQueue.addOperation(groupsDownloadOperation)
-        downloadingQueue.addOperation(hashDownloadOperation)
-        downloadingQueue.addOperation(completionOperation)
+        baseApiService.downloadingQueue.addOperation(groupsDownloadOperation)
+        baseApiService.downloadingQueue.addOperation(hashDownloadOperation)
+        baseApiService.downloadingQueue.addOperation(completionOperation)
     }
     
     
@@ -90,7 +75,7 @@ class ApiTimetableService {
             }
         }
         
-        let groupTimetableDownloadOperation = DownloadOperation(session: session, url: ApiTimetable.timetable(forGroupId: id)) { data, response, error in
+        let groupTimetableDownloadOperation = DownloadOperation(session: baseApiService.session, url: ApiTimetable.timetable(forGroupId: id)) { data, response, error in
             let (optionalGroupTimetable, optionalGroupHash) = TimetableResponseHandler.handleGroupTimetableResponse(groupId: id, data, response, error)
             
             guard
@@ -98,7 +83,7 @@ class ApiTimetableService {
                 let groupHash = optionalGroupHash
             else {
                 // Есил не вышло скачать - прекращаем все загрузки и пытаемся открыть старое
-                self.downloadingQueue.cancelAllOperations()
+                self.baseApiService.cancelAllDownloading()
                 completionIfNeedNotLoadGroups(nil, nil)
                 return
             }
@@ -111,8 +96,8 @@ class ApiTimetableService {
         completionOperation.addDependency(groupTimetableDownloadOperation)
         
         // Добавляем все в очередь
-        downloadingQueue.addOperation(groupTimetableDownloadOperation)
-        downloadingQueue.addOperation(completionOperation)
+        baseApiService.downloadingQueue.addOperation(groupTimetableDownloadOperation)
+        baseApiService.downloadingQueue.addOperation(completionOperation)
     }
     
     private func loadGroupsAndGroupsHashForLoadTimetable(groupTimegable: RGroupTimetable, completion: @escaping (_ groupsHash: String?, _ groups: [RGroup]?, _ groupTimetable: RGroupTimetable?) -> Void) {
@@ -123,20 +108,20 @@ class ApiTimetableService {
             completion(downloadedGroupsHash, downloadedGroups, groupTimegable)
         }
 
-        let groupsDownloadOperation = DownloadOperation(session: session, url: ApiTimetable.groups()) { data, response, error in
+        let groupsDownloadOperation = DownloadOperation(session: baseApiService.session, url: ApiTimetable.groups()) { data, response, error in
             guard let groups = TimetableResponseHandler.handleGroupsResponse(data, response, error) else {
                 completion(nil, nil, nil)
-                self.downloadingQueue.cancelAllOperations()
+                self.baseApiService.cancelAllDownloading()
                 return
             }
             
             downloadedGroups = groups
         }
         
-        let hashDownloadOperation = DownloadOperation(session: session, url: ApiTimetable.groupsHash()) { data, response, error in
+        let hashDownloadOperation = DownloadOperation(session: baseApiService.session, url: ApiTimetable.groupsHash()) { data, response, error in
             guard let hash = TimetableResponseHandler.handleHashResponse(data, response, error) else {
                 completion(nil, nil, nil)
-                self.downloadingQueue.cancelAllOperations()
+                self.baseApiService.cancelAllDownloading()
                 return
             }
             
@@ -146,9 +131,9 @@ class ApiTimetableService {
         completionOperation.addDependency(groupsDownloadOperation)
         completionOperation.addDependency(hashDownloadOperation)
 
-        downloadingQueue.addOperation(groupsDownloadOperation)
-        downloadingQueue.addOperation(hashDownloadOperation)
-        downloadingQueue.addOperation(completionOperation)
+        baseApiService.downloadingQueue.addOperation(groupsDownloadOperation)
+        baseApiService.downloadingQueue.addOperation(hashDownloadOperation)
+        baseApiService.downloadingQueue.addOperation(completionOperation)
     }
     
     // MARK: - Curr Week Number

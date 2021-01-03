@@ -44,8 +44,6 @@
 		4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C0F257B5C6600CB861E /* PersonViewController.swift */; };
 		4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C15257B74F700CB861E /* CenterLabelView.swift */; };
 		4A27A860255EE79D0018186B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A85F255EE79D0018186B /* Group.swift */; };
-		4A27A867255F088E0018186B /* ApiUniversityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A866255F088E0018186B /* ApiUniversityInfo.swift */; };
-		4A27A86B255F09230018186B /* UniversityInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A86A255F09230018186B /* UniversityInfoService.swift */; };
 		4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */; };
 		4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A3149F825724DE300FB7FC2 /* GroupSubgroupView.xib */; };
 		4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3149FB257255AD00FB7FC2 /* LessonDayView.swift */; };
@@ -80,6 +78,19 @@
 		4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
 		4AB027482570FFE700974D08 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB027472570FFE700974D08 /* Colors.swift */; };
+		4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A66F25A0FCA200518FEA /* CampusService.swift */; };
+		4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67325A107C300518FEA /* ApiCampus.swift */; };
+		4AB5A67725A1091900518FEA /* ApiUniversityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */; };
+		4AB5A67D25A10DA500518FEA /* ApiCampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67C25A10DA500518FEA /* ApiCampusService.swift */; };
+		4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */; };
+		4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A68525A1C14D00518FEA /* RBuilding.swift */; };
+		4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A68D25A1C70D00518FEA /* ConvertableToRealm.swift */; };
+		4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A69125A1C79700518FEA /* BudlingResponse.swift */; };
+		4AB5A69D25A1D2A100518FEA /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A69C25A1D2A100518FEA /* ResponseHandler.swift */; };
+		4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6A425A1E00000518FEA /* RUnion.swift */; };
+		4AB5A6A925A1E3A500518FEA /* UnionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6A825A1E3A500518FEA /* UnionResponse.swift */; };
+		4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */; };
+		4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -139,8 +150,6 @@
 		4A238C0F257B5C6600CB861E /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		4A238C15257B74F700CB861E /* CenterLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLabelView.swift; sourceTree = "<group>"; };
 		4A27A85F255EE79D0018186B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		4A27A866255F088E0018186B /* ApiUniversityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUniversityInfo.swift; sourceTree = "<group>"; };
-		4A27A86A255F09230018186B /* UniversityInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityInfoService.swift; sourceTree = "<group>"; };
 		4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingNetworkProtocol.swift; sourceTree = "<group>"; };
 		4A3149F825724DE300FB7FC2 /* GroupSubgroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSubgroupView.xib; sourceTree = "<group>"; };
 		4A3149FB257255AD00FB7FC2 /* LessonDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDayView.swift; sourceTree = "<group>"; };
@@ -175,6 +184,19 @@
 		4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
 		4AB027472570FFE700974D08 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4AB5A66F25A0FCA200518FEA /* CampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusService.swift; sourceTree = "<group>"; };
+		4AB5A67325A107C300518FEA /* ApiCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampus.swift; sourceTree = "<group>"; };
+		4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUniversityInfo.swift; sourceTree = "<group>"; };
+		4AB5A67C25A10DA500518FEA /* ApiCampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampusService.swift; sourceTree = "<group>"; };
+		4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
+		4AB5A68525A1C14D00518FEA /* RBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBuilding.swift; sourceTree = "<group>"; };
+		4AB5A68D25A1C70D00518FEA /* ConvertableToRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertableToRealm.swift; sourceTree = "<group>"; };
+		4AB5A69125A1C79700518FEA /* BudlingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudlingResponse.swift; sourceTree = "<group>"; };
+		4AB5A69C25A1D2A100518FEA /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		4AB5A6A425A1E00000518FEA /* RUnion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUnion.swift; sourceTree = "<group>"; };
+		4AB5A6A825A1E3A500518FEA /* UnionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionResponse.swift; sourceTree = "<group>"; };
+		4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RInstitute.swift; sourceTree = "<group>"; };
+		4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstituteResponse.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -291,8 +313,8 @@
 		4A07DDAE255D95880022B6A9 /* RModels */ = {
 			isa = PBXGroup;
 			children = (
-				4A07DDBD255D9E990022B6A9 /* Timetable */,
-				4A07DDB3255D96090022B6A9 /* Entities */,
+				4AB5A68325A1C10400518FEA /* Timetable */,
+				4AB5A68425A1C12200518FEA /* University Info */,
 			);
 			path = RModels;
 			sourceTree = "<group>";
@@ -353,7 +375,10 @@
 		4A07DDDD255DA2F90022B6A9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4AB5A68C25A1C64A00518FEA /* Protocols */,
 				4A07DDF4255DA5330022B6A9 /* DownloadOperation.swift */,
+				4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */,
+				4AB5A69C25A1D2A100518FEA /* ResponseHandler.swift */,
 				4A3149FE2572CA2000FB7FC2 /* DateTime */,
 				4A436414255E859300C11E03 /* Timetable */,
 				4A27A864255F08190018186B /* University Info */,
@@ -463,18 +488,10 @@
 		4A27A864255F08190018186B /* University Info */ = {
 			isa = PBXGroup;
 			children = (
-				4A27A86A255F09230018186B /* UniversityInfoService.swift */,
-				4A27A865255F084D0018186B /* Api University Info Service */,
+				4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */,
+				4AB5A66E25A0FC7A00518FEA /* Campus */,
 			);
 			path = "University Info";
-			sourceTree = "<group>";
-		};
-		4A27A865255F084D0018186B /* Api University Info Service */ = {
-			isa = PBXGroup;
-			children = (
-				4A27A866255F088E0018186B /* ApiUniversityInfo.swift */,
-			);
-			path = "Api University Info Service";
 			sourceTree = "<group>";
 		};
 		4A3149FE2572CA2000FB7FC2 /* DateTime */ = {
@@ -650,6 +667,62 @@
 				4AB027472570FFE700974D08 /* Colors.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		4AB5A66E25A0FC7A00518FEA /* Campus */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5A66F25A0FCA200518FEA /* CampusService.swift */,
+				4AB5A67225A107AC00518FEA /* Api */,
+			);
+			path = Campus;
+			sourceTree = "<group>";
+		};
+		4AB5A67225A107AC00518FEA /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5A69025A1C76D00518FEA /* ResponseObjects */,
+				4AB5A67325A107C300518FEA /* ApiCampus.swift */,
+				4AB5A67C25A10DA500518FEA /* ApiCampusService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4AB5A68325A1C10400518FEA /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				4A07DDBD255D9E990022B6A9 /* Timetable */,
+				4A07DDB3255D96090022B6A9 /* Entities */,
+			);
+			path = Timetable;
+			sourceTree = "<group>";
+		};
+		4AB5A68425A1C12200518FEA /* University Info */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5A68525A1C14D00518FEA /* RBuilding.swift */,
+				4AB5A6A425A1E00000518FEA /* RUnion.swift */,
+				4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */,
+			);
+			path = "University Info";
+			sourceTree = "<group>";
+		};
+		4AB5A68C25A1C64A00518FEA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5A68D25A1C70D00518FEA /* ConvertableToRealm.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4AB5A69025A1C76D00518FEA /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4AB5A69125A1C79700518FEA /* BudlingResponse.swift */,
+				4AB5A6A825A1E3A500518FEA /* UnionResponse.swift */,
+				4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */,
+			);
+			path = ResponseObjects;
 			sourceTree = "<group>";
 		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
@@ -867,9 +940,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB5A67D25A10DA500518FEA /* ApiCampusService.swift in Sources */,
 				4A07DDED255DA4450022B6A9 /* GroupTimetableResponse.swift in Sources */,
 				4A07DDE5255DA3B70022B6A9 /* ApiTimetable.swift in Sources */,
 				4AEE1804256EB44600DD7D9F /* LessonView.swift in Sources */,
+				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
@@ -877,6 +952,7 @@
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
+				4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */,
 				4A7AE70A259F8AB9007181E2 /* EventCellMode.swift in Sources */,
 				4AEBE6EF25637DE9005F6CBE /* Event.swift in Sources */,
 				4AEBE6F225637F7C005F6CBE /* Event+Link.swift in Sources */,
@@ -888,8 +964,11 @@
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
+				4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */,
+				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
 				4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */,
+				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AB027482570FFE700974D08 /* Colors.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
@@ -905,12 +984,15 @@
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
-				4A27A86B255F09230018186B /* UniversityInfoService.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
 				4A7A56F3256BF5BF00E2CE0F /* UnionsTableViewController.swift in Sources */,
+				4AB5A67725A1091900518FEA /* ApiUniversityInfo.swift in Sources */,
 				4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */,
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
+				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
+				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
+				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
 				4A07DDA4255D94800022B6A9 /* GroupDay.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
 				4A238C06257AC9B500CB861E /* UIImageView+loadImage.swift in Sources */,
@@ -923,14 +1005,16 @@
 				4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */,
 				4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */,
 				4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */,
+				4AB5A6A925A1E3A500518FEA /* UnionResponse.swift in Sources */,
 				4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */,
 				4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */,
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
 				4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */,
-				4A27A867255F088E0018186B /* ApiUniversityInfo.swift in Sources */,
 				4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */,
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,
+				4AB5A69D25A1D2A100518FEA /* ResponseHandler.swift in Sources */,
+				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RGroup+newObject.swift in Sources */,
 				4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */,

@@ -92,6 +92,8 @@ extension EventsViewController: EventsCellDelegate {
         let cell = self.collectionView.cellForItem(at: indexPath) as! ShortEventCollectionViewCell
         cell.set(mode: cellMode)
         
+        // Если хочу добавить анимации, то нужно отдавание размера ячейки в collectionView так
+        // как вот тут в проекте https://www.raywenderlich.com/9106-iglistkit-tutorial-better-uicollectionviews
         UIView.performWithoutAnimation {
             DispatchQueue.main.async {
                 self.collectionView.collectionViewLayout.invalidateLayout()

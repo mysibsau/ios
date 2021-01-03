@@ -9,8 +9,10 @@ import Foundation
 
 struct Building {
     
-    let coast: Coast
     let name: String
+    let type: String
+    let address: String
+    let coast: Coast
     let urlTo2gis: URL
     
     

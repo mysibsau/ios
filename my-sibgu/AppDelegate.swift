@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Для инициализации реалма сразу
         _ = DataManager.shared
         
+        ApiCampusService().loadInstitutes { buidlings in
+            print(buidlings)
+        }
+        
         return true
     }
 
