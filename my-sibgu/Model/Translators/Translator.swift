@@ -110,4 +110,20 @@ class Translator {
         return Group(id: rGroup.id, name: rGroup.name, email: rGroup.email)
     }
     
+    func converteBuildings(from rBuildings: [RBuilding]) -> [Building] {
+        var builginds = [Building]()
+        rBuildings.forEach { rBuilding in
+            let building = Building(name: rBuilding.name,
+                                    type: rBuilding.type,
+                                    address: rBuilding.address,
+                                    coast: rBuilding.coast == 0 ? .left : .right,
+                                    urlTo2gis: URL(
+                                        string: rBuilding.urlTo2gis
+                                            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
+            builginds.append(building)
+        }
+        
+        return builginds
+    }
+    
 }

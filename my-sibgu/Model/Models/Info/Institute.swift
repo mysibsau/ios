@@ -9,8 +9,8 @@ import Foundation
 
 struct Institute {
     
+    let name: String
     let shortName: String
-    let longName: String
     
     let director: Director
     let departments: [Department]

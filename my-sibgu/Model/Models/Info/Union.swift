@@ -10,12 +10,16 @@ import Foundation
 struct Union {
     
     let name: String
-    let logoUrl: URL
-    let headPhotoUrl: URL
-    let headName: String
+    let shortName: String?
+    let leaderRank: String?
+    let leaderName: String
     let address: String
     let phone: String
-    let vkGroupUrl: URL
-    let vkPageUrl: URL
+    let groupVkUrl: URL
+    let leaderPageVkUrl: URL?
+    let about: String?
+    
+    let logoUrl: URL
+    let leaderPhotoUrl: URL
     
 }

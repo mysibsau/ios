@@ -31,17 +31,17 @@ class DepartmentsViewController: UIViewController {
         setupTitleLabel()
         setupStackView()
         
-        let v1 = DepartmentView(department: Institute.Department(name: "dep1", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
-        let v2 = DepartmentView(department: Institute.Department(name: "dep2", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
-        let v3 = DepartmentView(department: Institute.Department(name: "dep3", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
-        let v4 = DepartmentView(department: Institute.Department(name: "dep4", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
-        let v5 = DepartmentView(department: Institute.Department(name: "dep5", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
-        
-        stackView.addArrangedSubview(v1)
-        stackView.addArrangedSubview(v2)
-        stackView.addArrangedSubview(v3)
-        stackView.addArrangedSubview(v4)
-        stackView.addArrangedSubview(v5)
+//        let v1 = DepartmentView(department: Institute.Department(name: "dep1", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
+//        let v2 = DepartmentView(department: Institute.Department(name: "dep2", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
+//        let v3 = DepartmentView(department: Institute.Department(name: "dep3", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
+//        let v4 = DepartmentView(department: Institute.Department(name: "dep4", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
+//        let v5 = DepartmentView(department: Institute.Department(name: "dep5", headDepartmentName: "dep1name", address: "dep1adress", phone: "dep1phone", email: "dep1email"))
+//        
+//        stackView.addArrangedSubview(v1)
+//        stackView.addArrangedSubview(v2)
+//        stackView.addArrangedSubview(v3)
+//        stackView.addArrangedSubview(v4)
+//        stackView.addArrangedSubview(v5)
     }
     
     

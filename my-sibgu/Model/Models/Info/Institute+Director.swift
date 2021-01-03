@@ -11,11 +11,10 @@ extension Institute {
     
     struct Director {
         let name: String
+        let imageUrl: URL
         let address: String
         let phone: String
         let email: String
-        let headPhotoUrl: URL
-        let logoUrl: URL
     }
     
 }

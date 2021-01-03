@@ -11,10 +11,10 @@ extension Institute {
     
     struct Department {
         let name: String
-        let headDepartmentName: String
+        let leaderName: String
         let address: String
-        let phone: String
-        let email: String
+        let phone: String?
+        let email: String?
     }
     
 }

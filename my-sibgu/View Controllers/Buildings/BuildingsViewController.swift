@@ -9,8 +9,10 @@ import UIKit
 
 class BuildingsViewController: UITableViewController {
     
-//    private var universityInfoService = UniversityInfoService()
+    private let campusService = CampusService()
     private var buildings = [[Building]]()
+    
+    private let activityIndicatorView = UIActivityIndicatorView(style: .medium)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +29,34 @@ class BuildingsViewController: UITableViewController {
             BuildingTableViewCell.self,
             forCellReuseIdentifier: BuildingTableViewCell.reuseIdentifier
         )
+        
+        loadBuildings()
     }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Корпуса")
+    }
+    
+    private func loadBuildings() {
+        self.startActivityIndicator()
+        campusService.getBuildings { optionalBuildings in
+            guard let b = optionalBuildings else {
+                self.stopActivityIndicator()
+                return
+            }
+            
+            self.buildings = [
+                b.filter({ $0.coast == .right }).sorted(by: { $0.name < $1.name }),
+                b.filter({ $0.coast == .left }).sorted(by: { $0.name < $1.name })
+            ]
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.stopActivityIndicator()
+            }
+        }
     }
 
 }
@@ -41,21 +65,22 @@ class BuildingsViewController: UITableViewController {
 extension BuildingsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return buildings.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return buildings[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BuildingTableViewCell.reuseIdentifier, for: indexPath) as! BuildingTableViewCell
-        cell.buildingNameLabel.text = "A\(indexPath.row)"
-        cell.buildingTypeLabel.text = "Корпус"
-        cell.buildingAddressLabel.text = "Адресс большой вроде Красраб хуе мое е е е е \(indexPath.row)"
-        if indexPath.section == 0 {
+        let building = buildings[indexPath.section][indexPath.row]
+        cell.buildingNameLabel.text = building.name
+        cell.buildingTypeLabel.text = building.type
+        cell.buildingAddressLabel.text = building.address
+        if building.coast == .right {
             cell.separateLine.backgroundColor = Colors.sibsuBlue
-        } else if indexPath.section == 1 {
+        } else if building.coast == .left {
             cell.separateLine.backgroundColor = Colors.sibsuGreen
         }
         return cell
@@ -69,6 +94,18 @@ extension BuildingsViewController {
         } else {
             return nil
         }
+    }
+    
+}
+
+extension BuildingsViewController: AnimatingNetworkProtocol {
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        return activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        return view
     }
     
 }

@@ -17,7 +17,7 @@ class DataManager {
     // данные пользователя
     private let userRealm: Realm
     
-    init() {
+    private init() {
         let fileManager = FileManager.default
         
         // создаем дирректорию для приложения в Documents
@@ -185,6 +185,98 @@ extension DataManager {
         guard let timetable = optionalTimetable else { return }
         try? userRealm.write {
             userRealm.delete(timetable, cascading: true)
+        }
+    }
+    
+}
+
+// MARK: - Campus
+extension DataManager {
+    
+    func getInstitutes() -> [RInstitute] {
+        let institutes = downloadedRealm.objects(RInstitute.self)
+        return Array(institutes)
+    }
+    
+    func getUnions() -> [RUnion] {
+        let usions = downloadedRealm.objects(RUnion.self)
+        return Array(usions)
+    }
+    
+    func getBuildings() -> [RBuilding] {
+        let buildings = downloadedRealm.objects(RBuilding.self)
+        return Array(buildings)
+    }
+    
+    func write(institutes: [RInstitute]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(institutes, update: .all)
+        }
+    }
+    
+    func write(institute: RInstitute) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(institute, update: .all)
+        }
+    }
+    
+    func write(unions: [RUnion]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(unions, update: .all)
+        }
+    }
+    
+    func write(union: RInstitute) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(union, update: .all)
+        }
+    }
+    
+    func write(buildings: [RBuilding]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(buildings, update: .all)
+        }
+    }
+    
+    func write(building: RBuilding) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(building, update: .all)
+        }
+    }
+    
+    func delete(institutes: [RInstitute]) {
+        try? downloadedRealm.write {
+            downloadedRealm.delete(institutes, cascading: true)
+        }
+    }
+    
+    func delete(institute: RInstitute) {
+        try? downloadedRealm.write {
+            downloadedRealm.delete(institute, cascading: true)
+        }
+    }
+    
+    func delete(unions: [RUnion]) {
+        try? downloadedRealm.write {
+            downloadedRealm.delete(unions, cascading: true)
+        }
+    }
+    
+    func delete(union: RInstitute) {
+        try? downloadedRealm.write {
+            downloadedRealm.delete(union, cascading: true)
+        }
+    }
+    
+    func delete(buildings: [RBuilding]) {
+        try? downloadedRealm.write {
+            downloadedRealm.delete(buildings, cascading: true)
+        }
+    }
+    
+    func delete(building: RBuilding) {
+        try? downloadedRealm.write {
+            downloadedRealm.delete(building, cascading: true)
         }
     }
     

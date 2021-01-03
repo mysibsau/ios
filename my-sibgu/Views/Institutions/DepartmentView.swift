@@ -84,7 +84,7 @@ class DepartmentView: UIView {
         self.init()
         self.department = department
         self.nameLabel.text = department.name
-        self.headNameLabel.text = "Зав. кафедрой: \(department.headDepartmentName)"
+//        self.headNameLabel.text = "Зав. кафедрой: \(department.headDepartmentName)"
         self.addressLabel.text = "Адрес: \(department.address)"
         self.phoneLabel.text = "Телефон: \(department.phone)"
         self.emailLabel.text = "Email: \(department.email)"
