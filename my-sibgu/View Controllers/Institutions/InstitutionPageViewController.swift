@@ -48,6 +48,7 @@ class InstitutionPageViewController: UIPageViewController {
         
         let vc1 = PersonViewController(director: institute.director!)
         let vc2 = DepartmentsViewController()
+        vc2.departments = institute.departments
         let vc3 = PersonViewController(soviet: institute.soviet!)
         
         institutionsViewControllers = [

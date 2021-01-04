@@ -12,21 +12,21 @@ class ApiCampusService {
     private let baseApiService = BaseApiService()
     
     
-    func loadBuidlings(completion: @escaping (_ buildings: [RBuilding]?) -> Void) {
+    func loadBuidlings(completion: @escaping (_ buildings: [BuidlingResponse]?) -> Void) {
         load([BuidlingResponse].self, url: ApiCampus.buildings(), completion: completion)
     }
     
-    func loadUnions(completion: @escaping (_ unions: [RUnion]?) -> Void) {
+    func loadUnions(completion: @escaping (_ unions: [UnionResponse]?) -> Void) {
         load([UnionResponse].self, url: ApiCampus.unions(), completion: completion)
     }
     
-    func loadInstitutes(completion: @escaping (_ institutes: [RInstitute]?) -> Void) {
+    func loadInstitutes(completion: @escaping (_ institutes: [InstituteResponse]?) -> Void) {
         load([InstituteResponse].self, url: ApiCampus.institutes(), completion: completion)
     }
     
     
-    private func load<T: Decodable>(_ type: [T].Type, url: URL, completion: @escaping ([T.RealmProtocol]?) -> Void) where T: ConvertableToRealm {
-        var downloadedObjects: [T.RealmProtocol]?
+    private func load<T: Decodable>(_ type: [T].Type, url: URL, completion: @escaping ([T]?) -> Void) where T: ConvertableToRealm {
+        var downloadedObjects: [T]?
         
         let completionOperation = BlockOperation {
             completion(downloadedObjects)
@@ -39,7 +39,7 @@ class ApiCampusService {
                 return
             }
             
-            downloadedObjects = response.map { $0.converteToRealm() }
+            downloadedObjects = response
         }
         
         completionOperation.addDependency(downloadingOperation)

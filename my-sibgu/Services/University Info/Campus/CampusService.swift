@@ -11,19 +11,22 @@ class CampusService {
     
     func getBuildings(completion: @escaping ([Building]?) -> Void) {
         let buildingsFromLocal = DataManager.shared.getBuildings()
-        ApiCampusService().loadBuidlings { optionalBuildings in
+        ApiCampusService().loadBuidlings { buildingsResponse in
             // Если не вышло скачать - пытаемся показать то, что сохранено в БД
-            guard let buidlingsFromApi = optionalBuildings else {
+            guard let buildingsResponse = buildingsResponse else {
                 if buildingsFromLocal.isEmpty {
                     completion(nil)
                 } else {
-                    completion(Translator.shared.converteBuildings(from: buildingsFromLocal))
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.converteBuildings(from: buildingsFromLocal))
+                    }
                 }
                 return
             }
             
             DispatchQueue.main.async {
-                DataManager.shared.write(buildings: buidlingsFromApi)
+                let buildings = buildingsResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(buildings: buildings)
                 let buildingsForShowing = DataManager.shared.getBuildings()
                 completion(Translator.shared.converteBuildings(from: buildingsForShowing))
             }
@@ -32,18 +35,22 @@ class CampusService {
     
     func getInstitutes(completion: @escaping ([Institute]?) -> Void) {
         let institutsFromLocal = DataManager.shared.getInstitutes()
-        ApiCampusService().loadInstitutes { optionalInstitutes in
-            guard let institutesFromApi = optionalInstitutes else {
+        ApiCampusService().loadInstitutes { institutesResponse in
+            guard let institutesResponse = institutesResponse else {
                 if institutsFromLocal.isEmpty {
                     completion(nil)
                 } else {
-                    completion(Translator.shared.converteInstitutes(from: institutsFromLocal))
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.converteInstitutes(from: institutsFromLocal))
+                    }
                 }
                 return
             }
+            print("fine3")
             
             DispatchQueue.main.async {
-                DataManager.shared.write(institutes: institutesFromApi)
+                let institutes = institutesResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(institutes: institutes)
                 let institutesForShowing = DataManager.shared.getInstitutes()
                 completion(Translator.shared.converteInstitutes(from: institutesForShowing))
             }

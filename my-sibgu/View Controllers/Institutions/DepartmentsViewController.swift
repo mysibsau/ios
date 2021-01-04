@@ -8,6 +8,8 @@
 import UIKit
 
 class DepartmentsViewController: UIViewController {
+    
+    var departments: [Institute.Department]!
 
     // MARK: - Private UI
     private let titleLabel: UILabel = {
@@ -42,6 +44,11 @@ class DepartmentsViewController: UIViewController {
 //        stackView.addArrangedSubview(v3)
 //        stackView.addArrangedSubview(v4)
 //        stackView.addArrangedSubview(v5)
+        
+        for department in departments {
+            let v = DepartmentView(department: department)
+            stackView.addArrangedSubview(v)
+        }
     }
     
     

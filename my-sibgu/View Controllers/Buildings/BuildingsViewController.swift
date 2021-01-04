@@ -43,7 +43,9 @@ class BuildingsViewController: UITableViewController {
         self.startActivityIndicator()
         campusService.getBuildings { optionalBuildings in
             guard let b = optionalBuildings else {
-                self.stopActivityIndicator()
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                }
                 return
             }
             
