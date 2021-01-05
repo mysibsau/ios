@@ -9,6 +9,7 @@ import Foundation
 
 struct Union {
     
+    let id: Int
     let name: String
     let shortName: String?
     let leaderRank: String?

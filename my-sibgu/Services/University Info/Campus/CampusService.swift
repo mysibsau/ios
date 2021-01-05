@@ -56,8 +56,27 @@ class CampusService {
         }
     }
     
-    func getUnions(completion: @escaping ([Union]) -> Void) {
-        
+    func getUnions(completion: @escaping ([Union]?) -> Void) {
+        let unionsFromLocal = DataManager.shared.getUnions()
+        ApiCampusService().loadUnions { unionsResopnse in
+            guard let unionsResponse = unionsResopnse else {
+                if unionsFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.converteUnions(from: unionsFromLocal))
+                    }
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let unions = unionsResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(unions: unions)
+                let unionsForShowing = DataManager.shared.getUnions()
+                completion(Translator.shared.converteUnions(from: unionsForShowing))
+            }
+        }
     }
     
 }

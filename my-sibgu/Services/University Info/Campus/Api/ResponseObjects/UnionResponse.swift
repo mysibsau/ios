@@ -9,6 +9,7 @@ import Foundation
 
 class UnionResponse: Decodable {
     
+    let id: Int
     let name: String
     let shortName: String?
     let leaderRank: String?
@@ -25,6 +26,7 @@ class UnionResponse: Decodable {
     let leaderPhotoUrl: String
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case shortName = "short_name"
         case leaderRank = "leader_rank"
@@ -44,6 +46,7 @@ extension UnionResponse: ConvertableToRealm {
 
     func converteToRealm() -> RUnion {
         let u = RUnion()
+        u.id = self.id
         u.name = self.name
         u.shortName = self.shortName
         u.leaderRank = self.leaderRank

@@ -17,6 +17,9 @@ class UnionTableViewCell: UITableViewCell {
     
     let logoImageView: UIImageView = {
         let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFill
+        imgView.backgroundColor = .systemBackground
+        imgView.clipsToBounds = true
         return imgView
     }()
     
@@ -25,7 +28,6 @@ class UnionTableViewCell: UITableViewCell {
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 2
-//        label.lineBreakMode = .byWordWrapping
         label.textColor = Colors.sibsuBlue
         return label
     }()
@@ -51,11 +53,11 @@ class UnionTableViewCell: UITableViewCell {
             make.top.bottom.leading.equalToSuperview().inset(5)
             make.size.equalTo(60)
         }
+        logoImageView.layer.borderColor = UIColor.gray.cgColor
+        logoImageView.layer.borderWidth = 1
         logoImageView.layer.cornerRadius = 30
         // (60 + 5 + 5) / 2 = 35
         containerView.layer.cornerRadius = 35
-        
-        logoImageView.backgroundColor = .purple
         
         
         containerView.addSubview(nameLabel)
@@ -68,6 +70,13 @@ class UnionTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        logoImageView.cancelImageLoad()
+        logoImageView.image = nil
     }
 
 }

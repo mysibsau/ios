@@ -180,4 +180,26 @@ class Translator {
         return soviet
     }
     
+    func converteUnions(from rUnions: [RUnion]) -> [Union] {
+        var unions = [Union]()
+        rUnions.forEach { rUnion in
+            let union = Union(
+                id: rUnion.id,
+                name: rUnion.name,
+                shortName: rUnion.shortName,
+                leaderRank: rUnion.leaderRank,
+                leaderName: rUnion.leaderName,
+                address: rUnion.address,
+                phone: rUnion.phone,
+                groupVkUrl: URL(string: rUnion.groupVkUrl)!,
+                leaderPageVkUrl: rUnion.leaderPageVkUrl != nil ? URL(string: rUnion.leaderPageVkUrl!) : nil,
+                about: rUnion.about,
+                logoUrl: ApiUniversityInfo.download(with: rUnion.logoUrl),
+                leaderPhotoUrl: ApiUniversityInfo.download(with: rUnion.leaderPhotoUrl)
+            )
+            unions.append(union)
+        }
+        return unions
+    }
+    
 }

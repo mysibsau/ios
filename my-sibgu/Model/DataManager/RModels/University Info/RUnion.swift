@@ -10,6 +10,7 @@ import RealmSwift
 
 class RUnion: Object {
     
+    @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var shortName: String? = nil
     @objc dynamic var leaderRank: String? = nil
@@ -27,7 +28,7 @@ class RUnion: Object {
     
     
     override class func primaryKey() -> String? {
-        return "name"
+        return "id"
     }
     
 }

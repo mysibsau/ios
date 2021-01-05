@@ -23,4 +23,8 @@ struct ApiCampus {
         return URL(string: "\(address)/campus/unions/")!
     }
     
+//    static func joinToUnion(unionId: Int) -> URLRequest {
+//        
+//    }
+    
 }

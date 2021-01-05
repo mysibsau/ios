@@ -18,8 +18,9 @@ class PersonViewController: UIViewController {
     // Верхняя часть
     private let backgroupndImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemBackground
+        imageView.clipsToBounds = true
         return imageView
     }()
     private let separateLine = UIView()
@@ -89,6 +90,32 @@ class PersonViewController: UIViewController {
     convenience init(union: Union) {
         self.init()
         self.person = union
+        
+        self.navigationItem.setCenterTitle(title: union.shortName ?? union.name)
+        
+        if let about = union.about {
+            addLabel(text: "Описание")
+            addTextView(text: about)
+        }
+        addLabel(text: union.leaderRank ?? "Председатель")
+        addView(text: union.address, imageName: "place")
+        addButton(text: union.phone, imageName: "phone", action: {
+            guard let url = URL(string: "tel://\(union.phone.removingWhitespaces())") else { return }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        })
+        addButton(text: "Группа VK", imageName: "vk", action: {
+            if UIApplication.shared.canOpenURL(union.groupVkUrl) {
+                UIApplication.shared.open(union.groupVkUrl)
+            }
+        })
+        addButton(text: "Подать заявку", imageName: "add_circle", action: {
+            print("hello")
+        })
+        
+        backgroupndImageView.loadImage(at: union.logoUrl)
+        personImageView.loadImage(at: union.leaderPhotoUrl)
     }
 
     override func viewDidLoad() {
@@ -111,7 +138,7 @@ class PersonViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setCenterTitle(title: "ИИТК")
+//        self.navigationItem.setCenterTitle(title: "ИИТК")
     }
     
     private func setupScrollView() {
@@ -183,6 +210,7 @@ class PersonViewController: UIViewController {
     private func addTextView(text: String) {
         let textView = CenterLabelView(text: text)
         textView.centerLabel.textAlignment = .left
+        textView.centerLabel.font = UIFont.systemFont(ofSize: 16)
         addArrangedSubviewToStackView(view: textView, additionalPading: 0)
     }
     
