@@ -46,7 +46,6 @@ class CampusService {
                 }
                 return
             }
-            print("fine3")
             
             DispatchQueue.main.async {
                 let institutes = institutesResponse.map { $0.converteToRealm() }

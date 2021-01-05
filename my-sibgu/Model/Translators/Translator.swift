@@ -145,8 +145,7 @@ class Translator {
         guard let rDirector = rDirector else { return nil }
         let director = Institute.Director(
             name: rDirector.name,
-            imageUrl: URL(string: rDirector.imageUrl
-                            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+            imageUrl: ApiUniversityInfo.download(with: rDirector.imageUrl),
             address: rDirector.address,
             phone: rDirector.phone,
             email: rDirector.email
@@ -172,8 +171,7 @@ class Translator {
     private func converteSoviet(from rSoviet: RSoviet?) -> Institute.Soviet? {
         guard let rSoviet = rSoviet else { return nil }
         let soviet = Institute.Soviet(
-            imageUrl: URL(string: rSoviet.imageUrl
-                            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+            imageUrl: ApiUniversityInfo.download(with: rSoviet.imageUrl),
             leaderName: rSoviet.leaderName,
             address: rSoviet.address,
             phone: rSoviet.phone,

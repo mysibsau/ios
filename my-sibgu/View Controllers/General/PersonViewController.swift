@@ -16,9 +16,19 @@ class PersonViewController: UIViewController {
     private let contentView = UIView()
     
     // Верхняя часть
-    private let backgroupndImageView = UIImageView()
+    private let backgroupndImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .systemBackground
+        return imageView
+    }()
     private let separateLine = UIView()
-    private let personImageView = UIImageView()
+    private let personImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .systemBackground
+        return imageView
+    }()
     
     // Нижняя часть
     private let stackView: UIStackView = {
@@ -35,18 +45,45 @@ class PersonViewController: UIViewController {
     convenience init(soviet: Institute.Soviet) {
         self.init()
         self.person = soviet
-        addNameView(name: "Имя Отчество")
-        addView(text: "Hello ghbdtn t,fyf ye ,kz vse ze xorocho hehehe lol cheburek", imageName: "place")
-        addView(text: "+7 (929) 333-84-54", imageName: "phone")
-        addView(text: "tema2707@icloud.com", imageName: "email")
-        addButton(text: "button", imageName: "phone", action: {
-            print("helloooo")
-        })
+        // add views
+        addLabel(text: "Председатель студ. совета")
+        addNameView(name: soviet.leaderName)
+        addView(text: soviet.address, imageName: "place")
+        if let email = soviet.email {
+            addView(text: email, imageName: "email")
+        }
+        if let phone = soviet.phone {
+            addButton(text: phone, imageName: "phone", action: {
+                guard let url = URL(string: "tel://\(phone.removingWhitespaces())") else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })
+        }
+        
+        // start loading image
+        backgroupndImageView.image = UIImage(named: "back_main_logo")
+        personImageView.loadImage(at: soviet.imageUrl)
     }
     
     convenience init(director: Institute.Director) {
         self.init()
         self.person = director
+        // Add views
+        addLabel(text: "Директор института")
+        addNameView(name: director.name)
+        addView(text: director.address, imageName: "place")
+        addView(text: director.email, imageName: "email")
+        addButton(text: director.phone, imageName: "phone", action: {
+            guard let url = URL(string: "tel://\(director.phone.removingWhitespaces())") else { return }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        // Set image
+        backgroupndImageView.image = UIImage(named: "back_main_logo")
+        personImageView.loadImage(at: director.imageUrl)
     }
     
     convenience init(union: Union) {
@@ -67,8 +104,6 @@ class PersonViewController: UIViewController {
         setupSepareteLine()
         setupDirectorImage()
 
-        setupPositionLabel()
-
         setupStackView()
     }
     
@@ -76,7 +111,7 @@ class PersonViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setCenterTitle(title: "ИИТК") // ТУТ ПОМЕНЯТЬ НА ИНСТУТУТ
+        self.navigationItem.setCenterTitle(title: "ИИТК")
     }
     
     private func setupScrollView() {
@@ -97,17 +132,11 @@ class PersonViewController: UIViewController {
     }
     
     private func setupBackgroundImage() {
-        let image: UIImage? = nil
-        backgroupndImageView.image = image
-        
         contentView.addSubview(backgroupndImageView)
         backgroupndImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.3)
         }
-        
-        // пока нет фоточек будет цвет
-        backgroupndImageView.backgroundColor = .green
     }
     
     private func setupSepareteLine() {
@@ -121,9 +150,6 @@ class PersonViewController: UIViewController {
     }
     
     private func setupDirectorImage() {
-        let image: UIImage? = nil
-        personImageView.image = image
-        
         contentView.addSubview(personImageView)
         personImageView.snp.makeConstraints { make in
             make.size.equalTo(150)
@@ -133,53 +159,54 @@ class PersonViewController: UIViewController {
         personImageView.layer.cornerRadius = 75
         personImageView.layer.borderWidth = 2
         personImageView.layer.borderColor = UIColor.gray.cgColor
+        personImageView.clipsToBounds = true
         personImageView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
-        
-        personImageView.backgroundColor = .red
-    }
-    
-    private func setupPositionLabel() {
-        contentView.addSubview(positionLabel)
-        positionLabel.snp.makeConstraints { make in
-            make.top.equalTo(personImageView.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(20)
-        }
-        
-        positionLabel.font = UIFont.systemFont(ofSize: 23, weight: .medium)
-        positionLabel.textColor = Colors.sibsuBlue
-        
-        positionLabel.text = "Директор института"
     }
     
     private func setupStackView() {
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(positionLabel.snp.bottom).offset(30)
+            make.top.equalTo(personImageView.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-40)
         }
+    }
+    
+    private func addLabel(text: String) {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 23, weight: .medium)
+        label.textColor = Colors.sibsuBlue
+        label.text = text
+        addArrangedSubviewToStackView(view: label, additionalPading: 0)
+    }
+    
+    private func addTextView(text: String) {
+        let textView = CenterLabelView(text: text)
+        textView.centerLabel.textAlignment = .left
+        addArrangedSubviewToStackView(view: textView, additionalPading: 0)
     }
     
     private func addNameView(name: String) {
         let nameView = CenterLabelView(text: name)
-        addArrangedSubviewToStackView(view: nameView)
+        addArrangedSubviewToStackView(view: nameView, additionalPading: 0)
     }
     
     private func addView(text: String, imageName: String) {
         let v = ImageAndLabelView(text: text, imageName: imageName)
-        addArrangedSubviewToStackView(view: v)
+        addArrangedSubviewToStackView(view: v, additionalPading: 0)
     }
     
     private func addButton(text: String, imageName: String, action: @escaping () -> Void) {
         let b = ImageAndLabelButton(text: text, imageName: imageName, action: action)
-        addArrangedSubviewToStackView(view: b)
+        addArrangedSubviewToStackView(view: b, additionalPading: 0)
     }
     
-    private func addArrangedSubviewToStackView(view: UIView) {
+    
+    private func addArrangedSubviewToStackView(view: UIView, additionalPading: Int) {
         let wrapView = UIView()
         wrapView.addSubview(view)
         view.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview().inset(20 + additionalPading)
             make.top.bottom.equalToSuperview()
         }
         

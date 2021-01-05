@@ -9,14 +9,14 @@ import Foundation
 
 struct ApiCampus {
     
-    static let address = ApiUniversityInfo.address
+    static let address = ApiUniversityInfo.addressByVersion
     
     static func buildings() -> URL {
         return URL(string: "\(address)/campus/buildings/")!
     }
     
     static func institutes() -> URL {
-        return URL(string: "\(address)/campus/institute/")!
+        return URL(string: "\(address)/campus/institutes/")!
     }
     
     static func unions() -> URL {
