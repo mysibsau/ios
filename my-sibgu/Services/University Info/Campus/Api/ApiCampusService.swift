@@ -21,7 +21,6 @@ class ApiCampusService {
                                                                                vk: vk,
                                                                                hobby: hobby,
                                                                                reason: reason)) { data, response, error in
-            print("fine1")
             guard error == nil else {
                 completion(false)
                 return

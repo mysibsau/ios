@@ -63,6 +63,7 @@
 		4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A16482574F25D00F5D652 /* UIColor+hex.swift */; };
 		4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */; };
 		4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */; };
+		4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */; };
 		4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819925755DD0006C1F6C /* AlertingViewController.swift */; };
 		4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819D25755FBB006C1F6C /* AlertView.swift */; };
 		4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */; };
@@ -170,6 +171,7 @@
 		4A5A16482574F25D00F5D652 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+shortDateFormatter.swift"; sourceTree = "<group>"; };
 		4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTimetableViewController.swift; sourceTree = "<group>"; };
+		4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToUnionViewController.swift; sourceTree = "<group>"; };
 		4A75819925755DD0006C1F6C /* AlertingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingViewController.swift; sourceTree = "<group>"; };
 		4A75819D25755FBB006C1F6C /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7A56F2256BF5BF00E2CE0F /* UnionsTableViewController.swift */,
+				4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */,
 			);
 			path = Unions;
 			sourceTree = "<group>";
@@ -1032,6 +1035,7 @@
 				4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */,
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
 				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
+				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,

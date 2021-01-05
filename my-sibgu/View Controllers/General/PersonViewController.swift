@@ -111,7 +111,9 @@ class PersonViewController: UIViewController {
             }
         })
         addButton(text: "Подать заявку", imageName: "add_circle", action: {
-            print("hello")
+            let vc = JoinToUnionViewController()
+            vc.unionId = union.id
+            self.present(vc, animated: true, completion: nil)
         })
         
         backgroupndImageView.loadImage(at: union.logoUrl)

@@ -46,7 +46,9 @@ class UnionsTableViewController: UITableViewController {
     
     private func loadUnions() {
         self.startActivityIndicator()
+        print("fine1")
         campusService.getUnions { optionalUnions in
+            print("fine2")
             guard let u = optionalUnions else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()
@@ -54,9 +56,8 @@ class UnionsTableViewController: UITableViewController {
                 return
             }
             
-            self.unions = u.sorted(by: { $0.name < $1.name })
-            
             DispatchQueue.main.async {
+                self.unions = u.sorted(by: { $0.name < $1.name })
                 self.tableView.reloadData()
                 self.stopActivityIndicator()
             }
