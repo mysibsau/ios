@@ -10,7 +10,36 @@ import Foundation
 class ApiCampusService {
     
     private let baseApiService = BaseApiService()
+
     
+    func postJoinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String,
+                         completion: @escaping (_ isDone: Bool) -> Void) {
+        let task = baseApiService.session.dataTask(with: ApiCampus.joinToUnion(unionId: unionId,
+                                                                               fio: fio,
+                                                                               institute: institute,
+                                                                               group: group,
+                                                                               vk: vk,
+                                                                               hobby: hobby,
+                                                                               reason: reason)) { data, response, error in
+            print("fine1")
+            guard error == nil else {
+                completion(false)
+                return
+            }
+
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                (200..<300).contains(httpResponse.statusCode)
+            else {
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
+        
+        task.resume()
+    }
     
     func loadBuidlings(completion: @escaping (_ buildings: [BuidlingResponse]?) -> Void) {
         load([BuidlingResponse].self, url: ApiCampus.buildings(), completion: completion)

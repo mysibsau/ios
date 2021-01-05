@@ -23,8 +23,19 @@ struct ApiCampus {
         return URL(string: "\(address)/campus/unions/")!
     }
     
-//    static func joinToUnion(unionId: Int) -> URLRequest {
-//        
-//    }
+    static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
+        let parameters = [
+            "fio": fio,
+            "institute": institute,
+            "group": group,
+            "vk": vk,
+            "hobby": hobby,
+            "reason": reason
+        ]
+        
+        let request = ApiUniversityInfo.multipartRequest(withUrl: URL(string: "\(address)/campus/unions/join/\(unionId)/")!, parameters: parameters)
+        
+        return request
+    }
     
 }
