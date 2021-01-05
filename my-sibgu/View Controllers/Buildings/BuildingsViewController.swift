@@ -100,6 +100,18 @@ extension BuildingsViewController {
     
 }
 
+// MARK: - Table View Delegate
+extension BuildingsViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let building = buildings[indexPath.section][indexPath.row]
+        if UIApplication.shared.canOpenURL(building.urlTo2gis) {
+            UIApplication.shared.open(building.urlTo2gis)
+        }
+    }
+    
+}
+
 extension BuildingsViewController: AnimatingNetworkProtocol {
     
     func animatingActivityIndicatorView() -> UIActivityIndicatorView {
