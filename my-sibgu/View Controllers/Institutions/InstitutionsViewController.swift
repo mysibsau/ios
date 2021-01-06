@@ -21,6 +21,8 @@ class InstitutionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemBackground
+        
         tableView.register(
             InstituteTableViewCell.self,
             forCellReuseIdentifier: InstituteTableViewCell.reuseIdentifier

@@ -31,6 +31,11 @@ class EventsViewController: UICollectionViewController {
         return UIEdgeInsets(top: 2 * spacing, left: spacing, bottom: 2 * spacing, right: spacing)
     }()
     
+    override func loadView() {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .systemBackground
+    }
+    
     
     // MARK: - Life Circle -
     override func viewDidLoad() {

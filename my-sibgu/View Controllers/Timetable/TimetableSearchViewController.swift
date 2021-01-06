@@ -19,11 +19,12 @@ class TimetableSearchViewController: UIViewController {
     private var filtredGroups = [Group]()
     
     // MARK: Outlets
-    @IBOutlet weak var contentView: UIView!
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     
-    @IBOutlet weak var wrapView: UIView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var goToTimetableButton: UIButton!
+    private let wrapView = UIView()
+    private let textField = UITextField()
+    private let goToTimetableButton = UIButton()
     
     // MARK: Private UI
     private let alertView = AlertView()
@@ -34,6 +35,11 @@ class TimetableSearchViewController: UIViewController {
     // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemBackground
+        
+        setupScrollView()
+        setupTextFieldAndButton()
         
         configureNabBar()
         setupLessonTimetable()
@@ -83,6 +89,53 @@ class TimetableSearchViewController: UIViewController {
     
     
     // MARK: - Setup Views
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        // убираем полосы прокрутки
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalTo(view)
+        }
+    }
+    
+    private func setupTextFieldAndButton() {
+        // add wrapView to contentView
+        contentView.addSubview(wrapView)
+        wrapView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
+        
+        // configure wrapView
+        wrapView.addSubview(goToTimetableButton)
+        goToTimetableButton.snp.makeConstraints { make in
+            make.trailing.top.bottom.equalToSuperview()
+            make.width.equalTo(70)
+        }
+        
+        wrapView.addSubview(textField)
+        textField.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalTo(goToTimetableButton.snp.leading)
+        }
+        
+        wrapView.backgroundColor = .systemBackground
+        textField.borderStyle = .none
+        textField.placeholder = "Введите группу / преподавателя"
+        textField.font = UIFont.systemFont(ofSize: 14)
+        goToTimetableButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        goToTimetableButton.addTarget(self, action: #selector(goToTimetableButtonTapped), for: .touchUpInside)
+    }
+    
     private func setupLessonTimetable() {
         let vStackView = UIStackView()
         vStackView.axis = .vertical
@@ -236,7 +289,7 @@ class TimetableSearchViewController: UIViewController {
         view.endEditing(true)
     }
 
-    @IBAction func goToTimetableButtonTapped(_ sender: UIButton) {
+    @objc private func goToTimetableButtonTapped() {
         guard let group = filtredGroups.first else { return }
         
         showTimetable(forGroup: group, animated: true)
