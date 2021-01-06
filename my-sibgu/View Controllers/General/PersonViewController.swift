@@ -91,13 +91,19 @@ class PersonViewController: UIViewController {
         self.init()
         self.person = union
         
+        dump(union)
+        
         self.navigationItem.setCenterTitle(title: union.shortName ?? union.name)
         
         if let about = union.about {
             addLabel(text: "Описание")
             addTextView(text: about)
         }
-        addLabel(text: union.leaderRank ?? "Председатель")
+        if let leaderRank = union.leaderRank, !leaderRank.isEmpty {
+            addLabel(text: leaderRank)
+        } else {
+            addLabel(text: "Председатель")
+        }
         addView(text: union.address, imageName: "place")
         addButton(text: union.phone, imageName: "phone", action: {
             guard let url = URL(string: "tel://\(union.phone.removingWhitespaces())") else { return }
@@ -204,6 +210,8 @@ class PersonViewController: UIViewController {
     private func addLabel(text: String) {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 23, weight: .medium)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.textColor = Colors.sibsuBlue
         label.text = text
         addArrangedSubviewToStackView(view: label, additionalPading: 0)
