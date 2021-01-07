@@ -69,8 +69,15 @@ class TappableLabel: UILabel {
         let charsInLineTapped = layoutManager.characterIndex(for: rightMostPointInLineTapped, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
 
         // ignore taps past the end of the current line
-        if characterTapped < charsInLineTapped {
+        //
+        // MARK: Убрал эту проверку потому что не корректно работает со стикерами
+        // MARK: не знаю, насколько это плохо, что я убрал проверку, но стикеры работать стали (:
+        //
+        // MARK: Нашел минус:
+        // MARK: если ссылка переносится на другую строку - то тап проходит и в конце строки,
+        // MARK: то пререйдет по ссылке
+//        if characterTapped < charsInLineTapped {
             onCharacterTapped?(self, characterTapped)
-        }
+//        }
     }
 }
