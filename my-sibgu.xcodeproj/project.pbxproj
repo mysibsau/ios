@@ -64,6 +64,8 @@
 		4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */; };
 		4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */; };
 		4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */; };
+		4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736BFB25A63F380040BBED /* String+linkAttributedString.swift */; };
+		4A736C0325A722670040BBED /* TappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736C0225A722670040BBED /* TappableLabel.swift */; };
 		4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819925755DD0006C1F6C /* AlertingViewController.swift */; };
 		4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75819D25755FBB006C1F6C /* AlertView.swift */; };
 		4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */; };
@@ -172,6 +174,8 @@
 		4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+shortDateFormatter.swift"; sourceTree = "<group>"; };
 		4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTimetableViewController.swift; sourceTree = "<group>"; };
 		4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToUnionViewController.swift; sourceTree = "<group>"; };
+		4A736BFB25A63F380040BBED /* String+linkAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+linkAttributedString.swift"; sourceTree = "<group>"; };
+		4A736C0225A722670040BBED /* TappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableLabel.swift; sourceTree = "<group>"; };
 		4A75819925755DD0006C1F6C /* AlertingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertingViewController.swift; sourceTree = "<group>"; };
 		4A75819D25755FBB006C1F6C /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -597,6 +601,7 @@
 		4A75819C25755FB1006C1F6C /* General */ = {
 			isa = PBXGroup;
 			children = (
+				4A736C0225A722670040BBED /* TappableLabel.swift */,
 				4A54F56A259A033600184BC0 /* CopyableLabel.swift */,
 				4A75819D25755FBB006C1F6C /* AlertView.swift */,
 				4A238C15257B74F700CB861E /* CenterLabelView.swift */,
@@ -646,6 +651,7 @@
 				4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */,
 				4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */,
 				4A5A16482574F25D00F5D652 /* UIColor+hex.swift */,
+				4A736BFB25A63F380040BBED /* String+linkAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -998,6 +1004,7 @@
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
+				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
 				4A7A56F3256BF5BF00E2CE0F /* UnionsTableViewController.swift in Sources */,
@@ -1046,6 +1053,7 @@
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */,
+				4A736C0325A722670040BBED /* TappableLabel.swift in Sources */,
 				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
