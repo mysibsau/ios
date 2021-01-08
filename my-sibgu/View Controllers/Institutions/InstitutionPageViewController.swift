@@ -43,8 +43,7 @@ class InstitutionPageViewController: UIPageViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         
-        navigationItem.title = institute.shortName
-        
+        self.navigationItem.setCenterTitle(title: institute.shortName)
         
         let vc1 = PersonViewController(director: institute.director!)
         let vc2 = DepartmentsViewController()

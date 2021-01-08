@@ -113,6 +113,7 @@
 		4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181225700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift */; };
 		4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */; };
 		4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181E2570203100DD7D9F /* PopableViewController.swift */; };
+		4AF3EC5625A888B600AF0367 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5525A888B600AF0367 /* FileHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,6 +224,7 @@
 		4AEE181225700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+configurateNavigationBar.swift"; sourceTree = "<group>"; };
 		4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+configurate.swift"; sourceTree = "<group>"; };
 		4AEE181E2570203100DD7D9F /* PopableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopableViewController.swift; sourceTree = "<group>"; };
+		4AF3EC5525A888B600AF0367 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				4A238BFF257AC25100CB861E /* ImageLoader.swift */,
 				4A238C02257AC73200CB861E /* UIImageLoader.swift */,
 				4A238C05257AC9B500CB861E /* UIImageView+loadImage.swift */,
+				4AF3EC5525A888B600AF0367 /* FileHelper.swift */,
 			);
 			path = "UIImageView+loadImage";
 			sourceTree = "<group>";
@@ -1060,6 +1063,7 @@
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
 				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
 				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
+				4AF3EC5625A888B600AF0367 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

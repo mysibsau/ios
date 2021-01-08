@@ -91,8 +91,6 @@ class PersonViewController: UIViewController {
         self.init()
         self.person = union
         
-        dump(union)
-        
         self.navigationItem.setCenterTitle(title: union.shortName ?? union.name)
         
         if let about = union.about {

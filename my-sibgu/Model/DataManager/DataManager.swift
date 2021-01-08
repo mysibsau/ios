@@ -17,6 +17,8 @@ class DataManager {
     // данные пользователя
     private let userRealm: Realm
     
+    private let filesDirectory: URL
+    
     private init() {
         let fileManager = FileManager.default
         
@@ -48,6 +50,16 @@ class DataManager {
         
         downloadedRealm = try! Realm(configuration: downloadedConfig)
         userRealm = try! Realm(configuration: userConfig)
+        
+        // Создание папки для файлов
+        filesDirectory = sibsuURL.appendingPathComponent("files")
+        if !fileManager.fileExists(atPath: filesDirectory.path) {
+            do {
+                try fileManager.createDirectory(at: filesDirectory, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                NSLog("Не выходит сосздать папку для файлов")
+            }
+        }
         
         // deleteTimetable(forGroupId: 1)
         // saveToInitData()
@@ -278,6 +290,15 @@ extension DataManager {
         try? downloadedRealm.write {
             downloadedRealm.delete(building, cascading: true)
         }
+    }
+    
+}
+
+
+extension DataManager {
+    
+    var filesDirectoryUrl: URL {
+        return filesDirectory
     }
     
 }

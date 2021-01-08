@@ -30,7 +30,7 @@ class UIImageLoader {
                     imageView.image = image
                 }
             } catch {
-                // Handle the error
+                NSLog("Не загрузилась фоточка по \(url)")
             }
         }
         
