@@ -18,17 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Для инициализации реалма сразу
         _ = DataManager.shared
         
-//        ApiCampusService().postJoinToUnion(
-//            unionId: 13,
-//            fio: "Член ч ч",
-//            institute: "Членинститут",
-//            group: "групчлен",
-//            vk: "вкчлен",
-//            hobby: "хоббичлен",
-//            reason: "реклончлен") { isDone in
-//            print(isDone)
-//        }
-        
         return true
     }
 

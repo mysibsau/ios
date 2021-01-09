@@ -114,11 +114,13 @@ class PersonViewController: UIViewController {
                 UIApplication.shared.open(union.groupVkUrl)
             }
         })
-        addButton(text: "Подать заявку", imageName: "add_circle", action: {
-            let vc = JoinToUnionViewController()
-            vc.unionId = union.id
-            self.present(vc, animated: true, completion: nil)
-        })
+        if union.leaderPageVkUrl != nil {
+            addButton(text: "Подать заявку", imageName: "add_circle", action: {
+                let vc = JoinToUnionViewController()
+                vc.unionId = union.id
+                self.present(vc, animated: true, completion: nil)
+            })
+        }
         
         backgroupndImageView.loadImage(at: union.logoUrl)
         personImageView.loadImage(at: union.leaderPhotoUrl)

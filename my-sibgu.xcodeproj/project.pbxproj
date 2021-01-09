@@ -117,6 +117,9 @@
 		4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */; };
 		4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */; };
 		4AF3EC6325A9A63700AF0367 /* Buildings+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC6225A9A63700AF0367 /* Buildings+Equatable.swift */; };
+		4AF3EC6925AA136300AF0367 /* ApiEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC6825AA136300AF0367 /* ApiEvents.swift */; };
+		4AF3EC6C25AA161500AF0367 /* ApiEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC6B25AA161500AF0367 /* ApiEventsService.swift */; };
+		4AF3EC7025AA16A700AF0367 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC6F25AA16A700AF0367 /* EventResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +234,9 @@
 		4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Union+Equatable.swift"; sourceTree = "<group>"; };
 		4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institution+Equatable.swift"; sourceTree = "<group>"; };
 		4AF3EC6225A9A63700AF0367 /* Buildings+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Buildings+Equatable.swift"; sourceTree = "<group>"; };
+		4AF3EC6825AA136300AF0367 /* ApiEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEvents.swift; sourceTree = "<group>"; };
+		4AF3EC6B25AA161500AF0367 /* ApiEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEventsService.swift; sourceTree = "<group>"; };
+		4AF3EC6F25AA16A700AF0367 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -508,6 +514,7 @@
 			children = (
 				4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */,
 				4AB5A66E25A0FC7A00518FEA /* Campus */,
+				4AF3EC6625AA12DC00AF0367 /* Events */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -863,6 +870,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4AF3EC6625AA12DC00AF0367 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				4AF3EC6725AA135200AF0367 /* Api */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		4AF3EC6725AA135200AF0367 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4AF3EC6E25AA169400AF0367 /* ResponseObjects */,
+				4AF3EC6825AA136300AF0367 /* ApiEvents.swift */,
+				4AF3EC6B25AA161500AF0367 /* ApiEventsService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4AF3EC6E25AA169400AF0367 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4AF3EC6F25AA16A700AF0367 /* EventResponse.swift */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
 		8202915E8C5B172EB76B9257 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,6 +1029,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF3EC6925AA136300AF0367 /* ApiEvents.swift in Sources */,
 				4AB5A67D25A10DA500518FEA /* ApiCampusService.swift in Sources */,
 				4A07DDED255DA4450022B6A9 /* GroupTimetableResponse.swift in Sources */,
 				4A07DDE5255DA3B70022B6A9 /* ApiTimetable.swift in Sources */,
@@ -1060,6 +1094,7 @@
 				4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */,
 				4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */,
 				4A07DDD9255DA0D90022B6A9 /* DataManager.swift in Sources */,
+				4AF3EC6C25AA161500AF0367 /* ApiEventsService.swift in Sources */,
 				4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */,
 				4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */,
 				4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */,
@@ -1096,6 +1131,7 @@
 				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
+				4AF3EC7025AA16A700AF0367 /* EventResponse.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
 				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
 				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
@@ -1254,7 +1290,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.art-off.my-sibgu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1274,7 +1310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.art-off.my-sibgu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
