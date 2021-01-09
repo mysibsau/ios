@@ -102,9 +102,9 @@ class JoinToUnionViewController: UIViewController {
     
     private func setupNavigationItems() {
         let navItem = UINavigationItem(title: "Заявка на вступление")
-
-        navItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissVC))
-        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+        
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "Закрыть", style: .plain, target: self, action: #selector(dismissVC))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "Отправить", style: .done, target: self, action: #selector(doneAction))
         
         navBar.items = [navItem]
     }
