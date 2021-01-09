@@ -22,7 +22,6 @@ class UnionsTableViewController: UITableViewController {
         
         configurateTableView()
         
-//        loadUnions()
         setUnions()
     }
     
@@ -60,7 +59,6 @@ class UnionsTableViewController: UITableViewController {
     }
     
     private func loadUnions() {
-//        self.startActivityIndicator()
         print("fine1")
         campusService.getUnions { optionalUnions in
             print("fine2")

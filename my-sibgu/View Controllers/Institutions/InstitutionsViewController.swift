@@ -34,7 +34,7 @@ class InstitutionsViewController: UIViewController {
         
         setupTableView()
         
-        loadInstitutes()
+        setInstitutes()
     }
     
     private func setupNavBar() {
@@ -72,8 +72,21 @@ class InstitutionsViewController: UIViewController {
         }
     }
     
+    private func setInstitutes() {
+        let institutesFromLocal = campusService.getInstitutesFromLocal()
+        
+        // Если в БД были объединения - то показываем их и без спинера качаем и обновляем
+        if let institutesFromLocal = institutesFromLocal {
+            set(institutions: institutesFromLocal)
+            loadInstitutes()
+        // Если в БД ничего нет - то показываем спинет и качаем
+        } else {
+            self.startActivityIndicator()
+            loadInstitutes()
+        }
+    }
+    
     private func loadInstitutes() {
-        self.startActivityIndicator()
         campusService.getInstitutes { optionalInstitutes in
             guard let i = optionalInstitutes else {
                 DispatchQueue.main.async {
@@ -83,10 +96,17 @@ class InstitutionsViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self.indtitutions = i.sorted(by: { $0.shortName < $1.shortName })
-                self.tableView.reloadData()
+                self.set(institutions: i)
                 self.stopActivityIndicator()
             }
+        }
+    }
+    
+    private func set(institutions: [Institute]) {
+        let newInstitutions = institutions.sorted(by: { $0.name < $1.name })
+        if newInstitutions != self.indtitutions {
+            self.indtitutions = newInstitutions
+            self.tableView.reloadData()
         }
     }
 

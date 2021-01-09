@@ -17,6 +17,6 @@ struct Institute {
     let soviet: Soviet?
     
     // потом изменится (в ходе программы)
-    static var universityLogoUrl = URL(string: "https://timetable.mysibsau.ru")
+//    static var universityLogoUrl = URL(string: "https://timetable.mysibsau.ru")
     
 }

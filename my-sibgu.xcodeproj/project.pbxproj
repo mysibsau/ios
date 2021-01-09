@@ -115,6 +115,7 @@
 		4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181E2570203100DD7D9F /* PopableViewController.swift */; };
 		4AF3EC5625A888B600AF0367 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5525A888B600AF0367 /* FileHelper.swift */; };
 		4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */; };
+		4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +228,7 @@
 		4AEE181E2570203100DD7D9F /* PopableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopableViewController.swift; sourceTree = "<group>"; };
 		4AF3EC5525A888B600AF0367 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Union+Equatable.swift"; sourceTree = "<group>"; };
+		4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institution+Equatable.swift"; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 		4A238C0E257B5C4100CB861E /* Institutions */ = {
 			isa = PBXGroup;
 			children = (
+				4AF3EC5D25A99F2500AF0367 /* Extensions */,
 				4A7A56EF256BF57B00E2CE0F /* InstitutionsViewController.swift */,
 				4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */,
 				4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */,
@@ -841,6 +844,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4AF3EC5D25A99F2500AF0367 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8202915E8C5B172EB76B9257 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1006,6 +1017,7 @@
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AB027482570FFE700974D08 /* Colors.swift in Sources */,
+				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
