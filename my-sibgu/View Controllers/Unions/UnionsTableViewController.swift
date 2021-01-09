@@ -77,10 +77,8 @@ class UnionsTableViewController: UITableViewController {
     }
     
     private func set(unions: [Union]) {
-        print("hello")
         let newUnions = unions.sorted(by: { $0.name < $1.name })
         if newUnions != self.unions {
-            print("hello1")
             self.unions = newUnions
             self.tableView.reloadData()
         }

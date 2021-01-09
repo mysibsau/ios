@@ -30,7 +30,8 @@ class BuildingsViewController: UITableViewController {
             forCellReuseIdentifier: BuildingTableViewCell.reuseIdentifier
         )
         
-        loadBuildings()
+        setBuildings()
+//        loadBuildings()
     }
     
     private func setupNavBar() {
@@ -39,8 +40,22 @@ class BuildingsViewController: UITableViewController {
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Корпуса")
     }
     
+    private func setBuildings() {
+        let buildingsFromLocal = campusService.getBuildingsFromLocal()
+        
+        // Если в БД были объединения - то показываем их и без спинера качаем и обновляем
+        if let buildingsFromLocal = buildingsFromLocal {
+            set(buildings: buildingsFromLocal)
+            loadBuildings()
+        // Если в БД ничего нет - то показываем спинет и качаем
+        } else {
+            self.startActivityIndicator()
+            loadBuildings()
+        }
+    }
+    
     private func loadBuildings() {
-        self.startActivityIndicator()
+//        self.startActivityIndicator()
         campusService.getBuildings { optionalBuildings in
             guard let b = optionalBuildings else {
                 DispatchQueue.main.async {
@@ -49,16 +64,38 @@ class BuildingsViewController: UITableViewController {
                 return
             }
             
-            self.buildings = [
-                b.filter({ $0.coast == .right }).sorted(by: { $0.name < $1.name }),
-                b.filter({ $0.coast == .left }).sorted(by: { $0.name < $1.name })
-            ]
-            
+//            self.buildings = [
+//                b.filter({ $0.coast == .right }).sorted(by: { $0.name < $1.name }),
+//                b.filter({ $0.coast == .left }).sorted(by: { $0.name < $1.name })
+//            ]
+//
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.set(buildings: b)
                 self.stopActivityIndicator()
             }
         }
+    }
+    
+    private func set(buildings: [Building]) {
+        let newRightBuildings = buildings.filter({ $0.coast == .right }).sorted(by: { $0.name < $1.name })
+        let newLeftBuildings = buildings.filter({ $0.coast == .left }).sorted(by: { $0.name < $1.name })
+        
+        // В массиве 2 элемента: 0 - правый берег, 1 - левый
+        // Если размер массива не равен 2 - там ничего нет и можно заполнять
+        if self.buildings.count == 2 {
+            if newRightBuildings != self.buildings[0], newLeftBuildings != self.buildings[1] {
+                self.buildings = [
+                    newRightBuildings,
+                    newLeftBuildings
+                ]
+            }
+        } else {
+            self.buildings = [
+                newRightBuildings,
+                newLeftBuildings
+            ]
+        }
+        self.tableView.reloadData()
     }
 
 }

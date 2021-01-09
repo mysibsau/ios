@@ -9,6 +9,8 @@ import Foundation
 
 class DateTimeService {
     
+    private let calendar = Calendar(identifier: .iso8601)
+    
     private let daysOfWeek = [
         0: "Понедельник",
         1: "Вторник",
@@ -24,7 +26,7 @@ class DateTimeService {
     }
     
     func currWeekNumber() -> Int {
-        let currWeek = Calendar.current.component(.weekOfYear, from: Date.today)
+        let currWeek = calendar.component(.weekOfYear, from: Date.today)
         let firstWeekIsEven = UserDefaultsConfig.firstWeekIsEven
         
         // проверяем, четная ли текущая неделя
@@ -35,7 +37,7 @@ class DateTimeService {
     }
     
     func currWeekdayNumber() -> Int {
-        var currWeekdayNumber = Calendar.current.component(.weekday, from: Date.today) - 1
+        var currWeekdayNumber = calendar.component(.weekday, from: Date.today) - 1
         
         if currWeekdayNumber < 1 {
             currWeekdayNumber += 7
@@ -54,8 +56,6 @@ class DateTimeService {
             /// если не четная, то понедельник четной недели - следующий
             evenWeekMonday = Date.today.next(.monday)
         }
-        
-        let calendar = Calendar.current
         
         var weekdaysAndDates = [(String, String)]()
         
@@ -81,8 +81,6 @@ class DateTimeService {
             /// если не четная, то понедельник четной недели - следующий
             evenWeekMonday = Date.today.next(.monday)
         }
-        
-        let calendar = Calendar.current
         
         var weekdaysAndDates = [(String, String)]()
         

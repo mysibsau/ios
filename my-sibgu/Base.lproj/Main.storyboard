@@ -54,7 +54,7 @@
         <scene sceneID="4YW-lW-veY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5k7-4U-MJH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="События" id="DTg-2i-8Kx"/>
+                    <tabBarItem key="tabBarItem" title="События" image="events_tab" id="DTg-2i-8Kx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uP0-bn-eck">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -83,7 +83,7 @@
         <scene sceneID="ZrM-8Z-Pf8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KBI-61-1e5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Корпуса" id="aUq-0L-8Mw"/>
+                    <tabBarItem key="tabBarItem" title="Корпуса" image="map_tab" id="aUq-0L-8Mw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bc3-kb-ggu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -121,7 +121,7 @@
         <scene sceneID="WF3-S3-Zo7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cX2-qr-xn3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Расписание" id="GIJ-jN-Jvv"/>
+                    <tabBarItem key="tabBarItem" title="Расписание" image="timetable_tab" id="GIJ-jN-Jvv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Aw-rb-Qef">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -136,11 +136,11 @@
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="93.75"/>
         </scene>
-        <!--Item-->
+        <!--Институты-->
         <scene sceneID="67D-XS-f0w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7SV-p7-cdT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5Q6-FT-9lg"/>
+                    <tabBarItem key="tabBarItem" title="Институты" image="institutes_tab" id="5Q6-FT-9lg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R3p-Uk-PV1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -155,11 +155,11 @@
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="810.9375"/>
         </scene>
-        <!--Item-->
+        <!--Объединения-->
         <scene sceneID="Joz-S6-68U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m3t-1J-yRk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oW2-hH-Bgy"/>
+                    <tabBarItem key="tabBarItem" title="Объединения" image="unions_tab" id="oW2-hH-Bgy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arl-6a-RYy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -195,6 +195,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="events_tab" width="25.333333969116211" height="25"/>
+        <image name="institutes_tab" width="28.666666030883789" height="24.333333969116211"/>
+        <image name="map_tab" width="24" height="23.666666030883789"/>
+        <image name="timetable_tab" width="25.333333969116211" height="25"/>
+        <image name="unions_tab" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
