@@ -22,7 +22,8 @@ class UnionsTableViewController: UITableViewController {
         
         configurateTableView()
         
-        loadUnions()
+//        loadUnions()
+        setUnions()
     }
     
     
@@ -44,8 +45,22 @@ class UnionsTableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
     
+    private func setUnions() {
+        let unionsFromLocal = campusService.getUnionsFromLocal()
+        
+        // Если в БД были объединения - то показываем их и без спинера качаем и обновляем
+        if let unionsFromLocal = unionsFromLocal {
+            set(unions: unionsFromLocal)
+            loadUnions()
+        // Если в БД ничего нет - то показываем спинет и качаем
+        } else {
+            self.startActivityIndicator()
+            loadUnions()
+        }
+    }
+    
     private func loadUnions() {
-        self.startActivityIndicator()
+//        self.startActivityIndicator()
         print("fine1")
         campusService.getUnions { optionalUnions in
             print("fine2")
@@ -57,10 +72,19 @@ class UnionsTableViewController: UITableViewController {
             }
             
             DispatchQueue.main.async {
-                self.unions = u.sorted(by: { $0.name < $1.name })
-                self.tableView.reloadData()
+                self.set(unions: u)
                 self.stopActivityIndicator()
             }
+        }
+    }
+    
+    private func set(unions: [Union]) {
+        print("hello")
+        let newUnions = unions.sorted(by: { $0.name < $1.name })
+        if newUnions != self.unions {
+            print("hello1")
+            self.unions = newUnions
+            self.tableView.reloadData()
         }
     }
     

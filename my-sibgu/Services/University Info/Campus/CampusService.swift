@@ -9,6 +9,41 @@ import Foundation
 
 class CampusService {
     
+    // MARK: - From Local -
+    func getBuildingsFromLocal() -> [Building]? {
+        let rBuildings = DataManager.shared.getBuildings()
+        let buildings = Translator.shared.converteBuildings(from: rBuildings)
+        
+        if buildings.isEmpty {
+            return nil
+        } else {
+            return buildings
+        }
+    }
+    
+    func getInstitutesFromLocal() -> [Institute]? {
+        let rInstitutes = DataManager.shared.getInstitutes()
+        let institutes = Translator.shared.converteInstitutes(from: rInstitutes)
+        
+        if institutes.isEmpty {
+            return nil
+        } else {
+            return institutes
+        }
+    }
+    
+    func getUnionsFromLocal() -> [Union]? {
+        let rUnions = DataManager.shared.getUnions()
+        let unions = Translator.shared.converteUnions(from: rUnions)
+        
+        if unions.isEmpty {
+            return nil
+        } else {
+            return unions
+        }
+    }
+    
+    // MARK: - From Local or From API -
     func getBuildings(completion: @escaping ([Building]?) -> Void) {
         let buildingsFromLocal = DataManager.shared.getBuildings()
         ApiCampusService().loadBuidlings { buildingsResponse in
