@@ -155,6 +155,10 @@ class PersonViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         
+        scrollView.alwaysBounceVertical = false
+        scrollView.alwaysBounceHorizontal = false
+        scrollView.bounces = false
+        
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
@@ -163,8 +167,6 @@ class PersonViewController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.trailing.equalTo(view)
-//            make.edges.equalToSuperview()
-//            make.width.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
