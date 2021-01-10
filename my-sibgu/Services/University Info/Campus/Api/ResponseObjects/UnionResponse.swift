@@ -19,6 +19,7 @@ class UnionResponse: Decodable {
     let groupVkUrl: String
     let leaderPageVkUrl: String?
     let about: String?
+    let rank: Int
     
     // ссылка на лого
     let logoUrl: String
@@ -38,6 +39,7 @@ class UnionResponse: Decodable {
         case logoUrl = "logo"
         case leaderPhotoUrl = "photo"
         case about
+        case rank
     }
     
 }
@@ -58,6 +60,7 @@ extension UnionResponse: ConvertableToRealm {
         u.logoUrl = self.logoUrl
         u.leaderPhotoUrl = self.leaderPhotoUrl
         u.about = self.about
+        u.rank = self.rank
         return u
     }
     

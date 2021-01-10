@@ -77,7 +77,7 @@ class UnionsTableViewController: UITableViewController {
     }
     
     private func set(unions: [Union]) {
-        let newUnions = unions.sorted(by: { $0.name < $1.name })
+        let newUnions = unions.sorted(by: { $0.rank < $1.rank })
         if newUnions != self.unions {
             self.unions = newUnions
             self.tableView.reloadData()
@@ -93,7 +93,6 @@ class UnionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: UnionTableViewCell.reuseIdentifier, for: indexPath) as! UnionTableViewCell
         
         let union = unions[indexPath.row]
-        
         
         cell.nameLabel.text = union.name
         cell.logoImageView.loadImage(at: union.logoUrl)

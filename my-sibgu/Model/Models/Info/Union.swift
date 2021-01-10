@@ -19,6 +19,7 @@ struct Union {
     let groupVkUrl: URL
     let leaderPageVkUrl: URL?
     let about: String?
+    let rank: Int
     
     let logoUrl: URL
     let leaderPhotoUrl: URL

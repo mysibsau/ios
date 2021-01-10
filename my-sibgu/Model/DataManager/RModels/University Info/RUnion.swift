@@ -20,6 +20,7 @@ class RUnion: Object {
     @objc dynamic var groupVkUrl = ""
     @objc dynamic var leaderPageVkUrl: String? = nil
     @objc dynamic var about: String? = nil
+    @objc dynamic var rank: Int = 0
     
     // ссылка на лого
     @objc dynamic var logoUrl = ""

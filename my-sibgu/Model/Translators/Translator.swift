@@ -194,6 +194,7 @@ class Translator {
                 groupVkUrl: URL(string: rUnion.groupVkUrl)!,
                 leaderPageVkUrl: rUnion.leaderPageVkUrl != nil ? URL(string: rUnion.leaderPageVkUrl!) : nil,
                 about: rUnion.about,
+                rank: rUnion.rank,
                 logoUrl: ApiUniversityInfo.download(with: rUnion.logoUrl),
                 leaderPhotoUrl: ApiUniversityInfo.download(with: rUnion.leaderPhotoUrl)
             )
