@@ -197,7 +197,7 @@ class JoinToUnionViewController: UIViewController {
     // MARK: - Methods For Notification -
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-        var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        guard var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
         var contentInset = self.scrollView.contentInset
