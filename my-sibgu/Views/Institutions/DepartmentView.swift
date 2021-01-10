@@ -84,10 +84,10 @@ class DepartmentView: UIView {
         self.init()
         self.department = department
         self.nameLabel.text = department.name
-        self.headNameLabel.text = "Зав. кафедрой: \(department.leaderName)"
-        self.addressLabel.text = "Адрес: \(department.address)"
-        self.phoneLabel.text = "Телефон: \(department.phone ?? "-")"
-        self.emailLabel.text = "Email: \(department.email ?? "-")"
+        self.headNameLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Зав. кафедрой: \(department.leaderName)")
+        self.addressLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Адрес: \(department.address)")
+        self.phoneLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Телефон: \(department.phone ?? "-")")
+        self.emailLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Email: \(department.email ?? "-")")
     }
     
     override init(frame: CGRect) {
@@ -174,6 +174,19 @@ class DepartmentView: UIView {
         }
         
         self.layoutIfNeeded()
+    }
+    
+    private func attrStringWithBoldTextBeforeColon(text: String) -> NSMutableAttributedString {
+        let attrString = NSMutableAttributedString(string: text)
+        
+        let regex = try! NSRegularExpression(pattern: ".*:")
+        guard let range = regex.firstMatch(in: text, range: NSRange(text.startIndex..., in: text))?.range else {
+            return attrString
+        }
+        
+        attrString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 14), range: range)
+        
+        return attrString
     }
 
 }

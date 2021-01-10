@@ -163,6 +163,8 @@ class PersonViewController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.trailing.equalTo(view)
+//            make.edges.equalToSuperview()
+//            make.width.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
