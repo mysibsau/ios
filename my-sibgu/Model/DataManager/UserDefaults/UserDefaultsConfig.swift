@@ -9,17 +9,21 @@ import Foundation
 
 struct UserDefaultsConfig {
     
-    @UserDefaultsWrapper(key: "com.my-sibsu.user.timetableType", defaultValue: String?(nil))
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.timetableType", defaultValue: String?(nil))
     static var timetableType: String?
 
-    @UserDefaultsWrapper(key: "com.my-sibsu.user.timetableId", defaultValue: Int?(nil))
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.timetableId", defaultValue: Int?(nil))
     static var timetableId: Int?
     
-    @UserDefaultsWrapper(key: "com.my-sibsu.system.firstWeekIsEven", defaultValue: false)
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.firstWeekIsEven", defaultValue: false)
     static var firstWeekIsEven: Bool
     
     // MARK: Hash для определения версии таблиц
-    @UserDefaultsWrapper(key: "com.my-sibsu.system.groupsHash", defaultValue: String?(nil))
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.groupsHash", defaultValue: String?(nil))
     static var groupsHash: String?
+    
+    // MARK: UUID для API
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.uuidForApi", defaultValue: String?(nil))
+    static var uuidForApi: String?
     
 }

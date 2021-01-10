@@ -12,7 +12,11 @@ private typealias EventsDataSource = [(event: Event, mode: EventCellMode)]
 
 class EventsViewController: UICollectionViewController {
     
-    private var data: EventsDataSource!
+    private let informingService = InformingService()
+    
+    private var data: EventsDataSource = []
+    
+    private let activityIndicatorView = UIActivityIndicatorView()
     
     // MARK: - Collection View Layout
     private let spacing: CGFloat = 6
@@ -45,8 +49,7 @@ class EventsViewController: UICollectionViewController {
         
         configureCollectionView()
         
-        data = Common.getEvents().map { ($0, EventCellMode.short) }
-        collectionView.reloadData()
+        loadEvents()
     }
     
     
@@ -69,8 +72,32 @@ class EventsViewController: UICollectionViewController {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
+    private func loadEvents() {
+        self.startActivityIndicator()
+        informingService.getEvents { events in
+            guard let e = events else {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                }
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.set(events: e)
+                self.stopActivityIndicator()
+            }
+        }
+    }
+    
+    private func set(events: [Event]) {
+//        self.data = events.map { ($0, .short) }
+        self.data = events.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
+        self.collectionView.reloadData()
+    }
+    
     // MARK: - Collection View Data Source -
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(data.count)
         return data.count
     }
     
@@ -80,12 +107,24 @@ class EventsViewController: UICollectionViewController {
         let event = data[indexPath.row]
         cell.delegate = self
         cell.indexPath = indexPath
-        cell.set(mode: event.mode, image: UIImage(named: event.event.author), text: event.event.postTest)
-//        cell.set(mode: event.mode, image: nil, text: event.event.postTest)
+        cell.set(mode: event.mode, image: event.event.logo, text: event.event.text)
         
         return cell
     }
 
+}
+
+
+extension EventsViewController: AnimatingNetworkProtocol {
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        return activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        return collectionView
+    }
+    
 }
 
 

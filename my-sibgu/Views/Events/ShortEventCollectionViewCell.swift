@@ -116,7 +116,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Setters -
-    func set(mode: EventCellMode, image: UIImage?, text: String?) {
+    func set(mode: EventCellMode, image: Image?, text: String?) {
         set(mode: mode)
         
         if let text = text {
@@ -135,16 +135,16 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
             textLabel.attributedText = nil
         }
         
-        imageView.image = image
-        
         if let image = image {
             let width = self.width.constant
-            // я хз почему это работает, но оно дает нужную высоту по такой формуле ... УЖС
-            let height = floor((image.size.height * width) / image.size.width)// * 0.99
+            
+            let height = floor((CGFloat(image.height) * width) / CGFloat(image.width))
             
             imageView.snp.updateConstraints { update in
                 update.height.equalTo(height)
             }
+            
+            imageView.loadImage(at: image.url)
         }
     }
     

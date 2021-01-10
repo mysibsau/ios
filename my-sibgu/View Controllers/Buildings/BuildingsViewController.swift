@@ -55,7 +55,6 @@ class BuildingsViewController: UITableViewController {
     }
     
     private func loadBuildings() {
-//        self.startActivityIndicator()
         campusService.getBuildings { optionalBuildings in
             guard let b = optionalBuildings else {
                 DispatchQueue.main.async {
@@ -63,12 +62,7 @@ class BuildingsViewController: UITableViewController {
                 }
                 return
             }
-            
-//            self.buildings = [
-//                b.filter({ $0.coast == .right }).sorted(by: { $0.name < $1.name }),
-//                b.filter({ $0.coast == .left }).sorted(by: { $0.name < $1.name })
-//            ]
-//
+
             DispatchQueue.main.async {
                 self.set(buildings: b)
                 self.stopActivityIndicator()

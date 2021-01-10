@@ -14,9 +14,22 @@ struct ApiUniversityInfo {
     static let addressByVersion = "\(address)/v2"
     
     static func download(with postfix: String) -> URL {
-        let url = URL(string: "\(address)\(postfix)"
-                        .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+        let url = URL(string: "\(address)\(postfix)")!
+                        //.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
         return url
+    }
+    
+    static var currDeviceStringUuid: String {
+        let uuidForApi = UserDefaultsConfig.uuidForApi
+        
+        // Если уже генерировал - отдам, иначе сгенерирую и отдам
+        if let u = uuidForApi {
+            return u
+        } else {
+            let newUuid = UUID().uuidString
+            UserDefaultsConfig.uuidForApi = newUuid
+            return newUuid
+        }
     }
     
 }
