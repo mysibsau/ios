@@ -80,7 +80,7 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         
         // MARK: Тут можно обработать пуши, когда они прилетают, а пользователь щас не юзает приложение
-        
+        // MARK: Или оно срабатывает, когда чел тыкает на уведомление, даже внутри приложения
         print("hello2222")
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
