@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3219003E42857FBE59711B96 /* Pods_NotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */; };
 		3A8079B519B64497324F2163 /* Pods_my_sibgu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */; };
 		4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD84255D89020022B6A9 /* AppDelegate.swift */; };
 		4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD86255D89020022B6A9 /* SceneDelegate.swift */; };
@@ -122,9 +123,39 @@
 		4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC7A25AA47DE00AF0367 /* Event.swift */; };
 		4AF3EC7F25AA47EA00AF0367 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC7E25AA47EA00AF0367 /* Image.swift */; };
 		4AF3EC8625AA4A5400AF0367 /* InformingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC8525AA4A5400AF0367 /* InformingService.swift */; };
+		4AF3ECA125AC3E2000AF0367 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AF3ECA025AC3E2000AF0367 /* GoogleService-Info.plist */; };
+		4AF3ECAD25AC845100AF0367 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECAC25AC845100AF0367 /* NotificationService.swift */; };
+		4AF3ECB125AC845100AF0367 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AF3ECAA25AC845100AF0367 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4AF3ECAF25AC845100AF0367 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A07DD79255D89020022B6A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AF3ECA925AC845100AF0367;
+			remoteInfo = NotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4AF3ECB525AC845100AF0367 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4AF3ECB125AC845100AF0367 /* NotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.release.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.debug.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.debug.xcconfig"; sourceTree = "<group>"; };
 		4A07DD81255D89020022B6A9 /* my-sibgu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-sibgu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A07DD84255D89020022B6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A07DD86255D89020022B6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,7 +272,14 @@
 		4AF3EC7A25AA47DE00AF0367 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4AF3EC7E25AA47EA00AF0367 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4AF3EC8525AA4A5400AF0367 /* InformingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformingService.swift; sourceTree = "<group>"; };
+		4AF3ECA025AC3E2000AF0367 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4AF3ECA425AC761C00AF0367 /* my-sibgu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "my-sibgu.entitlements"; sourceTree = "<group>"; };
+		4AF3ECAA25AC845100AF0367 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF3ECAC25AC845100AF0367 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		4AF3ECAE25AC845100AF0367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePushNotificationManager.swift; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
+		5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +293,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4AF3ECA725AC845100AF0367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3219003E42857FBE59711B96 /* Pods_NotificationService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -262,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				4A07DD83255D89020022B6A9 /* my-sibgu */,
+				4AF3ECAB25AC845100AF0367 /* NotificationService */,
 				4A07DD82255D89020022B6A9 /* Products */,
 				8202915E8C5B172EB76B9257 /* Pods */,
 				A8A48640C5B50D94DE66D6A0 /* Frameworks */,
@@ -272,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				4A07DD81255D89020022B6A9 /* my-sibgu.app */,
+				4AF3ECAA25AC845100AF0367 /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,7 +327,9 @@
 		4A07DD83255D89020022B6A9 /* my-sibgu */ = {
 			isa = PBXGroup;
 			children = (
+				4AF3ECA425AC761C00AF0367 /* my-sibgu.entitlements */,
 				4A91D6882573CB3F00EA1E47 /* Common.swift */,
+				4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */,
 				4A07DD84255D89020022B6A9 /* AppDelegate.swift */,
 				4A07DD86255D89020022B6A9 /* SceneDelegate.swift */,
 				4A7A56E5256BF4A900E2CE0F /* View Controllers */,
@@ -291,6 +341,7 @@
 				4A07DD8D255D89050022B6A9 /* Assets.xcassets */,
 				4A07DD8F255D89050022B6A9 /* LaunchScreen.storyboard */,
 				4A07DD92255D89050022B6A9 /* Info.plist */,
+				4AF3ECA025AC3E2000AF0367 /* GoogleService-Info.plist */,
 			);
 			path = "my-sibgu";
 			sourceTree = "<group>";
@@ -902,11 +953,22 @@
 			path = ResponseObjects;
 			sourceTree = "<group>";
 		};
+		4AF3ECAB25AC845100AF0367 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				4AF3ECAC25AC845100AF0367 /* NotificationService.swift */,
+				4AF3ECAE25AC845100AF0367 /* Info.plist */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
 		8202915E8C5B172EB76B9257 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */,
 				4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */,
+				464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */,
+				1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -915,6 +977,7 @@
 			isa = PBXGroup;
 			children = (
 				816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */,
+				5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -931,15 +994,35 @@
 				4A07DD7E255D89020022B6A9 /* Frameworks */,
 				4A07DD7F255D89020022B6A9 /* Resources */,
 				B067CA601966469DB6B819D8 /* [CP] Embed Pods Frameworks */,
+				4AF3ECB525AC845100AF0367 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4AF3ECB025AC845100AF0367 /* PBXTargetDependency */,
 			);
 			name = "my-sibgu";
 			productName = "my-sibgu";
 			productReference = 4A07DD81255D89020022B6A9 /* my-sibgu.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4AF3ECA925AC845100AF0367 /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF3ECB225AC845100AF0367 /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				65115570CF33CF272AC459C7 /* [CP] Check Pods Manifest.lock */,
+				4AF3ECA625AC845100AF0367 /* Sources */,
+				4AF3ECA725AC845100AF0367 /* Frameworks */,
+				4AF3ECA825AC845100AF0367 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = 4AF3ECAA25AC845100AF0367 /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -947,11 +1030,14 @@
 		4A07DD79255D89020022B6A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					4A07DD80255D89020022B6A9 = {
 						CreatedOnToolsVersion = 12.1;
+					};
+					4AF3ECA925AC845100AF0367 = {
+						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
@@ -969,6 +1055,7 @@
 			projectRoot = "";
 			targets = (
 				4A07DD80255D89020022B6A9 /* my-sibgu */,
+				4AF3ECA925AC845100AF0367 /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -983,6 +1070,14 @@
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4AEBE6F625639388005F6CBE /* union.json in Resources */,
+				4AF3ECA125AC3E2000AF0367 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF3ECA825AC845100AF0367 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1005,6 +1100,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-my-sibgu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65115570CF33CF272AC459C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotificationService-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1094,6 +1211,7 @@
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
+				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,
 				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
 				4A07DDA4255D94800022B6A9 /* GroupDay.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
@@ -1147,7 +1265,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4AF3ECA625AC845100AF0367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF3ECAD25AC845100AF0367 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AF3ECB025AC845100AF0367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AF3ECA925AC845100AF0367 /* NotificationService */;
+			targetProxy = 4AF3ECAF25AC845100AF0367 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4A07DD8A255D89020022B6A9 /* Main.storyboard */ = {
@@ -1289,8 +1423,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "my-sibgu/my-sibgu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = "my-sibgu/Info.plist";
@@ -1310,8 +1446,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "my-sibgu/my-sibgu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = "my-sibgu/Info.plist";
@@ -1322,6 +1460,48 @@
 				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4AF3ECB325AC845100AF0367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HM9WL9QKWM;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AF3ECB425AC845100AF0367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HM9WL9QKWM;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1344,6 +1524,15 @@
 			buildConfigurations = (
 				4A07DD96255D89050022B6A9 /* Debug */,
 				4A07DD97255D89050022B6A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF3ECB225AC845100AF0367 /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF3ECB325AC845100AF0367 /* Debug */,
+				4AF3ECB425AC845100AF0367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

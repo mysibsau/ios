@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Для инициализации реалма сразу
         _ = DataManager.shared
         
+        // Регистрация для пушей
+        let firebasePushManager = FirebasePushNotificationManager()
+        firebasePushManager.registerForRemotePushNotifications()
+        
         return true
     }
 
