@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3219003E42857FBE59711B96 /* Pods_NotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */; };
 		3A8079B519B64497324F2163 /* Pods_my_sibgu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */; };
+		4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC125AEF9310038D87E /* UIImage+blur.swift */; };
+		4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC525AEFD520038D87E /* BlurImageView.swift */; };
 		4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD84255D89020022B6A9 /* AppDelegate.swift */; };
 		4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD86255D89020022B6A9 /* SceneDelegate.swift */; };
 		4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A07DD8A255D89020022B6A9 /* Main.storyboard */; };
@@ -156,6 +158,8 @@
 /* Begin PBXFileReference section */
 		1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.release.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.debug.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		4A077FC125AEF9310038D87E /* UIImage+blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blur.swift"; sourceTree = "<group>"; };
+		4A077FC525AEFD520038D87E /* BlurImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurImageView.swift; sourceTree = "<group>"; };
 		4A07DD81255D89020022B6A9 /* my-sibgu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-sibgu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A07DD84255D89020022B6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A07DD86255D89020022B6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -304,6 +308,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A077FCB25AF02DE0038D87E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A077FC125AEF9310038D87E /* UIImage+blur.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4A07DD78255D89020022B6A9 = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +687,8 @@
 		4A75819C25755FB1006C1F6C /* General */ = {
 			isa = PBXGroup;
 			children = (
+				4A077FCB25AF02DE0038D87E /* Extensions */,
+				4A077FC525AEFD520038D87E /* BlurImageView.swift */,
 				4A736C0225A722670040BBED /* TappableLabel.swift */,
 				4A54F56A259A033600184BC0 /* CopyableLabel.swift */,
 				4A75819D25755FBB006C1F6C /* AlertView.swift */,
@@ -1242,12 +1256,14 @@
 				4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */,
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
 				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
+				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
+				4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */,
 				4A07DDAA255D94AD0022B6A9 /* GroupTimetable.swift in Sources */,
 				4A07DDCB255D9F190022B6A9 /* RGroupWeek.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,

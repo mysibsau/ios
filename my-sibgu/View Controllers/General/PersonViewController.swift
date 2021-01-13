@@ -15,9 +15,9 @@ class PersonViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
-    // Верхняя часть
-    private let backgroupndImageView: UIImageView = {
-        let imageView = UIImageView()
+
+    private let backgroupndImageView: BlurImageView = {
+        let imageView = BlurImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemBackground
         imageView.clipsToBounds = true
@@ -63,6 +63,7 @@ class PersonViewController: UIViewController {
         }
         
         // start loading image
+        backgroupndImageView.blurRadius = 0
         backgroupndImageView.image = UIImage(named: "back_main_logo")
         personImageView.loadImage(at: soviet.imageUrl)
     }
@@ -83,6 +84,7 @@ class PersonViewController: UIViewController {
         })
         
         // Set image
+        backgroupndImageView.blurRadius = 0
         backgroupndImageView.image = UIImage(named: "back_main_logo")
         personImageView.loadImage(at: director.imageUrl)
     }

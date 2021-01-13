@@ -130,7 +130,7 @@ class TimetableSearchViewController: UIViewController {
         
         wrapView.backgroundColor = .systemBackground
         textField.borderStyle = .none
-        textField.placeholder = "Введите группу / преподавателя"
+        textField.placeholder = "Введите название группу"
         textField.font = UIFont.systemFont(ofSize: 14)
         goToTimetableButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         goToTimetableButton.addTarget(self, action: #selector(goToTimetableButtonTapped), for: .touchUpInside)
