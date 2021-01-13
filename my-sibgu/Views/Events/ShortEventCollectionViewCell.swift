@@ -89,6 +89,8 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         
         readMoreOrLessButton.addTarget(self, action: #selector(readMoreOrLessButtonAction), for: .touchUpInside)
         textLabel.makeTappable()
+        
+        print("init")
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -113,6 +115,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         }
         
         imageView.image = nil
+//        print("prepare, \(indexPath)")
     }
     
     // MARK: - Setters -
@@ -146,6 +149,9 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
             
             imageView.loadImage(at: image.url)
         }
+        
+//        print("set, \(indexPath)")
+//        print()
     }
     
     func set(mode: EventCellMode) {

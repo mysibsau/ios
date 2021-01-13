@@ -32,6 +32,7 @@ class ImageLoader {
         
         // Если он уже скачан и сохранен
         if let image = FileHelper.shared.getImageFromDocumtest(with: url.path) {
+            loadedImages[url] = image
             completion(.success(image))
             return nil
         }
