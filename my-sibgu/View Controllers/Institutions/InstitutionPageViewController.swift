@@ -84,7 +84,8 @@ extension InstitutionPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard
             let firstViewController = viewControllers?.first,
-            let index = institutionsViewControllers.firstIndex(of: firstViewController)
+            let index = institutionsViewControllers.firstIndex(of: firstViewController),
+            completed
         else {
             return
         }

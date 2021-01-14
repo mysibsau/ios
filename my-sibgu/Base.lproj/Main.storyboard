@@ -62,20 +62,20 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="M9w-8A-BQ8" kind="relationship" relationship="rootViewController" id="JKv-Vd-OMQ"/>
+                        <segue destination="J6q-c6-370" kind="relationship" relationship="rootViewController" id="6Gh-Qc-MUG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmH-S5-T8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="-1315"/>
         </scene>
-        <!--Events View Controller-->
-        <scene sceneID="CYB-CG-izK">
+        <!--Informing Page View Controller-->
+        <scene sceneID="OUh-mC-cD1">
             <objects>
-                <collectionViewController id="M9w-8A-BQ8" customClass="EventsViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ETU-Fk-ISG"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gb6-yO-Swr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="J6q-c6-370" customClass="InformingPageViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zdU-jX-cwl"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8L-ck-QpA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1751" y="-1315"/>
         </scene>

@@ -130,6 +130,8 @@ extension EventsViewController: AnimatingNetworkProtocol {
 
 extension EventsViewController: EventsCellDelegate {
     
+    // MARK: TODO: При вызове `collectionViewLayout.invalidateLayout()` вызывается
+    
     func setAndReload(cellMode: EventCellMode, at indexPath: IndexPath) {
         data[indexPath.item].mode = cellMode
         let offset = collectionView.contentOffset

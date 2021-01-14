@@ -89,8 +89,6 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         
         readMoreOrLessButton.addTarget(self, action: #selector(readMoreOrLessButtonAction), for: .touchUpInside)
         textLabel.makeTappable()
-        
-        print("init")
     }
 
     required init?(coder aDecoder: NSCoder) {

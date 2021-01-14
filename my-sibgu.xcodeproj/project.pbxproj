@@ -11,6 +11,8 @@
 		3A8079B519B64497324F2163 /* Pods_my_sibgu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */; };
 		4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC125AEF9310038D87E /* UIImage+blur.swift */; };
 		4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC525AEFD520038D87E /* BlurImageView.swift */; };
+		4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE325B03C090038D87E /* InformingPageViewController.swift */; };
+		4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE925B0660D0038D87E /* MySegmentedControl.swift */; };
 		4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD84255D89020022B6A9 /* AppDelegate.swift */; };
 		4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD86255D89020022B6A9 /* SceneDelegate.swift */; };
 		4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A07DD8A255D89020022B6A9 /* Main.storyboard */; };
@@ -160,6 +162,8 @@
 		464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.debug.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.debug.xcconfig"; sourceTree = "<group>"; };
 		4A077FC125AEF9310038D87E /* UIImage+blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blur.swift"; sourceTree = "<group>"; };
 		4A077FC525AEFD520038D87E /* BlurImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurImageView.swift; sourceTree = "<group>"; };
+		4A077FE325B03C090038D87E /* InformingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformingPageViewController.swift; sourceTree = "<group>"; };
+		4A077FE925B0660D0038D87E /* MySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySegmentedControl.swift; sourceTree = "<group>"; };
 		4A07DD81255D89020022B6A9 /* my-sibgu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-sibgu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A07DD84255D89020022B6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A07DD86255D89020022B6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -662,7 +666,9 @@
 			children = (
 				4A7AE709259F8AB9007181E2 /* EventCellMode.swift */,
 				4A7AE706259F8A8A007181E2 /* EventsCellDelegate.swift */,
+				4A077FE325B03C090038D87E /* InformingPageViewController.swift */,
 				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
+				4A077FE925B0660D0038D87E /* MySegmentedControl.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1190,6 +1196,7 @@
 				4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */,
 				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
+				4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
@@ -1206,6 +1213,7 @@
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
 				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,
+				4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */,
 				4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */,
 				4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
