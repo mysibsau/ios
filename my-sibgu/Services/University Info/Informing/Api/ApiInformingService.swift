@@ -16,6 +16,10 @@ class ApiInformingService {
         load([EventResponse].self, url: ApiInforming.allEvents(), completion: completion)
     }
     
+    func loadNews(completion: @escaping (_ events: [NewsResponse]?) -> Void) {
+        load([NewsResponse].self, url: ApiInforming.allNews(), completion: completion)
+    }
+    
     
     private func load<T: Decodable>(_ type: T.Type, url: URL, completion: @escaping (T?) -> Void) {
         var downloadedObjects: T?

@@ -30,8 +30,8 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
 
     let textLabel: TappableLabel = {
         let label = TappableLabel()
-        label.numberOfLines = 1
-        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 3
+        label.lineBreakMode = .byTruncatingTail
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
@@ -66,21 +66,20 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(10)
+            make.height.equalTo(0)
         }
         imageView.layer.cornerRadius = 15
-//        imageView.backgroundColor = .purple
         
         contentView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(4)
+            make.leading.trailing.equalToSuperview().inset(10)
         }
         
         contentView.addSubview(readMoreOrLessButton)
         readMoreOrLessButton.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(4)
-            make.leading.bottom.equalToSuperview().inset(4)
+            make.top.equalTo(textLabel.snp.bottom).offset(10)
+            make.leading.bottom.equalToSuperview().inset(10)
             make.width.equalTo(200)
         }
 
@@ -109,7 +108,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         
         imageView.snp.updateConstraints { update in
-            update.height.equalTo(100)
+            update.height.equalTo(0)
         }
         
         imageView.image = nil
@@ -148,18 +147,19 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
             imageView.loadImage(at: image.url)
         }
         
-//        print("set, \(indexPath)")
-//        print()
+        imageView.image = nil
     }
     
     func set(mode: EventCellMode) {
         self.mode = mode
         
         if mode == .short {
-            textLabel.numberOfLines = 1
+            textLabel.numberOfLines = 3
+            textLabel.lineBreakMode = .byTruncatingTail
             readMoreOrLessButton.setTitle("[Читать далее]", for: .normal)
         } else if mode == .long {
             textLabel.numberOfLines = 0
+            textLabel.lineBreakMode = .byWordWrapping
             readMoreOrLessButton.setTitle("[Скрыть]", for: .normal)
         }
     }

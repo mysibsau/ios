@@ -13,6 +13,9 @@
 		4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC525AEFD520038D87E /* BlurImageView.swift */; };
 		4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE325B03C090038D87E /* InformingPageViewController.swift */; };
 		4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE925B0660D0038D87E /* MySegmentedControl.swift */; };
+		4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FED25B0889F0038D87E /* NewsResponse.swift */; };
+		4A077FF225B089E60038D87E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FF125B089E60038D87E /* News.swift */; };
+		4A077FF625B08AF60038D87E /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FF525B08AF60038D87E /* NewsViewController.swift */; };
 		4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD84255D89020022B6A9 /* AppDelegate.swift */; };
 		4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DD86255D89020022B6A9 /* SceneDelegate.swift */; };
 		4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A07DD8A255D89020022B6A9 /* Main.storyboard */; };
@@ -164,6 +167,9 @@
 		4A077FC525AEFD520038D87E /* BlurImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurImageView.swift; sourceTree = "<group>"; };
 		4A077FE325B03C090038D87E /* InformingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformingPageViewController.swift; sourceTree = "<group>"; };
 		4A077FE925B0660D0038D87E /* MySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySegmentedControl.swift; sourceTree = "<group>"; };
+		4A077FED25B0889F0038D87E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
+		4A077FF125B089E60038D87E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		4A077FF525B08AF60038D87E /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		4A07DD81255D89020022B6A9 /* my-sibgu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-sibgu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A07DD84255D89020022B6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A07DD86255D89020022B6A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -668,6 +674,7 @@
 				4A7AE706259F8A8A007181E2 /* EventsCellDelegate.swift */,
 				4A077FE325B03C090038D87E /* InformingPageViewController.swift */,
 				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
+				4A077FF525B08AF60038D87E /* NewsViewController.swift */,
 				4A077FE925B0660D0038D87E /* MySegmentedControl.swift */,
 			);
 			path = Events;
@@ -860,6 +867,7 @@
 				4AEBE6EB25637BF9005F6CBE /* Union.swift */,
 				4AF3EC7A25AA47DE00AF0367 /* Event.swift */,
 				4AF3EC7E25AA47EA00AF0367 /* Image.swift */,
+				4A077FF125B089E60038D87E /* News.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -969,6 +977,7 @@
 			children = (
 				4AF3EC6F25AA16A700AF0367 /* EventResponse.swift */,
 				4AF3EC7425AA421700AF0367 /* ImageResponse.swift */,
+				4A077FED25B0889F0038D87E /* NewsResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -1178,6 +1187,7 @@
 				4A07DDED255DA4450022B6A9 /* GroupTimetableResponse.swift in Sources */,
 				4A07DDE5255DA3B70022B6A9 /* ApiTimetable.swift in Sources */,
 				4AEE1804256EB44600DD7D9F /* LessonView.swift in Sources */,
+				4A077FF625B08AF60038D87E /* NewsViewController.swift in Sources */,
 				4AF3EC8625AA4A5400AF0367 /* InformingService.swift in Sources */,
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
@@ -1222,6 +1232,7 @@
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
+				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
@@ -1258,6 +1269,7 @@
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,
 				4AB5A69D25A1D2A100518FEA /* ResponseHandler.swift in Sources */,
+				4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RGroup+newObject.swift in Sources */,

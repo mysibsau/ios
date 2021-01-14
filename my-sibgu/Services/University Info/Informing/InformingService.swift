@@ -20,4 +20,15 @@ class InformingService {
         }
     }
     
+    func getNews(completion: @escaping ([News]?) -> Void) {
+        ApiInformingService().loadNews { news in
+            guard let news = news else {
+                completion(nil)
+                return
+            }
+            
+            completion(news.map { $0.converteToDomain() })
+        }
+    }
+    
 }

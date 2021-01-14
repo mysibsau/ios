@@ -16,4 +16,9 @@ class ApiInforming {
         return URL(string: "\(address)/informing/all_events/?uuid=\(uuid)")!
     }
     
+    static func allNews() -> URL {
+        let uuid = ApiUniversityInfo.currDeviceStringUuid
+        return URL(string: "\(address)/informing/all_news/?uuid=\(uuid)")!
+    }
+    
 }
