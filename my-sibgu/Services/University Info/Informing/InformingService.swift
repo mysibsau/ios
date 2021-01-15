@@ -31,4 +31,8 @@ class InformingService {
         }
     }
     
+    func viewPost(withId id: Int, completion: @escaping (Bool?) -> Void) {
+        ApiInformingService().viewPost(withId: id, completion: completion)
+    }
+    
 }

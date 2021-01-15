@@ -21,4 +21,8 @@ class ApiInforming {
         return URL(string: "\(address)/informing/all_news/?uuid=\(uuid)")!
     }
     
+    static func viewPost(with id: Int) -> URL {
+        return URL(string: "\(address)/informing/view/\(id)/")!
+    }
+    
 }

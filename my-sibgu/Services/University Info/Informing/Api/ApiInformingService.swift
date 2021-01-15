@@ -20,6 +20,14 @@ class ApiInformingService {
         load([NewsResponse].self, url: ApiInforming.allNews(), completion: completion)
     }
     
+    func viewPost(withId id: Int, completion: @escaping (_ isFine: Bool?) -> Void) {
+        let url = ApiInforming.viewPost(with: id)
+        
+        baseApiService.session.dataTask(with: url) { data, response, error in
+            // MARK: TODO: ТУТ СДЕЛАТЬ completion
+        }.resume()
+    }
+    
     
     private func load<T: Decodable>(_ type: T.Type, url: URL, completion: @escaping (T?) -> Void) {
         var downloadedObjects: T?

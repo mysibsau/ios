@@ -296,7 +296,6 @@ class Common {
             let group = RGroup()
             group.id = i
             group.name = "\(i)nameGroup"
-            group.email = "\(i)emailGroup"
             // group.leaderName = "\(i)lnGroup"
             // group.leaderEmail = nil
             // group.leaderPhone = "\(i)lpGroup"

@@ -133,6 +133,10 @@ extension EventsViewController: EventsCellDelegate {
     // MARK: TODO: При вызове `collectionViewLayout.invalidateLayout()` вызывается
     
     func setAndReload(cellMode: EventCellMode, at indexPath: IndexPath) {
+        if cellMode == .long {
+            informingService.viewPost(withId: data[indexPath.item].event.id) { _ in }
+        }
+        
         data[indexPath.item].mode = cellMode
         let offset = collectionView.contentOffset
         let cell = self.collectionView.cellForItem(at: indexPath) as! ShortEventCollectionViewCell

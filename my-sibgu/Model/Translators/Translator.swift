@@ -99,7 +99,7 @@ class Translator {
     func converteGroups(from rGroups: Results<RGroup>) -> [Group] {
         var groups = [Group]()
         rGroups.forEach { rGroup in
-            let group = Group(id: rGroup.id, name: rGroup.name, email: rGroup.email)
+            let group = Group(id: rGroup.id, name: rGroup.name)
             groups.append(group)
         }
         
@@ -107,7 +107,7 @@ class Translator {
     }
     
     func converteGroup(from rGroup: RGroup) -> Group {
-        return Group(id: rGroup.id, name: rGroup.name, email: rGroup.email)
+        return Group(id: rGroup.id, name: rGroup.name)
     }
     
     func converteBuildings(from rBuildings: [RBuilding]) -> [Building] {

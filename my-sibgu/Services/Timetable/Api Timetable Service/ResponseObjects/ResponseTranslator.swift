@@ -64,7 +64,6 @@ class ResponseTranslator {
             let rGroup = RGroup()
             rGroup.id = groupResponse.id
             rGroup.name = groupResponse.name
-            rGroup.email = groupResponse.email
             
             rGroups.append(rGroup)
         }

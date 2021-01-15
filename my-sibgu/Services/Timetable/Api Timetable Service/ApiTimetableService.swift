@@ -135,44 +135,5 @@ class ApiTimetableService {
         baseApiService.downloadingQueue.addOperation(hashDownloadOperation)
         baseApiService.downloadingQueue.addOperation(completionOperation)
     }
-    
-    // MARK: - Curr Week Number
-    static func loadCurrWeekIsEwenTask(complition: @escaping (Bool?) -> Void) -> URLSessionDataTask {
-        let url = ApiTimetable.currWeekIsEven()
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse,
-                (200..<300).contains(httpResponse.statusCode) else {
-                    complition(nil)
-                    return
-            }
-            
-            guard let data = data else {
-                complition(nil)
-                return
-            }
-            
-            do {
-                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                    let currWeekIsEven = json["isEven"] as? String else {
-                        complition(nil)
-                        return
-                }
-                
-                if currWeekIsEven.lowercased() == "true" {
-                    complition(true)
-                } else if currWeekIsEven.lowercased() == "false" {
-                    complition(false)
-                } else {
-                    complition(nil)
-                }
-            } catch let jsonError {
-                print(jsonError)
-                complition(nil)
-            }
-        }
-        
-        return task
-    }
 
 }

@@ -50,16 +50,16 @@ class TimetableResponseHandler {
         guard let data = data else { return (nil, nil) }
         
         do {
-            let groupTimetableResponse = try JSONDecoder().decode([GroupTimetableResponse].self, from: data)
+            let groupTimetableResponse = try JSONDecoder().decode(GroupTimetableResponse.self, from: data)
             
             // Антон отправляет массивом с одним элементом (:
-            guard let groupTimetableResponseFirst = groupTimetableResponse.first else { return (nil, nil) }
+//            guard let groupTimetableResponseFirst = groupTimetableResponse.first else { return (nil, nil) }
             
             let groupTimetable = ResponseTranslator.converteGroupTimetableResponseToRGroupTimetable(
-                groupTimetableResponse: groupTimetableResponseFirst,
+                groupTimetableResponse: groupTimetableResponse,
                 groupId: groupId)
             
-            return (groupTimetable, groupTimetableResponseFirst.groupHash)
+            return (groupTimetable, groupTimetableResponse.meta.groupsHash)
         } catch let jsonError {
             print(jsonError)
             return (nil, nil)

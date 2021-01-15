@@ -64,6 +64,7 @@ class TimetableViewController: UIPageViewController {
             completionIfNeedNotLoadGroups: { groupTimetable in
                 guard let gt = groupTimetable else {
                     DispatchQueue.main.async {
+                        print("hello")
                         self.actionIfNotDownloaded()
                     }
                     return

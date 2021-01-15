@@ -11,12 +11,12 @@ class GroupResponse: Decodable {
     
     let id: Int
     let name: String
-    let email: String
+//    let email: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case email = "mail"
+//        case email = "mail"
     }
     
 }

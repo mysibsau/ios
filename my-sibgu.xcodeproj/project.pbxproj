@@ -103,6 +103,8 @@
 		4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */; };
 		4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */; };
 		4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */; };
+		4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC18FB925B19AB800325142 /* SubgroupResponse.swift */; };
+		4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC18FC125B1A46600325142 /* MetaResponse.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -259,6 +261,8 @@
 		4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RInstitute.swift; sourceTree = "<group>"; };
 		4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstituteResponse.swift; sourceTree = "<group>"; };
 		4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+removeWhitespaces.swift"; sourceTree = "<group>"; };
+		4AC18FB925B19AB800325142 /* SubgroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubgroupResponse.swift; sourceTree = "<group>"; };
+		4AC18FC125B1A46600325142 /* MetaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaResponse.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -508,6 +512,8 @@
 			isa = PBXGroup;
 			children = (
 				4A07DDF1255DA4E10022B6A9 /* ResponseTranslator.swift */,
+				4AC18FB925B19AB800325142 /* SubgroupResponse.swift */,
+				4AC18FC125B1A46600325142 /* MetaResponse.swift */,
 				4A07DDEF255DA4660022B6A9 /* Group */,
 			);
 			path = ResponseObjects;
@@ -1217,6 +1223,7 @@
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AB027482570FFE700974D08 /* Colors.swift in Sources */,
+				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
@@ -1270,6 +1277,7 @@
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,
 				4AB5A69D25A1D2A100518FEA /* ResponseHandler.swift in Sources */,
 				4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */,
+				4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RGroup+newObject.swift in Sources */,

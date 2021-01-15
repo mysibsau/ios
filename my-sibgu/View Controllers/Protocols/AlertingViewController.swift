@@ -38,7 +38,7 @@ extension AlertingViewController {
     }
 
     func showNetworkAlert() {
-        showAlert(withText: "Проблемы с интернетом")
+        showAlert(withText: "Проблемы с сервером")
     }
     
 }
