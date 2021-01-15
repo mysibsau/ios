@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firebasePushManager = FirebasePushNotificationManager()
         firebasePushManager.registerForRemotePushNotifications()
         
+        // Удаляем все badge
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         return true
     }
 
