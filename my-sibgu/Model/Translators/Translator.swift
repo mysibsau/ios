@@ -114,6 +114,7 @@ class Translator {
         var builginds = [Building]()
         rBuildings.forEach { rBuilding in
             let building = Building(
+                id: rBuilding.id,
                 name: rBuilding.name,
                 type: rBuilding.type,
                 address: rBuilding.address,

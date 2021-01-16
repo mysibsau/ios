@@ -1472,6 +1472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "my-sibgu/my-sibgu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = "my-sibgu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1495,6 +1496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "my-sibgu/my-sibgu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = "my-sibgu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1514,6 +1516,7 @@
 			baseConfigurationReference = 464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1536,6 +1539,7 @@
 			baseConfigurationReference = 1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

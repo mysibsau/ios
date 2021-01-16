@@ -11,6 +11,7 @@ import RealmSwift
 
 class RBuilding: Object {
     
+    @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var type = ""
     @objc dynamic var address = ""
@@ -19,7 +20,7 @@ class RBuilding: Object {
     
     
     override class func primaryKey() -> String? {
-        return "name"
+        return "id"
     }
     
 }

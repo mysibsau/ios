@@ -9,6 +9,7 @@ import Foundation
 
 struct Building {
     
+    let id: Int
     let name: String
     let type: String
     let address: String

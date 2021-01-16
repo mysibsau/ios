@@ -10,6 +10,7 @@ import RealmSwift
 
 class BuidlingResponse: Decodable {
     
+    let id: Int
     let name: String
     let type: String
     let address: String
@@ -17,6 +18,7 @@ class BuidlingResponse: Decodable {
     let urlTo2gis: String
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case type
         case address
@@ -30,6 +32,7 @@ extension BuidlingResponse: ConvertableToRealm {
 
     func converteToRealm() -> RBuilding {
         let b = RBuilding()
+        b.id = self.id
         b.name = self.name
         b.type = self.type
         b.address = self.address
