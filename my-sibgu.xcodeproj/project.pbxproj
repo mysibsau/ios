@@ -105,6 +105,13 @@
 		4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */; };
 		4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC18FB925B19AB800325142 /* SubgroupResponse.swift */; };
 		4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC18FC125B1A46600325142 /* MetaResponse.swift */; };
+		4AC1910F25B3227400325142 /* SurveysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1910E25B3227400325142 /* SurveysService.swift */; };
+		4AC1911525B3229C00325142 /* ApiSurveys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1911425B3229C00325142 /* ApiSurveys.swift */; };
+		4AC1911925B3231B00325142 /* ApiSurveysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1911825B3231B00325142 /* ApiSurveysService.swift */; };
+		4AC1911D25B323C100325142 /* ShortSurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1911C25B323C100325142 /* ShortSurveyResponse.swift */; };
+		4AC1912125B324B400325142 /* ShortSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1912025B324B400325142 /* ShortSurvey.swift */; };
+		4AC1912525B3299A00325142 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1912425B3299A00325142 /* SurveyResponse.swift */; };
+		4AC1912925B32BC300325142 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1912825B32BC300325142 /* Survey.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -263,6 +270,13 @@
 		4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+removeWhitespaces.swift"; sourceTree = "<group>"; };
 		4AC18FB925B19AB800325142 /* SubgroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubgroupResponse.swift; sourceTree = "<group>"; };
 		4AC18FC125B1A46600325142 /* MetaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaResponse.swift; sourceTree = "<group>"; };
+		4AC1910E25B3227400325142 /* SurveysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysService.swift; sourceTree = "<group>"; };
+		4AC1911425B3229C00325142 /* ApiSurveys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSurveys.swift; sourceTree = "<group>"; };
+		4AC1911825B3231B00325142 /* ApiSurveysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSurveysService.swift; sourceTree = "<group>"; };
+		4AC1911C25B323C100325142 /* ShortSurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortSurveyResponse.swift; sourceTree = "<group>"; };
+		4AC1912025B324B400325142 /* ShortSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortSurvey.swift; sourceTree = "<group>"; };
+		4AC1912425B3299A00325142 /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
+		4AC1912825B32BC300325142 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -598,6 +612,7 @@
 				4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */,
 				4AB5A66E25A0FC7A00518FEA /* Campus */,
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
+				4AC1910D25B3225100325142 /* Surveys */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -852,6 +867,34 @@
 			path = Ext;
 			sourceTree = "<group>";
 		};
+		4AC1910D25B3225100325142 /* Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1910E25B3227400325142 /* SurveysService.swift */,
+				4AC1911225B3228300325142 /* Api */,
+			);
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		4AC1911225B3228300325142 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1911325B3228B00325142 /* ResponseObjects */,
+				4AC1911425B3229C00325142 /* ApiSurveys.swift */,
+				4AC1911825B3231B00325142 /* ApiSurveysService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4AC1911325B3228B00325142 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1911C25B323C100325142 /* ShortSurveyResponse.swift */,
+				4AC1912425B3299A00325142 /* SurveyResponse.swift */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +917,8 @@
 				4AF3EC7A25AA47DE00AF0367 /* Event.swift */,
 				4AF3EC7E25AA47EA00AF0367 /* Image.swift */,
 				4A077FF125B089E60038D87E /* News.swift */,
+				4AC1912025B324B400325142 /* ShortSurvey.swift */,
+				4AC1912825B32BC300325142 /* Survey.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1196,6 +1241,7 @@
 				4A077FF625B08AF60038D87E /* NewsViewController.swift in Sources */,
 				4AF3EC8625AA4A5400AF0367 /* InformingService.swift in Sources */,
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
+				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
@@ -1210,6 +1256,7 @@
 				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */,
+				4AC1912525B3299A00325142 /* SurveyResponse.swift in Sources */,
 				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
 				4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */,
@@ -1262,10 +1309,12 @@
 				4A07DDD9255DA0D90022B6A9 /* DataManager.swift in Sources */,
 				4AF3EC6C25AA161500AF0367 /* ApiInformingService.swift in Sources */,
 				4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */,
+				4AC1911525B3229C00325142 /* ApiSurveys.swift in Sources */,
 				4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */,
 				4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */,
 				4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */,
 				4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */,
+				4AC1911925B3231B00325142 /* ApiSurveysService.swift in Sources */,
 				4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */,
 				4AB5A6A925A1E3A500518FEA /* UnionResponse.swift in Sources */,
 				4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */,
@@ -1276,6 +1325,7 @@
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,
 				4AB5A69D25A1D2A100518FEA /* ResponseHandler.swift in Sources */,
+				4AC1910F25B3227400325142 /* SurveysService.swift in Sources */,
 				4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */,
 				4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
@@ -1284,6 +1334,7 @@
 				4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */,
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
 				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
+				4AC1911D25B323C100325142 /* ShortSurveyResponse.swift in Sources */,
 				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
@@ -1297,6 +1348,7 @@
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */,
+				4AC1912125B324B400325142 /* ShortSurvey.swift in Sources */,
 				4A736C0325A722670040BBED /* TappableLabel.swift in Sources */,
 				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
