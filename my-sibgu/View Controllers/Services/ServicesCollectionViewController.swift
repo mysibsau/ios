@@ -34,7 +34,7 @@ class ServicesCollectionViewController: UICollectionViewController {
             (UIImage(named: "main_logo")!, "Строения", vc: BuildingsViewController.self),
             (UIImage(named: "main_logo")!, "Институты", vc: InstitutionsViewController.self),
             (UIImage(named: "main_logo")!, "Онлайн каталог", vc: UIViewController.self),
-            (UIImage(named: "main_logo")!, "Обратная связь", vc: UIViewController.self),
+            (UIImage(named: "main_logo")!, "Обратная связь", vc: SurveysTableViewController.self),
             (UIImage(named: "main_logo")!, "Студ. жизнь", vc: UnionsTableViewController.self),
         ]
     }
