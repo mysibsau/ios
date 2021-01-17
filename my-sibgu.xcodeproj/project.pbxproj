@@ -121,6 +121,7 @@
 		4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */; };
 		4AC1915725B4759300325142 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915625B4759300325142 /* AnswerView.swift */; };
 		4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */; };
+		4AC1916525B4B2AF00325142 /* CenterTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -295,6 +296,7 @@
 		4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnswerQuesionView.swift; sourceTree = "<group>"; };
 		4AC1915625B4759300325142 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnswerQuestionView.swift; sourceTree = "<group>"; };
+		4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterTitleButton.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -950,6 +952,7 @@
 				4AC1915625B4759300325142 /* AnswerView.swift */,
 				4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */,
 				4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */,
+				4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */,
 			);
 			path = Surveys;
 			sourceTree = "<group>";
@@ -1316,6 +1319,7 @@
 				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */,
+				4AC1916525B4B2AF00325142 /* CenterTitleButton.swift in Sources */,
 				4AC1912525B3299A00325142 /* SurveyResponse.swift in Sources */,
 				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,

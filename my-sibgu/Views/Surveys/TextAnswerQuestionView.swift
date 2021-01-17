@@ -10,7 +10,15 @@ import UIKit
 class TextAnswerQuestionView: UIView {
 
     var question: Question!
-    var selectedIds: Set<Int> = []
+    var testAnswer: String? {
+        get {
+            if answerTextView.text.isEmpty {
+                return nil
+            } else {
+                return answerTextView.text
+            }
+        }
+    }
     
     
     private let nameLabel: UILabel = {
@@ -28,14 +36,6 @@ class TextAnswerQuestionView: UIView {
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
     }()
-    
-//    private let answersStackView: UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = .vertical
-//        stackView.distribution = .equalSpacing
-//        stackView.spacing = 10
-//        return stackView
-//    }()
     
     private let answerTextView: UITextView = {
         let textView = UITextView()

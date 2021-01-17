@@ -23,6 +23,9 @@ class SurveyViewController: UIViewController {
     private let activityIndicatorView = UIActivityIndicatorView()
     
     
+    private var questionViews: [UIView] = []
+    
+    
     convenience init(shortSurvey: ShortSurvey) {
         self.init()
         self.shortSurvey = shortSurvey
@@ -111,17 +114,29 @@ class SurveyViewController: UIViewController {
         for question in survey.questions {
             if question.type == .oneAnswer {
                 let oneAnswerQuestionView = SelectAnswerQuesionView(question: question, questionType: .one)
+                questionViews.append(oneAnswerQuestionView)
                 questionsStackView.addArrangedSubview(oneAnswerQuestionView)
             } else if question.type == .manyAnswers {
                 let manyAnswerQuestionView = SelectAnswerQuesionView(question: question, questionType: .many)
+                questionViews.append(manyAnswerQuestionView)
                 questionsStackView.addArrangedSubview(manyAnswerQuestionView)
             } else if question.type == .textAnswer {
                 let textAnswerQuestionView = TextAnswerQuestionView(question: question)
+                questionViews.append(textAnswerQuestionView)
                 questionsStackView.addArrangedSubview(textAnswerQuestionView)
             }
         }
+        
+        let button = CenterTitleButton()
+        button.titleText = "Отправить"
+        button.titleColor = Colors.sibsuBlue
+        button.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
+        questionsStackView.addArrangedSubview(button)
     }
     
+    // MARK: - Methods for Hide Keyboard
     private func addRecognizerToHideKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tap.cancelsTouchesInView = false

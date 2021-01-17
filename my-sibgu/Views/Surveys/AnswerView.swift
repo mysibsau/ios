@@ -25,7 +25,7 @@ class AnswerView: UIView {
     private let boxView: UIView = {
         let v = UIView()
         v.backgroundColor = .systemBackground
-        v.layer.borderWidth = 2
+        v.layer.borderWidth = 1
         v.layer.borderColor = UIColor.black.cgColor
         return v
     }()
