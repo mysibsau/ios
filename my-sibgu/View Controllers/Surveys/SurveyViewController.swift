@@ -97,7 +97,7 @@ class SurveyViewController: UIViewController {
         questionsStackView.distribution = .equalSpacing
         questionsStackView.spacing = 20
         questionsStackView.isLayoutMarginsRelativeArrangement = true
-        questionsStackView.layoutMargins = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        questionsStackView.layoutMargins = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
         
         scrollView.addSubview(questionsStackView)
         questionsStackView.snp.makeConstraints { make in

@@ -66,11 +66,6 @@ class AnswerView: UIView {
         fillView.isHidden = true
     }
     
-//    // MARK: - Methods
-//    func set(isSelected: Bool) {
-//        fillView.isHidden = !isSelected
-//    }
-    
     
     // MARK: - Setup Views
     private func setupViews() {
@@ -82,11 +77,11 @@ class AnswerView: UIView {
         self.addSubview(boxView)
         boxView.snp.makeConstraints { make in
             make.leading.top.equalToSuperview()
-            make.size.equalTo(24)
+            make.size.equalTo(20)
         }
         
         self.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(24)
+            make.height.greaterThanOrEqualTo(20)
         }
         
         self.addSubview(nameLabel)
@@ -100,8 +95,8 @@ class AnswerView: UIView {
     
     private func set(type: SelectAnswerQuestionViewType) {
         if type == .one {
-            boxView.layer.cornerRadius = 12 // 24 / 2 = 12
-            fillView.layer.cornerRadius = 7 // (24 - 5 - 5) / 2 = 6
+            boxView.layer.cornerRadius = 10 // 20 / 2 = 10
+            fillView.layer.cornerRadius = 5 // (20 - 5 - 5) / 2 = 5
         } else if type == .many {
             boxView.layer.cornerRadius = 4
             fillView.layer.cornerRadius = 2
@@ -109,7 +104,7 @@ class AnswerView: UIView {
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         delegate?.selectedAnswer(with: answer.id)
     }
 
