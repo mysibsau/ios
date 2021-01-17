@@ -40,7 +40,7 @@ class InstitutionsViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Институты")
+        self.navigationItem.setLeftTitle(title: "Институты")
     }
     
     private func setupRocketImage() {

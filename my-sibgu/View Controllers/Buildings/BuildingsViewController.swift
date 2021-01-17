@@ -37,7 +37,7 @@ class BuildingsViewController: UITableViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Корпуса")
+        self.navigationItem.setLeftTitle(title: "Корпуса")
     }
     
     private func setBuildings() {

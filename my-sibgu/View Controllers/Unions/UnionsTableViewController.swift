@@ -29,7 +29,7 @@ class UnionsTableViewController: UITableViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Объединения")
+        self.navigationItem.setLeftTitle(title: "Объединения")
     }
     
     private func configurateTableView() {
