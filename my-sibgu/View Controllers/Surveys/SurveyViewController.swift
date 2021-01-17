@@ -44,6 +44,15 @@ class SurveyViewController: UIViewController {
         setupStackView()
         
         loadSurvey()
+        
+        addRecognizerToHideKeyboard()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name:UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func setupNavBar() {
@@ -106,8 +115,37 @@ class SurveyViewController: UIViewController {
             } else if question.type == .manyAnswers {
                 let manyAnswerQuestionView = SelectAnswerQuesionView(question: question, questionType: .many)
                 questionsStackView.addArrangedSubview(manyAnswerQuestionView)
+            } else if question.type == .textAnswer {
+                let textAnswerQuestionView = TextAnswerQuestionView(question: question)
+                questionsStackView.addArrangedSubview(textAnswerQuestionView)
             }
         }
+    }
+    
+    private func addRecognizerToHideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    // MARK: - Methods For Notification -
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard var keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 
 }
