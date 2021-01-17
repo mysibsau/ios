@@ -117,6 +117,9 @@
 		4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913825B336F900325142 /* CollectionViewHelper.swift */; };
 		4AC1914025B4425600325142 /* SurveysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913F25B4425600325142 /* SurveysTableViewController.swift */; };
 		4AC1914725B443F500325142 /* ShortSurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */; };
+		4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914C25B449EE00325142 /* SurveyViewController.swift */; };
+		4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */; };
+		4AC1915725B4759300325142 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915625B4759300325142 /* AnswerView.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -287,6 +290,9 @@
 		4AC1913825B336F900325142 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		4AC1913F25B4425600325142 /* SurveysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTableViewController.swift; sourceTree = "<group>"; };
 		4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortSurveyTableViewCell.swift; sourceTree = "<group>"; };
+		4AC1914C25B449EE00325142 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnswerQuesionView.swift; sourceTree = "<group>"; };
+		4AC1915625B4759300325142 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -930,6 +936,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC1913F25B4425600325142 /* SurveysTableViewController.swift */,
+				4AC1914C25B449EE00325142 /* SurveyViewController.swift */,
 			);
 			path = Surveys;
 			sourceTree = "<group>";
@@ -938,6 +945,8 @@
 			isa = PBXGroup;
 			children = (
 				4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */,
+				4AC1915625B4759300325142 /* AnswerView.swift */,
+				4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */,
 			);
 			path = Surveys;
 			sourceTree = "<group>";
@@ -1313,6 +1322,7 @@
 				4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */,
 				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
+				4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */,
 				4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */,
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
@@ -1331,8 +1341,10 @@
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
+				4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */,
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
+				4AC1915725B4759300325142 /* AnswerView.swift in Sources */,
 				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,

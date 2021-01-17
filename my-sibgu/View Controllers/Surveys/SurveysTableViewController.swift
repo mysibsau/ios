@@ -16,6 +16,7 @@ class SurveysTableViewController: UITableViewController {
     
     private let activityIndicatorView =  UIActivityIndicatorView()
 
+    // MARK: - Life Circle
     override func loadView() {
         super.loadView()
         
@@ -43,7 +44,7 @@ class SurveysTableViewController: UITableViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Опросы")
+        self.navigationItem.setLeftTitle(title: "Опросы")
     }
     
     // MARK: - Helper Method
@@ -98,7 +99,8 @@ extension SurveysTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let shortSurvey = surveys[indexPath.row]
         
-        
+        let vc = SurveyViewController(shortSurvey: shortSurvey)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

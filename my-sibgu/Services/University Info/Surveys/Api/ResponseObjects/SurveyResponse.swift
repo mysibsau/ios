@@ -19,12 +19,14 @@ class QuestionResponse: Decodable {
     let id: Int
     let name: String
     let necessarily: Bool
+    let type: Int
     let answers: [AnswerResponse]
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case necessarily
+        case type
         case answers = "responses"
     }
     
@@ -51,10 +53,19 @@ extension SurveyResponse {
 extension QuestionResponse {
     
     func converteToDomain() -> Question {
+        let questionType: Question.QuestionType
+        if self.type == 0 {
+            questionType = .oneAnswer
+        } else if self.type == 1 {
+            questionType = .manyAnswers
+        } else {
+            questionType = .textAnswer
+        }
         return Question(
             id: self.id,
             name: self.name,
             necessarily: self.necessarily,
+            type: questionType,
             answers: self.answers.map { $0.converteToDomain() }
         )
     }

@@ -19,7 +19,14 @@ struct Question {
     let id: Int
     let name: String
     let necessarily: Bool
+    let type: QuestionType
     let answers: [Answer]
+    
+    enum QuestionType {
+        case oneAnswer
+        case manyAnswers
+        case textAnswer
+    }
     
 }
 
