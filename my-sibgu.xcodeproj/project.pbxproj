@@ -763,11 +763,7 @@
 				4AEE181125700B0000DD7D9F /* Extensions */,
 				4A54F57A259B1BA500184BC0 /* General */,
 				4A54F57C259B3DF800184BC0 /* Events */,
-				4A54F57D259B3EFB00184BC0 /* Buildings */,
 				4AEE1801256EB1B600DD7D9F /* Timetable */,
-				4A238C0E257B5C4100CB861E /* Institutions */,
-				4A54F56F259A1EAC00184BC0 /* Unions */,
-				4AC1913E25B441EA00325142 /* Surveys */,
 				4AC1912C25B3326C00325142 /* Services */,
 			);
 			path = "View Controllers";
@@ -780,11 +776,7 @@
 				4A75819C25755FB1006C1F6C /* General */,
 				4AB027462570FFD900974D08 /* Style */,
 				4A3D7D57259C612100B6D38A /* Events */,
-				4A42A516257944A000283459 /* Buildings */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
-				4A21AA40257AA0CC00BA203A /* Institutions */,
-				4A54F571259A1F5600184BC0 /* Unions */,
-				4AC1914525B443D500325142 /* Surveys */,
 				4AC1913125B3340F00325142 /* Services */,
 			);
 			path = Views;
@@ -925,6 +917,10 @@
 		4AC1912C25B3326C00325142 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4A54F57D259B3EFB00184BC0 /* Buildings */,
+				4A238C0E257B5C4100CB861E /* Institutions */,
+				4A54F56F259A1EAC00184BC0 /* Unions */,
+				4AC1913E25B441EA00325142 /* Surveys */,
 				4AC1913825B336F900325142 /* CollectionViewHelper.swift */,
 				4AC1912D25B332A100325142 /* ServicesCollectionViewController.swift */,
 			);
@@ -934,6 +930,10 @@
 		4AC1913125B3340F00325142 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4A42A516257944A000283459 /* Buildings */,
+				4A21AA40257AA0CC00BA203A /* Institutions */,
+				4A54F571259A1F5600184BC0 /* Unions */,
+				4AC1914525B443D500325142 /* Surveys */,
 				4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */,
 			);
 			path = Services;
