@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -153,21 +154,41 @@
         <scene sceneID="Joz-S6-68U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m3t-1J-yRk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Профиль" id="oW2-hH-Bgy"/>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="person.fill" catalog="system" id="oW2-hH-Bgy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arl-6a-RYy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wB8-KP-uJX" kind="relationship" relationship="rootViewController" id="MpZ-4o-QLH"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ls-jj-Zfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="1542.8571428571429"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="wtm-29-sc5">
+            <objects>
+                <viewController id="wB8-KP-uJX" customClass="ProfileViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8GB-bq-m0l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0Zm-yK-iNL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="R85-hW-mkd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6h1-3K-9Ve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="1543"/>
+        </scene>
     </scenes>
     <resources>
         <image name="events_tab" width="25.333333969116211" height="25"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="timetable_tab" width="25.333333969116211" height="25"/>
         <systemColor name="systemBackgroundColor">

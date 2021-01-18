@@ -123,6 +123,7 @@
 		4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */; };
 		4AC1916525B4B2AF00325142 /* CenterTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */; };
 		4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916925B577A600325142 /* SurveyAnswerPost.swift */; };
+		4AC1917B25B5E5E900325142 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1917A25B5E5E800325142 /* ProfileViewController.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -299,6 +300,7 @@
 		4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnswerQuestionView.swift; sourceTree = "<group>"; };
 		4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterTitleButton.swift; sourceTree = "<group>"; };
 		4AC1916925B577A600325142 /* SurveyAnswerPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAnswerPost.swift; sourceTree = "<group>"; };
+		4AC1917A25B5E5E800325142 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -765,6 +767,7 @@
 				4A54F57C259B3DF800184BC0 /* Events */,
 				4AEE1801256EB1B600DD7D9F /* Timetable */,
 				4AC1912C25B3326C00325142 /* Services */,
+				4AC1917925B5E5BA00325142 /* Profile */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -966,6 +969,14 @@
 				4AC1916925B577A600325142 /* SurveyAnswerPost.swift */,
 			);
 			path = PostObjects;
+			sourceTree = "<group>";
+		};
+		4AC1917925B5E5BA00325142 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1917A25B5E5E800325142 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
@@ -1389,6 +1400,7 @@
 				4AC1914025B4425600325142 /* SurveysTableViewController.swift in Sources */,
 				4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */,
 				4A07DDD9255DA0D90022B6A9 /* DataManager.swift in Sources */,
+				4AC1917B25B5E5E900325142 /* ProfileViewController.swift in Sources */,
 				4AF3EC6C25AA161500AF0367 /* ApiInformingService.swift in Sources */,
 				4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */,
 				4AC1911525B3229C00325142 /* ApiSurveys.swift in Sources */,
