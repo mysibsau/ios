@@ -20,7 +20,10 @@ class SurveyViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let questionsStackView = UIStackView()
     
+    private let doneButton = CenterTitleButton()
+    
     private let activityIndicatorView = UIActivityIndicatorView()
+    private let alertView = AlertView()
     
     
     private var questionViews: [UIView] = []
@@ -127,13 +130,61 @@ class SurveyViewController: UIViewController {
             }
         }
         
-        let button = CenterTitleButton()
-        button.titleText = "Отправить"
-        button.titleColor = Colors.sibsuBlue
-        button.snp.makeConstraints { make in
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+        
+        doneButton.titleText = "Отправить"
+        doneButton.titleColor = Colors.sibsuBlue
+        doneButton.snp.makeConstraints { make in
             make.height.equalTo(50)
         }
-        questionsStackView.addArrangedSubview(button)
+        questionsStackView.addArrangedSubview(doneButton)
+    }
+    
+    // MARK: - Actions
+    @objc
+    private func doneButtonTapped() {
+        var answers: [AnswerPost] = []
+        
+        for view in questionViews {
+            if let selectAnswerView = view as? SelectAnswerQuesionView {
+                let question = selectAnswerView.question!
+                let answerIds = selectAnswerView.selectedIds
+                // Если ответов нет, а вопрос обязательный - то не отправляем ответ
+                if answerIds.isEmpty && question.necessarily {
+                    self.showAlert(withText: "Ответьте на все\n обязательные вопросы (с *)")
+                    return
+                }
+                
+                let answer = AnswerPost.select(SelectAnswerPost(id: question.id, answers: Array(answerIds)))
+                answers.append(answer)
+            } else if let textAnswerView = view as? TextAnswerQuestionView {
+                let question = textAnswerView.question!
+                let textAnswer = textAnswerView.textAnswer
+                // Если ответа нет, а вопрос обязательный - то не отправляем
+                if textAnswer.isEmpty && question.necessarily {
+                    self.showAlert(withText: "Ответьте на все\n обязательные вопросы (с *)")
+                    return
+                }
+                
+                let answer = AnswerPost.text(TextAnswerPost(id: question.id, text: textAnswer))
+                answers.append(answer)
+            }
+        }
+        
+        self.startActivityIndicator()
+        surveysService.post(surveyId: shortSurvey.id, answers: answers) { isDone in
+            if isDone {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.showAlert(withText: "Что-то полшло не так\nПопробуйте позже")
+                }
+            }
+        }
     }
     
     // MARK: - Methods for Hide Keyboard
@@ -173,6 +224,18 @@ extension SurveyViewController: AnimatingNetworkProtocol {
     
     func animatingSuperViewForDisplay() -> UIView {
         view
+    }
+    
+}
+
+extension SurveyViewController: AlertingViewController {
+    
+    func alertingSuperViewForDisplay() -> UIView {
+        view
+    }
+    
+    func alertingAlertView() -> AlertView {
+        alertView
     }
     
 }

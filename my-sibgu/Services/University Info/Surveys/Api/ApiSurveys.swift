@@ -21,4 +21,17 @@ class ApiSurveys {
         return URL(string: "\(address)/surveys/\(id)/?uuid=\(uuid)")!
     }
     
+    static func post(surveyId: Int, answers: [AnswerPost]) -> URLRequest {
+        let uuid = ApiUniversityInfo.currDeviceStringUuid
+        let url = URL(string: "\(address)/surveys/\(surveyId)/set_answer")!
+        
+        let surveyAnswerPost = SurveyAnswersPost(uuid: uuid, question: answers)
+        let jsonData = try! JSONEncoder().encode(surveyAnswerPost)
+        
+        print(String(data: jsonData, encoding: .utf8)!)
+        
+        let request = ApiUniversityInfo.postRequest(with: url, andJsonData: jsonData)
+        return request
+    }
+    
 }

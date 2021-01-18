@@ -77,7 +77,10 @@ class TimetableService {
                     let _ = optionalGroupHash,
                     let groupTimetable = optionalGroupTimetable
                 else {
-                    completionIfNeedNotLoadGroups(nil)
+                    DispatchQueue.main.async {
+                        let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
+                        completionIfNeedNotLoadGroups(timetableFromLocal)
+                    }
                     return
                 }
                 DispatchQueue.main.async {
@@ -93,7 +96,10 @@ class TimetableService {
                     let groups = optionalGroups,
                     let groupTimetable = optionalGroupTimetable
                 else {
-                    completionIfNeedLoadGroups(nil)
+                    DispatchQueue.main.async {
+                        let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
+                        completionIfNeedNotLoadGroups(timetableFromLocal)
+                    }
                     return
                 }
                 DispatchQueue.main.async {

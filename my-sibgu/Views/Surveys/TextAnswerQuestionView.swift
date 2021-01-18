@@ -10,14 +10,8 @@ import UIKit
 class TextAnswerQuestionView: UIView {
 
     var question: Question!
-    var testAnswer: String? {
-        get {
-            if answerTextView.text.isEmpty {
-                return nil
-            } else {
-                return answerTextView.text
-            }
-        }
+    var textAnswer: String {
+        answerTextView.text
     }
     
     

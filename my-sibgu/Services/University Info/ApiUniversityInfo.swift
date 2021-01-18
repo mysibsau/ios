@@ -34,6 +34,7 @@ struct ApiUniversityInfo {
     
 }
 
+// MARK: - Multipart Request
 extension ApiUniversityInfo {
     
     static func multipartRequest(withUrl url: URL, parameters: [String: String]) -> URLRequest {
@@ -64,6 +65,19 @@ extension ApiUniversityInfo {
         fieldString += "\(value)\r\n"
 
         return fieldString
+    }
+    
+}
+
+// MARK: - Post Request
+extension ApiUniversityInfo {
+    
+    static func postRequest(with url: URL, andJsonData jsonData: Data) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        
+        return request
     }
     
 }

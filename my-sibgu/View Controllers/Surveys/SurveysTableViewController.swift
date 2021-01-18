@@ -37,6 +37,12 @@ class SurveysTableViewController: UITableViewController {
         super.viewDidLoad()
         
         setupNavBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        surveys.removeAll()
+        tableView.reloadData()
         
         loadEvents()
     }

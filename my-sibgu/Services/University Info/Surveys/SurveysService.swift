@@ -31,4 +31,8 @@ class SurveysService {
         }
     }
     
+    func post(surveyId: Int, answers: [AnswerPost], completion: @escaping (Bool) -> Void) {
+        ApiSurveysService().post(surveyId: surveyId, answers: answers, completion: completion)
+    }
+    
 }

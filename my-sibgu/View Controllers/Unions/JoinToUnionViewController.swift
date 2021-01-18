@@ -188,7 +188,7 @@ class JoinToUnionViewController: UIViewController {
                     // TODO: Тут надо показать, что все норм
                     self.dismissVC()
                 } else {
-                    // TODO: Или тут надо показать что не все норм (показать алерт)
+                    // MARK: TODO: Или тут надо показать что не все норм (показать алерт)
                 }
             }
         }
