@@ -191,15 +191,15 @@ class TimetableSearchViewController: UIViewController {
             let numberLabel = UILabel()
             numberLabel.text = lessonTime.number
             numberLabel.textAlignment = .center
-            numberLabel.textColor = Colors.myBlue
+            numberLabel.textColor = UIColor.Pallete.darkBlue
             let timeLabel = UILabel()
             timeLabel.text = lessonTime.time
             timeLabel.textAlignment = .center
-            timeLabel.textColor = Colors.myBlue
+            timeLabel.textColor = UIColor.Pallete.darkBlue
             let breakLabel = UILabel()
             breakLabel.text = lessonTime.break
             breakLabel.textAlignment = .center
-            breakLabel.textColor = Colors.myBlue
+            breakLabel.textColor = UIColor.Pallete.darkBlue
 
             hStackView.addArrangedSubview(numberLabel)
             hStackView.addArrangedSubview(timeLabel)

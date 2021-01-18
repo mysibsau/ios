@@ -20,7 +20,7 @@ class ShortSurveyTableViewCell: UITableViewCell {
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.numberOfLines = 2
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     

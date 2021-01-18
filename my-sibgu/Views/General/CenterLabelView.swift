@@ -38,7 +38,7 @@ class CenterLabelView: UIView {
         }
         
         centerLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        centerLabel.textColor = Colors.sibsuBlue
+        centerLabel.textColor = UIColor.Pallete.sibsuBlue
         centerLabel.textAlignment = .center
         centerLabel.numberOfLines = 0
         centerLabel.lineBreakMode = .byWordWrapping

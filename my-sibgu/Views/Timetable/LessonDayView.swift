@@ -50,7 +50,7 @@ class LessonDayView: UIView {
             make.height.equalTo(30)
         }
 
-        todayView.backgroundColor = Colors.red
+        todayView.backgroundColor = UIColor.Pallete.lightRed
         todayView.layer.cornerRadius = 10
         todayView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
 
@@ -79,7 +79,7 @@ class LessonDayView: UIView {
         }
         
         dayNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        dayNameLabel.textColor = Colors.sibsuBlue
+        dayNameLabel.textColor = UIColor.Pallete.sibsuBlue
         
         self.addSubview(dateLabel)
         dateLabel.snp.makeConstraints { make in
@@ -125,7 +125,7 @@ class LessonDayView: UIView {
         
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         label.text = "Нет пар"
         
         weekendView.addSubview(label)

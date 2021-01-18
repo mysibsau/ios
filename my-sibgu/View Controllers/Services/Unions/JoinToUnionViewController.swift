@@ -152,7 +152,7 @@ class JoinToUnionViewController: UIViewController {
             make.height.equalTo(2)
             make.bottom.equalToSuperview()
         }
-        lineView.backgroundColor = Colors.sibsuBlue
+        lineView.backgroundColor = UIColor.Pallete.sibsuBlue
         
         stackView.addArrangedSubview(wrapView)
     }

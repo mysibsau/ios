@@ -26,7 +26,7 @@ class MySegmentedControl: UIView {
         secondSectionTitleLabel.text = "События"
         
         lineView = UIView()
-        lineView.backgroundColor = Colors.sibsuBlue
+        lineView.backgroundColor = UIColor.Pallete.sibsuBlue
         
         self.addSubview(firstSectionTitleLabel)
         firstSectionTitleLabel.snp.makeConstraints { make in

@@ -70,7 +70,7 @@ class BuildingTableViewCell: UITableViewCell {
             make.width.equalTo(2)
             make.height.equalToSuperview()
         }
-        separateLine.backgroundColor = Colors.sibsuBlue
+        separateLine.backgroundColor = UIColor.Pallete.sibsuBlue
         
         containerView.addSubview(buildingTypeLabel)
         buildingTypeLabel.snp.makeConstraints { make in

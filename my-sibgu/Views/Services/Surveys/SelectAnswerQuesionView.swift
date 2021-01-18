@@ -25,7 +25,7 @@ class SelectAnswerQuesionView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     

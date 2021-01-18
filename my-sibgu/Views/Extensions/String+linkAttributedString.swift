@@ -36,7 +36,7 @@ extension String {
         var rangesAndUrls: [NSRange: URL] = [:]
         for range in ranges {
             let stringUrl = String(attrString.string[Range(range, in: attrString.string)!])
-            attrString.addAttribute(.foregroundColor, value: Colors.sibsuBlue, range: range)
+            attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: range)
             attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             rangesAndUrls[range] = URL(string: stringUrl)!
         }
@@ -69,7 +69,7 @@ extension String {
             attrString.replaceCharacters(in: nameAndLinkRange!, with: name)
             let newRange = NSRange(location: nameAndLinkRange!.location, length: name.count)
             
-            attrString.addAttribute(.foregroundColor, value: Colors.sibsuBlue, range: newRange)
+            attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: newRange)
             attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: newRange)
             rangesAndUrls[newRange] = url
             

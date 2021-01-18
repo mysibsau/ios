@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+// MARK: TODO: Сделай функцию для label чтобы она выдавала лабель с такими настройками как надо а не прописывать эти св-ва миллион раз
+
 class DepartmentView: UIView {
     
     private var department: Institute.Department!
@@ -29,13 +31,13 @@ class DepartmentView: UIView {
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     
     let lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = Colors.sibsuBlue
+        view.backgroundColor = UIColor.Pallete.sibsuBlue
         return view
     }()
     
@@ -45,7 +47,7 @@ class DepartmentView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     
@@ -55,7 +57,7 @@ class DepartmentView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     
@@ -65,7 +67,7 @@ class DepartmentView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     
@@ -75,7 +77,7 @@ class DepartmentView: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     

@@ -218,7 +218,7 @@ class PersonViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 23, weight: .medium)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         label.text = text
         addArrangedSubviewToStackView(view: label, additionalPading: 0)
     }

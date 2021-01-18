@@ -44,7 +44,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
     

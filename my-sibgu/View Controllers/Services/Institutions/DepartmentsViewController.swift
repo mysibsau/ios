@@ -15,7 +15,7 @@ class DepartmentsViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         label.text = "Кафедры"
         return label
     }()

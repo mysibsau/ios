@@ -112,9 +112,9 @@ extension BuildingsViewController {
         cell.buildingTypeLabel.text = building.type
         cell.buildingAddressLabel.text = building.address
         if building.coast == .right {
-            cell.separateLine.backgroundColor = Colors.sibsuBlue
+            cell.separateLine.backgroundColor = UIColor.Pallete.sibsuBlue
         } else if building.coast == .left {
-            cell.separateLine.backgroundColor = Colors.sibsuGreen
+            cell.separateLine.backgroundColor = UIColor.Pallete.sibsuGreen
         }
         return cell
     }

@@ -133,7 +133,7 @@ class SurveyViewController: UIViewController {
         doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         
         doneButton.titleText = "Отправить"
-        doneButton.titleColor = Colors.sibsuBlue
+        doneButton.titleColor = UIColor.Pallete.sibsuBlue
         doneButton.snp.makeConstraints { make in
             make.height.equalTo(50)
         }

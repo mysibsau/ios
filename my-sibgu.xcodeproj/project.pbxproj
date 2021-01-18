@@ -88,7 +88,6 @@
 		4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D6882573CB3F00EA1E47 /* Common.swift */; };
 		4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
-		4AB027482570FFE700974D08 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB027472570FFE700974D08 /* Colors.swift */; };
 		4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A66F25A0FCA200518FEA /* CampusService.swift */; };
 		4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67325A107C300518FEA /* ApiCampus.swift */; };
 		4AB5A67725A1091900518FEA /* ApiUniversityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */; };
@@ -125,6 +124,8 @@
 		4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916925B577A600325142 /* SurveyAnswerPost.swift */; };
 		4AC1917B25B5E5E900325142 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1917A25B5E5E800325142 /* ProfileViewController.swift */; };
 		4AC1918125B5F0CD00325142 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1918025B5F0CC00325142 /* SettingsViewController.swift */; };
+		4AC1918525B6175900325142 /* UIColor+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1918425B6175900325142 /* UIColor+color.swift */; };
+		4AC1918B25B6181A00325142 /* UIColor+Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1918A25B6181A00325142 /* UIColor+Pallete.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -266,7 +267,6 @@
 		4A91D6882573CB3F00EA1E47 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
-		4AB027472570FFE700974D08 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4AB5A66F25A0FCA200518FEA /* CampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusService.swift; sourceTree = "<group>"; };
 		4AB5A67325A107C300518FEA /* ApiCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampus.swift; sourceTree = "<group>"; };
 		4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUniversityInfo.swift; sourceTree = "<group>"; };
@@ -303,6 +303,8 @@
 		4AC1916925B577A600325142 /* SurveyAnswerPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAnswerPost.swift; sourceTree = "<group>"; };
 		4AC1917A25B5E5E800325142 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4AC1918025B5F0CC00325142 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4AC1918425B6175900325142 /* UIColor+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+color.swift"; sourceTree = "<group>"; };
+		4AC1918A25B6181A00325142 /* UIColor+Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pallete.swift"; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -778,8 +780,8 @@
 			isa = PBXGroup;
 			children = (
 				4A7A56F7256C016600E2CE0F /* Extensions */,
-				4A75819C25755FB1006C1F6C /* General */,
 				4AB027462570FFD900974D08 /* Style */,
+				4A75819C25755FB1006C1F6C /* General */,
 				4A3D7D57259C612100B6D38A /* Events */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
 				4AC1913125B3340F00325142 /* Services */,
@@ -795,7 +797,6 @@
 				4AEE1807256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift */,
 				4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */,
 				4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */,
-				4A5A16482574F25D00F5D652 /* UIColor+hex.swift */,
 				4A736BFB25A63F380040BBED /* String+linkAttributedString.swift */,
 			);
 			path = Extensions;
@@ -821,7 +822,9 @@
 		4AB027462570FFD900974D08 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				4AB027472570FFE700974D08 /* Colors.swift */,
+				4A5A16482574F25D00F5D652 /* UIColor+hex.swift */,
+				4AC1918425B6175900325142 /* UIColor+color.swift */,
+				4AC1918A25B6181A00325142 /* UIColor+Pallete.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -1332,6 +1335,7 @@
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
+				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
 				4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */,
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
@@ -1353,13 +1357,13 @@
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
 				4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */,
+				4AC1918B25B6181A00325142 /* UIColor+Pallete.swift in Sources */,
 				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
 				4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */,
 				4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */,
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
-				4AB027482570FFE700974D08 /* Colors.swift in Sources */,
 				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,

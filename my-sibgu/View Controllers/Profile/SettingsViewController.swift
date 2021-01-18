@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
     
     private let themeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         return label
     }()

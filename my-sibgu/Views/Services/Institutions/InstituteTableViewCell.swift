@@ -55,7 +55,7 @@ class InstituteTableViewCell: UITableViewCell {
             make.leading.trailing.equalToSuperview().inset(10)
         }
         
-        shortNameLabel.textColor = Colors.sibsuBlue
+        shortNameLabel.textColor = UIColor.Pallete.sibsuBlue
         
         containerView.addSubview(longNameLabel)
         longNameLabel.snp.makeConstraints { make in
@@ -64,7 +64,7 @@ class InstituteTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-20)
         }
         
-        longNameLabel.textColor = Colors.sibsuBlue
+        longNameLabel.textColor = UIColor.Pallete.sibsuBlue
     }
     
     required init?(coder: NSCoder) {

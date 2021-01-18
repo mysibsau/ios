@@ -42,7 +42,7 @@ class ImageAndLabelView: UIView {
         }
         
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = Colors.sibsuGreen
+        imageView.tintColor = UIColor.Pallete.sibsuGreen
         
         self.addSubview(label)
         label.snp.makeConstraints { make in
@@ -51,7 +51,7 @@ class ImageAndLabelView: UIView {
         }
         
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        label.textColor = Colors.sibsuBlue
+        label.textColor = UIColor.Pallete.sibsuBlue
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
     }

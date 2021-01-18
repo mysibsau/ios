@@ -235,11 +235,11 @@ extension LessonView {
         subgroupView.subject.text = subject
         subgroupView.type.text = type.rawValue
         if type == .lecrute {
-            subgroupView.type.textColor = Colors.orange
+            subgroupView.type.textColor = UIColor.Pallete.orange
         } else if type == .practice {
-            subgroupView.type.textColor = Colors.green
+            subgroupView.type.textColor = UIColor.Pallete.green
         } else if type == .laboratoryWork {
-            subgroupView.type.textColor = Colors.purple
+            subgroupView.type.textColor = UIColor.Pallete.purple
         } else {
             subgroupView.type.textColor = .gray
         }

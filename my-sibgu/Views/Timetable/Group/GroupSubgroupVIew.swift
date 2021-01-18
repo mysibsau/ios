@@ -60,8 +60,8 @@ class GroupSubgroupView: UIView {
         place.textAlignment = .right
         place.textColor = .gray
         
-        subject.textColor = Colors.sibsuBlue
-        type.textColor = Colors.sibsuGreen
+        subject.textColor = UIColor.Pallete.sibsuBlue
+        type.textColor = UIColor.Pallete.sibsuGreen
         professor.textColor = .gray
     }
     
