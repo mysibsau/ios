@@ -37,7 +37,8 @@ class ProfileViewController: UIViewController {
     
     @objc
     private func showSettiongs() {
-        // MARK: TODO:
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

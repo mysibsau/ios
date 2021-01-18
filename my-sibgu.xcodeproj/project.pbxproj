@@ -124,6 +124,7 @@
 		4AC1916525B4B2AF00325142 /* CenterTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */; };
 		4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1916925B577A600325142 /* SurveyAnswerPost.swift */; };
 		4AC1917B25B5E5E900325142 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1917A25B5E5E800325142 /* ProfileViewController.swift */; };
+		4AC1918125B5F0CD00325142 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1918025B5F0CC00325142 /* SettingsViewController.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -301,6 +302,7 @@
 		4AC1916425B4B2AF00325142 /* CenterTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterTitleButton.swift; sourceTree = "<group>"; };
 		4AC1916925B577A600325142 /* SurveyAnswerPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAnswerPost.swift; sourceTree = "<group>"; };
 		4AC1917A25B5E5E800325142 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4AC1918025B5F0CC00325142 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -975,6 +977,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC1917A25B5E5E800325142 /* ProfileViewController.swift */,
+				4AC1918025B5F0CC00325142 /* SettingsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1449,6 +1452,7 @@
 				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
+				4AC1918125B5F0CD00325142 /* SettingsViewController.swift in Sources */,
 				4AF3EC7025AA16A700AF0367 /* EventResponse.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
 				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
