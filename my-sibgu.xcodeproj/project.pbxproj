@@ -128,6 +128,7 @@
 		4AC1918B25B6181A00325142 /* UIColor+Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1918A25B6181A00325142 /* UIColor+Pallete.swift */; };
 		4AC1919925B6D1B000325142 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1919825B6D1B000325142 /* Theme.swift */; };
 		4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1919E25B6D45B00325142 /* UIWindow+initTheme.swift */; };
+		4AC191A525B6E05F00325142 /* ThemeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC191A425B6E05F00325142 /* ThemeWindow.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -309,6 +310,7 @@
 		4AC1918A25B6181A00325142 /* UIColor+Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pallete.swift"; sourceTree = "<group>"; };
 		4AC1919825B6D1B000325142 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4AC1919E25B6D45B00325142 /* UIWindow+initTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+initTheme.swift"; sourceTree = "<group>"; };
+		4AC191A425B6E05F00325142 /* ThemeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeWindow.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -827,6 +829,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC1919825B6D1B000325142 /* Theme.swift */,
+				4AC191A425B6E05F00325142 /* ThemeWindow.swift */,
 				4AC1919E25B6D45B00325142 /* UIWindow+initTheme.swift */,
 				4A5A16482574F25D00F5D652 /* UIColor+hex.swift */,
 				4AC1918425B6175900325142 /* UIColor+color.swift */,
@@ -1339,6 +1342,7 @@
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
+				4AC191A525B6E05F00325142 /* ThemeWindow.swift in Sources */,
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
 				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,

@@ -7,6 +7,8 @@
 
 import UIKit
 
+let themeWindow = ThemeWindow(frame: UIScreen.main.bounds)
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -18,15 +20,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = .green
+        themeWindow.rootViewController = vc
+        themeWindow.windowScene = windowScene
+        themeWindow.makeKey()
+        
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.initTheme()
         window?.windowScene = windowScene
-        
+
         let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainTabBarVC") as! UITabBarController
         tabBarVC.selectedIndex = 2
-        
+
         window?.rootViewController = tabBarVC
-        
+
         window?.makeKeyAndVisible()
     }
 
@@ -61,3 +71,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension Theme {
+    
+    var userInterfaceStyle: UIUserInterfaceStyle {
+        switch self {
+        case .light: return .light
+        case .dark: return .dark
+        case .system: return themeWindow.traitCollection.userInterfaceStyle
+        }
+    }
+    
+    func setActive() {
+        // Сохраняем текущую тему в UD
+        save()
+        
+        // Меняем стиль всех окон приложения
+        UIApplication.shared.windows
+            .filter { $0 != themeWindow }
+            .forEach { $0.overrideUserInterfaceStyle = userInterfaceStyle }
+    }
+    
+}

@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController {
     }()
     
     private let themeSegmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Светлое", "Темное"])
+        let sc = UISegmentedControl(items: ["Системное", "Светлое", "Темное"])
         sc.selectedSegmentIndex = 0
         return sc
     }()
@@ -74,7 +74,8 @@ class SettingsViewController: UIViewController {
     
     @objc
     private func themeSegmentedControlChanged() {
-        Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)?.setActive()
+        let t = Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)!
+        t.setActive()
     }
 
 }
