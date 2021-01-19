@@ -11,6 +11,8 @@ extension UIColor {
     
     struct Pallete {
         
+        static let background = UIColor.color(light: .white, dark: .black)
+        
         static let orange = UIColor.color(light: .init(hex: "#F48041"), dark: .init(hex: "#F48041"))
         
         static let green = UIColor.color(light: .init(hex: "#359f2f"), dark: .init(hex: "#359f2f"))

@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController {
     }()
     
     private let themeSegmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Системное", "Светлое", "Темное"])
+        let sc = UISegmentedControl(items: ["Светлое", "Темное"])
         sc.selectedSegmentIndex = 0
         return sc
     }()
@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
     }
     
     override func viewDidLoad() {
@@ -59,6 +59,7 @@ class SettingsViewController: UIViewController {
         themeSegmentedControl.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        themeSegmentedControl.addTarget(self, action: #selector(themeSegmentedControlChanged), for: .valueChanged)
         
         view.addSubview(shadowView)
         shadowView.snp.makeConstraints { make in
@@ -69,6 +70,11 @@ class SettingsViewController: UIViewController {
         shadowView.layer.cornerRadius = themeSegmentedControl.layer.cornerRadius
         shadowView.backgroundColor = .systemBackground
 //        shadowView.makeShadow(color: .black, opacity: 0.15, shadowOffser: .zero, radius: 4)
+    }
+    
+    @objc
+    private func themeSegmentedControlChanged() {
+        Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)?.setActive()
     }
 
 }
