@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.initTheme()
         window?.windowScene = windowScene
         
         let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainTabBarVC") as! UITabBarController
