@@ -10,6 +10,7 @@ import SnapKit
 
 class SettingsViewController: UIViewController {
     
+    // MARK: - Theme UI
     private let themeLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.Pallete.sibsuBlue
@@ -18,12 +19,22 @@ class SettingsViewController: UIViewController {
     }()
     
     private let themeSegmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Системное", "Светлое", "Темное"])
+        let sc = UISegmentedControl(items: ["Системное*", "Светлое", "Темное"])
         sc.selectedSegmentIndex = 0
         return sc
     }()
     
-
+    private let themeDesctiption: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    
+    // MARK: - Life Circle
     override func loadView() {
         super.loadView()
         
@@ -38,6 +49,7 @@ class SettingsViewController: UIViewController {
         setupThemeSegmentedControl()
     }
     
+    // MARK: - Sutup Views
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
@@ -45,6 +57,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func setupThemeSegmentedControl() {
+        // Заголовок над сменой темы
         view.addSubview(themeLabel)
         themeLabel.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -60,6 +73,7 @@ class SettingsViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         themeSegmentedControl.addTarget(self, action: #selector(themeSegmentedControlChanged), for: .valueChanged)
+        themeSegmentedControl.selectedSegmentIndex = Theme.current.rawValue
         
         view.addSubview(shadowView)
         shadowView.snp.makeConstraints { make in
@@ -70,12 +84,20 @@ class SettingsViewController: UIViewController {
         shadowView.layer.cornerRadius = themeSegmentedControl.layer.cornerRadius
         shadowView.backgroundColor = .systemBackground
 //        shadowView.makeShadow(color: .black, opacity: 0.15, shadowOffser: .zero, radius: 4)
+        
+        // Поястительная подпись
+        view.addSubview(themeDesctiption)
+        themeDesctiption.snp.makeConstraints { make in
+            make.top.equalTo(themeSegmentedControl.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        themeDesctiption.text = "* Системное оформление - оформление приложение автоматически меняется при изменении оформления в настройках телефона"
     }
     
+    // MARK: - Actions
     @objc
     private func themeSegmentedControlChanged() {
-        let t = Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)!
-        t.setActive()
+        Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)?.setActive()
     }
 
 }
