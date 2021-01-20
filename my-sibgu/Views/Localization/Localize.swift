@@ -11,7 +11,7 @@ import Foundation
 class Localize {
     
     // Дефолтный язык, используемый в приложении
-    static let appDefalutLanguage = "ru"
+    static let appDefalutLanguage = "en"
     
     
     @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.firstWeekIsEven", defaultValue: String?(nil))
@@ -72,6 +72,10 @@ class Localize {
     
     static func resetCurrentLanguageToDefault() {
         setCurrentLanguage(defaultLanguage)
+    }
+    
+    static func resetCurrentLanguageToSystem() {
+        _currentLanguage = nil
     }
     
 }

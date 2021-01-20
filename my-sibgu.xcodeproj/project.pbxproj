@@ -87,6 +87,7 @@
 		4A7AE70A259F8AB9007181E2 /* EventCellMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AE709259F8AB9007181E2 /* EventCellMode.swift */; };
 		4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D6882573CB3F00EA1E47 /* Common.swift */; };
 		4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */; };
+		4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9A4425B81BD3001F3B0B /* String+localized.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
 		4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A66F25A0FCA200518FEA /* CampusService.swift */; };
 		4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67325A107C300518FEA /* ApiCampus.swift */; };
@@ -272,6 +273,7 @@
 		4A7AE709259F8AB9007181E2 /* EventCellMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellMode.swift; sourceTree = "<group>"; };
 		4A91D6882573CB3F00EA1E47 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		4A9C9A4425B81BD3001F3B0B /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
 		4AB5A66F25A0FCA200518FEA /* CampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusService.swift; sourceTree = "<group>"; };
 		4AB5A67325A107C300518FEA /* ApiCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampus.swift; sourceTree = "<group>"; };
@@ -1008,6 +1010,7 @@
 			children = (
 				4AC191D925B784D000325142 /* Notification.Name+Localize.swift */,
 				4AC191D325B77E8600325142 /* Localize.swift */,
+				4A9C9A4425B81BD3001F3B0B /* String+localized.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -1381,6 +1384,7 @@
 				4AC1916525B4B2AF00325142 /* CenterTitleButton.swift in Sources */,
 				4AC1912525B3299A00325142 /* SurveyResponse.swift in Sources */,
 				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
+				4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
 				4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
