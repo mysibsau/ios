@@ -129,6 +129,9 @@
 		4AC1919925B6D1B000325142 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1919825B6D1B000325142 /* Theme.swift */; };
 		4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1919E25B6D45B00325142 /* UIWindow+initTheme.swift */; };
 		4AC191A525B6E05F00325142 /* ThemeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC191A425B6E05F00325142 /* ThemeWindow.swift */; };
+		4AC191C925B752EC00325142 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC191CB25B752EC00325142 /* Localizable.strings */; };
+		4AC191D425B77E8600325142 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC191D325B77E8600325142 /* Localize.swift */; };
+		4AC191DA25B784D000325142 /* Notification.Name+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC191D925B784D000325142 /* Notification.Name+Localize.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -311,6 +314,10 @@
 		4AC1919825B6D1B000325142 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4AC1919E25B6D45B00325142 /* UIWindow+initTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+initTheme.swift"; sourceTree = "<group>"; };
 		4AC191A425B6E05F00325142 /* ThemeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeWindow.swift; sourceTree = "<group>"; };
+		4AC191CA25B752EC00325142 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AC191CE25B752F200325142 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AC191D325B77E8600325142 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		4AC191D925B784D000325142 /* Notification.Name+Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Localize.swift"; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -416,6 +423,7 @@
 				4A07DD8F255D89050022B6A9 /* LaunchScreen.storyboard */,
 				4A07DD92255D89050022B6A9 /* Info.plist */,
 				4AF3ECA025AC3E2000AF0367 /* GoogleService-Info.plist */,
+				4AC191CB25B752EC00325142 /* Localizable.strings */,
 			);
 			path = "my-sibgu";
 			sourceTree = "<group>";
@@ -785,6 +793,7 @@
 		4A7A56F6256C015F00E2CE0F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4AC191D225B77DBC00325142 /* Localization */,
 				4A7A56F7256C016600E2CE0F /* Extensions */,
 				4AB027462570FFD900974D08 /* Style */,
 				4A75819C25755FB1006C1F6C /* General */,
@@ -992,6 +1001,15 @@
 				4AC1918025B5F0CC00325142 /* SettingsViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		4AC191D225B77DBC00325142 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4AC191D925B784D000325142 /* Notification.Name+Localize.swift */,
+				4AC191D325B77E8600325142 /* Localize.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
@@ -1227,6 +1245,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 4A07DD78255D89020022B6A9;
 			productRefGroup = 4A07DD82255D89020022B6A9 /* Products */;
@@ -1247,6 +1266,7 @@
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
+				4AC191C925B752EC00325142 /* Localizable.strings in Resources */,
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4AEBE6F625639388005F6CBE /* union.json in Resources */,
 				4AF3ECA125AC3E2000AF0367 /* GoogleService-Info.plist in Resources */,
@@ -1395,6 +1415,7 @@
 				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
+				4AC191DA25B784D000325142 /* Notification.Name+Localize.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
 				4A7A56F3256BF5BF00E2CE0F /* UnionsTableViewController.swift in Sources */,
@@ -1439,6 +1460,7 @@
 				4AB5A69D25A1D2A100518FEA /* ResponseHandler.swift in Sources */,
 				4AC1910F25B3227400325142 /* SurveysService.swift in Sources */,
 				4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */,
+				4AC191D425B77E8600325142 /* Localize.swift in Sources */,
 				4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
@@ -1512,6 +1534,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		4AC191CB25B752EC00325142 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AC191CA25B752EC00325142 /* en */,
+				4AC191CE25B752F200325142 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1519,6 +1550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1580,6 +1612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
