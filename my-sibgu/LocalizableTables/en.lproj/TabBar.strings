@@ -1,0 +1,17 @@
+/* 
+  TabBar.strings
+  my-sibgu
+
+  Created by art-off on 20.01.2021.
+  
+*/
+
+"feed" = "Feed";
+
+"cafeteria" = "Cafeteria";
+
+"timetable" = "Timetable";
+
+"services" = "Services";
+
+"profile" = "Profile";

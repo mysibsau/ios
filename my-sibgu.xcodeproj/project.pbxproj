@@ -60,6 +60,8 @@
 		4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A314A0A2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift */; };
 		4A38D0B825B87CA1006EE06F /* Profile.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0BA25B87CA1006EE06F /* Profile.strings */; };
 		4A38D0C625B882A4006EE06F /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0C825B882A4006EE06F /* Settings.strings */; };
+		4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38D0CC25B889AE006EE06F /* CustomViewController.swift */; };
+		4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0D825B88A12006EE06F /* TabBar.strings */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
 		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
@@ -249,6 +251,9 @@
 		4A38D0BD25B87CA6006EE06F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Profile.strings; sourceTree = "<group>"; };
 		4A38D0C725B882A4006EE06F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		4A38D0C925B882A8006EE06F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Settings.strings; sourceTree = "<group>"; };
+		4A38D0CC25B889AE006EE06F /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		4A38D0D725B88A12006EE06F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TabBar.strings; sourceTree = "<group>"; };
+		4A38D0DB25B88A16006EE06F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TabBar.strings; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
 		4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingTimetableViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +422,7 @@
 				4AF3ECA425AC761C00AF0367 /* my-sibgu.entitlements */,
 				4A91D6882573CB3F00EA1E47 /* Common.swift */,
 				4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */,
+				4A38D0CC25B889AE006EE06F /* CustomViewController.swift */,
 				4A07DD84255D89020022B6A9 /* AppDelegate.swift */,
 				4A07DD86255D89020022B6A9 /* SceneDelegate.swift */,
 				4A7A56E5256BF4A900E2CE0F /* View Controllers */,
@@ -678,6 +684,7 @@
 			children = (
 				4A38D0BA25B87CA1006EE06F /* Profile.strings */,
 				4A38D0C825B882A4006EE06F /* Settings.strings */,
+				4A38D0D825B88A12006EE06F /* TabBar.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1283,6 +1290,7 @@
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
+				4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */,
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4AEBE6F625639388005F6CBE /* union.json in Resources */,
 				4AF3ECA125AC3E2000AF0367 /* GoogleService-Info.plist in Resources */,
@@ -1382,6 +1390,7 @@
 				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
 				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,
+				4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
 				4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */,
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
@@ -1567,6 +1576,15 @@
 				4A38D0C925B882A8006EE06F /* ru */,
 			);
 			name = Settings.strings;
+			sourceTree = "<group>";
+		};
+		4A38D0D825B88A12006EE06F /* TabBar.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A38D0D725B88A12006EE06F /* en */,
+				4A38D0DB25B88A16006EE06F /* ru */,
+			);
+			name = TabBar.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
