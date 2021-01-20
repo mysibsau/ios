@@ -20,12 +20,14 @@ class ProfileViewController: UIViewController {
 
         setupNavBar()
         addSettiongsBarButton()
+        
+        self.updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Профиль")
     }
     
     private func addSettiongsBarButton() {
@@ -39,6 +41,11 @@ class ProfileViewController: UIViewController {
     private func showSettiongs() {
         let vc = SettingsViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    private func updateText() {
+        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "navBarTitle".localized(using: "Profile"))
     }
 
 }

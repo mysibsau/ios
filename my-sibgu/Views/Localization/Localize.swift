@@ -31,7 +31,7 @@ class Localize {
         
         // и отправляем всем пост, что язык обновился, если нужно
         if willUpdate {
-            NotificationCenter.default.post(name: .languageChanged, object: nil)
+            postToSelectLanguage()
         }
     }
     
@@ -86,6 +86,11 @@ class Localize {
     
     static func resetCurrentLanguageToSystem() {
         _currentLanguage = nil
+        postToSelectLanguage()
+    }
+    
+    private static func postToSelectLanguage() {
+        NotificationCenter.default.post(name: .languageChanged, object: nil)
     }
     
 }
