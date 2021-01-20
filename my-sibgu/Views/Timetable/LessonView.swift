@@ -37,7 +37,7 @@ class LessonView: UIView {
         setupStackView()
         
         contentView.backgroundColor = .systemBackground
-        contentView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        contentView.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 5)
         contentView.layer.cornerRadius = 15
     }
     

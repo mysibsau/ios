@@ -67,14 +67,14 @@ class ContainerTimetableViewController: UIViewController {
         
         let viewRightBarButton = UIView()
         viewRightBarButton.addSubview(rightBarButton)
-        viewRightBarButton.makeShadow(color: .black, opacity: 0.5, shadowOffser: .zero, radius: 3)
+        viewRightBarButton.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.3, shadowOffser: .zero, radius: 2.5)
         viewRightBarButton.layer.cornerRadius = 15
         
         rightBarButton.snp.makeConstraints { make in
             make.center.equalTo(viewRightBarButton.snp.center)
         }
         
-        viewRightBarButton.backgroundColor = .white
+        viewRightBarButton.backgroundColor = UIColor.Pallete.background
         viewRightBarButton.snp.makeConstraints { make in
             make.width.equalTo(100)
             make.height.equalTo(30)

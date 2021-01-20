@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController {
         let tableView = UITableView(frame: .zero)
         return tableView
     }()
+    private let shadowViewLanguage = UIView()
     
     private lazy var languagesDescriptionLabel = _descriptionLabel()
     
@@ -34,6 +35,7 @@ class SettingsViewController: UIViewController {
         sc.selectedSegmentIndex = 0
         return sc
     }()
+    private let shadowViewTheme = UIView()
     
     private lazy var themeDescriptionLabel = _descriptionLabel()
     
@@ -103,18 +105,28 @@ class SettingsViewController: UIViewController {
         }
         languageLabel.text = "Язык"
         
-        view.addSubview(languagesTableView)
+        // Добавление таблицы
+        shadowViewLanguage.addSubview(languagesTableView)
         languagesTableView.snp.makeConstraints { make in
-            make.top.equalTo(languageLabel.snp.bottom).offset(10)
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(UITableViewCell().frame.height * 3)
+            make.edges.equalToSuperview()
         }
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
         languagesTableView.isScrollEnabled = false
-        languagesTableView.layer.borderWidth = 1
-        languagesTableView.layer.borderColor = UIColor.gray.cgColor
+        languagesTableView.backgroundColor = .clear
+        
+        view.addSubview(shadowViewLanguage)
+        shadowViewLanguage.snp.makeConstraints { make in
+            make.top.equalTo(languageLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(UITableViewCell().frame.height * 3 - 1) // -1 потому что внизу остается противная разделительная черта
+        }
+        shadowViewLanguage.layer.borderWidth = 0.75
+        shadowViewLanguage.layer.borderColor = UIColor.Pallete.border.cgColor
         languagesTableView.layer.cornerRadius = 10
+        shadowViewLanguage.layer.cornerRadius = 10
+//        shadowView.backgroundColor = UIColor.Pallete.sibsuBlue
+        shadowViewLanguage.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.3, shadowOffser: .zero, radius: 2)
         
         view.addSubview(languagesDescriptionLabel)
         languagesDescriptionLabel.snp.makeConstraints { make in
@@ -136,22 +148,21 @@ class SettingsViewController: UIViewController {
         
         // Добавил это теневое вью чтобы добавить тень к segmented control
         // но не могу изменить backgroundcolor у него на белый и поэтому тень плохая
-        let shadowView = UIView()
-        shadowView.addSubview(themeSegmentedControl)
+        shadowViewTheme.addSubview(themeSegmentedControl)
         themeSegmentedControl.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         themeSegmentedControl.addTarget(self, action: #selector(themeSegmentedControlChanged), for: .valueChanged)
         themeSegmentedControl.selectedSegmentIndex = Theme.current.rawValue
         
-        view.addSubview(shadowView)
-        shadowView.snp.makeConstraints { make in
+        view.addSubview(shadowViewTheme)
+        shadowViewTheme.snp.makeConstraints { make in
             make.top.equalTo(themeLabel.snp.bottom).offset(10)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(40)
         }
-        shadowView.layer.cornerRadius = themeSegmentedControl.layer.cornerRadius
-        shadowView.backgroundColor = .systemBackground
+        shadowViewTheme.layer.cornerRadius = themeSegmentedControl.layer.cornerRadius
+        shadowViewTheme.backgroundColor = .systemBackground
 //        shadowView.makeShadow(color: .black, opacity: 0.15, shadowOffser: .zero, radius: 4)
         
         // Поястительная подпись
@@ -215,6 +226,15 @@ extension SettingsViewController: UITableViewDelegate {
         }
         
         tableView.reloadData()
+    }
+    
+}
+
+extension SettingsViewController {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        shadowViewLanguage.layer.shadowColor = UIColor.Pallete.shadow.cgColor
+        shadowViewLanguage.layer.borderColor = UIColor.Pallete.border.cgColor
     }
     
 }
