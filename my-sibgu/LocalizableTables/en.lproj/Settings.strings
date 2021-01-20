@@ -1,0 +1,19 @@
+/* 
+  Settings.strings
+  my-sibgu
+
+  Created by art-off on 20.01.2021.
+  
+*/
+
+"nav.bar.title" = "Settings";
+
+"language" = "Language";
+"language.system" = "System*";
+"language.description" = "* System Language - The app language will automatically change after you change the phone language (if the language is supported by the app)";
+
+"appearance" = "Appearance";
+"appearance.system" = "System*";
+"appearance.light" = "Light";
+"appearance.dark" = "Dark";
+"appearance.description" = "* System design - The design of the app changes automatically when you change the design in the phone settings";

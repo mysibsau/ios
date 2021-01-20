@@ -45,7 +45,9 @@ class ProfileViewController: UIViewController {
     
     @objc
     private func updateText() {
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "navBarTitle".localized(using: "Profile"))
+        let tableName = "Profile"
+        
+        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "navBarTitle".localized(using: tableName))
     }
 
 }

@@ -71,13 +71,15 @@ class SettingsViewController: UIViewController {
         
         setupLanguageTableView()
         setupThemeSegmentedControl()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     // MARK: - Sutup Views
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setLeftTitle(title: "Настройки")
     }
     
     private func setupLanguageTableView() {
@@ -103,7 +105,6 @@ class SettingsViewController: UIViewController {
         languageLabel.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
-        languageLabel.text = "Язык"
         
         // Добавление таблицы
         shadowViewLanguage.addSubview(languagesTableView)
@@ -133,7 +134,6 @@ class SettingsViewController: UIViewController {
             make.top.equalTo(languagesTableView.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview().inset(20)
         }
-        languagesDescriptionLabel.text = "* Системный язык - язык приложения будет автоматически меняться после изменения языка телефона (если язык поддерживатеся приложением)"
     }
     
     private func setupThemeSegmentedControl() {
@@ -143,7 +143,6 @@ class SettingsViewController: UIViewController {
             make.top.equalTo(languagesDescriptionLabel.snp.bottom).offset(20)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
-        themeLabel.text = "Оформление"
         
         
         // Добавил это теневое вью чтобы добавить тень к segmented control
@@ -171,13 +170,30 @@ class SettingsViewController: UIViewController {
             make.top.equalTo(themeSegmentedControl.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview().inset(20)
         }
-        themeDescriptionLabel.text = "* Системное оформление - оформление приложение автоматически меняется при изменении оформления в настройках телефона"
     }
     
     // MARK: - Actions
     @objc
     private func themeSegmentedControlChanged() {
         Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)?.setActive()
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Settings"
+        
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        
+        languages[0].displayName = "language.system".localized(using: tableName)
+        
+        languageLabel.text = "language".localized(using: tableName)
+        languagesDescriptionLabel.text = "language.description".localized(using: tableName)
+        
+        themeLabel.text = "appearance".localized(using: tableName)
+        themeSegmentedControl.setTitle("appearance.system".localized(using: tableName), forSegmentAt: 0)
+        themeSegmentedControl.setTitle("appearance.light".localized(using: tableName), forSegmentAt: 1)
+        themeSegmentedControl.setTitle("appearance.dark".localized(using: tableName), forSegmentAt: 2)
+        themeDescriptionLabel.text = "appearance.description".localized(using: tableName)
     }
 
 }
