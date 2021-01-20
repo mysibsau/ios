@@ -8,15 +8,26 @@
 import UIKit
 import SnapKit
 
+private let cellId = "LanguageCell"
+
 class SettingsViewController: UIViewController {
     
-    // MARK: - Theme UI
-    private let themeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.Pallete.sibsuBlue
-        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        return label
+    // MARK: - Properties
+    private var languages: [(identifier: String, displayName: String, isCurrent: Bool)] = []
+    
+    
+    // MARK: - Language UI
+    private lazy var languageLabel = _titleLabel()
+    
+    private let languagesTableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        return tableView
     }()
+    
+    private lazy var languagesDescriptionLabel = _descriptionLabel()
+    
+    // MARK: - Theme UI
+    private lazy var themeLabel = _titleLabel()
     
     private let themeSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Системное*", "Светлое", "Темное"])
@@ -24,14 +35,24 @@ class SettingsViewController: UIViewController {
         return sc
     }()
     
-    private let themeDesctiption: UILabel = {
+    private lazy var themeDescriptionLabel = _descriptionLabel()
+    
+    // MARK: - UI Helper
+    private func _titleLabel() -> UILabel {
+        let label = UILabel()
+        label.textColor = UIColor.Pallete.sibsuBlue
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        return label
+    }
+    
+    private func _descriptionLabel() -> UILabel {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 12)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         return label
-    }()
+    }
     
     
     // MARK: - Life Circle
@@ -46,6 +67,7 @@ class SettingsViewController: UIViewController {
         
         setupNavBar()
         
+        setupLanguageTableView()
         setupThemeSegmentedControl()
     }
     
@@ -56,11 +78,58 @@ class SettingsViewController: UIViewController {
         self.navigationItem.setLeftTitle(title: "Настройки")
     }
     
+    private func setupLanguageTableView() {
+        languages.append(("", "Системный*", false))
+        let identifiers = Localize.availableLanguages()
+        for identifier in identifiers {
+            languages.append((identifier, Localize.displayName(for: identifier), false))
+        }
+        
+        // выставляем какой язык текущий
+        if Localize.languageIsSystem {
+            languages[0].isCurrent = true
+        } else {
+            let currLanguageIndex = languages.firstIndex { $0.identifier == Localize.currentLanguage }!
+            languages[currLanguageIndex].isCurrent = true
+        }
+        
+        languagesTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        languagesTableView.reloadData()
+        
+        
+        view.addSubview(languageLabel)
+        languageLabel.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        languageLabel.text = "Язык"
+        
+        view.addSubview(languagesTableView)
+        languagesTableView.snp.makeConstraints { make in
+            make.top.equalTo(languageLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(UITableViewCell().frame.height * 3)
+        }
+        languagesTableView.dataSource = self
+        languagesTableView.delegate = self
+        languagesTableView.isScrollEnabled = false
+        languagesTableView.layer.borderWidth = 1
+        languagesTableView.layer.borderColor = UIColor.gray.cgColor
+        languagesTableView.layer.cornerRadius = 10
+        
+        view.addSubview(languagesDescriptionLabel)
+        languagesDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(languagesTableView.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        languagesDescriptionLabel.text = "* Системный язык - язык приложения будет автоматически меняться после изменения языка телефона (если язык поддерживатеся приложением)"
+    }
+    
     private func setupThemeSegmentedControl() {
         // Заголовок над сменой темы
         view.addSubview(themeLabel)
         themeLabel.snp.makeConstraints { make in
-            make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(languagesDescriptionLabel.snp.bottom).offset(20)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         themeLabel.text = "Оформление"
         
@@ -86,12 +155,12 @@ class SettingsViewController: UIViewController {
 //        shadowView.makeShadow(color: .black, opacity: 0.15, shadowOffser: .zero, radius: 4)
         
         // Поястительная подпись
-        view.addSubview(themeDesctiption)
-        themeDesctiption.snp.makeConstraints { make in
+        view.addSubview(themeDescriptionLabel)
+        themeDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(themeSegmentedControl.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview().inset(20)
         }
-        themeDesctiption.text = "* Системное оформление - оформление приложение автоматически меняется при изменении оформления в настройках телефона"
+        themeDescriptionLabel.text = "* Системное оформление - оформление приложение автоматически меняется при изменении оформления в настройках телефона"
     }
     
     // MARK: - Actions
@@ -100,4 +169,52 @@ class SettingsViewController: UIViewController {
         Theme.init(rawValue: themeSegmentedControl.selectedSegmentIndex)?.setActive()
     }
 
+}
+
+extension SettingsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        languages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        let elem = languages[indexPath.row]
+        
+        cell.selectionStyle = .none
+        cell.tintColor = UIColor.Pallete.sibsuBlue
+        cell.textLabel?.text = elem.displayName
+        
+        if elem.isCurrent {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
+        return cell
+    }
+    
+}
+
+extension SettingsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        for (index, _) in languages.enumerated() {
+            languages[index].isCurrent = false
+        }
+        
+        // Нулевой - системный, он обрабатывается по другому
+        if indexPath.row == 0 {
+            Localize.resetCurrentLanguageToSystem()
+            languages[0].isCurrent = true
+        } else {
+            let identifier = languages[indexPath.row].identifier
+            Localize.setCurrentLanguage(identifier)
+            languages[indexPath.row].isCurrent = true
+        }
+        
+        tableView.reloadData()
+    }
+    
 }

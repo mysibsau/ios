@@ -23,9 +23,14 @@ class Localize {
         // Если такой язык не поддерживается - ставим стандартный
         let selectedLanguage = availableLanguages().contains(language) ? language : defaultLanguage
         
-        // Сохраняем в UD и отправляем всем пост, что язык обновился
-        if selectedLanguage != currentLanguage {
-            _currentLanguage = selectedLanguage
+        // Будет обновлять экраны если поставили новый язык
+        let willUpdate = selectedLanguage != currentLanguage
+        
+        // Сохраняем в UD
+        _currentLanguage = selectedLanguage
+        
+        // и отправляем всем пост, что язык обновился, если нужно
+        if willUpdate {
             NotificationCenter.default.post(name: .languageChanged, object: nil)
         }
     }
@@ -35,6 +40,10 @@ class Localize {
             return defaultLanguage
         }
         return currLanguage
+    }
+    
+    static var languageIsSystem: Bool {
+        _currentLanguage == nil
     }
     
     // MARK: - Other Methods
@@ -70,9 +79,10 @@ class Localize {
         return currentLanguage
     }
     
-    static func resetCurrentLanguageToDefault() {
-        setCurrentLanguage(defaultLanguage)
-    }
+    // Не уверен, что этот метод нужен - закоменчу его, чтобы случайно не вызвать
+//    static func resetCurrentLanguageToDefault() {
+//        setCurrentLanguage(defaultLanguage)
+//    }
     
     static func resetCurrentLanguageToSystem() {
         _currentLanguage = nil
