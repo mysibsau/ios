@@ -86,10 +86,9 @@ class DepartmentView: UIView {
         self.init()
         self.department = department
         self.nameLabel.text = department.name
-        self.headNameLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Зав. кафедрой: \(department.leaderName)")
-        self.addressLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Адрес: \(department.address)")
-        self.phoneLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Телефон: \(department.phone ?? "-")")
-        self.emailLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "Email: \(department.email ?? "-")")
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     override init(frame: CGRect) {
@@ -176,6 +175,16 @@ class DepartmentView: UIView {
         }
         
         self.layoutIfNeeded()
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Institutes"
+        
+        self.headNameLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "\("head".localized(using: tableName)): \(department.leaderName)")
+        self.addressLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "\("address".localized(using: tableName)): \(department.address)")
+        self.phoneLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "\("phone".localized(using: tableName)): \(department.phone ?? "-")")
+        self.emailLabel.attributedText = attrStringWithBoldTextBeforeColon(text: "\("email".localized(using: tableName)): \(department.email ?? "-")")
     }
     
     private func attrStringWithBoldTextBeforeColon(text: String) -> NSMutableAttributedString {
