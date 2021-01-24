@@ -10,81 +10,89 @@ import SnapKit
 
 class MySegmentedControl: UIView {
     
-    var lineView: UIView!
-    var sectionsLabel: [UILabel]!
+    private var labelWidth: CGFloat
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let stackView: UIStackView
+    
+    private let items: [String]
+    private let lineView: UIView
+    var sectionLabels: [UILabel]
+    
+    
+    init(items: [String], sectionWidth: CGFloat) {
+        self.items = items
+        self.labelWidth = sectionWidth
         
-        let firstSectionTitleLabel = UILabel()
-        firstSectionTitleLabel.textAlignment = .center
-        firstSectionTitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        firstSectionTitleLabel.text = "Новости"
-        let secondSectionTitleLabel = UILabel()
-        secondSectionTitleLabel.textAlignment = .center
-        secondSectionTitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        secondSectionTitleLabel.text = "События"
+        sectionLabels = []
+        for item in items {
+            let label = UILabel()
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+            label.text = item
+            sectionLabels.append(label)
+        }
+        
+        stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 0
         
         lineView = UIView()
         lineView.backgroundColor = UIColor.Pallete.sibsuBlue
         
-        self.addSubview(firstSectionTitleLabel)
-        firstSectionTitleLabel.snp.makeConstraints { make in
-            make.width.equalTo(90)
+        
+        super.init(frame: .zero)
+        
+        
+        self.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
             make.height.equalTo(20)
-            make.top.trailing.equalToSuperview()
+            make.top.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-3)
         }
-        self.addSubview(secondSectionTitleLabel)
-        secondSectionTitleLabel.snp.makeConstraints { make in
-            make.width.equalTo(90)
-            make.height.equalTo(20)
-            make.top.leading.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-3)
+        
+        for label in sectionLabels {
+            label.snp.makeConstraints { make in
+                make.width.equalTo(labelWidth)
+            }
+            stackView.addArrangedSubview(label)
         }
+        
         self.addSubview(lineView)
         lineView.snp.makeConstraints { make in
             make.height.equalTo(2)
-            make.width.equalTo(90)
+            make.width.equalTo(labelWidth)
             make.leading.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         
-        sectionsLabel = [
-            secondSectionTitleLabel,
-            firstSectionTitleLabel,
-        ]
+        setCurrentSection(number: 0)
         
-        sectionsLabel[0].textColor = .label
-        sectionsLabel[1].textColor = .gray
-        
-        sectionsLabel[0].tag = 0
-        sectionsLabel[1].tag = 1
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(eventsOrNewsTapped))
-//        let tap2 = UITapGestureRecognizer(target: self, action: #selector(aaa))
-//        sectionsLabel[0].isUserInteractionEnabled = true
-        
-        sectionsLabel[0].isUserInteractionEnabled = true
-        sectionsLabel[1].isUserInteractionEnabled = true
-//        sectionsLabel[0].addGestureRecognizer(tap)
-//        sectionsLabel[1].addGestureRecognizer(tap2)
+        for label in sectionLabels {
+            label.isUserInteractionEnabled = true
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    @objc private func eventsOrNewsTapped() {
-//        print("lksdf;lakdjsfl ;kasjdl ;fkjasdl;fj sd ")
-//    }
-//
-//    @objc private func aaa() {
-//        print("lskhdf")
-//    }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 180, height: 36)
+        return CGSize(width: CGFloat(sectionLabels.count) * labelWidth, height: 36)
+    }
+    
+    func setLineOffset(percentageOffset: CGFloat) {
+        lineView.snp.updateConstraints { update in
+            update.leading.equalTo(percentageOffset * labelWidth)
+        }
+        lineView.layoutIfNeeded()
+    }
+    
+    func setCurrentSection(number: Int) {
+        for label in sectionLabels {
+            label.textColor = .gray
+        }
+        sectionLabels[number].textColor = .label
     }
     
 }
