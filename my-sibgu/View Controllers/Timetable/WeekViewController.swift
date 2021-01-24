@@ -42,6 +42,17 @@ class WeekViewController: UIViewController {
         setupStackView()
         
         view.backgroundColor = .systemBackground
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+//        let tableName = "Timetable"
+        
+        lessonDayViews.removeAll()
+        dayStackView.removeAllArrangedSubviews()
+        set(lessonWeek: week)
     }
     
     

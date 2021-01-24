@@ -50,6 +50,17 @@ class ContainerTimetableViewController: UIViewController {
         timetableViewController.didMove(toParent: self)
         
         showingTimetableViewController = timetableViewController
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Timetable"
+        
+        guard let number = rightBarButton.titleLabel?.text?.first else { return }
+        rightBarButton.setTitle("\(number) \("week".localized(using: tableName))", for: .normal)
     }
     
     private func setupNavBar() {
@@ -106,7 +117,9 @@ extension ContainerTimetableViewController: ControlTimetableDelegate {
     }
     
     func setWeekNumber(number: Int) {
-        rightBarButton.setTitle("\(number + 1) неделя", for: .normal)
+        let tableName = "Timetable"
+        
+        rightBarButton.setTitle("\(number + 1) \("week".localized(using: tableName))", for: .normal)
     }
     
     func setControlIsUserInteractionEnabled(_ a: Bool) {

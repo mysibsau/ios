@@ -11,17 +11,19 @@ class DateTimeService {
     
     private let calendar = Calendar(identifier: .iso8601)
     
-    private let daysOfWeek = [
-        0: "Понедельник",
-        1: "Вторник",
-        2: "Среда",
-        3: "Четверг",
-        4: "Пятница",
-        5: "Суббота",
-        6: "Воскресенье",
-    ]
-    
     func dayOfWeek(number: Int) -> String? {
+        let tableName = "Timetable"
+        
+        let daysOfWeek = [
+            0: "monday".localized(using: tableName),
+            1: "tuesday".localized(using: tableName),
+            2: "wednesday".localized(using: tableName),
+            3: "thursday".localized(using: tableName),
+            4: "friday".localized(using: tableName),
+            5: "saturday".localized(using: tableName),
+            6: "sunday".localized(using: tableName),
+        ]
+        
         return daysOfWeek[number]
     }
     

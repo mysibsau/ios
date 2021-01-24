@@ -13,6 +13,8 @@
 		4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BA625BD6F7100287FD5 /* Buildings.strings */; };
 		4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BB025BD71C800287FD5 /* Institutes.strings */; };
 		4A051BC025BDA2FC00287FD5 /* Person.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BC225BDA2FC00287FD5 /* Person.strings */; };
+		4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BCC25BDAFB600287FD5 /* Surveys.strings */; };
+		4A051BD425BDB37300287FD5 /* Timetable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BD625BDB37300287FD5 /* Timetable.strings */; };
 		4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC125AEF9310038D87E /* UIImage+blur.swift */; };
 		4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC525AEFD520038D87E /* BlurImageView.swift */; };
 		4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE325B03C090038D87E /* InformingPageViewController.swift */; };
@@ -208,6 +210,10 @@
 		4A051BB325BD71CA00287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Institutes.strings; sourceTree = "<group>"; };
 		4A051BC125BDA2FC00287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Person.strings; sourceTree = "<group>"; };
 		4A051BC325BDA2FE00287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Person.strings; sourceTree = "<group>"; };
+		4A051BCB25BDAFB600287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Surveys.strings; sourceTree = "<group>"; };
+		4A051BCD25BDAFBA00287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Surveys.strings; sourceTree = "<group>"; };
+		4A051BD525BDB37300287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Timetable.strings; sourceTree = "<group>"; };
+		4A051BD925BDB37700287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Timetable.strings; sourceTree = "<group>"; };
 		4A077FC125AEF9310038D87E /* UIImage+blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blur.swift"; sourceTree = "<group>"; };
 		4A077FC525AEFD520038D87E /* BlurImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurImageView.swift; sourceTree = "<group>"; };
 		4A077FE325B03C090038D87E /* InformingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformingPageViewController.swift; sourceTree = "<group>"; };
@@ -701,6 +707,8 @@
 				4A051BA625BD6F7100287FD5 /* Buildings.strings */,
 				4A051BB025BD71C800287FD5 /* Institutes.strings */,
 				4A051BC225BDA2FC00287FD5 /* Person.strings */,
+				4A051BCC25BDAFB600287FD5 /* Surveys.strings */,
+				4A051BD625BDB37300287FD5 /* Timetable.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1305,10 +1313,12 @@
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
 				4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */,
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
+				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */,
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
 				4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */,
+				4A051BD425BDB37300287FD5 /* Timetable.strings in Resources */,
 				4A051B9825BD539400287FD5 /* Services.strings in Resources */,
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4A051BC025BDA2FC00287FD5 /* Person.strings in Resources */,
@@ -1598,6 +1608,24 @@
 				4A051BC325BDA2FE00287FD5 /* ru */,
 			);
 			name = Person.strings;
+			sourceTree = "<group>";
+		};
+		4A051BCC25BDAFB600287FD5 /* Surveys.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A051BCB25BDAFB600287FD5 /* en */,
+				4A051BCD25BDAFBA00287FD5 /* ru */,
+			);
+			name = Surveys.strings;
+			sourceTree = "<group>";
+		};
+		4A051BD625BDB37300287FD5 /* Timetable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A051BD525BDB37300287FD5 /* en */,
+				4A051BD925BDB37700287FD5 /* ru */,
+			);
+			name = Timetable.strings;
 			sourceTree = "<group>";
 		};
 		4A07DD8A255D89020022B6A9 /* Main.storyboard */ = {

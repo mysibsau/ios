@@ -76,6 +76,9 @@ class TimetableSearchViewController: UIViewController {
                 }
             }
         }
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     private func tryLoadFromUserDefaults() {
@@ -85,6 +88,15 @@ class TimetableSearchViewController: UIViewController {
             guard let groupForShowing = groups?.first(where: { $0.id == id }) else { return }
             self.showTimetable(forGroup: groupForShowing, animated: false)
         }
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Timetable"
+        
+        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        
+        textField.placeholder = "enter.group.name".localized(using: tableName)
     }
     
     
@@ -257,7 +269,7 @@ class TimetableSearchViewController: UIViewController {
     private func configureNabBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Мое расписание")
+//        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Мое расписание")
     }
     
     // MARK: - Helper UI
