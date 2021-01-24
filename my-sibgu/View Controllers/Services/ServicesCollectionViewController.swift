@@ -30,6 +30,13 @@ class ServicesCollectionViewController: UICollectionViewController {
             forCellWithReuseIdentifier: ServiceCollectionViewCell.reuseIdentifier
         )
         
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 20)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        collectionView.collectionViewLayout = layout
+        
         services = [
             (UIImage(named: "main_logo")!, "Строения", vc: BuildingsViewController.self),
             (UIImage(named: "main_logo")!, "Институты", vc: InstitutionsViewController.self),
@@ -37,12 +44,30 @@ class ServicesCollectionViewController: UICollectionViewController {
             (UIImage(named: "main_logo")!, "Обратная связь", vc: SurveysTableViewController.self),
             (UIImage(named: "main_logo")!, "Студ. жизнь", vc: UnionsTableViewController.self),
         ]
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Сервисы")
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Services"
+        
+        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        
+        services[0].name = "buildings".localized(using: tableName)
+        services[1].name = "institutes".localized(using: tableName)
+        services[2].name = "online.catalog".localized(using: tableName)
+        services[3].name = "feedback".localized(using: tableName)
+        services[4].name = "student.life".localized(using: tableName)
+        
+        collectionView.reloadData()
     }
     
 }
@@ -62,7 +87,6 @@ extension ServicesCollectionViewController {
         let service = services[indexPath.item]
         cell.imageView.image = service.image
         cell.nameLabel.text = service.name
-        cell.updateSize(widthAndHeidth: itemWidth)
         
         return cell
     }
@@ -76,27 +100,6 @@ extension ServicesCollectionViewController {
         let vcType = services[indexPath.item].vc
         
         navigationController?.pushViewController(vcType.init(), animated: true)
-    }
-    
-}
-
-// MARK: - UICollectionView Delegate Floa Layout
-extension ServicesCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: itemWidth, height: itemWidth)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
     
 }
