@@ -1,0 +1,19 @@
+/* 
+  Settings.strings
+  my-sibgu
+
+  Created by art-off on 20.01.2021.
+  
+*/
+
+"nav.bar.title" = "Настройки";
+
+"language" = "Язык";
+"language.system" = "Системный*";
+"language.description" = "* Системный язык - язык приложения будет автоматически меняться после изменения языка телефона (если язык поддерживатеся приложением)";
+
+"appearance" = "Оформление";
+"appearance.system" = "Системное*";
+"appearance.light" = "Светлое";
+"appearance.dark" = "Темное";
+"appearance.description" = "* Системное оформление - оформление приложение автоматически меняется при изменении оформления в настройках телефона";

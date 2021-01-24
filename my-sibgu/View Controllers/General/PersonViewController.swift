@@ -46,22 +46,7 @@ class PersonViewController: UIViewController {
     convenience init(soviet: Institute.Soviet) {
         self.init()
         self.person = soviet
-        // add views
-        addLabel(text: "Председатель студ. совета")
-        addNameView(name: soviet.leaderName)
-        addView(text: soviet.address, imageName: "place")
-        if let email = soviet.email {
-            addView(text: email, imageName: "email")
-        }
-        if let phone = soviet.phone {
-            addButton(text: phone, imageName: "phone", action: {
-                guard let url = URL(string: "tel://\(phone.removingWhitespaces())") else { return }
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
-            })
-        }
-        
+        updateText()
         // start loading image
         backgroupndImageView.blurRadius = 0
         backgroupndImageView.image = UIImage(named: "back_main_logo")
@@ -71,18 +56,7 @@ class PersonViewController: UIViewController {
     convenience init(director: Institute.Director) {
         self.init()
         self.person = director
-        // Add views
-        addLabel(text: "Директор института")
-        addNameView(name: director.name)
-        addView(text: director.address, imageName: "place")
-        addView(text: director.email, imageName: "email")
-        addButton(text: director.phone, imageName: "phone", action: {
-            guard let url = URL(string: "tel://\(director.phone.removingWhitespaces())") else { return }
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
-            }
-        })
-        
+        updateText()
         // Set image
         backgroupndImageView.blurRadius = 0
         backgroupndImageView.image = UIImage(named: "back_main_logo")
@@ -92,38 +66,7 @@ class PersonViewController: UIViewController {
     convenience init(union: Union) {
         self.init()
         self.person = union
-        
-        self.navigationItem.setCenterTitle(title: union.shortName ?? union.name)
-        
-        if let about = union.about {
-            addLabel(text: "Описание")
-            addTextView(text: about)
-        }
-        if let leaderRank = union.leaderRank, !leaderRank.isEmpty {
-            addLabel(text: leaderRank)
-        } else {
-            addLabel(text: "Председатель")
-        }
-        addView(text: union.address, imageName: "place")
-        addButton(text: union.phone, imageName: "phone", action: {
-            guard let url = URL(string: "tel://\(union.phone.removingWhitespaces())") else { return }
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
-            }
-        })
-        addButton(text: "Группа VK", imageName: "vk", action: {
-            if UIApplication.shared.canOpenURL(union.groupVkUrl) {
-                UIApplication.shared.open(union.groupVkUrl)
-            }
-        })
-        if union.leaderPageVkUrl != nil {
-            addButton(text: "Подать заявку", imageName: "add_circle", action: {
-                let vc = JoinToUnionViewController()
-                vc.unionId = union.id
-                self.present(vc, animated: true, completion: nil)
-            })
-        }
-        
+        updateText()
         backgroupndImageView.loadImage(at: union.logoUrl)
         personImageView.loadImage(at: union.leaderPhotoUrl)
     }
@@ -142,6 +85,76 @@ class PersonViewController: UIViewController {
         setupDirectorImage()
 
         setupStackView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Person"
+        
+        stackView.removeAllArrangedSubviews()
+        
+        if let soviet = person as? Institute.Soviet {
+            // add views
+            addLabel(text: "soviet.head".localized(using: tableName))
+            addNameView(name: soviet.leaderName)
+            addView(text: soviet.address, imageName: "place")
+            if let email = soviet.email {
+                addView(text: email, imageName: "email")
+            }
+            if let phone = soviet.phone {
+                addButton(text: phone, imageName: "phone", action: {
+                    guard let url = URL(string: "tel://\(phone.removingWhitespaces())") else { return }
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                })
+            }
+        } else if let director = person as? Institute.Director {
+            // Add views
+            addLabel(text: "director".localized(using: tableName))
+            addNameView(name: director.name)
+            addView(text: director.address, imageName: "place")
+            addView(text: director.email, imageName: "email")
+            addButton(text: director.phone, imageName: "phone", action: {
+                guard let url = URL(string: "tel://\(director.phone.removingWhitespaces())") else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })
+        } else if let union = person as? Union {
+            self.navigationItem.setCenterTitle(title: union.shortName ?? union.name)
+            
+            if let about = union.about {
+                addLabel(text: "about".localized(using: tableName))
+                addTextView(text: about)
+            }
+            if let leaderRank = union.leaderRank, !leaderRank.isEmpty {
+                addLabel(text: leaderRank)
+            } else {
+                addLabel(text: "head".localized(using: tableName))
+            }
+            addView(text: union.address, imageName: "place")
+            addButton(text: union.phone, imageName: "phone", action: {
+                guard let url = URL(string: "tel://\(union.phone.removingWhitespaces())") else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })
+            addButton(text: "group.vk".localized(using: tableName), imageName: "vk", action: {
+                if UIApplication.shared.canOpenURL(union.groupVkUrl) {
+                    UIApplication.shared.open(union.groupVkUrl)
+                }
+            })
+            if union.leaderPageVkUrl != nil {
+                addButton(text: "join.to".localized(using: tableName), imageName: "add_circle", action: {
+                    let vc = JoinToUnionViewController()
+                    vc.unionId = union.id
+                    self.present(vc, animated: true, completion: nil)
+                })
+            }
+        }
     }
     
     // MARK: - Setup Views

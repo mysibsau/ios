@@ -1,0 +1,26 @@
+/* 
+  Timetable.strings
+  my-sibgu
+
+  Created by art-off on 24.01.2021.
+  
+*/
+
+"nav.bar.title" = "Расписание";
+
+"enter.group.name" = "Введите название группы";
+
+"week" = "неделя";
+
+"monday" = "Понедельник";
+"tuesday" = "Вторник";
+"wednesday" = "Среда";
+"thursday" = "Четверг";
+"friday" = "Пятница";
+"saturday" = "Суббота";
+"sunday" = "Воскресенье";
+
+"lecture" = "Лекция";
+"practice" = "Практика";
+"laboratoryWork" = "Лабораторная работа";
+"undefined" = "Неопределенный";

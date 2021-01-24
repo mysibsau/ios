@@ -1,0 +1,12 @@
+/* 
+  Buildings.strings
+  my-sibgu
+
+  Created by art-off on 24.01.2021.
+  
+*/
+
+"nav.bar.title" = "Buildings";
+
+"right.coast" = "Right coast";
+"left.coast" = "Left coast";

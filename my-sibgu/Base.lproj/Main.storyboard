@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="1750.7246376811595" y="93.75"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom View Controller-->
         <scene sceneID="U3Q-th-iog">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="4Ty-nN-Csw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="4Ty-nN-Csw" customClass="CustomViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SNY-kL-3TS">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

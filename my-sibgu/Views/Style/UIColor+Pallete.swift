@@ -11,7 +11,14 @@ extension UIColor {
     
     struct Pallete {
         
+        // Если какой-то цвет не нужен в одной из тем (напирмер тень) - можно поставить .clear
+        
         static let background = UIColor.color(light: .white, dark: .black)
+        
+//        static let shadow = UIColor.color(light: .init(hex: "000000"), dark: .clear)
+        static let shadow = UIColor(hex: "000000")
+        
+        static let border = UIColor.color(light: .clear, dark: .gray)
         
         static let orange = UIColor.color(light: .init(hex: "#F48041"), dark: .init(hex: "#F48041"))
         

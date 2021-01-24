@@ -50,6 +50,17 @@ class ContainerTimetableViewController: UIViewController {
         timetableViewController.didMove(toParent: self)
         
         showingTimetableViewController = timetableViewController
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Timetable"
+        
+        guard let number = rightBarButton.titleLabel?.text?.first else { return }
+        rightBarButton.setTitle("\(number) \("week".localized(using: tableName))", for: .normal)
     }
     
     private func setupNavBar() {
@@ -67,14 +78,14 @@ class ContainerTimetableViewController: UIViewController {
         
         let viewRightBarButton = UIView()
         viewRightBarButton.addSubview(rightBarButton)
-        viewRightBarButton.makeShadow(color: .black, opacity: 0.5, shadowOffser: .zero, radius: 3)
+        viewRightBarButton.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.3, shadowOffser: .zero, radius: 2.5)
         viewRightBarButton.layer.cornerRadius = 15
         
         rightBarButton.snp.makeConstraints { make in
             make.center.equalTo(viewRightBarButton.snp.center)
         }
         
-        viewRightBarButton.backgroundColor = .white
+        viewRightBarButton.backgroundColor = UIColor.Pallete.background
         viewRightBarButton.snp.makeConstraints { make in
             make.width.equalTo(100)
             make.height.equalTo(30)
@@ -106,7 +117,9 @@ extension ContainerTimetableViewController: ControlTimetableDelegate {
     }
     
     func setWeekNumber(number: Int) {
-        rightBarButton.setTitle("\(number + 1) неделя", for: .normal)
+        let tableName = "Timetable"
+        
+        rightBarButton.setTitle("\(number + 1) \("week".localized(using: tableName))", for: .normal)
     }
     
     func setControlIsUserInteractionEnabled(_ a: Bool) {

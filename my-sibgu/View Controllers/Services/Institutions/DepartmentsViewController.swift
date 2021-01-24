@@ -16,7 +16,6 @@ class DepartmentsViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textColor = UIColor.Pallete.sibsuBlue
-        label.text = "Кафедры"
         return label
     }()
     
@@ -27,8 +26,6 @@ class DepartmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavBar()
-        
         setupScrollView()
         setupTitleLabel()
         setupStackView()
@@ -37,15 +34,17 @@ class DepartmentsViewController: UIViewController {
             let v = DepartmentView(department: department)
             stackView.addArrangedSubview(v)
         }
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
-    
-    private func setupNavBar() {
-        self.navigationController?.configurateNavigationBar()
-        self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Институты")
+    @objc
+    private func updateText() {
+        let tableName = "Institutes"
+        
+        titleLabel.text = "departments".localized(using: tableName)
     }
-    
     
     // MARK: - Setup Views
     private func setupScrollView() {

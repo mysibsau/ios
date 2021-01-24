@@ -1,0 +1,26 @@
+/* 
+  Timetable.strings
+  my-sibgu
+
+  Created by art-off on 24.01.2021.
+  
+*/
+
+"nav.bar.title" = "Timetable";
+
+"enter.group.name" = "Enter group name";
+
+"week" = "week";
+
+"monday" = "Monday";
+"tuesday" = "Tuesday";
+"wednesday" = "Wednesday";
+"thursday" = "Thursday";
+"friday" = "Friday";
+"saturday" = "Saturday";
+"sunday" = "Sunday";
+
+"lecture" = "Lecture";
+"practice" = "Practice";
+"laboratoryWork" = "Laboratory work";
+"undefined" = "Undefined";

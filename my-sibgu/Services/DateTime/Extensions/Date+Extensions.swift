@@ -54,9 +54,10 @@ extension Date {
     
     
     private func getWeekdaysInEnglish() -> [String] {
-        var calendar = Calendar.current
-        calendar.locale = Locale.current
-        return calendar.weekdaySymbols
+//        var calendar = Calendar.current
+//        calendar.locale = Locale.current
+//        return calendar.weekdaySymbols
+        return ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     }
     
 }

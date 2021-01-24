@@ -45,12 +45,21 @@ class SurveysTableViewController: UITableViewController {
         tableView.reloadData()
         
         loadEvents()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setLeftTitle(title: "Опросы")
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Surveys"
+        
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
     }
     
     // MARK: - Helper Method

@@ -52,7 +52,7 @@ class LessonDayView: UIView {
 
         todayView.backgroundColor = UIColor.Pallete.lightRed
         todayView.layer.cornerRadius = 10
-        todayView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+        todayView.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 3)
 
         todayView.addSubview(todayLabel)
         todayLabel.snp.makeConstraints { make in
@@ -121,7 +121,7 @@ class LessonDayView: UIView {
         let weekendView = UIView()
         weekendView.backgroundColor = .systemBackground
         weekendView.layer.cornerRadius = 15
-        weekendView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        weekendView.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 5)
         
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 17)

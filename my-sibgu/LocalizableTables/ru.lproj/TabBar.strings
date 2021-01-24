@@ -1,0 +1,17 @@
+/* 
+  TabBar.strings
+  my-sibgu
+
+  Created by art-off on 20.01.2021.
+  
+*/
+
+"feed" = "Летна";
+
+"cafeteria" = "Столовая";
+
+"timetable" = "Расписания";
+
+"services" = "Сервисы";
+
+"profile" = "Профиль";

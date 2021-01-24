@@ -1,0 +1,15 @@
+/* 
+  Services.strings
+  my-sibgu
+
+  Created by art-off on 24.01.2021.
+  
+*/
+
+"nav.bar.title" = "Services";
+
+"buildings" = "Buildings";
+"institutes" = "Institutes";
+"online.catalog" = "Online catalog";
+"feedback" = "Feedback";
+"student.life" = "Student life";

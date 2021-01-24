@@ -35,6 +35,16 @@ class InstitutionsViewController: UIViewController {
         setupTableView()
         
         setInstitutes()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Institutes"
+        
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
     }
     
     private func setupNavBar() {

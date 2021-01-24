@@ -14,4 +14,15 @@ enum SubgroupType: String {
     case laboratoryWork = "Лабораторная работа"
     case undefined = "Неопознанный"
     
+    var localized: String {
+        let tableName = "Timetable"
+        
+        switch self {
+        case .lecrute: return "lecture".localized(using: tableName)
+        case .practice: return "practice".localized(using: tableName)
+        case .laboratoryWork: return "laboratoryWork".localized(using: tableName)
+        case .undefined: return "undefined".localized(using: tableName)
+        }
+    }
+    
 }

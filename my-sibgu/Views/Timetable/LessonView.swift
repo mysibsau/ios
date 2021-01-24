@@ -37,7 +37,7 @@ class LessonView: UIView {
         setupStackView()
         
         contentView.backgroundColor = .systemBackground
-        contentView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        contentView.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 5)
         contentView.layer.cornerRadius = 15
     }
     
@@ -233,7 +233,7 @@ extension LessonView {
     private func addSubgroup(subject: String, type: SubgroupType, proffesor: String, place: String) {
         let subgroupView = GroupSubgroupView()
         subgroupView.subject.text = subject
-        subgroupView.type.text = type.rawValue
+        subgroupView.type.text = type.localized
         if type == .lecrute {
             subgroupView.type.textColor = UIColor.Pallete.orange
         } else if type == .practice {
