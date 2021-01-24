@@ -1,5 +1,5 @@
 //
-//  MySegmentedControl.swift
+//  SegmentedControl.swift
 //  my-sibgu
 //
 //  Created by art-off on 14.01.2021.
@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
-class MySegmentedControl: UIView {
+protocol SegmentedControlDelegate {
+    func didTapToSegment(with index: Int)
+}
+
+class SegmentedControl: UIView {
+    
+    var delegate: SegmentedControlDelegate?
     
     private var labelWidth: CGFloat
     
@@ -16,7 +22,7 @@ class MySegmentedControl: UIView {
     
     private let items: [String]
     private let lineView: UIView
-    var sectionLabels: [UILabel]
+    private var sectionLabels: [UILabel]
     
     
     init(items: [String], sectionWidth: CGFloat) {
@@ -65,11 +71,14 @@ class MySegmentedControl: UIView {
             make.bottom.equalToSuperview()
         }
         
-        setCurrentSection(number: 0)
-        
-        for label in sectionLabels {
+        for (i, label) in sectionLabels.enumerated() {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
             label.isUserInteractionEnabled = true
+            label.tag = i
+            label.addGestureRecognizer(tap)
         }
+        
+        setCurrentSection(number: 0)
     }
     
     required init?(coder: NSCoder) {
@@ -80,6 +89,7 @@ class MySegmentedControl: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: CGFloat(sectionLabels.count) * labelWidth, height: 36)
     }
+    
     
     func setLineOffset(percentageOffset: CGFloat) {
         lineView.snp.updateConstraints { update in
@@ -93,6 +103,12 @@ class MySegmentedControl: UIView {
             label.textColor = .gray
         }
         sectionLabels[number].textColor = .label
+    }
+    
+    @objc
+    private func didTapLabel(_ sender: UITapGestureRecognizer) {
+        guard let tag = sender.view?.tag else { return }
+        delegate?.didTapToSegment(with: tag)
     }
     
 }

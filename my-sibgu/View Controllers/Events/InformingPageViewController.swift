@@ -15,7 +15,7 @@ class InformingPageViewController: UIPageViewController {
     
     private var currPageIndex = 0
     
-    private var segmentedControl: MySegmentedControl!
+    private var segmentedControl: SegmentedControl!
     
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
@@ -38,14 +38,10 @@ class InformingPageViewController: UIPageViewController {
         
         let vc1 = EventsViewController()
         let vc2 = NewsViewController()
-        let vc3 = UIViewController()
-        let vc4 = UIViewController()
         
         informingViewControllers = [
             vc1,
             vc2,
-//            vc3,
-//            vc4,
         ]
         
         self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
@@ -58,31 +54,10 @@ class InformingPageViewController: UIPageViewController {
             }
         }
         
-        segmentedControl = MySegmentedControl(items: ["Новости", "События"], sectionWidth: 90)
-        
-        let tapToLeft = UITapGestureRecognizer(target: self, action: #selector(eventsTapped))
-        let tapToRight = UITapGestureRecognizer(target: self, action: #selector(newsTapped))
-        
-        segmentedControl.sectionLabels[0].addGestureRecognizer(tapToLeft)
-        segmentedControl.sectionLabels[1].addGestureRecognizer(tapToRight)
+        segmentedControl = SegmentedControl(items: ["Новости", "События"], sectionWidth: 90)
+        segmentedControl.delegate = self
         
         navigationItem.titleView = segmentedControl
-    }
-    
-    @objc
-    private func eventsTapped() {
-        if currPageIndex == 1 {
-            horisontalScrollToViewController(index: 0, direction: .reverse)
-            self.segmentedControl.setCurrentSection(number: 0)
-        }
-    }
-    
-    @objc
-    private func newsTapped() {
-        if currPageIndex == 0 {
-            horisontalScrollToViewController(index: 1, direction: .forward)
-            self.segmentedControl.setCurrentSection(number: 1)
-        }
     }
     
     private func horisontalScrollToViewController(index: Int, direction: UIPageViewController.NavigationDirection = .forward) {
@@ -104,7 +79,6 @@ extension InformingPageViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currIndex = informingViewControllers.firstIndex(of: viewController) else { return nil }
-//        guard currIndex == 1 else { return nil }
         guard currIndex > 0 else { return nil }
         
         return informingViewControllers[currIndex - 1]
@@ -112,8 +86,7 @@ extension InformingPageViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let currIndex = informingViewControllers.firstIndex(of: viewController) else { return nil }
-//        guard currIndex == 0 else { return nil }
-        guard currIndex < 1 else { return nil }
+        guard currIndex < informingViewControllers.count - 1 else { return nil }
         
         return informingViewControllers[currIndex + 1]
     }
@@ -147,9 +120,21 @@ extension InformingPageViewController: UIScrollViewDelegate {
         let count = CGFloat(informingViewControllers.count)
         let percentage = (offset - bounds + page * bounds) / (count * bounds - bounds) * (count - 1)
         
-        print(offset, percentage)
-        
         segmentedControl.setLineOffset(percentageOffset: percentage)
+    }
+    
+}
+
+extension InformingPageViewController: SegmentedControlDelegate {
+    
+    func didTapToSegment(with index: Int) {
+        if currPageIndex < index {
+            horisontalScrollToViewController(index: index, direction: .forward)
+            self.segmentedControl.setCurrentSection(number: index)
+        } else if currPageIndex > index {
+            horisontalScrollToViewController(index: index, direction: .reverse)
+            self.segmentedControl.setCurrentSection(number: index)
+        }
     }
     
 }

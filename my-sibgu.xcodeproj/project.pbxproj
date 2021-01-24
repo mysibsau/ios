@@ -18,7 +18,7 @@
 		4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC125AEF9310038D87E /* UIImage+blur.swift */; };
 		4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FC525AEFD520038D87E /* BlurImageView.swift */; };
 		4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE325B03C090038D87E /* InformingPageViewController.swift */; };
-		4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE925B0660D0038D87E /* MySegmentedControl.swift */; };
+		4A077FEA25B0660D0038D87E /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FE925B0660D0038D87E /* SegmentedControl.swift */; };
 		4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FED25B0889F0038D87E /* NewsResponse.swift */; };
 		4A077FF225B089E60038D87E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FF125B089E60038D87E /* News.swift */; };
 		4A077FF625B08AF60038D87E /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A077FF525B08AF60038D87E /* NewsViewController.swift */; };
@@ -217,7 +217,7 @@
 		4A077FC125AEF9310038D87E /* UIImage+blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blur.swift"; sourceTree = "<group>"; };
 		4A077FC525AEFD520038D87E /* BlurImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurImageView.swift; sourceTree = "<group>"; };
 		4A077FE325B03C090038D87E /* InformingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformingPageViewController.swift; sourceTree = "<group>"; };
-		4A077FE925B0660D0038D87E /* MySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySegmentedControl.swift; sourceTree = "<group>"; };
+		4A077FE925B0660D0038D87E /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		4A077FED25B0889F0038D87E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
 		4A077FF125B089E60038D87E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		4A077FF525B08AF60038D87E /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -783,7 +783,7 @@
 				4A077FE325B03C090038D87E /* InformingPageViewController.swift */,
 				4A7A56E6256BF4F100E2CE0F /* EventsViewController.swift */,
 				4A077FF525B08AF60038D87E /* NewsViewController.swift */,
-				4A077FE925B0660D0038D87E /* MySegmentedControl.swift */,
+				4A077FE925B0660D0038D87E /* SegmentedControl.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1438,7 +1438,7 @@
 				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
 				4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
-				4A077FEA25B0660D0038D87E /* MySegmentedControl.swift in Sources */,
+				4A077FEA25B0660D0038D87E /* SegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
