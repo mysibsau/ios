@@ -1,0 +1,16 @@
+/* 
+  Institutes.strings
+  my-sibgu
+
+  Created by art-off on 24.01.2021.
+  
+*/
+
+"nav.bar.title" = "Institutes";
+
+"departments" = "Departments";
+
+"head" = "Head";
+"address" = "Address";
+"phone" = "Phone";
+"email" = "Email";

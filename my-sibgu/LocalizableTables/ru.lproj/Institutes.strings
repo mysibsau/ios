@@ -1,0 +1,16 @@
+/* 
+  Institutes.strings
+  my-sibgu
+
+  Created by art-off on 24.01.2021.
+  
+*/
+
+"nav.bar.title" = "Институты";
+
+"departments" = "Кафедры";
+
+"head" = "Зав. кафедрой";
+"address" = "Адрес";
+"phone" = "Телефон";
+"email" = "Email";
