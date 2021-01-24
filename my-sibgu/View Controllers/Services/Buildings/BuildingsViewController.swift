@@ -11,6 +11,7 @@ class BuildingsViewController: UITableViewController {
     
     private let campusService = CampusService()
     private var buildings = [[Building]]()
+    private var headers = [String]()
     
     private let activityIndicatorView = UIActivityIndicatorView(style: .medium)
 
@@ -31,7 +32,22 @@ class BuildingsViewController: UITableViewController {
         )
         
         setBuildings()
-//        loadBuildings()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Buildings"
+        
+        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        
+        headers = [
+            "right.coast".localized(using: tableName),
+            "left.coast".localized(using: tableName),
+        ]
+        tableView.reloadData()
     }
     
     private func setupNavBar() {
@@ -41,6 +57,11 @@ class BuildingsViewController: UITableViewController {
     }
     
     private func setBuildings() {
+        headers = [
+            "Правый берег",
+            "Левый берег",
+        ]
+        
         let buildingsFromLocal = campusService.getBuildingsFromLocal()
         
         // Если в БД были объединения - то показываем их и без спинера качаем и обновляем
@@ -120,13 +141,8 @@ extension BuildingsViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Правый берег"
-        } else if section == 1 {
-            return "Левый берег"
-        } else {
-            return nil
-        }
+        guard section < 2 else { return nil }
+        return headers[section]
     }
     
 }
