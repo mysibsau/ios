@@ -15,7 +15,7 @@ class InformingPageViewController: UIPageViewController {
     
     private var currPageIndex = 0
     
-    private var segmentedControl: MySegmentedControl!
+    private var segmentedControl: SegmentedControl!
     
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
@@ -54,33 +54,10 @@ class InformingPageViewController: UIPageViewController {
             }
         }
         
-        segmentedControl = MySegmentedControl()
-        
-        let tapToLeft = UITapGestureRecognizer(target: self, action: #selector(eventsTapped))
-        let tapToRight = UITapGestureRecognizer(target: self, action: #selector(newsTapped))
-        
-        segmentedControl.sectionsLabel[0].addGestureRecognizer(tapToLeft)
-        segmentedControl.sectionsLabel[1].addGestureRecognizer(tapToRight)
+        segmentedControl = SegmentedControl(items: ["Новости", "События"], sectionWidth: 90)
+        segmentedControl.delegate = self
         
         navigationItem.titleView = segmentedControl
-    }
-    
-    @objc
-    private func eventsTapped() {
-        if currPageIndex == 1 {
-            horisontalScrollToViewController(index: 0, direction: .reverse)
-            self.segmentedControl.sectionsLabel[0].textColor = .label
-            self.segmentedControl.sectionsLabel[1].textColor = .gray
-        }
-    }
-    
-    @objc
-    private func newsTapped() {
-        if currPageIndex == 0 {
-            horisontalScrollToViewController(index: 1, direction: .forward)
-            self.segmentedControl.sectionsLabel[0].textColor = .gray
-            self.segmentedControl.sectionsLabel[1].textColor = .label
-        }
     }
     
     private func horisontalScrollToViewController(index: Int, direction: UIPageViewController.NavigationDirection = .forward) {
@@ -102,14 +79,14 @@ extension InformingPageViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currIndex = informingViewControllers.firstIndex(of: viewController) else { return nil }
-        guard currIndex == 1 else { return nil }
+        guard currIndex > 0 else { return nil }
         
         return informingViewControllers[currIndex - 1]
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let currIndex = informingViewControllers.firstIndex(of: viewController) else { return nil }
-        guard currIndex == 0 else { return nil }
+        guard currIndex < informingViewControllers.count - 1 else { return nil }
         
         return informingViewControllers[currIndex + 1]
     }
@@ -127,16 +104,9 @@ extension InformingPageViewController: UIPageViewControllerDelegate {
             return
         }
         
-        if index == 0 {
-            segmentedControl.sectionsLabel[0].textColor = .label
-            segmentedControl.sectionsLabel[1].textColor = .gray
-        } else {
-            segmentedControl.sectionsLabel[0].textColor = .gray
-            segmentedControl.sectionsLabel[1].textColor = .label
-        }
+        segmentedControl.setCurrentSection(number: index)
         
         currPageIndex = index
-        
     }
     
 }
@@ -148,12 +118,23 @@ extension InformingPageViewController: UIScrollViewDelegate {
         let bounds = scrollView.bounds.width
         let page = CGFloat(self.currPageIndex)
         let count = CGFloat(informingViewControllers.count)
-        let percentage = (offset - bounds + page * bounds) / (count * bounds - bounds)
+        let percentage = (offset - bounds + page * bounds) / (count * bounds - bounds) * (count - 1)
         
-        segmentedControl.lineView.snp.updateConstraints { update in
-            update.leading.equalToSuperview().offset(percentage * 90)
+        segmentedControl.setLineOffset(percentageOffset: percentage)
+    }
+    
+}
+
+extension InformingPageViewController: SegmentedControlDelegate {
+    
+    func didTapToSegment(with index: Int) {
+        if currPageIndex < index {
+            horisontalScrollToViewController(index: index, direction: .forward)
+            self.segmentedControl.setCurrentSection(number: index)
+        } else if currPageIndex > index {
+            horisontalScrollToViewController(index: index, direction: .reverse)
+            self.segmentedControl.setCurrentSection(number: index)
         }
-        segmentedControl.lineView.layoutIfNeeded()
     }
     
 }
