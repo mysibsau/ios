@@ -19,3 +19,8 @@
 "friday" = "Friday";
 "saturday" = "Saturday";
 "sunday" = "Sunday";
+
+"lecture" = "Lecture";
+"practice" = "Practice";
+"laboratoryWork" = "Laboratory work";
+"undefined" = "Undefined";

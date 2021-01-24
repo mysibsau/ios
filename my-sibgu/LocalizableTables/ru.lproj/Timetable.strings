@@ -19,3 +19,8 @@
 "friday" = "Пятница";
 "saturday" = "Суббота";
 "sunday" = "Воскресенье";
+
+"lecture" = "Лекция";
+"practice" = "Практика";
+"laboratoryWork" = "Лабораторная работа";
+"undefined" = "Неопределенный";

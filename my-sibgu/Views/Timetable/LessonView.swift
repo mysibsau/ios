@@ -233,7 +233,7 @@ extension LessonView {
     private func addSubgroup(subject: String, type: SubgroupType, proffesor: String, place: String) {
         let subgroupView = GroupSubgroupView()
         subgroupView.subject.text = subject
-        subgroupView.type.text = type.rawValue
+        subgroupView.type.text = type.localized
         if type == .lecrute {
             subgroupView.type.textColor = UIColor.Pallete.orange
         } else if type == .practice {
