@@ -79,6 +79,13 @@ class SegmentedControl: UIView {
         }
         
         setCurrentSection(number: 0)
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     required init?(coder: NSCoder) {
@@ -109,6 +116,15 @@ class SegmentedControl: UIView {
     private func didTapLabel(_ sender: UITapGestureRecognizer) {
         guard let tag = sender.view?.tag else { return }
         delegate?.didTapToSegment(with: tag)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Informing"
+        
+        for (i, label) in sectionLabels.enumerated() {
+            label.text = items[i].localized(using: tableName)
+        }
     }
     
 }

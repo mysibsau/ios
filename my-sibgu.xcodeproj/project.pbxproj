@@ -69,6 +69,7 @@
 		4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38D0CC25B889AE006EE06F /* CustomViewController.swift */; };
 		4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0D825B88A12006EE06F /* TabBar.strings */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
+		4A42819525BE01D700B2306C /* Informing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A42819725BE01D700B2306C /* Informing.strings */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
 		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
 		4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A517257944D500283459 /* BuildingTableViewCell.swift */; };
@@ -273,6 +274,8 @@
 		4A38D0D725B88A12006EE06F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TabBar.strings; sourceTree = "<group>"; };
 		4A38D0DB25B88A16006EE06F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TabBar.strings; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
+		4A42819625BE01D700B2306C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Informing.strings; sourceTree = "<group>"; };
+		4A42819825BE01DA00B2306C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
 		4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingTimetableViewController.swift; sourceTree = "<group>"; };
 		4A42A517257944D500283459 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
@@ -709,6 +712,7 @@
 				4A051BC225BDA2FC00287FD5 /* Person.strings */,
 				4A051BCC25BDAFB600287FD5 /* Surveys.strings */,
 				4A051BD625BDB37300287FD5 /* Timetable.strings */,
+				4A42819725BE01D700B2306C /* Informing.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1311,6 +1315,7 @@
 			files = (
 				4A38D0B825B87CA1006EE06F /* Profile.strings in Resources */,
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
+				4A42819525BE01D700B2306C /* Informing.strings in Resources */,
 				4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */,
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
@@ -1669,6 +1674,15 @@
 				4A38D0DB25B88A16006EE06F /* ru */,
 			);
 			name = TabBar.strings;
+			sourceTree = "<group>";
+		};
+		4A42819725BE01D700B2306C /* Informing.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A42819625BE01D700B2306C /* en */,
+				4A42819825BE01DA00B2306C /* ru */,
+			);
+			name = Informing.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

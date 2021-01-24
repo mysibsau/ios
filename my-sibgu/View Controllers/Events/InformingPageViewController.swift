@@ -54,7 +54,7 @@ class InformingPageViewController: UIPageViewController {
             }
         }
         
-        segmentedControl = SegmentedControl(items: ["Новости", "События"], sectionWidth: 90)
+        segmentedControl = SegmentedControl(items: ["news", "events"], sectionWidth: 90)
         segmentedControl.delegate = self
         
         navigationItem.titleView = segmentedControl

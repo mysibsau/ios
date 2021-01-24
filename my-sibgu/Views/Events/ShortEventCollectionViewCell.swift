@@ -88,10 +88,17 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         
         readMoreOrLessButton.addTarget(self, action: #selector(readMoreOrLessButtonAction), for: .touchUpInside)
         textLabel.makeTappable()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -156,11 +163,13 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         if mode == .short {
             textLabel.numberOfLines = 3
             textLabel.lineBreakMode = .byTruncatingTail
-            readMoreOrLessButton.setTitle("[Читать далее]", for: .normal)
+//            readMoreOrLessButton.setTitle("[Читать далее]", for: .normal)
+            updateText()
         } else if mode == .long {
             textLabel.numberOfLines = 0
             textLabel.lineBreakMode = .byWordWrapping
-            readMoreOrLessButton.setTitle("[Скрыть]", for: .normal)
+//            readMoreOrLessButton.setTitle("[Скрыть]", for: .normal)
+            updateText()
         }
     }
     
@@ -170,6 +179,17 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
             delegate?.setAndReload(cellMode: .long, at: indexPath)
         } else if mode == .long {
             delegate?.setAndReload(cellMode: .short, at: indexPath)
+        }
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Informing"
+        
+        if mode == .short {
+            readMoreOrLessButton.setTitle("more".localized(using: tableName), for: .normal)
+        } else if mode == .long {
+            readMoreOrLessButton.setTitle("hide".localized(using: tableName), for: .normal)
         }
     }
     
