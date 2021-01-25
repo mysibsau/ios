@@ -107,7 +107,7 @@ class SegmentedControl: UIView {
     
     func setCurrentSection(number: Int) {
         for label in sectionLabels {
-            label.textColor = .gray
+            label.textColor = UIColor.Pallete.gray
         }
         sectionLabels[number].textColor = .label
     }

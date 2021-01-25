@@ -34,7 +34,7 @@ class InstitutionPageViewController: UIPageViewController {
         view.backgroundColor = .systemBackground
         
         pageControl.numberOfPages = 3
-        pageControl.pageIndicatorTintColor = .gray
+        pageControl.pageIndicatorTintColor = UIColor.Pallete.gray
         pageControl.currentPageIndicatorTintColor = UIColor.Pallete.sibsuBlue
         
         self.view.addSubview(pageControl)

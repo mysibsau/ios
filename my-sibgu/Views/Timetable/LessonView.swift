@@ -177,7 +177,7 @@ extension LessonView {
     private func addNumberSubgroup(with number: Int) {
         let numberSubgroundLabel = UILabel()
         numberSubgroundLabel.font = UIFont.systemFont(ofSize: 10)
-        numberSubgroundLabel.textColor = .gray
+        numberSubgroundLabel.textColor = UIColor.Pallete.gray
         numberSubgroundLabel.text = "[\(number) подгруппа]"
         numberSubgroundLabel.textAlignment = .left
         
@@ -203,7 +203,7 @@ extension LessonView {
         let separator = UIView()
         let line = UIView()
         separator.backgroundColor = .clear
-        line.backgroundColor = .gray
+        line.backgroundColor = UIColor.Pallete.gray
 
         separator.addSubview(line)
         line.snp.makeConstraints { make in
@@ -241,7 +241,7 @@ extension LessonView {
         } else if type == .laboratoryWork {
             subgroupView.type.textColor = UIColor.Pallete.purple
         } else {
-            subgroupView.type.textColor = .gray
+            subgroupView.type.textColor = UIColor.Pallete.gray
         }
         subgroupView.professor.text = proffesor
         subgroupView.place.text = place

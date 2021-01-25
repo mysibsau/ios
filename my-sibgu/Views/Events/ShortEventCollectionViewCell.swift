@@ -39,7 +39,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
     let readMoreOrLessButton: UIButton = {
         let button = UIButton()
         button.setTitle("[Читать далее]", for: .normal)
-        button.setTitleColor(.gray, for: .normal)
+        button.setTitleColor(UIColor.Pallete.gray, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.contentHorizontalAlignment = .leading
         button.backgroundColor = .clear

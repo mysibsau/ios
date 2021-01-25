@@ -42,7 +42,7 @@ class AlertView: UIView {
     }
     
     private func setupLabels() {
-        alertLabel.textColor = .gray
+        alertLabel.textColor = UIColor.Pallete.gray
         alertLabel.textAlignment = .center
         alertLabel.numberOfLines = 0
         alertLabel.lineBreakMode = .byWordWrapping

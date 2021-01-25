@@ -53,7 +53,7 @@ class UnionTableViewCell: UITableViewCell {
             make.top.bottom.leading.equalToSuperview().inset(5)
             make.size.equalTo(60)
         }
-        logoImageView.layer.borderColor = UIColor.gray.cgColor
+        logoImageView.layer.borderColor = UIColor.Pallete.gray.cgColor
         logoImageView.layer.borderWidth = 1
         logoImageView.layer.cornerRadius = 30
         // (60 + 5 + 5) / 2 = 35

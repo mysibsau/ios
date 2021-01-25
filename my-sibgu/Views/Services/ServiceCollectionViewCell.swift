@@ -17,7 +17,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .systemBackground
+//        imageView.backgroundColor = .systemBackground
         return imageView
     }()
     
@@ -46,8 +46,11 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup Views
     func setupViews() {
         layer.cornerRadius = 15
-        backgroundColor = .systemBackground
-        makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3.5)
+        backgroundColor = UIColor.Pallete.content
+        
+//        makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 3.5)
+        makeShadow(radius: 4)
+        makeBorder(width: 0.75)
         
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -60,6 +63,15 @@ class ServiceCollectionViewCell: UICollectionViewCell {
             make.bottom.leading.trailing.equalToSuperview().inset(10)
             make.height.equalTo(40)
         }
+    }
+    
+}
+
+extension ServiceCollectionViewCell {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        makeShadow(radius: 4)
+        makeBorder(width: 0.75)
     }
     
 }

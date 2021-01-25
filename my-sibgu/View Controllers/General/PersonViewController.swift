@@ -200,7 +200,7 @@ class PersonViewController: UIViewController {
             make.top.equalTo(backgroupndImageView.snp.bottom)
             make.height.equalTo(3)
         }
-        separateLine.backgroundColor = .gray
+        separateLine.backgroundColor = UIColor.Pallete.gray
     }
     
     private func setupDirectorImage() {
@@ -212,7 +212,7 @@ class PersonViewController: UIViewController {
         
         personImageView.layer.cornerRadius = 75
         personImageView.layer.borderWidth = 2
-        personImageView.layer.borderColor = UIColor.gray.cgColor
+        personImageView.layer.borderColor = UIColor.Pallete.gray.cgColor
         personImageView.clipsToBounds = true
         personImageView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
     }

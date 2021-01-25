@@ -58,11 +58,11 @@ class GroupSubgroupView: UIView {
             label?.lineBreakMode = .byWordWrapping
         }
         place.textAlignment = .right
-        place.textColor = .gray
+        place.textColor = UIColor.Pallete.gray
         
         subject.textColor = UIColor.Pallete.sibsuBlue
         type.textColor = UIColor.Pallete.sibsuGreen
-        professor.textColor = .gray
+        professor.textColor = UIColor.Pallete.gray
     }
     
     // MARK: - Recongnizers

@@ -88,7 +88,7 @@ class LessonDayView: UIView {
         }
         
         dateLabel.font = UIFont.systemFont(ofSize: 13)
-        dateLabel.textColor = .gray
+        dateLabel.textColor = UIColor.Pallete.gray
         dateLabel.text = "21.01"
     }
     

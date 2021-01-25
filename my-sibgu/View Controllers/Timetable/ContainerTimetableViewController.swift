@@ -73,7 +73,7 @@ class ContainerTimetableViewController: UIViewController {
     
     private func setupRightBarButton() {
         rightBarButton.setTitle("1 неделя", for: .normal)
-        rightBarButton.setTitleColor(.gray, for: .normal)
+        rightBarButton.setTitleColor(UIColor.Pallete.gray, for: .normal)
         rightBarButton.addTarget(self, action: #selector(scrollToOthreWeek), for: .touchUpInside)
         
         let viewRightBarButton = UIView()

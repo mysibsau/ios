@@ -239,7 +239,7 @@ class TimetableSearchViewController: UIViewController {
         
         helpTableView.layer.cornerRadius = 10
         helpTableView.layer.borderWidth = 0.5
-        helpTableView.layer.borderColor = UIColor.gray.cgColor
+        helpTableView.layer.borderColor = UIColor.Pallete.gray.cgColor
         
         helpTableView.dataSource = self
         helpTableView.delegate = self

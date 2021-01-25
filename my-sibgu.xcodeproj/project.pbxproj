@@ -99,6 +99,7 @@
 		4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D6882573CB3F00EA1E47 /* Common.swift */; };
 		4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */; };
 		4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9A4425B81BD3001F3B0B /* String+localized.swift */; };
+		4A9C9D7C25BF25C30054E011 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
 		4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A66F25A0FCA200518FEA /* CampusService.swift */; };
 		4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67325A107C300518FEA /* ApiCampus.swift */; };
@@ -305,6 +306,7 @@
 		4A91D6882573CB3F00EA1E47 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		4A91D68C2573D82700EA1E47 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		4A9C9A4425B81BD3001F3B0B /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
 		4AB5A66F25A0FCA200518FEA /* CampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusService.swift; sourceTree = "<group>"; };
 		4AB5A67325A107C300518FEA /* ApiCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampus.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				4A91D6882573CB3F00EA1E47 /* Common.swift */,
 				4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */,
 				4A38D0CC25B889AE006EE06F /* CustomViewController.swift */,
+				4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */,
 				4A07DD84255D89020022B6A9 /* AppDelegate.swift */,
 				4A07DD86255D89020022B6A9 /* SceneDelegate.swift */,
 				4A7A56E5256BF4A900E2CE0F /* View Controllers */,
@@ -1502,6 +1505,7 @@
 				4AC1917B25B5E5E900325142 /* ProfileViewController.swift in Sources */,
 				4AF3EC6C25AA161500AF0367 /* ApiInformingService.swift in Sources */,
 				4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */,
+				4A9C9D7C25BF25C30054E011 /* CustomNavigationController.swift in Sources */,
 				4AC1911525B3229C00325142 /* ApiSurveys.swift in Sources */,
 				4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */,
 				4AC1919925B6D1B000325142 /* Theme.swift in Sources */,

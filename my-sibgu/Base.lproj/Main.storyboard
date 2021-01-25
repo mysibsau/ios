@@ -44,7 +44,7 @@
         <!--Лента-->
         <scene sceneID="4YW-lW-veY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5k7-4U-MJH" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5k7-4U-MJH" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Лента" image="events_tab" id="DTg-2i-8Kx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uP0-bn-eck">
@@ -73,7 +73,7 @@
         <!--Столовая-->
         <scene sceneID="ZrM-8Z-Pf8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KBI-61-1e5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KBI-61-1e5" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Столовая" id="aUq-0L-8Mw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bc3-kb-ggu">
@@ -89,7 +89,7 @@
         <!--Расписание-->
         <scene sceneID="WF3-S3-Zo7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cX2-qr-xn3" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cX2-qr-xn3" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Расписание" image="timetable_tab" id="GIJ-jN-Jvv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Aw-rb-Qef">
@@ -108,7 +108,7 @@
         <!--Сервисы-->
         <scene sceneID="67D-XS-f0w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7SV-p7-cdT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7SV-p7-cdT" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Сервисы" image="square.grid.2x2" catalog="system" id="5Q6-FT-9lg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R3p-Uk-PV1">
@@ -153,7 +153,7 @@
         <!--Профиль-->
         <scene sceneID="Joz-S6-68U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m3t-1J-yRk" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m3t-1J-yRk" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Профиль" image="person.fill" catalog="system" id="oW2-hH-Bgy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arl-6a-RYy">

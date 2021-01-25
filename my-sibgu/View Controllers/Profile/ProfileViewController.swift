@@ -31,9 +31,9 @@ class ProfileViewController: UIViewController {
     }
     
     private func addSettiongsBarButton() {
-        let gearImage = UIImage(systemName: "gearshape.fill")
+        let gearImage = UIImage(systemName: "gear")
         let barButton = UIBarButtonItem(image: gearImage, style: .done, target: self, action: #selector(showSettiongs))
-        barButton.tintColor = .gray
+        barButton.tintColor = UIColor.Pallete.gray
         navigationItem.rightBarButtonItem = barButton
     }
     

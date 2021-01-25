@@ -49,7 +49,7 @@ class SettingsViewController: UIViewController {
     
     private func _descriptionLabel() -> UILabel {
         let label = UILabel()
-        label.textColor = .systemGray
+        label.textColor = UIColor.Pallete.gray
         label.font = UIFont.systemFont(ofSize: 12)
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -114,7 +114,7 @@ class SettingsViewController: UIViewController {
         languagesTableView.dataSource = self
         languagesTableView.delegate = self
         languagesTableView.isScrollEnabled = false
-        languagesTableView.backgroundColor = .clear
+        languagesTableView.backgroundColor = UIColor.Pallete.content
         
         view.addSubview(shadowViewLanguage)
         shadowViewLanguage.snp.makeConstraints { make in
@@ -126,6 +126,8 @@ class SettingsViewController: UIViewController {
         shadowViewLanguage.layer.borderColor = UIColor.Pallete.border.cgColor
         languagesTableView.layer.cornerRadius = 10
         shadowViewLanguage.layer.cornerRadius = 10
+        
+        shadowViewLanguage.backgroundColor = UIColor.Pallete.content
 //        shadowView.backgroundColor = UIColor.Pallete.sibsuBlue
         shadowViewLanguage.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.3, shadowOffser: .zero, radius: 2)
         
@@ -153,6 +155,10 @@ class SettingsViewController: UIViewController {
         }
         themeSegmentedControl.addTarget(self, action: #selector(themeSegmentedControlChanged), for: .valueChanged)
         themeSegmentedControl.selectedSegmentIndex = Theme.current.rawValue
+        themeSegmentedControl.backgroundColor = UIColor.Pallete.Special.segmentedControl
+        // ВРоде как так можно сделать цвет получше
+//        themeSegmentedControl.setBackgroundImage(UIImage(colo), for: <#T##UIControl.State#>, barMetrics: <#T##UIBarMetrics#>)
+        themeSegmentedControl.makeBorder()
         
         view.addSubview(shadowViewTheme)
         shadowViewTheme.snp.makeConstraints { make in
@@ -161,8 +167,7 @@ class SettingsViewController: UIViewController {
             make.height.equalTo(40)
         }
         shadowViewTheme.layer.cornerRadius = themeSegmentedControl.layer.cornerRadius
-        shadowViewTheme.backgroundColor = .systemBackground
-//        shadowView.makeShadow(color: .black, opacity: 0.15, shadowOffser: .zero, radius: 4)
+        shadowViewLanguage.makeBorder()
         
         // Поястительная подпись
         view.addSubview(themeDescriptionLabel)
@@ -212,6 +217,7 @@ extension SettingsViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.tintColor = UIColor.Pallete.sibsuBlue
         cell.textLabel?.text = elem.displayName
+        cell.backgroundColor = UIColor.Pallete.content
         
         if elem.isCurrent {
             cell.accessoryType = .checkmark
@@ -249,8 +255,10 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        shadowViewLanguage.layer.shadowColor = UIColor.Pallete.shadow.cgColor
-        shadowViewLanguage.layer.borderColor = UIColor.Pallete.border.cgColor
+        shadowViewLanguage.makeShadow()
+        shadowViewLanguage.makeBorder()
+        
+        themeSegmentedControl.makeBorder()
     }
     
 }
