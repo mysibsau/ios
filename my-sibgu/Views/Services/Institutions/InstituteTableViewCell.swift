@@ -45,9 +45,10 @@ class InstituteTableViewCell: UITableViewCell {
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        containerView.backgroundColor = .systemBackground
+        containerView.backgroundColor = UIColor.Pallete.content
         containerView.layer.cornerRadius = 15
-        containerView.makeShadow(color: .black, opacity: 0.3, shadowOffser: .zero, radius: 4)
+        containerView.makeShadow()
+        containerView.makeBorder()
         
         containerView.addSubview(shortNameLabel)
         shortNameLabel.snp.makeConstraints { make in
@@ -71,4 +72,13 @@ class InstituteTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension InstituteTableViewCell {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        containerView.makeShadow()
+        containerView.makeBorder()
+    }
+    
 }

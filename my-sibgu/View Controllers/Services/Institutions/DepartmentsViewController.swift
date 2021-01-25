@@ -26,6 +26,10 @@ class DepartmentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.Pallete.background
+        stackView.backgroundColor = .clear
+        scrollView.backgroundColor = .clear
+        
         setupScrollView()
         setupTitleLabel()
         setupStackView()

@@ -19,7 +19,7 @@ class PersonViewController: UIViewController {
     private let backgroupndImageView: BlurImageView = {
         let imageView = BlurImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .systemBackground
+        imageView.backgroundColor = UIColor.Pallete.white
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -27,7 +27,7 @@ class PersonViewController: UIViewController {
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .systemBackground
+        imageView.backgroundColor = UIColor.Pallete.content
         return imageView
     }()
     
@@ -74,7 +74,7 @@ class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         setupNavBar()
         

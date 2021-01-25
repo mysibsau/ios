@@ -40,6 +40,9 @@ extension UIColor {
         static let sibsuBlue = UIColor.color(light: .init(hex: "4b7ab8"), dark: .init(hex: "377fde"))
         
         
+        static let white = UIColor.init(hex: "FFFFFF")
+        
+        
         struct Special {
             static let segmentedControl = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "090908"))
             static let tabNavBar = UIColor.color(light: .init(hex: "F9F9F9"), dark: .init(hex: "101010"))
