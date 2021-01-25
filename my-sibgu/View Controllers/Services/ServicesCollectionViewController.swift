@@ -23,6 +23,9 @@ class ServicesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.Pallete.background
+        collectionView.backgroundColor = UIColor.Pallete.background
+        
         setupNavBar()
         
         collectionView.register(

@@ -48,9 +48,8 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 15
         backgroundColor = UIColor.Pallete.content
         
-//        makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 3.5)
-        makeShadow(radius: 4)
-        makeBorder(width: 0.75)
+        makeShadow()
+        makeBorder()
         
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -70,8 +69,8 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 extension ServiceCollectionViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        makeShadow(radius: 4)
-        makeBorder(width: 0.75)
+        makeShadow()
+        makeBorder()
     }
     
 }

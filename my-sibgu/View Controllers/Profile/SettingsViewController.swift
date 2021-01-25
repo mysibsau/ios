@@ -122,13 +122,13 @@ class SettingsViewController: UIViewController {
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(UITableViewCell().frame.height * 3 - 1) // -1 потому что внизу остается противная разделительная черта
         }
-        shadowViewLanguage.layer.borderWidth = 0.75
-        shadowViewLanguage.layer.borderColor = UIColor.Pallete.border.cgColor
+//        shadowViewLanguage.layer.borderWidth = 0.75
+//        shadowViewLanguage.layer.borderColor = UIColor.Pallete.border.cgColor
+        shadowViewTheme.makeBorder()
         languagesTableView.layer.cornerRadius = 10
         shadowViewLanguage.layer.cornerRadius = 10
         
         shadowViewLanguage.backgroundColor = UIColor.Pallete.content
-//        shadowView.backgroundColor = UIColor.Pallete.sibsuBlue
         shadowViewLanguage.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.3, shadowOffser: .zero, radius: 2)
         
         view.addSubview(languagesDescriptionLabel)
@@ -258,6 +258,7 @@ extension SettingsViewController {
         shadowViewLanguage.makeShadow()
         shadowViewLanguage.makeBorder()
         
+        shadowViewTheme.makeBorder()
         themeSegmentedControl.makeBorder()
     }
     

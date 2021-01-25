@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.Pallete.background
 
         setupNavBar()
         addSettiongsBarButton()
