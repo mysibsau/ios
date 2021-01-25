@@ -1,0 +1,18 @@
+/* 
+  StudentLife.strings
+  my-sibgu
+
+  Created by art-off on 26.01.2021.
+  
+*/
+
+"nav.bar.title" = "Объединения";
+
+"join.title" = "Заявка";
+
+"fio" = "ФИО";
+"institute" = "Институт";
+"group" = "Группа";
+"vk.id" = "ID и VK";
+"hobby" = "Ваши увлечения";
+"reason" = "Причина для вступления";

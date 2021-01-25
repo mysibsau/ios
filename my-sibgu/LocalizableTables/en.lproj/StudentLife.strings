@@ -1,0 +1,18 @@
+/* 
+  StudentLife.strings
+  my-sibgu
+
+  Created by art-off on 26.01.2021.
+  
+*/
+
+"nav.bar.title" = "Unions";
+
+"join.title" = "Bid";
+
+"fio" = "Full name";
+"institute" = "Institute";
+"group" = "Group";
+"vk.id" = "VK id";
+"hobby" = "Hobby";
+"reason" = "Reason to join";
