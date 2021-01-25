@@ -79,13 +79,14 @@ class TextAnswerQuestionView: UIView {
             make.leading.bottom.trailing.equalToSuperview().inset(10)
             make.height.equalTo(300)
         }
-        answerTextView.layer.borderWidth = 1
-        answerTextView.layer.borderColor = UIColor.black.cgColor
+        answerTextView.makeBorder(color: .gray)
         answerTextView.layer.cornerRadius = 10
+        answerTextView.backgroundColor = UIColor.Pallete.content
         
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor.Pallete.content
         self.layer.cornerRadius = 15
-        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
+        makeShadow()
+        makeBorder()
     }
     
     private func set(question: Question) {
@@ -100,4 +101,14 @@ class TextAnswerQuestionView: UIView {
         necessarilyLabel.isHidden = !question.necessarily
     }
 
+}
+
+extension TextAnswerQuestionView {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        answerTextView.makeBorder(color: .gray)
+        makeShadow()
+        makeBorder()
+    }
+    
 }

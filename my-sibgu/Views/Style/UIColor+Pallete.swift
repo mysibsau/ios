@@ -21,6 +21,9 @@ extension UIColor {
         
         static let border = UIColor.color(light: .clear, dark: .gray)
         
+        static let blackOrWhite = UIColor.color(light: .init(hex: "000000"), dark: .init(hex: "FFFFFF"))
+        static let whiteOrBlack = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "000000"))
+        
         
         static let gray = UIColor.color(light: .init(hex: "757575"), dark: .init(hex: "c9c7c7"))
         

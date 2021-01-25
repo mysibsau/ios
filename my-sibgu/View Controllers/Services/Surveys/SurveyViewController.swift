@@ -38,7 +38,7 @@ class SurveyViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
     }
 
     override func viewDidLoad() {

@@ -37,8 +37,9 @@ class ShortSurveyTableViewCell: UITableViewCell {
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        containerView.backgroundColor = .systemBackground
-        containerView.makeShadow(color: .black, opacity: 0.3, shadowOffser: .zero, radius: 4)
+        containerView.backgroundColor = UIColor.Pallete.content
+        containerView.makeShadow()
+        containerView.makeBorder()
         containerView.layer.cornerRadius = 15
         
         containerView.addSubview(nameLabel)
@@ -51,4 +52,13 @@ class ShortSurveyTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension ShortSurveyTableViewCell {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        containerView.makeShadow()
+        containerView.makeBorder()
+    }
+    
 }

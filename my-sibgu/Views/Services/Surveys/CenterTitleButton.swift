@@ -40,9 +40,19 @@ class CenterTitleButton: UIButton {
     
     func setup() {
         titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
-        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
+        makeShadow()
+        makeBorder()
         self.layer.cornerRadius = 15
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor.Pallete.content
     }
 
+}
+
+extension CenterTitleButton {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        makeShadow()
+        makeBorder()
+    }
+    
 }
