@@ -69,45 +69,10 @@ class DataManager {
     
     @objc
     private func deleteAll() {
-        // Удаление расписаний
-        let userTimetables = userRealm.objects(RGroupTimetable.self)
-        try? userRealm.write {
-            userRealm.delete(userTimetables, cascading: true)
-        }
-        let downloadedTimetables = downloadedRealm.objects(RGroupTimetable.self)
-        try? downloadedRealm.write {
-            downloadedRealm.delete(downloadedTimetables, cascading: true)
-        }
-        
-        // Удаление зданий
-        let userBuildings = userRealm.objects(RBuilding.self)
-        try? userRealm.write {
-            userRealm.delete(userBuildings, cascading: true)
-        }
-        let downloadedBuildings = downloadedRealm.objects(RBuilding.self)
-        try? downloadedRealm.write {
-            downloadedRealm.delete(downloadedBuildings, cascading: true)
-        }
-        
-        // Удаление институтов
-        let userInstitutes = userRealm.objects(RInstitute.self)
-        try? userRealm.write {
-            userRealm.delete(userInstitutes, cascading: true)
-        }
-        let downloadedInstitutes = downloadedRealm.objects(RInstitute.self)
-        try? downloadedRealm.write {
-            downloadedRealm.delete(downloadedInstitutes, cascading: true)
-        }
-        
-        // Удаление объединений
-        let userUnions = userRealm.objects(RUnion.self)
-        try? userRealm.write {
-            userRealm.delete(userUnions, cascading: true)
-        }
-        let downloadedUnions = downloadedRealm.objects(RUnion.self)
-        try? downloadedRealm.write {
-            downloadedRealm.delete(downloadedUnions, cascading: true)
-        }
+        deleteAllTimetables()
+        deleteAllUnions()
+        deleteAllBuildings()
+        deleteAllInstitutes()
     }
     
 //    // MARK: Функция для формирования БД для вставки в приложение в эпстор (нужно закинуть в InitRealm)
@@ -245,6 +210,17 @@ extension DataManager {
         }
     }
     
+    func deleteAllTimetables() {
+        let userTimetables = userRealm.objects(RGroupTimetable.self)
+        try? userRealm.write {
+            userRealm.delete(userTimetables, cascading: true)
+        }
+        let downloadedTimetables = downloadedRealm.objects(RGroupTimetable.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedTimetables, cascading: true)
+        }
+    }
+    
 }
 
 // MARK: - Campus
@@ -334,6 +310,39 @@ extension DataManager {
     func delete(building: RBuilding) {
         try? downloadedRealm.write {
             downloadedRealm.delete(building, cascading: true)
+        }
+    }
+    
+    func deleteAllInstitutes() {
+        let userInstitutes = userRealm.objects(RInstitute.self)
+        try? userRealm.write {
+            userRealm.delete(userInstitutes, cascading: true)
+        }
+        let downloadedInstitutes = downloadedRealm.objects(RInstitute.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedInstitutes, cascading: true)
+        }
+    }
+    
+    func deleteAllUnions() {
+        let userUnions = userRealm.objects(RUnion.self)
+        try? userRealm.write {
+            userRealm.delete(userUnions, cascading: true)
+        }
+        let downloadedUnions = downloadedRealm.objects(RUnion.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedUnions, cascading: true)
+        }
+    }
+    
+    func deleteAllBuildings() {
+        let userBuildings = userRealm.objects(RBuilding.self)
+        try? userRealm.write {
+            userRealm.delete(userBuildings, cascading: true)
+        }
+        let downloadedBuildings = downloadedRealm.objects(RBuilding.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedBuildings, cascading: true)
         }
     }
     
