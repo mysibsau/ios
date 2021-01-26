@@ -26,6 +26,8 @@ class TimetableSearchViewController: UIViewController {
     private let textField = UITextField()
     private let goToTimetableButton = UIButton()
     
+    private let lessonsStackView = UIStackView()
+    
     // MARK: Private UI
     private let alertView = AlertView()
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
@@ -36,7 +38,7 @@ class TimetableSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         setupScrollView()
         setupTextFieldAndButton()
@@ -140,7 +142,7 @@ class TimetableSearchViewController: UIViewController {
             make.trailing.equalTo(goToTimetableButton.snp.leading)
         }
         
-        wrapView.backgroundColor = .systemBackground
+        wrapView.backgroundColor = UIColor.Pallete.content
         textField.borderStyle = .none
         textField.placeholder = "Введите название группу"
         textField.font = UIFont.systemFont(ofSize: 14)
@@ -149,13 +151,13 @@ class TimetableSearchViewController: UIViewController {
     }
     
     private func setupLessonTimetable() {
-        let vStackView = UIStackView()
-        vStackView.axis = .vertical
-        vStackView.distribution = .fillEqually
-        vStackView.spacing = 8
+//        let vStackView = UIStackView()
+        lessonsStackView.axis = .vertical
+        lessonsStackView.distribution = .fillEqually
+        lessonsStackView.spacing = 8
         
-        contentView.addSubview(vStackView)
-        vStackView.snp.makeConstraints { make in
+        contentView.addSubview(lessonsStackView)
+        lessonsStackView.snp.makeConstraints { make in
             make.top.equalTo(self.wrapView.snp.bottom).offset(50)
             make.leading.trailing.equalTo(contentView).inset(20)
             make.bottom.equalTo(contentView.snp.bottom).offset(-20)
@@ -195,7 +197,7 @@ class TimetableSearchViewController: UIViewController {
             make.edges.equalToSuperview()
         }
 
-        vStackView.addArrangedSubview(wrapView)
+        lessonsStackView.addArrangedSubview(wrapView)
 
         for lessonTime in lessonTimes {
             let hStackView = _hStackView()
@@ -225,7 +227,7 @@ class TimetableSearchViewController: UIViewController {
                 make.height.equalTo(50)
             }
             
-            vStackView.addArrangedSubview(wrapView)
+            lessonsStackView.addArrangedSubview(wrapView)
         }
     }
     
@@ -238,8 +240,8 @@ class TimetableSearchViewController: UIViewController {
         }
         
         helpTableView.layer.cornerRadius = 10
-        helpTableView.layer.borderWidth = 0.5
-        helpTableView.layer.borderColor = UIColor.Pallete.gray.cgColor
+        helpTableView.makeBorder(color: .gray, width: 0.5)
+        helpTableView.backgroundColor = UIColor.Pallete.content
         
         helpTableView.dataSource = self
         helpTableView.delegate = self
@@ -256,11 +258,14 @@ class TimetableSearchViewController: UIViewController {
     }
     
     private func configurateSearchViews() {
-        wrapView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+//        wrapView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+        wrapView.makeShadow()
+        wrapView.makeBorder()
         wrapView.layer.cornerRadius = 10
         
-        goToTimetableButton.makeShadow(color: .black, opacity: 0.2, shadowOffser: .zero, radius: 2)
-        goToTimetableButton.backgroundColor = .systemBackground
+        goToTimetableButton.makeShadow(opacity: 0.2, radius: 2)
+        goToTimetableButton.makeBorder()
+        goToTimetableButton.backgroundColor = UIColor.Pallete.content
         goToTimetableButton.layer.cornerRadius = 10
         
         textField.delegate = self
@@ -269,7 +274,6 @@ class TimetableSearchViewController: UIViewController {
     private func configureNabBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-//        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Мое расписание")
     }
     
     // MARK: - Helper UI
@@ -284,7 +288,9 @@ class TimetableSearchViewController: UIViewController {
     private func _wrapView() -> UIView {
         let v = UIView()
         v.backgroundColor = .systemBackground
-        v.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
+        v.makeShadow()
+        v.makeBorder()
+        v.backgroundColor = UIColor.Pallete.content
         v.layer.cornerRadius = 10
         
         return v
@@ -324,6 +330,24 @@ class TimetableSearchViewController: UIViewController {
     
 }
 
+extension TimetableSearchViewController {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        goToTimetableButton.makeShadow(opacity: 0.2, radius: 2)
+        goToTimetableButton.makeBorder()
+        
+        wrapView.makeShadow()
+        wrapView.makeBorder()
+        
+        lessonsStackView.removeAllArrangedSubviews()
+        setupLessonTimetable()
+        
+        helpTableView.removeFromSuperview()
+        setupHelpTableView()
+    }
+    
+}
+
 extension TimetableSearchViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -358,6 +382,7 @@ extension TimetableSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = filtredGroups[indexPath.row].name
+        cell.backgroundColor = UIColor.Pallete.content
         return cell
     }
     

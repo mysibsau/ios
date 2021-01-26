@@ -36,8 +36,9 @@ class LessonView: UIView {
         
         setupStackView()
         
-        contentView.backgroundColor = .systemBackground
-        contentView.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        contentView.backgroundColor = UIColor.Pallete.content
+        contentView.makeShadow()
+        contentView.makeBorder()
         contentView.layer.cornerRadius = 15
     }
     
@@ -279,11 +280,13 @@ extension LessonView {
     
 }
 
-// MARK: ВОЗМОЖНО СТОИТ УБРАТЬ ЭТО (Если не буду юзать в итоге)
 extension LessonView {
-    // для отрисовки интерфейса при смене темы
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
+        contentView.makeShadow()
+        contentView.makeBorder()
     }
+    
 }

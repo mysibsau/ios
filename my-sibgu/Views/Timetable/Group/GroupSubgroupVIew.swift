@@ -45,6 +45,9 @@ class GroupSubgroupView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        self.backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
     
     private func setupViews() {

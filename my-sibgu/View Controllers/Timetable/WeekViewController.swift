@@ -41,7 +41,7 @@ class WeekViewController: UIViewController {
         setupScrollView()
         setupStackView()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }

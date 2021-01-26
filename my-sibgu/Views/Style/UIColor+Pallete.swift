@@ -36,7 +36,7 @@ extension UIColor {
         
         static let lightRed = UIColor.color(light: .init(hex: "ff7575"), dark: .init(hex: "ff7575"))
         
-        static let darkBlue = UIColor.color(light: .init(hex: "165984"), dark: .init(hex: "165984"))
+        static let darkBlue = UIColor.color(light: .init(hex: "165984"), dark: .init(hex: "377fde"))
         
         static let sibsuGreen = UIColor.color(light: .init(hex: "8bbd64"), dark: .init(hex: "8bbd64"))
         

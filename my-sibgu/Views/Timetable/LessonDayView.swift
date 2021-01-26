@@ -21,6 +21,8 @@ class LessonDayView: UIView {
     private var dayNumber: Int!
     private var lessonDay: GroupDay?
     
+    private var weekendView: UIView?
+    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,26 +120,40 @@ class LessonDayView: UIView {
     }
     
     private func addWeekday() {
-        let weekendView = UIView()
-        weekendView.backgroundColor = .systemBackground
-        weekendView.layer.cornerRadius = 15
-        weekendView.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        let tableName = "Timetable"
+        
+        weekendView = UIView()
+        weekendView?.backgroundColor = UIColor.Pallete.content
+        weekendView?.layer.cornerRadius = 15
+        weekendView?.makeShadow()
+        weekendView?.makeBorder()
         
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textColor = UIColor.Pallete.sibsuBlue
-        label.text = "Нет пар"
+        label.text = "no.lessons".localized(using: tableName)
         
-        weekendView.addSubview(label)
+        weekendView?.addSubview(label)
         label.snp.makeConstraints { make in
-            make.center.equalTo(weekendView)
+            make.center.equalTo(weekendView!)
         }
 
-        lessonStackView.addArrangedSubview(weekendView)
-        weekendView.snp.makeConstraints { make in
+        lessonStackView.addArrangedSubview(weekendView!)
+        weekendView?.snp.makeConstraints { make in
             make.height.equalTo(100)
             make.width.equalTo(lessonStackView)
         }
     }
     
+}
+
+extension LessonDayView {
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        weekendView?.makeShadow()
+        weekendView?.makeBorder()
+    }
+
 }
