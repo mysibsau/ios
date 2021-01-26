@@ -37,15 +37,19 @@ class InstitutionsViewController: UIViewController {
         
         setInstitutes()
         
-        updateText()
+        updateText(isFirst: true)
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     @objc
-    private func updateText() {
+    private func updateText(isFirst: Bool = false) {
         let tableName = "Institutes"
         
         self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        
+        if !isFirst {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     private func setupNavBar() {

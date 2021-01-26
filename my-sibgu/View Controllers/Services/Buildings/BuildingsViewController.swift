@@ -35,12 +35,12 @@ class BuildingsViewController: UITableViewController {
         
         setBuildings()
         
-        updateText()
+        updateText(isFirst: true)
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     @objc
-    private func updateText() {
+    private func updateText(isFirst: Bool = false) {
         let tableName = "Buildings"
         
         navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
@@ -50,6 +50,10 @@ class BuildingsViewController: UITableViewController {
             "left.coast".localized(using: tableName),
         ]
         tableView.reloadData()
+        
+        if !isFirst {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     private func setupNavBar() {
