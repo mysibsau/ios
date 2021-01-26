@@ -59,7 +59,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = UIColor.Pallete.content
         // не удаляй эту строчку
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -69,6 +69,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(0)
         }
         imageView.layer.cornerRadius = 15
+        imageView.backgroundColor = UIColor.Pallete.content
         
         contentView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
@@ -83,7 +84,9 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
             make.width.equalTo(200)
         }
 
-        contentView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
+//        contentView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
+        contentView.makeShadow()
+        contentView.makeBorder()
         contentView.layer.cornerRadius = 15
         
         readMoreOrLessButton.addTarget(self, action: #selector(readMoreOrLessButtonAction), for: .touchUpInside)
@@ -119,7 +122,6 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         }
         
         imageView.image = nil
-//        print("prepare, \(indexPath)")
     }
     
     // MARK: - Setters -
@@ -163,12 +165,10 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         if mode == .short {
             textLabel.numberOfLines = 3
             textLabel.lineBreakMode = .byTruncatingTail
-//            readMoreOrLessButton.setTitle("[Читать далее]", for: .normal)
             updateText()
         } else if mode == .long {
             textLabel.numberOfLines = 0
             textLabel.lineBreakMode = .byWordWrapping
-//            readMoreOrLessButton.setTitle("[Скрыть]", for: .normal)
             updateText()
         }
     }
@@ -191,6 +191,17 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         } else if mode == .long {
             readMoreOrLessButton.setTitle("hide".localized(using: tableName), for: .normal)
         }
+    }
+    
+}
+
+extension ShortEventCollectionViewCell {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        contentView.makeShadow()
+        contentView.makeBorder()
     }
     
 }
