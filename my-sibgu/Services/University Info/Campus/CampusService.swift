@@ -60,6 +60,7 @@ class CampusService {
             }
             
             DispatchQueue.main.async {
+                DataManager.shared.deleteAllBuildings()
                 let buildings = buildingsResponse.map { $0.converteToRealm() }
                 DataManager.shared.write(buildings: buildings)
                 let buildingsForShowing = DataManager.shared.getBuildings()
@@ -83,6 +84,7 @@ class CampusService {
             }
             
             DispatchQueue.main.async {
+                DataManager.shared.deleteAllInstitutes()
                 let institutes = institutesResponse.map { $0.converteToRealm() }
                 DataManager.shared.write(institutes: institutes)
                 let institutesForShowing = DataManager.shared.getInstitutes()
@@ -114,6 +116,7 @@ class CampusService {
             
 //            print("fine8")
             DispatchQueue.main.async {
+                DataManager.shared.deleteAllUnions()
                 let unions = unionsResponse.map { $0.converteToRealm() }
                 DataManager.shared.write(unions: unions)
                 let unionsForShowing = DataManager.shared.getUnions()

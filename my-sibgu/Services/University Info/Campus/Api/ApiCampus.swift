@@ -12,15 +12,18 @@ struct ApiCampus {
     static let address = ApiUniversityInfo.addressByVersion
     
     static func buildings() -> URL {
-        return URL(string: "\(address)/campus/buildings/")!
+        let lang = Localize.currentLanguage
+        return URL(string: "\(address)/campus/buildings/?language=\(lang)")!
     }
     
     static func institutes() -> URL {
-        return URL(string: "\(address)/campus/institutes/")!
+        let lang = Localize.currentLanguage
+        return URL(string: "\(address)/campus/institutes/?language=\(lang)")!
     }
     
     static func unions() -> URL {
-        return URL(string: "\(address)/campus/unions/")!
+        let lang = Localize.currentLanguage
+        return URL(string: "\(address)/campus/unions/?language=\(lang)")!
     }
     
     static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
