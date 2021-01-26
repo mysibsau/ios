@@ -51,9 +51,10 @@ class BuildingTableViewCell: UITableViewCell {
             make.leading.trailing.equalTo(self).inset(20)
         }
         
-        containerView.backgroundColor = .systemBackground
+        containerView.backgroundColor = UIColor.Pallete.content
         containerView.layer.cornerRadius = 15
-        containerView.makeShadow(color: .black, opacity: 0.3, shadowOffser: .zero, radius: 4)
+        containerView.makeShadow()
+        containerView.makeBorder()
         
         containerView.addSubview(buildingNameLabel)
         buildingNameLabel.snp.makeConstraints { make in
@@ -76,15 +77,15 @@ class BuildingTableViewCell: UITableViewCell {
         buildingTypeLabel.snp.makeConstraints { make in
             make.leading.equalTo(separateLine.snp.trailing).offset(10)
             make.trailing.equalToSuperview().offset(-10)
-            make.top.equalToSuperview().offset(2)
+            make.top.equalToSuperview().offset(6)
         }
         
         containerView.addSubview(buildingAddressLabel)
         buildingAddressLabel.snp.makeConstraints { make in
             make.leading.equalTo(separateLine.snp.trailing).offset(10)
             make.trailing.equalToSuperview().offset(-10)
-            make.top.equalTo(buildingTypeLabel.snp.bottom).offset(2)
-            make.bottom.equalToSuperview().offset(-2)
+            make.top.equalTo(buildingTypeLabel.snp.bottom).offset(6)
+            make.bottom.equalToSuperview().offset(-6)
         }
         
         buildingTypeLabel.text = "Корпус"
@@ -95,4 +96,13 @@ class BuildingTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension BuildingTableViewCell {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        containerView.makeShadow()
+        containerView.makeBorder()
+    }
+    
 }

@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.Pallete.background
 
         setupNavBar()
         addSettiongsBarButton()
@@ -31,9 +33,9 @@ class ProfileViewController: UIViewController {
     }
     
     private func addSettiongsBarButton() {
-        let gearImage = UIImage(systemName: "gearshape.fill")
+        let gearImage = UIImage(systemName: "gear")
         let barButton = UIBarButtonItem(image: gearImage, style: .done, target: self, action: #selector(showSettiongs))
-        barButton.tintColor = .gray
+        barButton.tintColor = UIColor.Pallete.gray
         navigationItem.rightBarButtonItem = barButton
     }
     

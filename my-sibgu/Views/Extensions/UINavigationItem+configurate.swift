@@ -45,7 +45,7 @@ extension UINavigationItem {
         self.leftItemsSupplementBackButton = false
 
         let exitButton = UIBarButtonItem(image: UIImage(systemName: "escape"), style: .plain, target: vc, action: #selector(vc.popViewController))
-        exitButton.tintColor = .gray
+        exitButton.tintColor = UIColor.Pallete.gray
         
         let leftTitle = _leftTitle(title: title)
         
@@ -85,7 +85,7 @@ extension UINavigationItem {
     
     private func _leftTitle(title: String) -> UIBarButtonItem {
         let leftTitle = UIBarButtonItem(title: title, style: .plain, target: nil, action: nil)
-        leftTitle.tintColor = .gray
+        leftTitle.tintColor = UIColor.Pallete.gray
         leftTitle.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
         // Это спасает от того, что title растягивается на весь нав бар, теперь он точички ставит если че
         leftTitle.width = 30
@@ -96,7 +96,7 @@ extension UINavigationItem {
     private func _centerTitle(title: String) -> UIView {
         let centerTitle = UILabel()
         centerTitle.text = title
-        centerTitle.textColor = .gray
+        centerTitle.textColor = UIColor.Pallete.gray
         centerTitle.font = UIFont.boldSystemFont(ofSize: 24)
         
         let titleView = UIView()

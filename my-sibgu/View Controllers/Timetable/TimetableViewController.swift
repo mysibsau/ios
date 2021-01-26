@@ -46,7 +46,7 @@ class TimetableViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         self.dataSource = self
         self.delegate = self

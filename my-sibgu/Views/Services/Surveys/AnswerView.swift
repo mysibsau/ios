@@ -24,15 +24,15 @@ class AnswerView: UIView {
     
     private let boxView: UIView = {
         let v = UIView()
-        v.backgroundColor = .systemBackground
+        v.backgroundColor = UIColor.Pallete.content
         v.layer.borderWidth = 1
-        v.layer.borderColor = UIColor.black.cgColor
+        v.layer.borderColor = UIColor.Pallete.blackOrWhite.cgColor
         return v
     }()
     
     private let fillView: UIView = {
         let v = UIView()
-        v.backgroundColor = .black
+        v.backgroundColor = UIColor.Pallete.blackOrWhite
         return v
     }()
     
@@ -108,4 +108,12 @@ class AnswerView: UIView {
         delegate?.selectedAnswer(with: answer.id)
     }
 
+}
+
+extension AnswerView {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        boxView.layer.borderColor = UIColor.Pallete.blackOrWhite.cgColor
+    }
+    
 }

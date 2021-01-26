@@ -18,7 +18,7 @@ class UnionTableViewCell: UITableViewCell {
     let logoImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
-        imgView.backgroundColor = .systemBackground
+        imgView.backgroundColor = UIColor.Pallete.white
         imgView.clipsToBounds = true
         return imgView
     }()
@@ -45,15 +45,16 @@ class UnionTableViewCell: UITableViewCell {
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
-        containerView.backgroundColor = .systemBackground
-        containerView.makeShadow(color: .black, opacity: 0.3, shadowOffser: .zero, radius: 4)
+        containerView.backgroundColor = UIColor.Pallete.content
+        containerView.makeShadow()
+        containerView.makeBorder()
         
         containerView.addSubview(logoImageView)
         logoImageView.snp.makeConstraints { make in
             make.top.bottom.leading.equalToSuperview().inset(5)
             make.size.equalTo(60)
         }
-        logoImageView.layer.borderColor = UIColor.gray.cgColor
+        logoImageView.layer.borderColor = UIColor.Pallete.gray.cgColor
         logoImageView.layer.borderWidth = 1
         logoImageView.layer.cornerRadius = 30
         // (60 + 5 + 5) / 2 = 35
@@ -79,4 +80,15 @@ class UnionTableViewCell: UITableViewCell {
         logoImageView.image = nil
     }
 
+}
+
+extension UnionTableViewCell {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        logoImageView.layer.borderColor = UIColor.Pallete.gray.cgColor
+        
+        containerView.makeShadow()
+        containerView.makeBorder()
+    }
+    
 }

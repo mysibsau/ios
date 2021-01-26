@@ -36,7 +36,7 @@ class NewsViewController: UICollectionViewController {
     
     override func loadView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .clear
     }
     
     

@@ -18,18 +18,28 @@ class UnionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.Pallete.background
+        
         setupNavBar()
         
         configurateTableView()
         
         setUnions()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
+    @objc
+    private func updateText() {
+        let tableName = "StudentLife"
+        
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
+    }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setLeftTitle(title: "Объединения")
     }
     
     private func configurateTableView() {

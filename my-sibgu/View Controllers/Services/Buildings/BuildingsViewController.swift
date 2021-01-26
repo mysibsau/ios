@@ -22,7 +22,9 @@ class BuildingsViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        tableView.backgroundColor = .systemBackground
+        
+        tableView.backgroundColor = UIColor.Pallete.background
+        
 
         setupNavBar()
         

@@ -74,7 +74,7 @@ class JoinToUnionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         setupScrollView()
         
@@ -88,6 +88,23 @@ class JoinToUnionViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillHide),
                                                name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "StudentLife"
+        
+        setupNavigationItems()
+        
+        fioTextField.placeholder = "fio".localized(using: tableName)
+        instituteTextField.placeholder = "institute".localized(using: tableName)
+        groupTextField.placeholder = "group".localized(using: tableName)
+        idVkTextField.placeholder = "vk.id".localized(using: tableName)
+        hobbyTextField.placeholder = "hobby".localized(using: tableName)
+        reasonTextField.placeholder = "reason".localized(using: tableName)
     }
     
     private func setupScrollView() {
@@ -108,7 +125,9 @@ class JoinToUnionViewController: UIViewController {
     }
     
     private func setupNavigationItems() {
-        let navItem = UINavigationItem(title: "Заявка на вступление")
+        let tableName = "StudentLife"
+        
+        let navItem = UINavigationItem(title: "join.title".localized(using: tableName))
         
         navItem.leftBarButtonItem = UIBarButtonItem(title: "Закрыть", style: .plain, target: self, action: #selector(dismissVC))
         navItem.rightBarButtonItem = UIBarButtonItem(title: "Отправить", style: .done, target: self, action: #selector(doneAction))

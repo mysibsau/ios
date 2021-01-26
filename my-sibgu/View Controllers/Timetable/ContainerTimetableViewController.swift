@@ -18,6 +18,7 @@ class ContainerTimetableViewController: UIViewController {
     private var showingTimetableViewController: ShowingTimetableViewController!
     
     private let containerView = UIView()
+    private let viewRightBarButton = UIView()
     private let rightBarButton = UIButton()
     
     
@@ -73,12 +74,12 @@ class ContainerTimetableViewController: UIViewController {
     
     private func setupRightBarButton() {
         rightBarButton.setTitle("1 неделя", for: .normal)
-        rightBarButton.setTitleColor(.gray, for: .normal)
+        rightBarButton.setTitleColor(UIColor.Pallete.gray, for: .normal)
         rightBarButton.addTarget(self, action: #selector(scrollToOthreWeek), for: .touchUpInside)
         
-        let viewRightBarButton = UIView()
         viewRightBarButton.addSubview(rightBarButton)
-        viewRightBarButton.makeShadow(color: UIColor.Pallete.shadow, opacity: 0.3, shadowOffser: .zero, radius: 2.5)
+        viewRightBarButton.makeShadow(opacity: 0.3, radius: 2.5)
+        viewRightBarButton.makeBorder()
         viewRightBarButton.layer.cornerRadius = 15
         
         rightBarButton.snp.makeConstraints { make in
@@ -98,6 +99,15 @@ class ContainerTimetableViewController: UIViewController {
         showingTimetableViewController.scrollToOtherWeek()
     }
 
+}
+
+extension ContainerTimetableViewController {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        viewRightBarButton.makeShadow(opacity: 0.3, radius: 2.5)
+        viewRightBarButton.makeBorder()
+    }
+    
 }
 
 extension ContainerTimetableViewController: PopableViewController {

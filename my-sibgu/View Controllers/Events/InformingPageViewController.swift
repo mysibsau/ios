@@ -32,7 +32,7 @@ class InformingPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         setSegmentedController()
         

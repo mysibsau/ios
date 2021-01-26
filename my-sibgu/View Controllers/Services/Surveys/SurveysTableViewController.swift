@@ -20,7 +20,7 @@ class SurveysTableViewController: UITableViewController {
     override func loadView() {
         super.loadView()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor.Pallete.background
         
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false

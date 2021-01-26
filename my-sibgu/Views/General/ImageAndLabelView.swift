@@ -30,9 +30,11 @@ class ImageAndLabelView: UIView {
     }
     
     func setupView() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor.Pallete.content
         self.layer.cornerRadius = 20
-        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+//        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        makeShadow()
+        makeBorder()
         
         self.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -56,4 +58,13 @@ class ImageAndLabelView: UIView {
         label.lineBreakMode = .byWordWrapping
     }
 
+}
+
+extension ImageAndLabelView {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        makeShadow()
+        makeBorder()
+    }
+    
 }

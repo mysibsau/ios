@@ -16,4 +16,4 @@
 "appearance.system" = "System*";
 "appearance.light" = "Light";
 "appearance.dark" = "Dark";
-"appearance.description" = "* System design - The design of the app changes automatically when you change the design in the phone settings";
+"appearance.description" = "* System appearance - The appearance of the app changes automatically when you change the design in the phone settings";

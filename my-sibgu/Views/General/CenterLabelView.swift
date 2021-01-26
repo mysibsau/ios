@@ -28,9 +28,11 @@ class CenterLabelView: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor.Pallete.content
         self.layer.cornerRadius = 20
-        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+//        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
+        makeShadow()
+        makeBorder()
         
         self.addSubview(centerLabel)
         centerLabel.snp.makeConstraints { make in
@@ -44,4 +46,13 @@ class CenterLabelView: UIView {
         centerLabel.lineBreakMode = .byWordWrapping
     }
 
+}
+
+extension CenterLabelView {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        makeShadow()
+        makeBorder()
+    }
+    
 }

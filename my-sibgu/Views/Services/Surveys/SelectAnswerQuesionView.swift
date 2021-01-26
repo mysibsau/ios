@@ -87,9 +87,10 @@ class SelectAnswerQuesionView: UIView {
             make.leading.bottom.trailing.equalToSuperview().inset(10)
         }
         
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor.Pallete.content
         self.layer.cornerRadius = 15
-        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 4)
+        self.makeShadow()
+        self.makeBorder()
     }
     
     private func set(question: Question) {
@@ -111,6 +112,15 @@ class SelectAnswerQuesionView: UIView {
         }
     }
 
+}
+
+extension SelectAnswerQuesionView {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        self.makeShadow()
+        self.makeBorder()
+    }
+    
 }
 
 extension SelectAnswerQuesionView: AnswerViewDelegate {

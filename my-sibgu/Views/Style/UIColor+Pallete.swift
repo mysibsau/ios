@@ -13,12 +13,19 @@ extension UIColor {
         
         // Если какой-то цвет не нужен в одной из тем (напирмер тень) - можно поставить .clear
         
-        static let background = UIColor.color(light: .white, dark: .black)
+        static let background = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "373737"))
         
-//        static let shadow = UIColor.color(light: .init(hex: "000000"), dark: .clear)
-        static let shadow = UIColor(hex: "000000")
+        static let content = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "262626"))
+        
+        static let shadow = UIColor.color(light: .init(hex: "000000"), dark: .clear)
         
         static let border = UIColor.color(light: .clear, dark: .gray)
+        
+        static let blackOrWhite = UIColor.color(light: .init(hex: "000000"), dark: .init(hex: "FFFFFF"))
+        static let whiteOrBlack = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "000000"))
+        
+        
+        static let gray = UIColor.color(light: .init(hex: "757575"), dark: .init(hex: "c9c7c7"))
         
         static let orange = UIColor.color(light: .init(hex: "#F48041"), dark: .init(hex: "#F48041"))
         
@@ -27,17 +34,22 @@ extension UIColor {
         static let purple = UIColor.color(light: .init(hex: "c0a747"), dark: .init(hex: "c0a747"))
         
         
-        static let lightRed = UIColor.color(light: UIColor(red: 255.0/255.0, green: 117.0/255.0, blue: 118.0/255.0, alpha: 1),
-                                            dark: UIColor(red: 255.0/255.0, green: 117.0/255.0, blue: 118.0/255.0, alpha: 1))
+        static let lightRed = UIColor.color(light: .init(hex: "ff7575"), dark: .init(hex: "ff7575"))
         
-        static let darkBlue = UIColor.color(light: UIColor(red: 22.0/255.0, green: 89.0/255.0, blue: 132.0/255.0, alpha: 1.0),
-                                            dark: UIColor(red: 22.0/255.0, green: 89.0/255.0, blue: 132.0/255.0, alpha: 1.0))
+        static let darkBlue = UIColor.color(light: .init(hex: "165984"), dark: .init(hex: "377fde"))
         
-        static let sibsuGreen = UIColor.color(light: UIColor(red: 138.0/255.0, green: 189.0/255.0, blue: 100.0/255.0, alpha: 1.0),
-                                             dark: UIColor(red: 138.0/255.0, green: 189.0/255.0, blue: 100.0/255.0, alpha: 1.0))
+        static let sibsuGreen = UIColor.color(light: .init(hex: "8bbd64"), dark: .init(hex: "8bbd64"))
         
-        static let sibsuBlue = UIColor.color(light: UIColor(red: 75.0/255.0, green: 123.0/255.0, blue: 184.0/255.0, alpha: 1.0),
-                                             dark: UIColor(red: 75.0/255.0, green: 123.0/255.0, blue: 184.0/255.0, alpha: 1.0))
+        static let sibsuBlue = UIColor.color(light: .init(hex: "4b7ab8"), dark: .init(hex: "377fde"))
+        
+        
+        static let white = UIColor.init(hex: "FFFFFF")
+        
+        
+        struct Special {
+            static let segmentedControl = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "090908"))
+            static let tabNavBar = UIColor.color(light: .init(hex: "F9F9F9"), dark: .init(hex: "101010"))
+        }
         
     }
     
