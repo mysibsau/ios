@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct GroupWeek {
-    
-    var days: [GroupDay?]
-    
-}
+//struct GroupWeek {
+//    
+//    var days: [GroupDay?]
+//    
+//}

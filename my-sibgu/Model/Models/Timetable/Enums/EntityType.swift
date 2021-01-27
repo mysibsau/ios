@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum EntitiesType: String {
-    case group
-    case professor
-    case place
+enum EntitiesType: Int {
+    case group = 0
+    case professor = 1
+    case place = 2
     
     var raw: String {
         switch self {

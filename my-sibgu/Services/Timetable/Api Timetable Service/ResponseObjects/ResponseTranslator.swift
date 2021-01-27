@@ -9,9 +9,9 @@ import Foundation
 
 class ResponseTranslator {
     
-    static func converteGroupTimetableResponseToRGroupTimetable(groupTimetableResponse: GroupTimetableResponse, groupId: Int) -> RGroupTimetable {
+    static func converteGroupTimetableResponseToRGroupTimetable(groupTimetableResponse: TimetableResponse, groupId: Int) -> RGroupTimetable {
         let groupTimetable = RGroupTimetable()
-        groupTimetable.groupId = groupId
+        groupTimetable.objectId = groupId
         
         let groupOddWeek = converteGroupDaysResponseToRGroupWeek(groupDaysResponse: groupTimetableResponse.oddWeek)
         let groupEvenWeek = converteGroupDaysResponseToRGroupWeek(groupDaysResponse: groupTimetableResponse.evenWeek)
@@ -21,21 +21,21 @@ class ResponseTranslator {
         return groupTimetable
     }
     
-    private static func converteGroupDaysResponseToRGroupWeek(groupDaysResponse: [GroupDayResponse]) -> RGroupWeek {
-        let groupWeek = RGroupWeek()
+    private static func converteGroupDaysResponseToRGroupWeek(groupDaysResponse: [DayResponse]) -> RWeek {
+        let groupWeek = RWeek()
         
         for groupDayResponse in groupDaysResponse {
-            let groupDay = RGroupDay()
+            let groupDay = RDay()
             
             groupDay.number = groupDayResponse.number
             
             for groupLessonResponse in groupDayResponse.lessons {
-                let groupLesson = RGroupLesson()
+                let groupLesson = RLesson()
                 
                 groupLesson.time = groupLessonResponse.time
                 
                 for groupSubgroupResponse in groupLessonResponse.subgroups {
-                    let groupSubgroup = RGroupSubgroup()
+                    let groupSubgroup = RSubgroup()
                     groupSubgroup.number = groupSubgroupResponse.number
                     groupSubgroup.subject = groupSubgroupResponse.subject
                     groupSubgroup.professor = groupSubgroupResponse.professor
@@ -69,6 +69,36 @@ class ResponseTranslator {
         }
         
         return rGroups
+    }
+    
+    static func converteProfessorResponseToRProfessor(professorsResponse: [ProfessorResponse]) -> [RProfessor] {
+        var rProfessors = [RProfessor]()
+        
+        for professorResponse in professorsResponse {
+            let rProfessor = RProfessor()
+            rProfessor.id = professorResponse.id
+            rProfessor.name = professorResponse.name
+            rProfessor.idPallada = professorResponse.idPallada
+            
+            rProfessors.append(rProfessor)
+        }
+        
+        return rProfessors
+    }
+    
+    static func convertePlaceResponseToRPlace(placesResponse: [PlaceResponse]) -> [RPlace] {
+        var rPlaces = [RPlace]()
+        
+        for placeResponse in placesResponse {
+            let rPlace = RPlace()
+            rPlace.id = placeResponse.id
+            rPlace.name = placeResponse.name
+            rPlace.address = placeResponse.address
+            
+            rPlaces.append(rPlace)
+        }
+        
+        return rPlaces
     }
     
 }

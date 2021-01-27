@@ -9,8 +9,8 @@ import Foundation
 
 struct UserDefaultsConfig {
     
-    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.timetableType", defaultValue: String?(nil))
-    static var timetableType: String?
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.timetableType", defaultValue: Int?(nil))
+    static var timetableType: Int?
 
     @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.timetableId", defaultValue: Int?(nil))
     static var timetableId: Int?
@@ -21,6 +21,12 @@ struct UserDefaultsConfig {
     // MARK: Hash для определения версии таблиц
     @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.groupsHash", defaultValue: String?(nil))
     static var groupsHash: String?
+    
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.professorsHash", defaultValue: String?(nil))
+    static var professorsHash: String?
+    
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.placesHash", defaultValue: String?(nil))
+    static var placesHash: String?
     
     // MARK: UUID для API
     @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.uuidForApi", defaultValue: String?(nil))

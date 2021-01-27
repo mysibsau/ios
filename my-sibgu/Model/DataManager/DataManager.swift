@@ -140,6 +140,34 @@ extension DataManager {
             downloadedRealm.add(copyGroup, update: .modified)
         }
     }
+    
+    func write(professor: RProfessor) {
+        let copyProfessor = professor.newObject()
+        try? downloadedRealm.write {
+            downloadedRealm.add(copyProfessor, update: .all)
+        }
+    }
+    
+    func write(professors: [RProfessor]) {
+        let copyProfessors = professors.map { $0.newObject() }
+        try? downloadedRealm.write {
+            downloadedRealm.add(copyProfessors, update: .all)
+        }
+    }
+    
+    func write(place: RPlace) {
+        let copyPlace = place.newObject()
+        try? downloadedRealm.write {
+            downloadedRealm.add(copyPlace, update: .all)
+        }
+    }
+    
+    func write(places: [RPlace]) {
+        let copyPlaces = places.map { $0.newObject() }
+        try? downloadedRealm.write {
+            downloadedRealm.add(copyPlaces, update: .all)
+        }
+    }
 
 }
 
@@ -175,14 +203,25 @@ extension DataManager {
 // MARK: - Getting Timetable
 extension DataManager {
     
-    func getTimetable(forGroupId groupId: Int) -> GroupTimetable? {
-        let optionalTimetable = userRealm.object(ofType: RGroupTimetable.self, forPrimaryKey: groupId)
-        let optionalGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: groupId)
-        guard let timetable = optionalTimetable else { return nil }
-        guard let group = optionalGroup else { return nil }
+//    func getTimetable(forType: EntitiesType, objectId: Int) -> Timetable? {
+//        let key = "\(forType.rawValue)\(objectId)"
+//        let optionalTimetable = userRealm.object(ofType: RTimetable.self, forPrimaryKey: key)
+//        let optionalGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: key)
+//        guard let timetable = optionalTimetable else { return nil }
+//        guard let group = optionalGroup else { return nil }
+//
+//        let groupTimetable = Translator.shared.convertGroupTimetable(from: timetable, groupName: group.name)
+//
+//        return groupTimetable
+//    }
+    
+    func getTimetable(forGroupId id: Int) -> GroupTimetable? {
+        let key = "\(EntitiesType.group.rawValue)\(id)"
         
-        let groupTimetable = Translator.shared.convertGroupTimetable(from: timetable, groupName: group.name)
+        guard let rTimetable = userRealm.object(ofType: RGroupTimetable.self, forPrimaryKey: key) else { return nil }
+        guard let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: id) else { return nil }
         
+        let groupTimetable = Translator.shared.convertGroupTimetable(from: rTimetable, groupName: rGroup.name)
         return groupTimetable
     }
     

@@ -20,38 +20,49 @@ class Translator {
     
     // MARK: Перевод объекта РАСПИСАНИЯ ГРУППЫ Realm к структуре, используемой в приложении
     func convertGroupTimetable(from timetable: RGroupTimetable, groupName: String) -> GroupTimetable {
-        var groupWeeks = [GroupWeek]()
+        var groupWeeks = [Week]()
 
         // пробегаемся по всем неделям (по дву)
         for week in timetable.weeks {
 
             // заполняем массив дней nil, потом если будут учебные дни в этой недели - заменю значение
-            var groupDays: [GroupDay?] = [nil, nil, nil, nil, nil, nil]
+            var groupDays: [Day?] = [nil, nil, nil, nil, nil, nil]
 
             // пробегаемся во всем дням недели
             for day in week.days {
 
-                var groupLessons = [GroupLesson]()
+                var groupLessons = [Lesson]()
                 
                 // пробегаемся по всем занятиям дня
                 for lesson in day.lessons {
 
-                    var groupSubgroups = [GroupSubgroup]()
+                    var groupSubgroups = [Subgroup]()
                     
                     // пробегаемся по всех подргуппам занятия
                     for subgroup in lesson.subgroups {
-                        let groupSubgroup = GroupSubgroup(
+                        let groupSubgroup = Subgroup(
                             number: subgroup.number,
-                            subject: subgroup.subject.capitalizinFirstLetter(),
-                            type: subgroupType[subgroup.type] ?? SubgroupType.undefined,
+                            subject: subgroup.subject,
+                            type: subgroupType[subgroup.type] ?? .undefined,
+                            group: subgroup.group,
                             professor: subgroup.professor,
-                            place: subgroup.place)
+                            place: subgroup.place,
+                            groupId: subgroup.groupId,
+                            professorId: subgroup.professorId,
+                            placeId: subgroup.placeId
+                        )
+//                        let groupSubgroup = Subgroup(
+//                            number: subgroup.number,
+//                            subject: subgroup.subject.capitalizinFirstLetter(),
+//                            type: subgroupType[subgroup.type] ?? SubgroupType.undefined,
+//                            professor: subgroup.professor,
+//                            place: subgroup.place)
 
                         groupSubgroups.append(groupSubgroup)
                     }
                     
                     // добавляем занятие в массив занятий
-                    let groupLesson = GroupLesson(
+                    let groupLesson = Lesson(
                         // Если получается преобразовать время, иначе вставляем такое как есть
                         time: converte(time: lesson.time) ?? lesson.time,
                         subgroups: groupSubgroups)
@@ -59,7 +70,7 @@ class Translator {
                     groupLessons.append(groupLesson)
                 }
                 
-                let groupDay = GroupDay(lessons: groupLessons)
+                let groupDay = Day(lessons: groupLessons)
                 // проверяем, подходит ли number для вставки в массив groupDays (0-понедельник, 5-суббота)
                 if day.number >= 0 && day.number <= 5 {
                     // заменяем nil
@@ -67,11 +78,13 @@ class Translator {
                 }
             }
 
-            let groupWeek = GroupWeek(days: groupDays)
+            let groupWeek = Week(days: groupDays)
             groupWeeks.append(groupWeek)
         }
 
-        let groupTimetable = GroupTimetable(groupId: timetable.groupId, groupName: groupName, weeks: groupWeeks)
+//        let groupTimetable = Timetable(groupId: timetable.groupId, groupName: groupName, weeks: groupWeeks)
+//        let groupTimetable = GroupTimetable(objectName: groupName, weeks: groupWeeks)
+        let groupTimetable = GroupTimetable(groupName: groupName, groupId: timetable.objectId, weeks: groupWeeks)
         return groupTimetable
     }
     

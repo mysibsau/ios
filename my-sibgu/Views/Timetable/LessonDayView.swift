@@ -19,7 +19,7 @@ class LessonDayView: UIView {
     private let lessonStackView = UIStackView()
     
     private var dayNumber: Int!
-    private var lessonDay: GroupDay?
+    private var lessonDay: Day?
     
     private var weekendView: UIView?
     
@@ -34,7 +34,7 @@ class LessonDayView: UIView {
         setupViews()
     }
     
-    convenience init(dayNamber: Int, dayDate: String, day: GroupDay?) {
+    convenience init(dayNamber: Int, dayDate: String, day: Day?) {
         self.init()
         self.dayNumber = dayNamber
         self.dayNameLabel.text = dateTimeService.dayOfWeek(number: dayNamber)
@@ -107,7 +107,7 @@ class LessonDayView: UIView {
         }
     }
     
-    private func set(day: GroupDay?) {
+    private func set(day: Day?) {
         guard let d = day else {
             addWeekday()
             return

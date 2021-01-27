@@ -65,7 +65,7 @@ class LessonView: UIView {
 // MARK: - Все для установки нового занятия на это вью (пока только для групп)
 extension LessonView {
     
-    convenience init(lesson: GroupLesson) {
+    convenience init(lesson: Lesson) {
         self.init()
         self.set(lesson: lesson)
     }
@@ -81,7 +81,7 @@ extension LessonView {
 //    }
     
     // MARK: Установка нового занятия для группы
-    private func set(lesson: GroupLesson) {
+    private func set(lesson: Lesson) {
         // если тут уже было занятие, то удаляем его
         subgroupStackView.removeAllArrangedSubviews()
         

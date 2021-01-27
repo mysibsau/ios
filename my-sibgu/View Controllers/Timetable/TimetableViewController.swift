@@ -59,42 +59,42 @@ class TimetableViewController: UIPageViewController {
     private func loadTimetable(withId id: Int) {
         self.startActivityIndicator()
         self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(false)
-        timetableSercive.loadTimetable(
-            withId: id,
-            completionIfNeedNotLoadGroups: { groupTimetable in
-                guard let gt = groupTimetable else {
-                    DispatchQueue.main.async {
-                        print("hello")
-                        self.actionIfNotDownloaded()
-                    }
-                    return
-                }
-
-                DispatchQueue.main.async {
-                    self.set(timetable: gt)
-                    self.stopActivityIndicator()
-                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-                }
-            },
-            startIfNeedLoadGroups: {
-                // Тут лучше бы говорить, что скачиваются группы
-                print("Hello")
-            },
-            completionIfNeedLoadGroups: { groupTimetable in
-                guard let gt = groupTimetable else {
-                    DispatchQueue.main.async {
-                        self.actionIfNotDownloaded()
-                    }
-                    return
-                }
-
-                DispatchQueue.main.async {
-                    self.set(timetable: gt)
-                    self.stopActivityIndicator()
-                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-                }
-            }
-        )
+//        timetableSercive.loadTimetable(
+//            withId: id,
+//            completionIfNeedNotLoadGroups: { groupTimetable in
+//                guard let gt = groupTimetable else {
+//                    DispatchQueue.main.async {
+//                        print("hello")
+//                        self.actionIfNotDownloaded()
+//                    }
+//                    return
+//                }
+//
+//                DispatchQueue.main.async {
+//                    self.set(timetable: gt)
+//                    self.stopActivityIndicator()
+//                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+//                }
+//            },
+//            startIfNeedLoadGroups: {
+//                // Тут лучше бы говорить, что скачиваются группы
+//                print("Hello")
+//            },
+//            completionIfNeedLoadGroups: { groupTimetable in
+//                guard let gt = groupTimetable else {
+//                    DispatchQueue.main.async {
+//                        self.actionIfNotDownloaded()
+//                    }
+//                    return
+//                }
+//
+//                DispatchQueue.main.async {
+//                    self.set(timetable: gt)
+//                    self.stopActivityIndicator()
+//                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+//                }
+//            }
+//        )
     }
     
     private func actionIfNotDownloaded() {

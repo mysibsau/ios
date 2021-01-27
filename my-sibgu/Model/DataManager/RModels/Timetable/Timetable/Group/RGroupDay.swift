@@ -6,12 +6,12 @@
 //
 //
 
-import Foundation
-import RealmSwift
-
-class RGroupDay: Object {
-    
-    @objc dynamic var number = 0
-    var lessons = List<RGroupLesson>()
-    
-}
+//import Foundation
+//import RealmSwift
+//
+//class RGroupDay: Object {
+//    
+//    @objc dynamic var number = 0
+//    var lessons = List<RGroupLesson>()
+//    
+//}
