@@ -222,29 +222,29 @@ class TimetableService {
         }
     }
     
-    func loadTimetablea(
-        timetableType: EntitiesType,
-        withId id: Int,
-        completion: @escaping (_ timetableResponse: GroupTimetable?) -> Void) {
-//
-//        apiService.loadTimetable(
-//            timetableType: timetableType,
-//            withId: id,
-//            completion: { timetableResponse in
-//                guard let timetableResponse = timetableResponse else {
-//                    DispatchQueue.main.async {
-//                        let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
-//                        completion(timetableFromLocal)
-//                    }
-//                    return
-//                }
-//
-//                if timetableResponse.meta.groupsHash != UserDefaultsConfig.groupsHash {
-//
-//                }
-//            }
-//        )
-    }
+//    func loadTimetablea(
+//        timetableType: EntitiesType,
+//        withId id: Int,
+//        completion: @escaping (_ timetableResponse: GroupTimetable?) -> Void) {
+////
+////        apiService.loadTimetable(
+////            timetableType: timetableType,
+////            withId: id,
+////            completion: { timetableResponse in
+////                guard let timetableResponse = timetableResponse else {
+////                    DispatchQueue.main.async {
+////                        let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
+////                        completion(timetableFromLocal)
+////                    }
+////                    return
+////                }
+////
+////                if timetableResponse.meta.groupsHash != UserDefaultsConfig.groupsHash {
+////
+////                }
+////            }
+////        )
+//    }
     
     
     // MARK: - END NEW VERSION -

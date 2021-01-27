@@ -9,6 +9,8 @@
 "nav.bar.title" = "Расписание";
 
 "enter.group.name" = "Введите название группы";
+"enter.professor.name" = "Введите фамилию преподавателя";
+"enter.place.name" = "Введите кабинет";
 
 "week" = "неделя";
 

@@ -17,6 +17,7 @@ class TimetableSearchViewController: UIViewController {
     // MARK: Properties
     private var groups: [Group]?
     private var filtredGroups = [Group]()
+    private var currType: EntitiesType = .group
     
     // MARK: Outlets
     private let scrollView = UIScrollView()
@@ -31,7 +32,16 @@ class TimetableSearchViewController: UIViewController {
     // MARK: Private UI
     private let alertView = AlertView()
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
+    
+    private let segmentedControl = UISegmentedControl(items: ["Группа", "Преподаватель", "Кабинет"])
     private let helpTableView = UITableView(frame: .zero, style: .plain)
+    
+    
+    private let placeholders = [
+        "enter.group.name",
+        "enter.professor.name",
+        "enter.place.name",
+    ]
     
     
     // MARK: - Overrides
@@ -41,6 +51,7 @@ class TimetableSearchViewController: UIViewController {
         view.backgroundColor = UIColor.Pallete.background
         
         setupScrollView()
+        setupSegmenterControl()
         setupTextFieldAndButton()
         
         configureNabBar()
@@ -98,7 +109,11 @@ class TimetableSearchViewController: UIViewController {
         
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
-        textField.placeholder = "enter.group.name".localized(using: tableName)
+        switch currType {
+        case .group: textField.placeholder = placeholders[0].localized(using: tableName)
+        case .professor: textField.placeholder = placeholders[1].localized(using: tableName)
+        case .place: textField.placeholder = placeholders[2].localized(using: tableName)
+        }
     }
     
     
@@ -120,11 +135,26 @@ class TimetableSearchViewController: UIViewController {
         }
     }
     
+    private func setupSegmenterControl() {
+        segmentedControl.selectedSegmentIndex = 0
+        
+        contentView.addSubview(segmentedControl)
+        segmentedControl.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+        }
+        
+        segmentedControl.addTarget(self, action: #selector(didChangeSegmentedControl), for: .valueChanged)
+        segmentedControl.backgroundColor = UIColor.Pallete.Special.segmentedControl
+        segmentedControl.makeBorder()
+    }
+    
     private func setupTextFieldAndButton() {
         // add wrapView to contentView
         contentView.addSubview(wrapView)
         wrapView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
@@ -328,11 +358,29 @@ class TimetableSearchViewController: UIViewController {
         navigationController?.pushViewController(timetableVC, animated: animated)
     }
     
+    @objc
+    private func didChangeSegmentedControl() {
+        let index = segmentedControl.selectedSegmentIndex
+        switch index {
+        case 0:
+            currType = .group
+        case 1:
+            currType = .professor
+        case 2:
+            currType = .place
+        default:
+            break
+        }
+        updateText()
+    }
+    
 }
 
 extension TimetableSearchViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        segmentedControl.makeBorder()
+        
         goToTimetableButton.makeShadow(opacity: 0.2, radius: 2)
         goToTimetableButton.makeBorder()
         
