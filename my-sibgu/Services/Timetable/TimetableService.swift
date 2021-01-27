@@ -73,31 +73,10 @@ class TimetableService {
         withId id: Int,
         completion: @escaping (_ groupTimetable: GroupTimetable?) -> Void
     ) {
-        apiService.loadTimetable(timetableType: .group, withId: id) { timetableResponse in
-            guard let timetableResponse = timetableResponse else {
-                DispatchQueue.main.async {
-                    let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
-                    completion(timetableFromLocal)
-                }
-                return
-            }
-            
-            var missingEntities: Set<EntitiesType> = []
-            if timetableResponse.meta.groupsHash != UserDefaultsConfig.groupsHash {
-                missingEntities.insert(.group)
-            }
-            if timetableResponse.meta.professorHash != UserDefaultsConfig.professorsHash {
-                missingEntities.insert(.professor)
-            }
-            if timetableResponse.meta.placesHash != UserDefaultsConfig.placesHash {
-                missingEntities.insert(.place)
-            }
-            
-            
-        }
+//        _loadGroupTimetable(timetableType: .group, withId: id, completion: <#T##(TimetableResponse?) -> Void#>)
     }
     
-    func _getGroupTimetable(
+    func _loadGroupTimetable(
         timetableType: EntitiesType,
         withId id: Int,
         completion: @escaping (_ timetableResponse: TimetableResponse?) -> Void
@@ -134,8 +113,8 @@ class TimetableService {
                         completion(timetableResponse)
                         return
                     }
-                    
                     DispatchQueue.main.async {
+                        print("other groups")
                         let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
                         DataManager.shared.write(groups: rGroups)
                         UserDefaultsConfig.groupsHash = groupsHash
@@ -152,6 +131,7 @@ class TimetableService {
                     }
                     
                     DispatchQueue.main.async {
+                        print("other professors")
                         let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
                         DataManager.shared.write(professors: rProfessors)
                         UserDefaultsConfig.professorsHash = professorsHash
@@ -168,13 +148,15 @@ class TimetableService {
                     }
                     
                     DispatchQueue.main.async {
+                        print("other places")
                         let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
                         DataManager.shared.write(places: rPlaces)
                         UserDefaultsConfig.placesHash = placesHash
                     }
                 }
-                
-                completion(timetableResponse)
+                DispatchQueue.main.async {
+                    completion(timetableResponse)
+                }
             }
             
         }
