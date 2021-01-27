@@ -9,54 +9,75 @@ import Foundation
 
 class ResponseTranslator {
     
-    static func converteGroupTimetableResponseToRGroupTimetable(groupTimetableResponse: TimetableResponse, groupId: Int) -> RGroupTimetable {
+    // MARK: - Timetables
+    static func converteTimetableResponseToRGroupTimetable(timetableResponse: TimetableResponse, groupId: Int) -> RGroupTimetable {
         let groupTimetable = RGroupTimetable()
         groupTimetable.objectId = groupId
         
-        let groupOddWeek = converteGroupDaysResponseToRGroupWeek(groupDaysResponse: groupTimetableResponse.oddWeek)
-        let groupEvenWeek = converteGroupDaysResponseToRGroupWeek(groupDaysResponse: groupTimetableResponse.evenWeek)
+        let groupOddWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.oddWeek)
+        let groupEvenWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.evenWeek)
         groupTimetable.weeks.append(groupOddWeek)
         groupTimetable.weeks.append(groupEvenWeek)
         
         return groupTimetable
     }
     
-    private static func converteGroupDaysResponseToRGroupWeek(groupDaysResponse: [DayResponse]) -> RWeek {
-        let groupWeek = RWeek()
+    static func converteTimetableResponseToProfessorTimetable(timetableResponse: TimetableResponse, professorId: Int) -> RProfessorTimetable {
+        let professorTimetable = RProfessorTimetable()
+        professorTimetable.objectId = professorId
         
-        for groupDayResponse in groupDaysResponse {
-            let groupDay = RDay()
+        let professorOddWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.oddWeek)
+        let professorEvenWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.evenWeek)
+        professorTimetable.weeks.append(professorOddWeek)
+        professorTimetable.weeks.append(professorEvenWeek)
+        
+        return professorTimetable
+    }
+    
+    private static func converteDaysResponseToRWeek(daysResponse: [DayResponse]) -> RWeek {
+        let week = RWeek()
+        
+        for dayResponse in daysResponse {
+            let day = RDay()
             
-            groupDay.number = groupDayResponse.number
+            day.number = dayResponse.number
             
-            for groupLessonResponse in groupDayResponse.lessons {
-                let groupLesson = RLesson()
+            for lessonResponse in dayResponse.lessons {
+                let lesson = RLesson()
                 
-                groupLesson.time = groupLessonResponse.time
+                lesson.time = lessonResponse.time
                 
-                for groupSubgroupResponse in groupLessonResponse.subgroups {
-                    let groupSubgroup = RSubgroup()
-                    groupSubgroup.number = groupSubgroupResponse.number
-                    groupSubgroup.subject = groupSubgroupResponse.subject
-                    groupSubgroup.professor = groupSubgroupResponse.professor
-                    groupSubgroup.place = groupSubgroupResponse.place
-                    groupSubgroup.type = groupSubgroupResponse.type
+                for subgroupResponse in lessonResponse.subgroups {
+                    let subgroup = RSubgroup()
+                    subgroup.number = subgroupResponse.number
+                    subgroup.subject = subgroupResponse.subject
+                    subgroup.type = subgroupResponse.type
                     
-                    groupLesson.subgroups.append(groupSubgroup)
+                    subgroup.group = subgroupResponse.group
+                    subgroup.professor = subgroupResponse.professor
+                    subgroup.place = subgroupResponse.place
+                    
+                    subgroup.groupId = subgroupResponse.groupId
+                    subgroup.professorId = subgroupResponse.professorId
+                    subgroup.placeId = subgroupResponse.placeId
+                    
+                    lesson.subgroups.append(subgroup)
                 }
                 
-                groupDay.lessons.append(groupLesson)
+                day.lessons.append(lesson)
             }
             
             // Если в этот день есть пары - добавляем
-            if !groupDay.lessons.isEmpty {
-                groupWeek.days.append(groupDay)
+            if !day.lessons.isEmpty {
+                week.days.append(day)
             }
         }
         
-        return groupWeek
+        return week
     }
     
+    
+    // MARK: - Entities
     static func converteGroupResponseToRGroup(groupsResponse: [GroupResponse]) -> [RGroup] {
         var rGroups = [RGroup]()
         

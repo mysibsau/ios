@@ -73,10 +73,47 @@ class TimetableService {
         withId id: Int,
         completion: @escaping (_ groupTimetable: GroupTimetable?) -> Void
     ) {
-//        _loadGroupTimetable(timetableType: .group, withId: id, completion: <#T##(TimetableResponse?) -> Void#>)
+        _loadGroupTimetable(timetableType: .group, withId: id) { timetableResponse in
+            guard let timetableResponse = timetableResponse else {
+                DispatchQueue.main.async {
+                    let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
+                    completion(timetableFromLocal)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let rTimetable = ResponseTranslator.converteTimetableResponseToRGroupTimetable(timetableResponse: timetableResponse, groupId: id)
+                DataManager.shared.write(groupTimetable: rTimetable)
+                let timetableForShowing = DataManager.shared.getTimetable(forGroupId: id)
+                completion(timetableForShowing)
+            }
+        }
     }
     
-    func _loadGroupTimetable(
+    func getProfessorTimetable(
+        withId id: Int,
+        completion: @escaping (_ professorTimetable: ProfessorTimetable?) -> Void
+    ) {
+        _loadGroupTimetable(timetableType: .professor, withId: id) { timetableResponse in
+            guard let timetableResponse = timetableResponse else {
+                DispatchQueue.main.async {
+                    let timetableForShowing = DataManager.shared.getTimetable(forProfessorId: id)
+                    completion(timetableForShowing)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let rTimetable = ResponseTranslator.converteTimetableResponseToProfessorTimetable(timetableResponse: timetableResponse, professorId: id)
+                DataManager.shared.write(professorTimetable: rTimetable)
+                let timetableForShowing = DataManager.shared.getTimetable(forProfessorId: id)
+                completion(timetableForShowing)
+            }
+        }
+    }
+    
+    private func _loadGroupTimetable(
         timetableType: EntitiesType,
         withId id: Int,
         completion: @escaping (_ timetableResponse: TimetableResponse?) -> Void

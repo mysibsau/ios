@@ -203,26 +203,20 @@ extension DataManager {
 // MARK: - Getting Timetable
 extension DataManager {
     
-//    func getTimetable(forType: EntitiesType, objectId: Int) -> Timetable? {
-//        let key = "\(forType.rawValue)\(objectId)"
-//        let optionalTimetable = userRealm.object(ofType: RTimetable.self, forPrimaryKey: key)
-//        let optionalGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: key)
-//        guard let timetable = optionalTimetable else { return nil }
-//        guard let group = optionalGroup else { return nil }
-//
-//        let groupTimetable = Translator.shared.convertGroupTimetable(from: timetable, groupName: group.name)
-//
-//        return groupTimetable
-//    }
-    
     func getTimetable(forGroupId id: Int) -> GroupTimetable? {
-        let key = "\(EntitiesType.group.rawValue)\(id)"
-        
-        guard let rTimetable = userRealm.object(ofType: RGroupTimetable.self, forPrimaryKey: key) else { return nil }
+        guard let rTimetable = userRealm.object(ofType: RGroupTimetable.self, forPrimaryKey: id) else { return nil }
         guard let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: id) else { return nil }
         
         let groupTimetable = Translator.shared.convertGroupTimetable(from: rTimetable, groupName: rGroup.name)
         return groupTimetable
+    }
+    
+    func getTimetable(forProfessorId id: Int) -> ProfessorTimetable? {
+        guard let rTimetable = userRealm.object(ofType: RProfessorTimetable.self, forPrimaryKey: id) else { return nil }
+        guard let rProfessor = downloadedRealm.object(ofType: RProfessor.self, forPrimaryKey: id) else { return nil }
+        
+        let professorTimetable = Translator.shared.convertProfessorTimetable(from: rTimetable, professorName: rProfessor.name)
+        return professorTimetable
     }
     
 }
@@ -233,6 +227,12 @@ extension DataManager {
     func write(groupTimetable: RGroupTimetable) {
         try? userRealm.write {
             userRealm.add(groupTimetable, update: .all)
+        }
+    }
+    
+    func write(professorTimetable: RProfessorTimetable) {
+        try? userRealm.write {
+            userRealm.add(professorTimetable, update: .all)
         }
     }
     
