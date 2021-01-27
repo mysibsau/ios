@@ -73,7 +73,7 @@ class TimetableService {
         withId id: Int,
         completion: @escaping (_ groupTimetable: GroupTimetable?) -> Void
     ) {
-        _loadGroupTimetable(timetableType: .group, withId: id) { timetableResponse in
+        _loadTimetable(timetableType: .group, withId: id) { timetableResponse in
             guard let timetableResponse = timetableResponse else {
                 DispatchQueue.main.async {
                     let timetableFromLocal = DataManager.shared.getTimetable(forGroupId: id)
@@ -95,7 +95,7 @@ class TimetableService {
         withId id: Int,
         completion: @escaping (_ professorTimetable: ProfessorTimetable?) -> Void
     ) {
-        _loadGroupTimetable(timetableType: .professor, withId: id) { timetableResponse in
+        _loadTimetable(timetableType: .professor, withId: id) { timetableResponse in
             guard let timetableResponse = timetableResponse else {
                 DispatchQueue.main.async {
                     let timetableForShowing = DataManager.shared.getTimetable(forProfessorId: id)
@@ -113,7 +113,30 @@ class TimetableService {
         }
     }
     
-    private func _loadGroupTimetable(
+    func getPlaceTimetable(
+        withId id: Int,
+        completion: @escaping (_ placeTimetable: PlaceTimetable?) -> Void
+    ) {
+        _loadTimetable(timetableType: .place, withId: id) { timetableResponse in
+            guard let timetableResponse = timetableResponse else {
+                DispatchQueue.main.async {
+                    let timetableFroShowing = DataManager.shared.getTimetable(forPlaceId: id)
+                    completion(timetableFroShowing)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let rTimetable = ResponseTranslator.converteTimetableResponseToPlaceTimetable(timetableResponse: timetableResponse, placeId: id)
+                DataManager.shared.write(placeTimetable: rTimetable)
+                let timetableForShowing = DataManager.shared.getTimetable(forPlaceId: id)
+                completion(timetableForShowing)
+            }
+        }
+    }
+    
+    
+    private func _loadTimetable(
         timetableType: EntitiesType,
         withId id: Int,
         completion: @escaping (_ timetableResponse: TimetableResponse?) -> Void

@@ -34,6 +34,19 @@ class ResponseTranslator {
         return professorTimetable
     }
     
+    static func converteTimetableResponseToPlaceTimetable(timetableResponse: TimetableResponse, placeId: Int) -> RPlaceTimetable {
+        let placeTimetable = RPlaceTimetable()
+        placeTimetable.objectId = placeId
+        
+        let placeOddWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.oddWeek)
+        let placeEvenWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.evenWeek)
+        placeTimetable.weeks.append(placeOddWeek)
+        placeTimetable.weeks.append(placeEvenWeek)
+        
+        return placeTimetable
+    }
+    
+    
     private static func converteDaysResponseToRWeek(daysResponse: [DayResponse]) -> RWeek {
         let week = RWeek()
         

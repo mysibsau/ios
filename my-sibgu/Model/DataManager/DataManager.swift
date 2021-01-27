@@ -219,6 +219,14 @@ extension DataManager {
         return professorTimetable
     }
     
+    func getTimetable(forPlaceId id: Int) -> PlaceTimetable? {
+        guard let rTimetable = userRealm.object(ofType: RPlaceTimetable.self, forPrimaryKey: id) else { return nil }
+        guard let rPlace = downloadedRealm.object(ofType: RPlace.self, forPrimaryKey: id) else { return nil }
+        
+        let placeTimetable = Translator.shared.convertPlaceTimetable(from: rTimetable, placeName: rPlace.name)
+        return placeTimetable
+    }
+    
 }
 
 // MARK: - Writing Timetable
@@ -233,6 +241,12 @@ extension DataManager {
     func write(professorTimetable: RProfessorTimetable) {
         try? userRealm.write {
             userRealm.add(professorTimetable, update: .all)
+        }
+    }
+    
+    func write(placeTimetable: RPlaceTimetable) {
+        try? userRealm.write {
+            userRealm.add(placeTimetable, update: .all)
         }
     }
     

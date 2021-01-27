@@ -15,10 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        TimetableService().getProfessorTimetable(withId: 100) { a in
-//            dump(a)
-//        }
-        
         // Для инициализации реалма сразу
         _ = DataManager.shared
         
