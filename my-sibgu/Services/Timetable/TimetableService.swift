@@ -7,20 +7,29 @@
 
 import Foundation
 
+typealias EntitiesSet = (
+    groups: [Group],
+    professors: [Professor],
+    places: [Place]
+)
+typealias EntitiesCallback = (EntitiesSet?) -> Void
+
 class TimetableService {
     
     private let apiService = ApiTimetableService()
     
     // MARK: - Get Groups
-    func getGroups(completion: @escaping (_ groups: [Group]?) -> Void) {
-        let groups = DataManager.shared.getGroups()
-        
-        // Если есть, то даем
-        if !groups.isEmpty {
-            completion(Array(groups))
-            return
-        }
-        // Иначе качаем
+//    func getGroups(completion: @escaping (_ groups: [Group]?) -> Void) {
+//        let groups = DataManager.shared.getGroups()
+//
+//        // Если есть, то даем
+//        if !groups.isEmpty {
+//            completion(Array(groups))
+//            return
+//        }
+//
+////        ApiTimetableService().loadEntities(entities: [.group], completion: <#T##EntitiesLoadingCallback##EntitiesLoadingCallback##(EntitiesResponse?) -> Void#>)
+//        // Иначе качаем
 //        ApiTimetableService().loadGroupsAndGroupsHash { optionalGroupsHash, optionalGroups in
 //            guard
 //                let groupsHash = optionalGroupsHash,
@@ -35,6 +44,50 @@ class TimetableService {
 //                completion(Array(DataManager.shared.getGroups()))
 //            }
 //        }
+//    }
+    
+    func getEntities(ofTypes: Set<EntitiesType>, completion: @escaping EntitiesCallback) {
+        var groups = DataManager.shared.getGroups()
+        var professors = DataManager.shared.getProfessors()
+        var places = DataManager.shared.getPlaces()
+        
+        var missingEntities: Set<EntitiesType> = []
+        if groups.isEmpty {
+            missingEntities.insert(.group)
+        }
+        if professors.isEmpty {
+            missingEntities.insert(.professor)
+        }
+        if places.isEmpty {
+            missingEntities.insert(.place)
+        }
+        
+        // Если все есть - возвращаем
+        if missingEntities.isEmpty {
+            completion((groups, professors, places))
+            return
+        }
+        
+        // Иначе качаем недостающие
+        ApiTimetableService().loadEntities(entities: missingEntities) { result in
+            self.saveEntities(entitiesTypes: missingEntities, result: result)
+            // Лучше не вытаскивать из main, потому что в предыдущей функции почти все запускатеся
+            // в main потоке и нижний код может выполниться быстрее
+            DispatchQueue.main.async {
+                if missingEntities.contains(.group) {
+                    groups = DataManager.shared.getGroups()
+                }
+                if missingEntities.contains(.professor) {
+                    professors = DataManager.shared.getProfessors()
+                }
+                if missingEntities.contains(.place) {
+                    places = DataManager.shared.getPlaces()
+                }
+                
+                completion((groups, professors, places))
+            }
+        }
+        
     }
     
     func getGroupsFromLocal() -> [Group] {
@@ -165,60 +218,110 @@ class TimetableService {
             }
             // Иначе качаем недостающие таблицы
             self.apiService.loadEntities(entities: missingEntities) { result in
-                if missingEntities.contains(.group) {
-                    guard
-                        let groups = result?.groups,
-                        let groupsHash = result?.groupsHash
-                    else {
-                        completion(timetableResponse)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        print("other groups")
-                        let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
-                        DataManager.shared.write(groups: rGroups)
-                        UserDefaultsConfig.groupsHash = groupsHash
-                    }
-                }
-                
-                if missingEntities.contains(.professor) {
-                    guard
-                        let professors = result?.professors,
-                        let professorsHash = result?.professorsHash
-                    else {
-                        completion(timetableResponse)
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        print("other professors")
-                        let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
-                        DataManager.shared.write(professors: rProfessors)
-                        UserDefaultsConfig.professorsHash = professorsHash
-                    }
-                }
-                
-                if missingEntities.contains(.place) {
-                    guard
-                        let places = result?.places,
-                        let placesHash = result?.placesHash
-                    else {
-                        completion(timetableResponse)
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        print("other places")
-                        let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
-                        DataManager.shared.write(places: rPlaces)
-                        UserDefaultsConfig.placesHash = placesHash
-                    }
-                }
+//                if missingEntities.contains(.group) {
+//                    guard
+//                        let groups = result?.groups,
+//                        let groupsHash = result?.groupsHash
+//                    else {
+//                        completion(timetableResponse)
+//                        return
+//                    }
+//                    DispatchQueue.main.async {
+//                        print("other groups")
+//                        let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
+//                        DataManager.shared.write(groups: rGroups)
+//                        UserDefaultsConfig.groupsHash = groupsHash
+//                    }
+//                }
+//
+//                if missingEntities.contains(.professor) {
+//                    guard
+//                        let professors = result?.professors,
+//                        let professorsHash = result?.professorsHash
+//                    else {
+//                        completion(timetableResponse)
+//                        return
+//                    }
+//
+//                    DispatchQueue.main.async {
+//                        print("other professors")
+//                        let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
+//                        DataManager.shared.write(professors: rProfessors)
+//                        UserDefaultsConfig.professorsHash = professorsHash
+//                    }
+//                }
+//
+//                if missingEntities.contains(.place) {
+//                    guard
+//                        let places = result?.places,
+//                        let placesHash = result?.placesHash
+//                    else {
+//                        completion(timetableResponse)
+//                        return
+//                    }
+//
+//                    DispatchQueue.main.async {
+//                        print("other places")
+//                        let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
+//                        DataManager.shared.write(places: rPlaces)
+//                        UserDefaultsConfig.placesHash = placesHash
+//                    }
+//                }
+                self.saveEntities(entitiesTypes: missingEntities, result: result)
                 DispatchQueue.main.async {
                     completion(timetableResponse)
                 }
             }
             
+        }
+    }
+    
+    private func saveEntities(entitiesTypes: Set<EntitiesType>, result: EntitiesResponse?) {
+        if entitiesTypes.contains(.group) {
+            guard
+                let groups = result?.groups,
+                let groupsHash = result?.groupsHash
+            else {
+                return
+            }
+            DispatchQueue.main.async {
+                let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
+                DataManager.shared.write(groups: rGroups)
+                UserDefaultsConfig.groupsHash = groupsHash
+                print("save groups")
+            }
+        }
+        
+        if entitiesTypes.contains(.professor) {
+            guard
+                let professors = result?.professors,
+                let professorsHash = result?.professorsHash
+            else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
+                DataManager.shared.write(professors: rProfessors)
+                UserDefaultsConfig.professorsHash = professorsHash
+                print("save professors")
+            }
+        }
+        
+        if entitiesTypes.contains(.place) {
+            guard
+                let places = result?.places,
+                let placesHash = result?.placesHash
+            else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
+                DataManager.shared.write(places: rPlaces)
+                UserDefaultsConfig.placesHash = placesHash
+                print("save places")
+            }
         }
     }
     

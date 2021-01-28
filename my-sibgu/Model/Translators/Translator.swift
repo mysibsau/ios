@@ -138,6 +138,22 @@ class Translator {
         return groups
     }
     
+    func converteProfessors(from rProfessors: Results<RProfessor>) -> [Professor] {
+        var professors = [Professor]()
+        rProfessors.forEach { rProfessor in
+            professors.append(Professor(id: rProfessor.id, name: rProfessor.name, idPallada: rProfessor.idPallada))
+        }
+        return professors
+    }
+    
+    func convertePlaces(from rPlaces: Results<RPlace>) -> [Place] {
+        var places = [Place]()
+        rPlaces.forEach { rPlace in
+            places.append(Place(id: rPlace.id, name: rPlace.name, address: rPlace.address))
+        }
+        return places
+    }
+    
     func converteGroup(from rGroup: RGroup) -> Group {
         return Group(id: rGroup.id, name: rGroup.name)
     }

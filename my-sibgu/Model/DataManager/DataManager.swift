@@ -107,6 +107,18 @@ extension DataManager {
         return group
     }
     
+    func getProfessors() -> [Professor] {
+        let rProfessors = downloadedRealm.objects(RProfessor.self)
+        let professors = Translator.shared.converteProfessors(from: rProfessors)
+        return professors
+    }
+    
+    func getPlaces() -> [Place] {
+        let rPlaces = downloadedRealm.objects(RPlace.self)
+        let places = Translator.shared.convertePlaces(from: rPlaces)
+        return places
+    }
+    
 }
 
 // MARK: - Writing Entities

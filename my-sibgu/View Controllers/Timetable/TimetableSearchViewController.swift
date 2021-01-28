@@ -16,6 +16,8 @@ class TimetableSearchViewController: UIViewController {
     
     // MARK: Properties
     private var groups: [Group]?
+    private var professors: [Professor]?
+    private var places: [Place]?
     private var filtredGroups = [Group]()
     private var currType: EntitiesType = .group
     
@@ -60,6 +62,15 @@ class TimetableSearchViewController: UIViewController {
         setupHelpTableView()
         addRecognizerToHideKeyboard()
         
+        setGroups()
+        setProfessors()
+        setPlaces()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    private func setGroups() {
         // Либо открываем расписание, либо показываем интерфейс для выбора группы / препода
         let groupsFromLocal = timetableService.getGroupsFromLocal()
         
@@ -71,27 +82,32 @@ class TimetableSearchViewController: UIViewController {
             startActivityIndicator()
             textField.isUserInteractionEnabled = false
             goToTimetableButton.isUserInteractionEnabled = false
-            timetableService.getGroups { groups in
-                self.textField.isUserInteractionEnabled = true
-                self.goToTimetableButton.isUserInteractionEnabled = true
-                self.stopActivityIndicator()
-                
-                guard let g = groups else {
-                    DispatchQueue.main.async {
-                        self.showNetworkAlert()
-                    }
-                    return
-                }
-                self.groups = g
-                
-                DispatchQueue.main.async {
-                    self.tryLoadFromUserDefaults()
-                }
-            }
+//            timetableService.getGroups { groups in
+//                self.textField.isUserInteractionEnabled = true
+//                self.goToTimetableButton.isUserInteractionEnabled = true
+//                self.stopActivityIndicator()
+//                
+//                guard let g = groups else {
+//                    DispatchQueue.main.async {
+//                        self.showNetworkAlert()
+//                    }
+//                    return
+//                }
+//                self.groups = g
+//                
+//                DispatchQueue.main.async {
+//                    self.tryLoadFromUserDefaults()
+//                }
+//            }
         }
+    }
+    
+    private func setProfessors() {
         
-        updateText()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    private func setPlaces() {
+        
     }
     
     private func tryLoadFromUserDefaults() {
