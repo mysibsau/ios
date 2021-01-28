@@ -12,7 +12,7 @@ typealias EntitiesSet = (
     professors: [Professor],
     places: [Place]
 )
-typealias EntitiesCallback = (EntitiesSet?) -> Void
+typealias EntitiesCallback = (EntitiesSet) -> Void
 
 class TimetableService {
     
@@ -93,6 +93,14 @@ class TimetableService {
     func getGroupsFromLocal() -> [Group] {
         let groups = DataManager.shared.getGroups()
         return groups
+    }
+    
+    func getProfessorsFromLocal() -> [Professor] {
+        return DataManager.shared.getProfessors()
+    }
+    
+    func getPlacesFromLocal() -> [Place] {
+        return DataManager.shared.getPlaces()
     }
     
     func getGroup(withId id: Int, completion: @escaping (_ groups: Group?) -> Void) {

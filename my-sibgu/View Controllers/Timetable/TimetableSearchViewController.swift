@@ -19,6 +19,8 @@ class TimetableSearchViewController: UIViewController {
     private var professors: [Professor]?
     private var places: [Place]?
     private var filtredGroups = [Group]()
+    private var filtredProfessors = [Professor]()
+    private var filtredPlaces = [Place]()
     private var currType: EntitiesType = .group
     
     // MARK: Outlets
@@ -39,13 +41,6 @@ class TimetableSearchViewController: UIViewController {
     private let helpTableView = UITableView(frame: .zero, style: .plain)
     
     
-    private let placeholders = [
-        "enter.group.name",
-        "enter.professor.name",
-        "enter.place.name",
-    ]
-    
-    
     // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,52 +57,52 @@ class TimetableSearchViewController: UIViewController {
         setupHelpTableView()
         addRecognizerToHideKeyboard()
         
-        setGroups()
-        setProfessors()
-        setPlaces()
+        setEntriesAndTryShowTimetable()
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
-    private func setGroups() {
-        // Либо открываем расписание, либо показываем интерфейс для выбора группы / препода
+    private func setEntriesAndTryShowTimetable() {
         let groupsFromLocal = timetableService.getGroupsFromLocal()
+        let professorsFromLocal = timetableService.getProfessorsFromLocal()
+        let placesFromLocal = timetableService.getPlacesFromLocal()
         
-        if !groupsFromLocal.isEmpty {
+        if !groupsFromLocal.isEmpty && !professorsFromLocal.isEmpty && !placesFromLocal.isEmpty {
             self.groups = groupsFromLocal
+            self.professors = professorsFromLocal
+            self.places = placesFromLocal
             tryLoadFromUserDefaults()
         } else {
-            // Берем группы (загружаем или нет)
             startActivityIndicator()
             textField.isUserInteractionEnabled = false
             goToTimetableButton.isUserInteractionEnabled = false
-//            timetableService.getGroups { groups in
-//                self.textField.isUserInteractionEnabled = true
-//                self.goToTimetableButton.isUserInteractionEnabled = true
-//                self.stopActivityIndicator()
-//                
-//                guard let g = groups else {
-//                    DispatchQueue.main.async {
-//                        self.showNetworkAlert()
-//                    }
-//                    return
-//                }
-//                self.groups = g
-//                
-//                DispatchQueue.main.async {
-//                    self.tryLoadFromUserDefaults()
-//                }
-//            }
+            timetableService.getEntities(ofTypes: [.group, .professor, .place]) { entitiesSet in
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.textField.isUserInteractionEnabled = true
+                    self.goToTimetableButton.isUserInteractionEnabled = true
+                }
+                guard
+                    !entitiesSet.groups.isEmpty,
+                    !entitiesSet.professors.isEmpty,
+                    !entitiesSet.places.isEmpty
+                else {
+                    DispatchQueue.main.async {
+                        self.showNetworkAlert()
+                    }
+                    return
+                }
+                
+                self.groups = entitiesSet.groups
+                self.professors = entitiesSet.professors
+                self.places = entitiesSet.places
+                
+                DispatchQueue.main.async {
+                    self.tryLoadFromUserDefaults()
+                }
+            }
         }
-    }
-    
-    private func setProfessors() {
-        
-    }
-    
-    private func setPlaces() {
-        
     }
     
     private func tryLoadFromUserDefaults() {
@@ -125,10 +120,14 @@ class TimetableSearchViewController: UIViewController {
         
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
+        segmentedControl.setTitle("group".localized(using: tableName), forSegmentAt: 0)
+        segmentedControl.setTitle("professor".localized(using: tableName), forSegmentAt: 1)
+        segmentedControl.setTitle("place".localized(using: tableName), forSegmentAt: 2)
+        
         switch currType {
-        case .group: textField.placeholder = placeholders[0].localized(using: tableName)
-        case .professor: textField.placeholder = placeholders[1].localized(using: tableName)
-        case .place: textField.placeholder = placeholders[2].localized(using: tableName)
+        case .group: textField.placeholder = "enter.group.name".localized(using: tableName)
+        case .professor: textField.placeholder = "enter.professor.name".localized(using: tableName)
+        case .place: textField.placeholder = "enter.place.name".localized(using: tableName)
         }
     }
     
@@ -297,14 +296,13 @@ class TimetableSearchViewController: UIViewController {
     
     private func showHelpTable() {
         helpTableView.isHidden = true
-        if !self.filtredGroups.isEmpty {
+        if !self.filtredGroups.isEmpty || !self.filtredProfessors.isEmpty || !self.filtredPlaces.isEmpty {
             helpTableView.isHidden = false
             helpTableView.reloadData()
         }
     }
     
     private func configurateSearchViews() {
-//        wrapView.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 3)
         wrapView.makeShadow()
         wrapView.makeBorder()
         wrapView.layer.cornerRadius = 10
@@ -388,6 +386,7 @@ class TimetableSearchViewController: UIViewController {
             break
         }
         updateText()
+        textFieldDidChangeSelection(textField)
     }
     
 }
@@ -415,18 +414,29 @@ extension TimetableSearchViewController {
 extension TimetableSearchViewController: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        filtredGroups = []
+        filtredProfessors = []
+        filtredPlaces = []
         guard let searchText = textField.text?.lowercased() else {
-            filtredGroups = []
             showHelpTable()
             return
         }
         guard !searchText.isEmpty else {
-            filtredGroups = []
             showHelpTable()
             return
         }
-        let filtred = groups?.filter { $0.name.lowercased().contains(searchText) }//.prefix(20)
-        self.filtredGroups = Array(filtred!)
+        
+        switch currType {
+        case .group:
+            let filtredGr = groups?.filter { $0.name.lowercased().contains(searchText) }
+            self.filtredGroups = Array(filtredGr!)
+        case .professor:
+            let filtredPr = professors?.filter { $0.name.lowercased().contains(searchText) }
+            self.filtredProfessors = Array(filtredPr!)
+        case .place:
+            let filtredPl = places?.filter { $0.name.lowercased().contains(searchText) }
+            self.filtredPlaces = Array(filtredPl!)
+        }
         showHelpTable()
     }
     
@@ -440,13 +450,27 @@ extension TimetableSearchViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filtredGroups.count
+        switch currType {
+        case .group: return filtredGroups.count
+        case .professor: return filtredProfessors.count
+        case .place: return filtredPlaces.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = filtredGroups[indexPath.row].name
+        
+        switch currType {
+        case .group:
+            cell.textLabel?.text = filtredGroups[indexPath.row].name
+        case .professor:
+            cell.textLabel?.text = filtredProfessors[indexPath.row].name
+        case .place:
+            cell.textLabel?.text = filtredPlaces[indexPath.row].name
+        }
+        
         cell.backgroundColor = UIColor.Pallete.content
+        
         return cell
     }
     

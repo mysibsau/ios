@@ -8,6 +8,10 @@
 
 "nav.bar.title" = "Timetable";
 
+"group" = "Group";
+"professor" = "Professor";
+"place" = "Place";
+
 "enter.group.name" = "Enter group name";
 "enter.professor.name" = "Enter professor";
 "enter.place.name" = "Enter place";

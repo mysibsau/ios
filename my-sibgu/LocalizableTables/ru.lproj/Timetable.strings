@@ -8,6 +8,10 @@
 
 "nav.bar.title" = "Расписание";
 
+"group" = "Группа";
+"professor" = "Профессор";
+"place" = "Кабинет";
+
 "enter.group.name" = "Введите название группы";
 "enter.professor.name" = "Введите фамилию преподавателя";
 "enter.place.name" = "Введите кабинет";
