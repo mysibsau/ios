@@ -12,6 +12,17 @@ class DataManager {
     
     static let shared = DataManager()
     
+    
+    @UserDefaultsWrapper(key: "favorite-groups-id", defaultValue: [Int]())
+    private var favoriteGroupsId: [Int]
+    
+    @UserDefaultsWrapper(key: "favorite-professors-id", defaultValue: [Int]())
+    private var favoriteProfessorsId: [Int]
+    
+    @UserDefaultsWrapper(key: "favorite-places-id", defaultValue: [Int]())
+    private var favoritePlacesId: [Int]
+    
+    
     // загруженные данные
     private let downloadedRealm: Realm
     // данные пользователя
@@ -86,18 +97,23 @@ class DataManager {
     
 }
 
-// MARK: - Getting Entities
+// MARK: - Getting Entities -
 extension DataManager {
     
+    // MARK: Groups
     func getGroups() -> [Group] {
         let rGroups = downloadedRealm.objects(RGroup.self)
         let groups = Translator.shared.converteGroups(from: rGroups)
         return groups
     }
     
-    func getFavoriteGruops() -> [Group] {
-        let rGroups = userRealm.objects(RGroup.self)
-        let groups = Translator.shared.converteGroups(from: rGroups)
+    func getFavoriteGroups() -> [Group] {
+        var groups: [Group] = []
+        for id in favoriteGroupsId {
+            if let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: id) {
+                groups.append(Translator.shared.converteGroup(from: rGroup))
+            }
+        }
         return groups
     }
     
@@ -107,15 +123,37 @@ extension DataManager {
         return group
     }
     
+    // MARK: Professors
     func getProfessors() -> [Professor] {
         let rProfessors = downloadedRealm.objects(RProfessor.self)
         let professors = Translator.shared.converteProfessors(from: rProfessors)
         return professors
     }
     
+    func getFavoriteProfessors() -> [Professor] {
+        var professors: [Professor] = []
+        for id in favoriteProfessorsId {
+            if let rProfessor = downloadedRealm.object(ofType: RProfessor.self, forPrimaryKey: id) {
+                professors.append(Translator.shared.converteProfessor(from: rProfessor))
+            }
+        }
+        return professors
+    }
+    
+    // MARK: Places
     func getPlaces() -> [Place] {
         let rPlaces = downloadedRealm.objects(RPlace.self)
         let places = Translator.shared.convertePlaces(from: rPlaces)
+        return places
+    }
+    
+    func getFavoritePlaces() -> [Place] {
+        var places: [Place] = []
+        for id in favoritePlacesId {
+            if let rPlace = downloadedRealm.object(ofType: RPlace.self, forPrimaryKey: id) {
+                places.append(Translator.shared.convertePlace(from: rPlace))
+            }
+        }
         return places
     }
     
@@ -124,21 +162,7 @@ extension DataManager {
 // MARK: - Writing Entities
 extension DataManager {
     
-    func writeFavorite(groups: [RGroup]) {
-        // Если эти объекты уже будут в одном из хранилищь - так мы обезопасим себя от ошибки
-        let copyGroups = groups.map { $0.newObject() }
-        try? userRealm.write {
-            userRealm.add(copyGroups, update: .modified)
-        }
-    }
-    
-    func writeFavorite(group: RGroup) {
-        let copyGroup = group.newObject()
-        try? userRealm.write {
-            userRealm.add(copyGroup, update: .modified)
-        }
-    }
-    
+    // MARK: Groups
     func write(groups: [RGroup]) {
         let copyGroups = groups.map { $0.newObject() }
         try? downloadedRealm.write {
@@ -153,6 +177,27 @@ extension DataManager {
         }
     }
     
+//    func writeFavorite(groups: [RGroup]) {
+//        // Если эти объекты уже будут в одном из хранилищь - так мы обезопасим себя от ошибки
+//        let copyGroups = groups.map { $0.newObject() }
+//        try? userRealm.write {
+//            userRealm.add(copyGroups, update: .modified)
+//        }
+//    }
+//
+    
+    func writeFavorite(groupId: Int) {
+        favoriteGroupsId.append(groupId)
+    }
+    
+//    func writeFavorite(group: RGroup) {
+//        let copyGroup = group.newObject()
+//        try? userRealm.write {
+//            userRealm.add(copyGroup, update: .modified)
+//        }
+//    }
+    
+    // MARK: Professors
     func write(professor: RProfessor) {
         let copyProfessor = professor.newObject()
         try? downloadedRealm.write {
@@ -167,6 +212,18 @@ extension DataManager {
         }
     }
     
+    func writeFavorite(professorId: Int) {
+        favoriteProfessorsId.append(professorId)
+    }
+    
+//    func writeFavorite(professor: RProfessor) {
+//        let copyProfessor = professor.newObject()
+//        try? userRealm.write {
+//            userRealm.add(copyProfessor, update: .all)
+//        }
+//    }
+    
+    // MARK: Places
     func write(place: RPlace) {
         let copyPlace = place.newObject()
         try? downloadedRealm.write {
@@ -180,35 +237,58 @@ extension DataManager {
             downloadedRealm.add(copyPlaces, update: .all)
         }
     }
+    
+    func writeFavorite(placeId: Int) {
+        favoritePlacesId.append(placeId)
+    }
+    
+//    func writeFavorite(place: RPlace) {
+//        let copyPlace = place.newObject()
+//        try? downloadedRealm.write {
+//            downloadedRealm.add(copyPlace, update: .all)
+//        }
+//    }
 
 }
 
 // MARK: - Deleting Entities
 extension DataManager {
     
-    func deleteFavorite(groups: [RGroup]) {
-        try? userRealm.write {
-            userRealm.delete(groups, cascading: true)
-        }
+    func deleteFavorite(groupId: Int) {
+        favoriteGroupsId.delete(elem: groupId)
     }
     
-    func deleteFavorite(group: RGroup) {
-        try? userRealm.write {
-            userRealm.delete(group, cascading: true)
-        }
+    func deleteFavorite(professorId: Int) {
+        favoriteProfessorsId.delete(elem: professorId)
     }
     
-    func delete(groups: [RGroup]) {
-        try? userRealm.write {
-            userRealm.delete(groups, cascading: true)
-        }
+    func deleteFavorite(placeId: Int) {
+        favoritePlacesId.delete(elem: placeId)
     }
     
-    func delete(group: RGroup) {
-        try? userRealm.write {
-            userRealm.delete(group, cascading: true)
-        }
-    }
+//    func deleteFavorite(groups: [RGroup]) {
+//        try? userRealm.write {
+//            userRealm.delete(groups, cascading: true)
+//        }
+//    }
+//
+//    func deleteFavorite(group: RGroup) {
+//        try? userRealm.write {
+//            userRealm.delete(group, cascading: true)
+//        }
+//    }
+    
+//    func delete(groups: [RGroup]) {
+//        try? userRealm.write {
+//            userRealm.delete(groups, cascading: true)
+//        }
+//    }
+//
+//    func delete(group: RGroup) {
+//        try? userRealm.write {
+//            userRealm.delete(group, cascading: true)
+//        }
+//    }
     
 }
 

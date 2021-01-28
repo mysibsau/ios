@@ -159,6 +159,8 @@
 		4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */; };
 		4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F7E25C2CC3C0018D4F0 /* TimetableViewModel.swift */; };
 		4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */; };
+		4AD21F8D25C305900018D4F0 /* TimetableElemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F8C25C305900018D4F0 /* TimetableElemTableViewCell.swift */; };
+		4AD21F9125C32CB90018D4F0 /* Array+deleteElem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F9025C32CB90018D4F0 /* Array+deleteElem.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -382,6 +384,8 @@
 		4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewType.swift; sourceTree = "<group>"; };
 		4AD21F7E25C2CC3C0018D4F0 /* TimetableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModel.swift; sourceTree = "<group>"; };
 		4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModelTranslator.swift; sourceTree = "<group>"; };
+		4AD21F8C25C305900018D4F0 /* TimetableElemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElemTableViewCell.swift; sourceTree = "<group>"; };
+		4AD21F9025C32CB90018D4F0 /* Array+deleteElem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+deleteElem.swift"; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -558,6 +562,7 @@
 			children = (
 				4A07DDB6255D966A0022B6A9 /* Realm+CascadeDeleting.swift */,
 				4A07DDB9255D96B70022B6A9 /* RObject+newObject.swift */,
+				4AD21F9025C32CB90018D4F0 /* Array+deleteElem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1119,6 +1124,7 @@
 		4AD21F8225C2DF040018D4F0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */,
 				4AD21F7E25C2CC3C0018D4F0 /* TimetableViewModel.swift */,
 				4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */,
 			);
@@ -1166,7 +1172,6 @@
 			children = (
 				4AD21F8225C2DF040018D4F0 /* ViewModel */,
 				4A42A5122578F79900283459 /* Protocols */,
-				4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */,
 				4AEE17FD256E97C400DD7D9F /* TimetableSearchViewController.swift */,
 				4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */,
 				4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */,
@@ -1181,6 +1186,7 @@
 				4AEE180A256EB67B00DD7D9F /* Group */,
 				4AEE1803256EB44600DD7D9F /* LessonView.swift */,
 				4A3149FB257255AD00FB7FC2 /* LessonDayView.swift */,
+				4AD21F8C25C305900018D4F0 /* TimetableElemTableViewCell.swift */,
 			);
 			path = Timetable;
 			sourceTree = "<group>";
@@ -1501,8 +1507,10 @@
 				4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */,
 				4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */,
 				4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */,
+				4AD21F9125C32CB90018D4F0 /* Array+deleteElem.swift in Sources */,
 				4A7AE70A259F8AB9007181E2 /* EventCellMode.swift in Sources */,
 				4AEBE6E625637B6C005F6CBE /* Institute+Departmetn.swift in Sources */,
+				4AD21F8D25C305900018D4F0 /* TimetableElemTableViewCell.swift in Sources */,
 				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4AD21F6725C1A9D30018D4F0 /* Place.swift in Sources */,

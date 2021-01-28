@@ -158,6 +158,14 @@ class Translator {
         return Group(id: rGroup.id, name: rGroup.name)
     }
     
+    func converteProfessor(from rProfessor: RProfessor) -> Professor {
+        return Professor(id: rProfessor.id, name: rProfessor.name, idPallada: rProfessor.idPallada)
+    }
+    
+    func convertePlace(from rPlace: RPlace) -> Place {
+        return Place(id: rPlace.id, name: rPlace.name, address: rPlace.address)
+    }
+    
     func converteBuildings(from rBuildings: [RBuilding]) -> [Building] {
         var builginds = [Building]()
         rBuildings.forEach { rBuilding in

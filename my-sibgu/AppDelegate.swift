@@ -15,16 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        UserDefaultsConfig.groupsHash = nil
-//        UserDefaultsConfig.professorsHash = nil
-//        UserDefaultsConfig.placesHash = nil
-        
-//        TimetableService().getEntities(ofTypes: [.group, .professor, .place]) { a in
-//            print(a?.groups.count)
-//            print(a?.professors.count)
-//            print(a?.places.count)
-//        }
-        
         // Для инициализации реалма сразу
         _ = DataManager.shared
         
