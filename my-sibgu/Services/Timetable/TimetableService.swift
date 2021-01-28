@@ -103,30 +103,30 @@ class TimetableService {
         return DataManager.shared.getPlaces()
     }
     
-    func getGroup(withId id: Int, completion: @escaping (_ groups: Group?) -> Void) {
-        let group = DataManager.shared.getGroup(withId: id)
-        
-        // Если есть, то даем
-        if group != nil {
-            completion(group)
-            return
-        }
-        // Иначе качаем
-//        ApiTimetableService().loadGroupsAndGroupsHash { optionalGroupsHash, optionalGroups in
-//            guard
-//                let groupsHash = optionalGroupsHash,
-//                let groups = optionalGroups
-//            else {
-//                completion(nil)
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                UserDefaultsConfig.groupsHash = groupsHash
-//                DataManager.shared.write(groups: groups)
-//                completion(DataManager.shared.getGroup(withId: id))
-//            }
+//    func getGroup(withId id: Int, completion: @escaping (_ groups: Group?) -> Void) {
+//        let group = DataManager.shared.getGroup(withId: id)
+//        
+//        // Если есть, то даем
+//        if group != nil {
+//            completion(group)
+//            return
 //        }
-    }
+//        // Иначе качаем
+////        ApiTimetableService().loadGroupsAndGroupsHash { optionalGroupsHash, optionalGroups in
+////            guard
+////                let groupsHash = optionalGroupsHash,
+////                let groups = optionalGroups
+////            else {
+////                completion(nil)
+////                return
+////            }
+////            DispatchQueue.main.async {
+////                UserDefaultsConfig.groupsHash = groupsHash
+////                DataManager.shared.write(groups: groups)
+////                completion(DataManager.shared.getGroup(withId: id))
+////            }
+////        }
+//    }
     
     
     // MARK: - NEW VERSION -

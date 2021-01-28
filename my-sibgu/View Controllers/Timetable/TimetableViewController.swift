@@ -15,7 +15,7 @@ class TimetableViewController: UIPageViewController {
     private weak var alertingDelegate: AlertingViewController?
     private weak var controlTimetableDelegate: ControlTimetableDelegate?
 
-    private var group: Group!
+    private var viewType: TimetableViewType!
 
     var rightBarButton: UIButton?
 
@@ -27,9 +27,9 @@ class TimetableViewController: UIPageViewController {
 
 
     // MARK: - Initialization
-    convenience init(group: Group, controlDelegate: ControlTimetableDelegate, alertingDelegate: AlertingViewController? = nil) {
+    convenience init(viewType: TimetableViewType, controlDelegate: ControlTimetableDelegate, alertingDelegate: AlertingViewController? = nil) {
         self.init()
-        self.group = group
+        self.viewType = viewType
         self.controlTimetableDelegate = controlDelegate
         self.alertingDelegate = alertingDelegate
     }
@@ -51,50 +51,64 @@ class TimetableViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
-        loadTimetable(withId: group.id)
+        setTimetable()
     }
     
     
     // MARK: - Private Methods
-    private func loadTimetable(withId id: Int) {
+    private func setTimetable() {
         self.startActivityIndicator()
         self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(false)
-//        timetableSercive.loadTimetable(
-//            withId: id,
-//            completionIfNeedNotLoadGroups: { groupTimetable in
-//                guard let gt = groupTimetable else {
-//                    DispatchQueue.main.async {
-//                        print("hello")
-//                        self.actionIfNotDownloaded()
-//                    }
-//                    return
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self.set(timetable: gt)
-//                    self.stopActivityIndicator()
-//                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-//                }
-//            },
-//            startIfNeedLoadGroups: {
-//                // Тут лучше бы говорить, что скачиваются группы
-//                print("Hello")
-//            },
-//            completionIfNeedLoadGroups: { groupTimetable in
-//                guard let gt = groupTimetable else {
-//                    DispatchQueue.main.async {
-//                        self.actionIfNotDownloaded()
-//                    }
-//                    return
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self.set(timetable: gt)
-//                    self.stopActivityIndicator()
-//                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-//                }
-//            }
-//        )
+        
+        switch viewType {
+        case .group(let group):
+            timetableSercive.getGroupTimetable(withId: group.id) { groupTimetable in
+                guard let gt = groupTimetable else {
+                    DispatchQueue.main.async {
+                        self.actionIfNotDownloaded()
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.set(timetable: TimetableViewModelTranslator.groupTimetableToViewModel(groupTimetable: gt))
+                    self.stopActivityIndicator()
+                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+                }
+            }
+        case .professor(let professor):
+            timetableSercive.getProfessorTimetable(withId: professor.id) { professorTimetable in
+                guard let pt = professorTimetable else {
+                    DispatchQueue.main.async {
+                        self.actionIfNotDownloaded()
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.set(timetable: TimetableViewModelTranslator.professorTimetableToViewModel(professorTimetable: pt))
+                    self.stopActivityIndicator()
+                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+                }
+            }
+        case .place(let place):
+            timetableSercive.getPlaceTimetable(withId: place.id) { placeTimetable in
+                guard let pt = placeTimetable else {
+                    DispatchQueue.main.async {
+                        self.actionIfNotDownloaded()
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.set(timetable: TimetableViewModelTranslator.placeTimetableToViewModel(placeTimetable: pt))
+                    self.stopActivityIndicator()
+                    self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+                }
+            }
+        case .none:
+            break
+        }
     }
     
     private func actionIfNotDownloaded() {
@@ -104,7 +118,7 @@ class TimetableViewController: UIPageViewController {
         alertingDelegate?.showNetworkAlert()
     }
     
-    private func set(timetable: GroupTimetable) {
+    private func set(timetable: TimetableViewModel) {
         let currWeekNumber = dateTimeService.currWeekNumber()
         let currWeekdayNumber = dateTimeService.currWeekdayNumber() - 1
         

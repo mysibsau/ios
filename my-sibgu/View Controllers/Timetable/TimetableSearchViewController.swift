@@ -109,8 +109,9 @@ class TimetableSearchViewController: UIViewController {
         let (type, id) = self.timetableService.getTimetableTypeAndIdFromUserDefaults()
         
         if type != nil, id != nil {
-            guard let groupForShowing = groups?.first(where: { $0.id == id }) else { return }
-            self.showTimetable(forGroup: groupForShowing, animated: false)
+//            guard let groupForShowing = groups?.first(where: { $0.id == id }) else { return }
+//            self.showTimetable(forGroup: groupForShowing, animated: false)
+            self.showTimetable(forType: type!, withId: id!, animated: false)
         }
     }
     
@@ -354,22 +355,47 @@ class TimetableSearchViewController: UIViewController {
     @objc private func goToTimetableButtonTapped() {
         guard let group = filtredGroups.first else { return }
         
-        showTimetable(forGroup: group, animated: true)
+//        showTimetable(forGroup: group, animated: true)
+        showTimetable(forType: currType, withId: group.id, animated: true)
     }
     
     private func prepareForGoToTimetable(entityType: EntitiesType, id: Int) {
         filtredGroups = []
+        filtredProfessors = []
+        filtredPlaces = []
         textField.text = ""
         helpTableView.isHidden = true
         
         timetableService.saveTimetableTypeAndIdToUserDefaults(type: entityType, id: id)
     }
     
-    private func showTimetable(forGroup group: Group, animated: Bool) {
-        prepareForGoToTimetable(entityType: .group, id: group.id)
+//    private func showTimetable(forGroup group: Group, animated: Bool) {
+//        prepareForGoToTimetable(entityType: .group, id: group.id)
+//
+//        let timetableVC = ContainerTimetableViewController(group: group, alertingDelegate: self) //TimetableViewController(group: group, alertingDelegate: self)
+//        navigationController?.pushViewController(timetableVC, animated: animated)
+//    }
+    
+    private func showTimetable(forType type: EntitiesType, withId id: Int, animated: Bool) {
+        prepareForGoToTimetable(entityType: type, id: id)
         
-        let timetableVC = ContainerTimetableViewController(group: group, alertingDelegate: self) //TimetableViewController(group: group, alertingDelegate: self)
-        navigationController?.pushViewController(timetableVC, animated: animated)
+//        let timetableVC = ContainerTimetableViewController(group: groups!.filter { $0.id == id }.first!, alertingDelegate: self)
+//        navigationController?.pushViewController(timetableVC, animated: animated)
+        
+        switch type {
+        case .group:
+            guard let group = groups?.filter({ $0.id == id }).first else { return }
+            let timetableVC = ContainerTimetableViewController(viewType: .group(group), alertingDelegate: self)
+            navigationController?.pushViewController(timetableVC, animated: animated)
+        case .professor:
+            guard let professor = professors?.filter({ $0.id == id }).first else { return }
+            let timetableVC = ContainerTimetableViewController(viewType: .professor(professor), alertingDelegate: self)
+            navigationController?.pushViewController(timetableVC, animated: animated)
+        case .place:
+            guard let place = places?.filter({ $0.id == id }).first else { return }
+            let timetableVC = ContainerTimetableViewController(viewType: .place(place), alertingDelegate: self)
+            navigationController?.pushViewController(timetableVC, animated: animated)
+        }
     }
     
     @objc
@@ -479,9 +505,20 @@ extension TimetableSearchViewController: UITableViewDataSource {
 extension TimetableSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let group = filtredGroups[indexPath.row]
+//        let group = filtredGroups[indexPath.row]
         
-        showTimetable(forGroup: group, animated: true)
+        let id: Int
+        switch currType {
+        case .group:
+            id = filtredGroups[indexPath.row].id
+        case .professor:
+            id = filtredProfessors[indexPath.row].id
+        case .place:
+            id = filtredPlaces[indexPath.row].id
+        }
+        
+//        showTimetable(forGroup: group, animated: true)
+        showTimetable(forType: currType, withId: id, animated: true)
     }
     
 }

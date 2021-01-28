@@ -65,23 +65,13 @@ class LessonView: UIView {
 // MARK: - Все для установки нового занятия на это вью (пока только для групп)
 extension LessonView {
     
-    convenience init(lesson: Lesson) {
+    convenience init(lesson: LessonViewModel) {
         self.init()
         self.set(lesson: lesson)
     }
     
-//    convenience init(lesson: ProfessorLesson) {
-//        self.init()
-//        self.set(lesson: lesson)
-//    }
-    
-//    convenience init(lesson: PlaceLesson) {
-//        self.init()
-//        self.set(lesson: lesson)
-//    }
-    
     // MARK: Установка нового занятия для группы
-    private func set(lesson: Lesson) {
+    private func set(lesson: LessonViewModel) {
         // если тут уже было занятие, то удаляем его
         subgroupStackView.removeAllArrangedSubviews()
         
@@ -97,7 +87,7 @@ extension LessonView {
             
             // перечисляем всех преподавателей через ;\n
             //let professors = subgroup.professors.reduce("", { $0 + ($0 != "" ? ";\n": "") + $1 })
-            addSubgroup(subject: subgroup.subject, type: subgroup.type, proffesor: subgroup.professor, place: subgroup.place)
+            addSubgroup(subject: subgroup.subject, type: subgroup.type, proffesor: subgroup.addInfo1, place: subgroup.addInfo2)
             
 //            // добавляем разделительную если это необходимо
 //            if lesson.subgroups.count > 1 && lesson.subgroups.count != numberSubgroup {

@@ -156,6 +156,9 @@
 		4AD21F6725C1A9D30018D4F0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F6625C1A9D30018D4F0 /* Place.swift */; };
 		4AD21F6B25C1AA5F0018D4F0 /* RProfessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F6A25C1AA5F0018D4F0 /* RProfessor.swift */; };
 		4AD21F6F25C1AA870018D4F0 /* RPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F6E25C1AA870018D4F0 /* RPlace.swift */; };
+		4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */; };
+		4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F7E25C2CC3C0018D4F0 /* TimetableViewModel.swift */; };
+		4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -376,6 +379,9 @@
 		4AD21F6625C1A9D30018D4F0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4AD21F6A25C1AA5F0018D4F0 /* RProfessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RProfessor.swift; sourceTree = "<group>"; };
 		4AD21F6E25C1AA870018D4F0 /* RPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPlace.swift; sourceTree = "<group>"; };
+		4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewType.swift; sourceTree = "<group>"; };
+		4AD21F7E25C2CC3C0018D4F0 /* TimetableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModel.swift; sourceTree = "<group>"; };
+		4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModelTranslator.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -1110,6 +1116,15 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		4AD21F8225C2DF040018D4F0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4AD21F7E25C2CC3C0018D4F0 /* TimetableViewModel.swift */,
+				4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,7 +1164,9 @@
 		4AEE1801256EB1B600DD7D9F /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21F8225C2DF040018D4F0 /* ViewModel */,
 				4A42A5122578F79900283459 /* Protocols */,
+				4AD21F7425C2C5070018D4F0 /* TimetableViewType.swift */,
 				4AEE17FD256E97C400DD7D9F /* TimetableSearchViewController.swift */,
 				4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */,
 				4A7A56EC256BF53600E2CE0F /* TimetableViewController.swift */,
@@ -1482,6 +1499,7 @@
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */,
+				4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */,
 				4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */,
 				4A7AE70A259F8AB9007181E2 /* EventCellMode.swift in Sources */,
 				4AEBE6E625637B6C005F6CBE /* Institute+Departmetn.swift in Sources */,
@@ -1554,6 +1572,7 @@
 				4AC1914725B443F500325142 /* ShortSurveyTableViewCell.swift in Sources */,
 				4AF3EC6325A9A63700AF0367 /* Buildings+Equatable.swift in Sources */,
 				4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */,
+				4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */,
 				4AC1914025B4425600325142 /* SurveysTableViewController.swift in Sources */,
 				4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */,
 				4A07DDD9255DA0D90022B6A9 /* DataManager.swift in Sources */,
@@ -1602,6 +1621,7 @@
 				4A07DDAA255D94AD0022B6A9 /* GroupTimetable.swift in Sources */,
 				4A07DDCB255D9F190022B6A9 /* RGroupWeek.swift in Sources */,
 				4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */,
+				4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */,
 				4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,

@@ -12,7 +12,7 @@ class ContainerTimetableViewController: UIViewController {
     
     private let timetableService = TimetableService()
     
-    var group: Group?
+    var viewType: TimetableViewType!
     
     var alertingViewController: AlertingViewController?
     private var showingTimetableViewController: ShowingTimetableViewController!
@@ -22,9 +22,9 @@ class ContainerTimetableViewController: UIViewController {
     private let rightBarButton = UIButton()
     
     
-    convenience init(group: Group, alertingDelegate: AlertingViewController) {
+    convenience init(viewType: TimetableViewType, alertingDelegate: AlertingViewController) {
         self.init()
-        self.group = group
+        self.viewType = viewType
         self.alertingViewController = alertingDelegate
     }
 
@@ -39,7 +39,7 @@ class ContainerTimetableViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
-        let timetableViewController = TimetableViewController(group: group!, controlDelegate: self, alertingDelegate: alertingViewController!)
+        let timetableViewController = TimetableViewController(viewType: viewType, controlDelegate: self, alertingDelegate: alertingViewController)
         self.addChild(timetableViewController)
         
         containerView.addSubview(timetableViewController.view)
@@ -67,7 +67,17 @@ class ContainerTimetableViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setLeftExitButtonAndLeftTitle(title: group!.name, vc: self)
+        
+        switch viewType {
+        case .group(let group):
+            self.navigationItem.setLeftExitButtonAndLeftTitle(title: group.name, vc: self)
+        case .professor(let professor):
+            self.navigationItem.setLeftExitButtonAndLeftTitle(title: professor.name, vc: self)
+        case .place(let place):
+            self.navigationItem.setLeftExitButtonAndLeftTitle(title: place.name, vc: self)
+        case .none:
+            break
+        }
         
         setupRightBarButton()
     }
