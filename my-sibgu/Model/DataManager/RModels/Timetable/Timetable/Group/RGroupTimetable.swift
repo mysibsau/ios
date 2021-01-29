@@ -6,16 +6,16 @@
 //
 //
 
-import Foundation
-import RealmSwift
-
-class RGroupTimetable: Object {
-    
-    @objc dynamic var groupId = 0
-    let weeks = List<RGroupWeek>()
-    
-    override class func primaryKey() -> String? {
-        return "groupId"
-    }
-    
-}
+//import Foundation
+//import RealmSwift
+//
+//class RGroupTimetable: Object {
+//    
+//    @objc dynamic var groupId = 0
+//    let weeks = List<RGroupWeek>()
+//    
+//    override class func primaryKey() -> String? {
+//        return "groupId"
+//    }
+//    
+//}

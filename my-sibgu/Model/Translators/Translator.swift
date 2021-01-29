@@ -20,59 +20,91 @@ class Translator {
     
     // MARK: Перевод объекта РАСПИСАНИЯ ГРУППЫ Realm к структуре, используемой в приложении
     func convertGroupTimetable(from timetable: RGroupTimetable, groupName: String) -> GroupTimetable {
-        var groupWeeks = [GroupWeek]()
-
+        let groupTimetable = GroupTimetable(
+            groupName: groupName,
+            groupId: timetable.objectId,
+            weeks: converteWeeks(from: timetable.weeks)
+        )
+        return groupTimetable
+    }
+    
+    func convertProfessorTimetable(from timetable: RProfessorTimetable, professorName: String) -> ProfessorTimetable {
+        let professorTimetable = ProfessorTimetable(
+            professorName: professorName,
+            professorId: timetable.objectId,
+            weeks: converteWeeks(from: timetable.weeks)
+        )
+        return professorTimetable
+    }
+    
+    func convertPlaceTimetable(from timetable: RPlaceTimetable, placeName: String) -> PlaceTimetable {
+        let placeTimetable = PlaceTimetable(
+            placeName: placeName,
+            placeId: timetable.objectId,
+            weeks: converteWeeks(from: timetable.weeks)
+        )
+        return placeTimetable
+    }
+    
+    private func converteWeeks(from rWeeks: List<RWeek>) -> [Week] {
+        var weeks = [Week]()
+        
         // пробегаемся по всем неделям (по дву)
-        for week in timetable.weeks {
+        for rWeek in rWeeks {
 
             // заполняем массив дней nil, потом если будут учебные дни в этой недели - заменю значение
-            var groupDays: [GroupDay?] = [nil, nil, nil, nil, nil, nil]
+            var groupDays: [Day?] = [nil, nil, nil, nil, nil, nil]
 
             // пробегаемся во всем дням недели
-            for day in week.days {
+            for rDay in rWeek.days {
 
-                var groupLessons = [GroupLesson]()
+                var groupLessons = [Lesson]()
                 
                 // пробегаемся по всем занятиям дня
-                for lesson in day.lessons {
+                for rLesson in rDay.lessons {
 
-                    var groupSubgroups = [GroupSubgroup]()
+                    var subgroups = [Subgroup]()
                     
                     // пробегаемся по всех подргуппам занятия
-                    for subgroup in lesson.subgroups {
-                        let groupSubgroup = GroupSubgroup(
-                            number: subgroup.number,
-                            subject: subgroup.subject.capitalizinFirstLetter(),
-                            type: subgroupType[subgroup.type] ?? SubgroupType.undefined,
-                            professor: subgroup.professor,
-                            place: subgroup.place)
+                    for rSubgroup in rLesson.subgroups {
+                        let subgroup = Subgroup(
+                            number: rSubgroup.number,
+                            subject: rSubgroup.subject,
+                            type: subgroupType[rSubgroup.type] ?? .undefined,
+                            group: rSubgroup.group,
+                            professor: rSubgroup.professor,
+                            place: rSubgroup.place,
+                            groupId: rSubgroup.groupId,
+                            professorId: rSubgroup.professorId,
+                            placeId: rSubgroup.placeId
+                        )
 
-                        groupSubgroups.append(groupSubgroup)
+                        subgroups.append(subgroup)
                     }
                     
                     // добавляем занятие в массив занятий
-                    let groupLesson = GroupLesson(
+                    let groupLesson = Lesson(
                         // Если получается преобразовать время, иначе вставляем такое как есть
-                        time: converte(time: lesson.time) ?? lesson.time,
-                        subgroups: groupSubgroups)
+                        time: converte(time: rLesson.time) ?? rLesson.time,
+                        subgroups: subgroups
+                    )
                     
                     groupLessons.append(groupLesson)
                 }
                 
-                let groupDay = GroupDay(lessons: groupLessons)
+                let day = Day(lessons: groupLessons)
                 // проверяем, подходит ли number для вставки в массив groupDays (0-понедельник, 5-суббота)
-                if day.number >= 0 && day.number <= 5 {
+                if rDay.number >= 0 && rDay.number <= 5 {
                     // заменяем nil
-                    groupDays[day.number] = groupDay
+                    groupDays[rDay.number] = day
                 }
             }
 
-            let groupWeek = GroupWeek(days: groupDays)
-            groupWeeks.append(groupWeek)
+            let groupWeek = Week(days: groupDays)
+            weeks.append(groupWeek)
         }
-
-        let groupTimetable = GroupTimetable(groupId: timetable.groupId, groupName: groupName, weeks: groupWeeks)
-        return groupTimetable
+        
+        return weeks
     }
     
     private func converte(time: String) -> String? {
@@ -106,8 +138,32 @@ class Translator {
         return groups
     }
     
+    func converteProfessors(from rProfessors: Results<RProfessor>) -> [Professor] {
+        var professors = [Professor]()
+        rProfessors.forEach { rProfessor in
+            professors.append(Professor(id: rProfessor.id, name: rProfessor.name, idPallada: rProfessor.idPallada))
+        }
+        return professors
+    }
+    
+    func convertePlaces(from rPlaces: Results<RPlace>) -> [Place] {
+        var places = [Place]()
+        rPlaces.forEach { rPlace in
+            places.append(Place(id: rPlace.id, name: rPlace.name, address: rPlace.address))
+        }
+        return places
+    }
+    
     func converteGroup(from rGroup: RGroup) -> Group {
         return Group(id: rGroup.id, name: rGroup.name)
+    }
+    
+    func converteProfessor(from rProfessor: RProfessor) -> Professor {
+        return Professor(id: rProfessor.id, name: rProfessor.name, idPallada: rProfessor.idPallada)
+    }
+    
+    func convertePlace(from rPlace: RPlace) -> Place {
+        return Place(id: rPlace.id, name: rPlace.name, address: rPlace.address)
     }
     
     func converteBuildings(from rBuildings: [RBuilding]) -> [Building] {

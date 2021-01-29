@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct GroupDay {
-    
-    var lessons: [GroupLesson]
-    
-}
+//struct GroupDay {
+//    
+//    var lessons: [GroupLesson]
+//    
+//}

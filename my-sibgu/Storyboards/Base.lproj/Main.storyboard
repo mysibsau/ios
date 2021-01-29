@@ -74,7 +74,7 @@
         <scene sceneID="ZrM-8Z-Pf8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KBI-61-1e5" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Столовая" id="aUq-0L-8Mw"/>
+                    <tabBarItem key="tabBarItem" title="Столовая" image="restaurant" id="aUq-0L-8Mw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bc3-kb-ggu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -187,10 +187,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="events_tab" width="25.333333969116211" height="25"/>
+        <image name="events_tab" width="28" height="28"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="restaurant" width="24" height="24"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
-        <image name="timetable_tab" width="25.333333969116211" height="25"/>
+        <image name="timetable_tab" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

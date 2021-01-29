@@ -24,3 +24,26 @@ extension RGroup {
     
 }
 
+extension RProfessor {
+    
+    func newObject() -> RProfessor {
+        let newProfessor = RProfessor()
+        newProfessor.id = id
+        newProfessor.name = name
+        newProfessor.idPallada = idPallada
+        return newProfessor
+    }
+    
+}
+
+extension RPlace {
+    
+    func newObject() -> RPlace {
+        let newPlace = RPlace()
+        newPlace.id = id
+        newPlace.name = name
+        newPlace.address = address
+        return newPlace
+    }
+    
+}

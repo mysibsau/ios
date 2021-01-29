@@ -13,7 +13,7 @@ class WeekViewController: UIViewController {
     private let dateTimeService = DateTimeService()
     
     
-    private var week: GroupWeek!
+    private var week: WeekViewModel!
     var weekNumber: Int!
     var todayNumber: Int?
     
@@ -26,7 +26,7 @@ class WeekViewController: UIViewController {
     
     
     // MARK: - Initialization
-    convenience init(week: GroupWeek, weekNumber: Int, todayNumber: Int?) {
+    convenience init(week: WeekViewModel, weekNumber: Int, todayNumber: Int?) {
         self.init()
         self.week = week
         self.weekNumber = weekNumber
@@ -83,7 +83,7 @@ class WeekViewController: UIViewController {
     }
     
     // MARK: - Set Lesson Days
-    private func set(lessonWeek: GroupWeek) {
+    private func set(lessonWeek: WeekViewModel) {
         let weekdaysAndDates: [(weekday: String, date: String)]
         if weekNumber == 0 {
             weekdaysAndDates = dateTimeService.getDatesNotEvenWeek()

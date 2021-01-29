@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct GroupLesson {
-    
-    let time: String
-    let subgroups: [GroupSubgroup]
-    
-}
-
-struct GroupSubgroup {
-    
-    let number: Int
-    let subject: String
-    let type: SubgroupType
-    let professor: String
-    //let professorsId: [Int]
-    let place: String
-    //let placeId: Int?
-    
-}
+//struct GroupLesson {
+//    
+//    let time: String
+//    let subgroups: [GroupSubgroup]
+//    
+//}
+//
+//struct GroupSubgroup {
+//    
+//    let number: Int
+//    let subject: String
+//    let type: SubgroupType
+//    let professor: String
+//    //let professorsId: [Int]
+//    let place: String
+//    //let placeId: Int?
+//    
+//}

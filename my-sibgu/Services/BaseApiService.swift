@@ -12,7 +12,7 @@ class BaseApiService {
     // MARK: - Privates properties
     let downloadingQueue: OperationQueue = {
         let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 2
+        queue.maxConcurrentOperationCount = 3
         return queue
     }()
     

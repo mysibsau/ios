@@ -9,54 +9,88 @@ import Foundation
 
 class ResponseTranslator {
     
-    static func converteGroupTimetableResponseToRGroupTimetable(groupTimetableResponse: GroupTimetableResponse, groupId: Int) -> RGroupTimetable {
+    // MARK: - Timetables
+    static func converteTimetableResponseToRGroupTimetable(timetableResponse: TimetableResponse, groupId: Int) -> RGroupTimetable {
         let groupTimetable = RGroupTimetable()
-        groupTimetable.groupId = groupId
+        groupTimetable.objectId = groupId
         
-        let groupOddWeek = converteGroupDaysResponseToRGroupWeek(groupDaysResponse: groupTimetableResponse.oddWeek)
-        let groupEvenWeek = converteGroupDaysResponseToRGroupWeek(groupDaysResponse: groupTimetableResponse.evenWeek)
+        let groupOddWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.oddWeek)
+        let groupEvenWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.evenWeek)
         groupTimetable.weeks.append(groupOddWeek)
         groupTimetable.weeks.append(groupEvenWeek)
         
         return groupTimetable
     }
     
-    private static func converteGroupDaysResponseToRGroupWeek(groupDaysResponse: [GroupDayResponse]) -> RGroupWeek {
-        let groupWeek = RGroupWeek()
+    static func converteTimetableResponseToProfessorTimetable(timetableResponse: TimetableResponse, professorId: Int) -> RProfessorTimetable {
+        let professorTimetable = RProfessorTimetable()
+        professorTimetable.objectId = professorId
         
-        for groupDayResponse in groupDaysResponse {
-            let groupDay = RGroupDay()
+        let professorOddWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.oddWeek)
+        let professorEvenWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.evenWeek)
+        professorTimetable.weeks.append(professorOddWeek)
+        professorTimetable.weeks.append(professorEvenWeek)
+        
+        return professorTimetable
+    }
+    
+    static func converteTimetableResponseToPlaceTimetable(timetableResponse: TimetableResponse, placeId: Int) -> RPlaceTimetable {
+        let placeTimetable = RPlaceTimetable()
+        placeTimetable.objectId = placeId
+        
+        let placeOddWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.oddWeek)
+        let placeEvenWeek = converteDaysResponseToRWeek(daysResponse: timetableResponse.evenWeek)
+        placeTimetable.weeks.append(placeOddWeek)
+        placeTimetable.weeks.append(placeEvenWeek)
+        
+        return placeTimetable
+    }
+    
+    
+    private static func converteDaysResponseToRWeek(daysResponse: [DayResponse]) -> RWeek {
+        let week = RWeek()
+        
+        for dayResponse in daysResponse {
+            let day = RDay()
             
-            groupDay.number = groupDayResponse.number
+            day.number = dayResponse.number
             
-            for groupLessonResponse in groupDayResponse.lessons {
-                let groupLesson = RGroupLesson()
+            for lessonResponse in dayResponse.lessons {
+                let lesson = RLesson()
                 
-                groupLesson.time = groupLessonResponse.time
+                lesson.time = lessonResponse.time
                 
-                for groupSubgroupResponse in groupLessonResponse.subgroups {
-                    let groupSubgroup = RGroupSubgroup()
-                    groupSubgroup.number = groupSubgroupResponse.number
-                    groupSubgroup.subject = groupSubgroupResponse.subject
-                    groupSubgroup.professor = groupSubgroupResponse.professor
-                    groupSubgroup.place = groupSubgroupResponse.place
-                    groupSubgroup.type = groupSubgroupResponse.type
+                for subgroupResponse in lessonResponse.subgroups {
+                    let subgroup = RSubgroup()
+                    subgroup.number = subgroupResponse.number
+                    subgroup.subject = subgroupResponse.subject
+                    subgroup.type = subgroupResponse.type
                     
-                    groupLesson.subgroups.append(groupSubgroup)
+                    subgroup.group = subgroupResponse.group
+                    subgroup.professor = subgroupResponse.professor
+                    subgroup.place = subgroupResponse.place
+                    
+                    subgroup.groupId = subgroupResponse.groupId
+                    subgroup.professorId = subgroupResponse.professorId
+                    subgroup.placeId = subgroupResponse.placeId
+                    
+                    lesson.subgroups.append(subgroup)
                 }
                 
-                groupDay.lessons.append(groupLesson)
+                day.lessons.append(lesson)
             }
             
             // Если в этот день есть пары - добавляем
-            if !groupDay.lessons.isEmpty {
-                groupWeek.days.append(groupDay)
+            if !day.lessons.isEmpty {
+                week.days.append(day)
             }
         }
         
-        return groupWeek
+        return week
     }
     
+    
+    // MARK: - Entities
     static func converteGroupResponseToRGroup(groupsResponse: [GroupResponse]) -> [RGroup] {
         var rGroups = [RGroup]()
         
@@ -69,6 +103,36 @@ class ResponseTranslator {
         }
         
         return rGroups
+    }
+    
+    static func converteProfessorResponseToRProfessor(professorsResponse: [ProfessorResponse]) -> [RProfessor] {
+        var rProfessors = [RProfessor]()
+        
+        for professorResponse in professorsResponse {
+            let rProfessor = RProfessor()
+            rProfessor.id = professorResponse.id
+            rProfessor.name = professorResponse.name
+            rProfessor.idPallada = professorResponse.idPallada
+            
+            rProfessors.append(rProfessor)
+        }
+        
+        return rProfessors
+    }
+    
+    static func convertePlaceResponseToRPlace(placesResponse: [PlaceResponse]) -> [RPlace] {
+        var rPlaces = [RPlace]()
+        
+        for placeResponse in placesResponse {
+            let rPlace = RPlace()
+            rPlace.id = placeResponse.id
+            rPlace.name = placeResponse.name
+            rPlace.address = placeResponse.address
+            
+            rPlaces.append(rPlace)
+        }
+        
+        return rPlaces
     }
     
 }

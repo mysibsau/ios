@@ -1,22 +1,23 @@
 //
-//  GroupResponse.swift
+//  ProfessorResponse.swift
 //  my-sibgu
 //
-//  Created by art-off on 13.11.2020.
+//  Created by art-off on 27.01.2021.
 //
 
 import Foundation
 
-class GroupResponse: Decodable {
+class ProfessorResponse: Decodable {
     
     let id: Int
     let name: String
-//    let email: String
+    let idPallada: Int
+    
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-//        case email = "mail"
+        case idPallada = "id_pallada"
     }
     
 }
