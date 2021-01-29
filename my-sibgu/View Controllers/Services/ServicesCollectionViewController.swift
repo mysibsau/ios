@@ -7,7 +7,7 @@
 
 import UIKit
 
-private typealias ServicesDataSource = [(image: UIImage, name: String, vc: UIViewController.Type)]
+private typealias ServicesDataSource = [(image: UIImage, color: UIColor, name: String, vc: UIViewController.Type)]
 
 class ServicesCollectionViewController: UICollectionViewController {
     
@@ -41,11 +41,25 @@ class ServicesCollectionViewController: UICollectionViewController {
         collectionView.collectionViewLayout = layout
         
         services = [
-            (UIImage(named: "main_logo")!, "Строения", vc: BuildingsViewController.self),
-            (UIImage(named: "main_logo")!, "Институты", vc: InstitutionsViewController.self),
-            (UIImage(named: "main_logo")!, "Онлайн каталог", vc: UIViewController.self),
-            (UIImage(named: "main_logo")!, "Обратная связь", vc: SurveysTableViewController.self),
-            (UIImage(named: "main_logo")!, "Студ. жизнь", vc: UnionsTableViewController.self),
+            (
+                UIImage(systemName: "map")!, UIColor.Pallete.sibsuBlue,
+                "Строения", BuildingsViewController.self
+            ),
+            (
+                UIImage(named: "institute")!, UIColor.Pallete.gray,
+                "Институты", InstitutionsViewController.self),
+            (
+                UIImage(systemName: "cart")!, UIColor.Pallete.orange,
+                "Онлайн каталог", UIViewController.self
+            ),
+            (
+                UIImage(named: "feedback")!, UIColor.Pallete.sibsuGreen,
+                "Обратная связь", SurveysTableViewController.self
+            ),
+            (
+                UIImage(systemName: "person.2")!, UIColor.Pallete.green,
+                "Студ. жизнь", vc: UnionsTableViewController.self
+            ),
         ]
         
         updateText()
@@ -88,7 +102,8 @@ extension ServicesCollectionViewController {
             for: indexPath) as! ServiceCollectionViewCell
         
         let service = services[indexPath.item]
-        cell.imageView.image = service.image
+        cell.imageView.image = service.image.withRenderingMode(.alwaysTemplate)
+        cell.tintColor = service.color
         cell.nameLabel.text = service.name
         
         return cell
