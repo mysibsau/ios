@@ -28,7 +28,7 @@ class TimetableViewModelTranslator {
     static func placeTimetableToViewModel(placeTimetable: PlaceTimetable) -> TimetableViewModel {
         let timetableViewModel = TimetableViewModel(
             objectName: placeTimetable.placeName,
-            weeks: weeksTo(.professor, weeks: placeTimetable.weeks)
+            weeks: weeksTo(.place, weeks: placeTimetable.weeks)
         )
         return timetableViewModel
     }
