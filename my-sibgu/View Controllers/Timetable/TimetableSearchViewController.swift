@@ -394,10 +394,14 @@ extension TimetableSearchViewController {
 extension TimetableSearchViewController: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view != segmentedControl {
-            return true
+        guard let touchView = touch.view else { return true }
+        if touchView.isDescendant(of: helpTableView) {
+            return false
         }
-        return false
+        if touchView.isDescendant(of: segmentedControl) {
+            return false
+        }
+        return true
     }
     
 }
@@ -472,7 +476,6 @@ extension TimetableSearchViewController: UITableViewDataSource {
 extension TimetableSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let id: Int
         switch currType {
         case .group:
@@ -503,6 +506,7 @@ extension TimetableSearchViewController: TimetableElemTableViewCellDelegate {
             timetableService.addFavorite(placeId: place.id)
         }
         showAlert(withText: "add.to.favorite".localized(using: "Timetable"))
+        helpTableView.isHidden = true
         setFavorite(currType)
     }
     

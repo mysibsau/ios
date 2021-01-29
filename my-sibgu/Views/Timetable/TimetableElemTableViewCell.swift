@@ -36,7 +36,6 @@ class TimetableElemTableViewCell: UITableViewCell {
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalTo(button.snp.leading)
         }
-//        button.backgroundColor = .red
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
