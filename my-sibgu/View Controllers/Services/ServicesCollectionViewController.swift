@@ -34,7 +34,7 @@ class ServicesCollectionViewController: UICollectionViewController {
         )
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 20)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 10)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)

@@ -25,7 +25,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.textColor = UIColor.Pallete.sibsuBlue
         return label
@@ -45,23 +45,42 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup Views
     func setupViews() {
-        layer.cornerRadius = 15
-        backgroundColor = UIColor.Pallete.content
+        self.layer.cornerRadius = 15
+        self.backgroundColor = UIColor.Pallete.content
+        contentView.layer.cornerRadius = 15
+        contentView.clipsToBounds = true
         
-        makeShadow()
-        makeBorder()
-        
-        contentView.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview().inset(10)
-        }
+        self.makeShadow()
+        self.makeBorder()
         
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.bottom.leading.trailing.equalToSuperview().inset(10)
             make.height.equalTo(40)
+            make.top.leading.trailing.equalToSuperview().inset(10)
         }
+        
+        contentView.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(5)
+//            make.bottom.trailing.leading.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(10)
+//            make.leading.equalToSuperview().offset(10)
+            make.width.equalTo(75)
+        }
+//        imageView.backgroundColor = .purple
+        
+//        contentView.addSubview(imageView)
+//        imageView.snp.makeConstraints { make in
+//            make.top.leading.trailing.equalToSuperview().inset(10)
+//        }
+//
+//        contentView.addSubview(nameLabel)
+//        nameLabel.snp.makeConstraints { make in
+//            make.top.equalTo(imageView.snp.bottom).offset(10)
+//            make.bottom.leading.trailing.equalToSuperview().inset(10)
+//            make.height.equalTo(40)
+//        }
     }
     
 }
@@ -69,8 +88,8 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 extension ServiceCollectionViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        makeShadow()
-        makeBorder()
+        self.makeShadow()
+        self.makeBorder()
     }
     
 }
