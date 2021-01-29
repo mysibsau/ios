@@ -58,7 +58,7 @@ class ServicesCollectionViewController: UICollectionViewController {
             ),
             (
                 UIImage(systemName: "person.2")!, UIColor.Pallete.green,
-                "Студ. жизнь", vc: UnionsTableViewController.self
+                "Студ. жизнь", vc: StudentLivePageViewController.self
             ),
         ]
         
