@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "timatable_24pt_1x.png",
+      "filename" : "timetable.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "timatable_24pt_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "timatable_24pt_3x-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "newspaper_28_x1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "newspaper_28_x2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "events-outline.png",
+      "filename" : "newspaper_28_x3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
