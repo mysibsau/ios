@@ -31,7 +31,18 @@ class TimetableSearchViewController: UIViewController {
     private let textField = UITextField()
     private let goToTimetableButton = UIButton()
     
-    private let lessonsStackView = UIStackView()
+    private let favoriteTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = UIColor.Pallete.sibsuBlue
+        return label
+    }()
+    private let favoriteStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
+    }()
     
     // MARK: Private UI
     private let alertView = AlertView()
@@ -52,11 +63,12 @@ class TimetableSearchViewController: UIViewController {
         setupTextFieldAndButton()
         
         configureNabBar()
-//        setupLessonTimetable()
+        setupFavoriteStackView()
         configurateSearchViews()
         setupHelpTableView()
         addRecognizerToHideKeyboard()
         
+        setFavorite(currType)
         setEntriesAndTryShowTimetable()
         
         updateText()
@@ -99,6 +111,9 @@ class TimetableSearchViewController: UIViewController {
                 self.places = entitiesSet.places
                 
                 DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.textField.isUserInteractionEnabled = true
+                    self.goToTimetableButton.isUserInteractionEnabled = true
                     self.tryLoadFromUserDefaults()
                 }
             }
@@ -123,10 +138,40 @@ class TimetableSearchViewController: UIViewController {
         segmentedControl.setTitle("professor".localized(using: tableName), forSegmentAt: 1)
         segmentedControl.setTitle("place".localized(using: tableName), forSegmentAt: 2)
         
+        favoriteTitleLabel.text = "favorite".localized(using: tableName)
+        
         switch currType {
         case .group: textField.placeholder = "enter.group.name".localized(using: tableName)
         case .professor: textField.placeholder = "enter.professor.name".localized(using: tableName)
         case .place: textField.placeholder = "enter.place.name".localized(using: tableName)
+        }
+    }
+    
+    private func setFavorite(_ type: EntitiesType) {
+        favoriteStackView.removeAllArrangedSubviews()
+        
+        switch type {
+        case .group:
+            let favorites = timetableService.getFavoriteGroupsFromLocal()
+            for favorite in favorites {
+                let v = FavoriteTimetableElemView(name: favorite.name, id: favorite.id)
+                v.delegate = self
+                favoriteStackView.addArrangedSubview(v)
+            }
+        case .professor:
+            let favorites = timetableService.getFavoriteProfessorsFromLocal()
+            for favorite in favorites {
+                let v = FavoriteTimetableElemView(name: favorite.name, id: favorite.id)
+                v.delegate = self
+                favoriteStackView.addArrangedSubview(v)
+            }
+        case .place:
+            let favorites = timetableService.getFavoritePlacesFromLocal()
+            for favorite in favorites {
+                let v = FavoriteTimetableElemView(name: favorite.name, id: favorite.id)
+                v.delegate = self
+                favoriteStackView.addArrangedSubview(v)
+            }
         }
     }
     
@@ -170,7 +215,6 @@ class TimetableSearchViewController: UIViewController {
             make.top.equalTo(segmentedControl.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(50)
-            make.bottom.equalToSuperview().offset(-300)
         }
         
         // configure wrapView
@@ -195,85 +239,20 @@ class TimetableSearchViewController: UIViewController {
         goToTimetableButton.addTarget(self, action: #selector(goToTimetableButtonTapped), for: .touchUpInside)
     }
     
-//    private func setupLessonTimetable() {
-//        lessonsStackView.axis = .vertical
-//        lessonsStackView.distribution = .fillEqually
-//        lessonsStackView.spacing = 8
-//
-//        contentView.addSubview(lessonsStackView)
-//        lessonsStackView.snp.makeConstraints { make in
-//            make.top.equalTo(self.wrapView.snp.bottom).offset(50)
-//            make.leading.trailing.equalTo(contentView).inset(20)
-//            make.bottom.equalTo(contentView.snp.bottom).offset(-20)
-//        }
-//
-//        let lessonTimes: [LessonTime] = [
-//            ("1 лента", "08:00 - 09:30", "10 мин."),
-//            ("2 лента", "09:40 - 11:10", "20 мин."),
-//            ("3 лента", "11:30 - 13:00", "30 мин."),
-//            ("4 лента", "13:30 - 15:00", "10 мин."),
-//            ("5 лента", "15:10 - 16:40", "10 мин."),
-//            ("6 лента", "16:50 - 18:20", "10 мин."),
-//            ("7 лента", "18:30 - 20:00", "10 мин."),
-//            ("8 лента", "20:10 - 21:40", "-"),
-//        ]
-//
-//        let header = _hStackView()
-//
-//        let numberLabel = UILabel()
-//        numberLabel.text = "#"
-//        numberLabel.textAlignment = .center
-//        let timeLabel = UILabel()
-//        timeLabel.text = "Время"
-//        timeLabel.textAlignment = .center
-//        let breakLabel = UILabel()
-//        breakLabel.text = "Перерыв"
-//        breakLabel.textAlignment = .center
-//
-//        header.addArrangedSubview(numberLabel)
-//        header.addArrangedSubview(timeLabel)
-//        header.addArrangedSubview(breakLabel)
-//
-//        let wrapView = _wrapView()
-//
-//        wrapView.addSubview(header)
-//        header.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
-//
-//        lessonsStackView.addArrangedSubview(wrapView)
-//
-//        for lessonTime in lessonTimes {
-//            let hStackView = _hStackView()
-//
-//            let numberLabel = UILabel()
-//            numberLabel.text = lessonTime.number
-//            numberLabel.textAlignment = .center
-//            numberLabel.textColor = UIColor.Pallete.darkBlue
-//            let timeLabel = UILabel()
-//            timeLabel.text = lessonTime.time
-//            timeLabel.textAlignment = .center
-//            timeLabel.textColor = UIColor.Pallete.darkBlue
-//            let breakLabel = UILabel()
-//            breakLabel.text = lessonTime.break
-//            breakLabel.textAlignment = .center
-//            breakLabel.textColor = UIColor.Pallete.darkBlue
-//
-//            hStackView.addArrangedSubview(numberLabel)
-//            hStackView.addArrangedSubview(timeLabel)
-//            hStackView.addArrangedSubview(breakLabel)
-//
-//            let wrapView = _wrapView()
-//
-//            wrapView.addSubview(hStackView)
-//            hStackView.snp.makeConstraints { make in
-//                make.edges.equalTo(wrapView)
-//                make.height.equalTo(50)
-//            }
-//
-//            lessonsStackView.addArrangedSubview(wrapView)
-//        }
-//    }
+    private func setupFavoriteStackView() {
+        contentView.addSubview(favoriteTitleLabel)
+        favoriteTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(wrapView.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        contentView.addSubview(favoriteStackView)
+        favoriteStackView.snp.makeConstraints { make in
+            make.top.equalTo(favoriteTitleLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().offset(-20)
+        }
+    }
     
     private func setupHelpTableView() {
         helpTableView.register(
@@ -281,10 +260,10 @@ class TimetableSearchViewController: UIViewController {
             forCellReuseIdentifier: TimetableElemTableViewCell.reuseIdentifier
         )
         
-        contentView.addSubview(helpTableView)
+        view.addSubview(helpTableView)
         helpTableView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(contentView).inset(20)
-            make.top.equalTo(textField.snp.bottom).offset(4)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(135)
             make.height.equalTo(300)
         }
         
@@ -324,34 +303,16 @@ class TimetableSearchViewController: UIViewController {
         self.navigationItem.configurate()
     }
     
-    // MARK: - Helper UI
-    private func _hStackView() -> UIStackView {
-        let hStackView = UIStackView()
-        hStackView.axis = .horizontal
-        hStackView.distribution = .fillEqually
-        
-        return hStackView
-    }
-    
-    private func _wrapView() -> UIView {
-        let v = UIView()
-        v.backgroundColor = .systemBackground
-        v.makeShadow()
-        v.makeBorder()
-        v.backgroundColor = UIColor.Pallete.content
-        v.layer.cornerRadius = 10
-        
-        return v
-    }
-    
     // MARK: - Activity
     private func addRecognizerToHideKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tap.cancelsTouchesInView = false
-        contentView.addGestureRecognizer(tap)
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
     }
     
-    @objc private func hideKeyboard() {
+    @objc private func hideKeyboard(_ sender: UITapGestureRecognizer) {
+        helpTableView.isHidden = true
         view.endEditing(true)
     }
 
@@ -404,6 +365,8 @@ class TimetableSearchViewController: UIViewController {
             break
         }
         updateText()
+        setFavorite(currType)
+        
         textFieldDidChangeSelection(textField)
     }
     
@@ -420,11 +383,21 @@ extension TimetableSearchViewController {
         wrapView.makeShadow()
         wrapView.makeBorder()
         
-        lessonsStackView.removeAllArrangedSubviews()
-//        setupLessonTimetable()
+        
         
         helpTableView.removeFromSuperview()
         setupHelpTableView()
+    }
+    
+}
+
+extension TimetableSearchViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view != segmentedControl {
+            return true
+        }
+        return false
     }
     
 }
@@ -476,7 +449,6 @@ extension TimetableSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
         let cell = tableView.dequeueReusableCell(withIdentifier: TimetableElemTableViewCell.reuseIdentifier, for: indexPath) as! TimetableElemTableViewCell
         
         switch currType {
@@ -519,15 +491,42 @@ extension TimetableSearchViewController: UITableViewDelegate {
 extension TimetableSearchViewController: TimetableElemTableViewCellDelegate {
     
     func didTapButton(at indexPath: IndexPath) {
-        print(indexPath)
-    }
-    
-    private func addToFavorite(_ type: EntitiesType, with id: Int) {
-        
+        switch currType {
+        case .group:
+            let group = filtredGroups[indexPath.row]
+            timetableService.addFavorite(groupId: group.id)
+        case .professor:
+            let professor = filtredProfessors[indexPath.row]
+            timetableService.addFavorite(professorId: professor.id)
+        case .place:
+            let place = filtredPlaces[indexPath.row]
+            timetableService.addFavorite(placeId: place.id)
+        }
+        showAlert(withText: "add.to.favorite".localized(using: "Timetable"))
+        setFavorite(currType)
     }
     
 }
 
+extension TimetableSearchViewController: FavoriteTimetableElemViewDelegate {
+    
+    func didTapToDeleteFavorite(with id: Int) {
+        switch currType {
+        case .group:
+            timetableService.deleteFavorite(groupId: id)
+        case .professor:
+            timetableService.deleteFavorite(professorId: id)
+        case .place:
+            timetableService.deleteFavorite(placeId: id)
+        }
+        setFavorite(currType)
+    }
+    
+    func didTapToFavorite(with id: Int) {
+        showTimetable(forType: currType, withId: id, animated: true)
+    }
+    
+}
 
 
 extension TimetableSearchViewController: AnimatingNetworkProtocol {
@@ -537,7 +536,7 @@ extension TimetableSearchViewController: AnimatingNetworkProtocol {
     }
     
     func animatingSuperViewForDisplay() -> UIView {
-        return contentView
+        return view
     }
     
 }
@@ -545,7 +544,7 @@ extension TimetableSearchViewController: AnimatingNetworkProtocol {
 extension TimetableSearchViewController: AlertingViewController {
     
     func alertingSuperViewForDisplay() -> UIView {
-        return contentView
+        return view
     }
     
     func alertingAlertView() -> AlertView {

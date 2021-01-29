@@ -16,6 +16,9 @@
 "enter.professor.name" = "Введите фамилию преподавателя";
 "enter.place.name" = "Введите кабинет";
 
+"favorite" = "Избранные";
+"add.to.favorite" = "Добавлено в избранные";
+
 "week" = "неделя";
 
 "monday" = "Понедельник";

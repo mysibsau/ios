@@ -16,6 +16,9 @@
 "enter.professor.name" = "Enter professor";
 "enter.place.name" = "Enter place";
 
+"favorite" = "Favorite";
+"add.to.favorite" = "Added to favorite";
+
 "week" = "week";
 
 "monday" = "Monday";

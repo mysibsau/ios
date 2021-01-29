@@ -161,6 +161,7 @@
 		4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */; };
 		4AD21F8D25C305900018D4F0 /* TimetableElemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F8C25C305900018D4F0 /* TimetableElemTableViewCell.swift */; };
 		4AD21F9125C32CB90018D4F0 /* Array+deleteElem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F9025C32CB90018D4F0 /* Array+deleteElem.swift */; };
+		4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21F9425C337090018D4F0 /* FavoriteTimetableElemView.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
@@ -386,6 +387,7 @@
 		4AD21F8425C2E0A50018D4F0 /* TimetableViewModelTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModelTranslator.swift; sourceTree = "<group>"; };
 		4AD21F8C25C305900018D4F0 /* TimetableElemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElemTableViewCell.swift; sourceTree = "<group>"; };
 		4AD21F9025C32CB90018D4F0 /* Array+deleteElem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+deleteElem.swift"; sourceTree = "<group>"; };
+		4AD21F9425C337090018D4F0 /* FavoriteTimetableElemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTimetableElemView.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -1187,6 +1189,7 @@
 				4AEE1803256EB44600DD7D9F /* LessonView.swift */,
 				4A3149FB257255AD00FB7FC2 /* LessonDayView.swift */,
 				4AD21F8C25C305900018D4F0 /* TimetableElemTableViewCell.swift */,
+				4AD21F9425C337090018D4F0 /* FavoriteTimetableElemView.swift */,
 			);
 			path = Timetable;
 			sourceTree = "<group>";
@@ -1622,6 +1625,7 @@
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
+				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
