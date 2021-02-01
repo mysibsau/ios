@@ -50,7 +50,7 @@ class ServicesCollectionViewController: UICollectionViewController {
                 "Институты", InstitutionsViewController.self),
             (
                 UIImage(systemName: "cart")!, UIColor.Pallete.orange,
-                "Онлайн каталог", UIViewController.self
+                "Онлайн каталог", CatalogCollectionViewController.self
             ),
             (
                 UIImage(named: "feedback")!, UIColor.Pallete.sibsuGreen,
