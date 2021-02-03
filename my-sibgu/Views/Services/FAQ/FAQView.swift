@@ -7,7 +7,15 @@
 
 import UIKit
 
+
+protocol FAQViewDelegate {
+    func didTapToShowInfoOnQuestion(with id: Int)
+}
+
 class FAQView: UIView {
+    
+    var delegate: FAQViewDelegate?
+    
     
     private var faq: FAQ!
     
@@ -102,6 +110,7 @@ class FAQView: UIView {
             
             self.answerLabel.isHidden = false
             isAddInfoMode = true
+            delegate?.didTapToShowInfoOnQuestion(with: faq.id)
         }
         
         self.layoutIfNeeded()

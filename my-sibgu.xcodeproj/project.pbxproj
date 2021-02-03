@@ -84,6 +84,7 @@
 		4A5063F425CAFB1E004C2BC8 /* ApiSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */; };
 		4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */; };
 		4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */; };
+		4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */; };
 		4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */; };
 		4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5672599EF9000184BC0 /* DepartmentView.swift */; };
 		4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F56A259A033600184BC0 /* CopyableLabel.swift */; };
@@ -323,6 +324,7 @@
 		4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupport.swift; sourceTree = "<group>"; };
 		4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuesionPost.swift; sourceTree = "<group>"; };
 		4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupportService.swift; sourceTree = "<group>"; };
+		4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
 		4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
 		4A54F5672599EF9000184BC0 /* DepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentView.swift; sourceTree = "<group>"; };
 		4A54F56A259A033600184BC0 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5063CB25CA9BE7004C2BC8 /* FAQViewController.swift */,
+				4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */,
 			);
 			path = FAQ;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
+				4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */,
 				4AC191DA25B784D000325142 /* Notification.Name+Localize.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
