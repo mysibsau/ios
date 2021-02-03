@@ -80,7 +80,6 @@ class FAQViewController: UIViewController {
         stackView.snp.makeConstraints { make in
             make.top.equalTo(scrollView.snp.top)
             make.leading.trailing.equalTo(scrollView)
-//            make.bottom.equalTo(scrollView.snp.bottom)
             make.width.equalTo(scrollView)
         }
     }
@@ -90,7 +89,6 @@ class FAQViewController: UIViewController {
         addQuestionButton.setTitle("Задать другой вопрос", for: .normal)
         addQuestionButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         addQuestionButton.setTitleColor(UIColor.Pallete.sibsuBlue, for: .normal)
-//        addQuestionButton.titleLabel?.textColor = UIColor.Pallete.sibsuBlue
         addQuestionButton.layer.cornerRadius = 15
         addQuestionButton.makeShadow()
         addQuestionButton.makeBorder()
