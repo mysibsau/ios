@@ -7,7 +7,15 @@
 
 import UIKit
 
+
+protocol FAQViewDelegate {
+    func didTapToShowInfoOnQuestion(with id: Int)
+}
+
 class FAQView: UIView {
+    
+    var delegate: FAQViewDelegate?
+    
     
     private var faq: FAQ!
     
@@ -52,7 +60,7 @@ class FAQView: UIView {
         
         self.addSubview(containerView)
         containerView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(5)
+            make.top.bottom.equalToSuperview().inset(10)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
@@ -102,6 +110,7 @@ class FAQView: UIView {
             
             self.answerLabel.isHidden = false
             isAddInfoMode = true
+            delegate?.didTapToShowInfoOnQuestion(with: faq.id)
         }
         
         self.layoutIfNeeded()

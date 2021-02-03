@@ -79,6 +79,12 @@
 		4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063CF25CAA158004C2BC8 /* FAQ.swift */; };
 		4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063D425CAA443004C2BC8 /* FAQView.swift */; };
 		4A5063DC25CAABED004C2BC8 /* FAQ.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5063DE25CAABED004C2BC8 /* FAQ.strings */; };
+		4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063E525CAFA61004C2BC8 /* SupportService.swift */; };
+		4A5063EE25CAFAB5004C2BC8 /* FAQResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */; };
+		4A5063F425CAFB1E004C2BC8 /* ApiSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */; };
+		4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */; };
+		4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */; };
+		4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */; };
 		4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */; };
 		4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5672599EF9000184BC0 /* DepartmentView.swift */; };
 		4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F56A259A033600184BC0 /* CopyableLabel.swift */; };
@@ -313,6 +319,12 @@
 		4A5063D425CAA443004C2BC8 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		4A5063DD25CAABED004C2BC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FAQ.strings; sourceTree = "<group>"; };
 		4A5063E125CAABF1004C2BC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FAQ.strings; sourceTree = "<group>"; };
+		4A5063E525CAFA61004C2BC8 /* SupportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportService.swift; sourceTree = "<group>"; };
+		4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQResponse.swift; sourceTree = "<group>"; };
+		4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupport.swift; sourceTree = "<group>"; };
+		4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuesionPost.swift; sourceTree = "<group>"; };
+		4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupportService.swift; sourceTree = "<group>"; };
+		4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
 		4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
 		4A54F5672599EF9000184BC0 /* DepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentView.swift; sourceTree = "<group>"; };
 		4A54F56A259A033600184BC0 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
@@ -755,6 +767,7 @@
 				4AB5A66E25A0FC7A00518FEA /* Campus */,
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
+				4A5063E425CAFA35004C2BC8 /* Support */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -827,6 +840,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5063CB25CA9BE7004C2BC8 /* FAQViewController.swift */,
+				4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */,
 			);
 			path = FAQ;
 			sourceTree = "<group>";
@@ -837,6 +851,42 @@
 				4A5063D425CAA443004C2BC8 /* FAQView.swift */,
 			);
 			path = FAQ;
+			sourceTree = "<group>";
+		};
+		4A5063E425CAFA35004C2BC8 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4A5063E525CAFA61004C2BC8 /* SupportService.swift */,
+				4A5063EB25CAFA65004C2BC8 /* Api */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		4A5063EB25CAFA65004C2BC8 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4A5063F725CAFD9E004C2BC8 /* PostObjects */,
+				4A5063EC25CAFA75004C2BC8 /* ResponseObjects */,
+				4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */,
+				4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4A5063EC25CAFA75004C2BC8 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
+		4A5063F725CAFD9E004C2BC8 /* PostObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */,
+			);
+			path = PostObjects;
 			sourceTree = "<group>";
 		};
 		4A54F56F259A1EAC00184BC0 /* Unions */ = {
@@ -1565,6 +1615,7 @@
 				4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
 				4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */,
+				4A5063EE25CAFAB5004C2BC8 /* FAQResponse.swift in Sources */,
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
@@ -1586,6 +1637,7 @@
 				4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */,
 				4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
+				4A5063F425CAFB1E004C2BC8 /* ApiSupport.swift in Sources */,
 				4A077FEA25B0660D0038D87E /* SegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
@@ -1600,6 +1652,7 @@
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,
+				4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */,
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
@@ -1623,6 +1676,7 @@
 				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
+				4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */,
 				4AC191DA25B784D000325142 /* Notification.Name+Localize.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
@@ -1635,6 +1689,7 @@
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */,
+				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
@@ -1693,6 +1748,7 @@
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
+				4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
 				4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */,
