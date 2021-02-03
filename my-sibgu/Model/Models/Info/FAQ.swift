@@ -9,7 +9,7 @@ import Foundation
 
 struct FAQ {
     
-//    let id: Int
+    let id: Int
     let rank: Int
     let question: String
     let answer: String
