@@ -52,7 +52,7 @@ class FAQView: UIView {
         
         self.addSubview(containerView)
         containerView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(5)
+            make.top.bottom.equalToSuperview().inset(10)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
