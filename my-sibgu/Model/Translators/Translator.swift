@@ -260,4 +260,20 @@ class Translator {
         return unions
     }
     
+    func converteSportClubs(from rSportClubs: [RSportClub]) -> [SportClub] {
+        var sportClubs = [SportClub]()
+        rSportClubs.forEach { rSportClub in
+            let sportClub = SportClub(
+                name: rSportClub.name,
+                fio: rSportClub.fio,
+                phone: rSportClub.phone,
+                address: rSportClub.address,
+                dates: rSportClub.dates,
+                logoUrl: ApiUniversityInfo.download(with: rSportClub.logoUrl)
+            )
+            sportClubs.append(sportClub)
+        }
+        return sportClubs
+    }
+    
 }

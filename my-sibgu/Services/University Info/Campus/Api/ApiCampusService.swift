@@ -40,16 +40,23 @@ class ApiCampusService {
         task.resume()
     }
     
+    
+    // TODO: Надо удалить функцию ниже и юзать ту, что в `baseApiService`
     func loadBuidlings(completion: @escaping (_ buildings: [BuidlingResponse]?) -> Void) {
         load([BuidlingResponse].self, url: ApiCampus.buildings(), completion: completion)
     }
     
+    func loadInstitutes(completion: @escaping (_ institutes: [InstituteResponse]?) -> Void) {
+        load([InstituteResponse].self, url: ApiCampus.institutes(), completion: completion)
+    }
+    
+    // MARK: Student Life
     func loadUnions(completion: @escaping (_ unions: [UnionResponse]?) -> Void) {
         load([UnionResponse].self, url: ApiCampus.unions(), completion: completion)
     }
     
-    func loadInstitutes(completion: @escaping (_ institutes: [InstituteResponse]?) -> Void) {
-        load([InstituteResponse].self, url: ApiCampus.institutes(), completion: completion)
+    func loadSportClubs(completion: @escaping (_ sportClubs: [SportClubResponse]?) -> Void) {
+        baseApiService.load([SportClubResponse].self, url: ApiCampus.sportClubs(), completion: completion)
     }
     
     

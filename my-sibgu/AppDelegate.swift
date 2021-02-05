@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Удаляем все badge
         UIApplication.shared.applicationIconBadgeNumber = 0
         
+        CampusService().getSportClubs { a in
+            dump(a)
+        }
+        
         return true
     }
 

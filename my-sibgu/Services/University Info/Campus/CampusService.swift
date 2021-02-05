@@ -125,4 +125,30 @@ class CampusService {
         }
     }
     
+    func getSportClubs(completion: @escaping ([SportClub]?) -> Void) {
+        let sportClubsFromLocal = DataManager.shared.getSportClubs()
+        
+        ApiCampusService().loadSportClubs { sportClubsResponse in
+            guard let sportClubsResponse = sportClubsResponse else {
+                if sportClubsFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.converteSportClubs(from: sportClubsFromLocal))
+                    }
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                DataManager.shared.deleteAllSportClubs()
+                let sportClubs = sportClubsResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(sportClubs: sportClubs)
+                let sportClubsForShowing = DataManager.shared.getSportClubs()
+                print(sportClubsForShowing)
+                completion(Translator.shared.converteSportClubs(from: sportClubsForShowing))
+            }
+        }
+    }
+    
 }
