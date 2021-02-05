@@ -84,6 +84,8 @@ class DataManager {
         deleteAllUnions()
         deleteAllBuildings()
         deleteAllInstitutes()
+        deleteAllSportClubs()
+        deleteAllDesingOffices()
     }
     
 //    // MARK: Функция для формирования БД для вставки в приложение в эпстор (нужно закинуть в InitRealm)
