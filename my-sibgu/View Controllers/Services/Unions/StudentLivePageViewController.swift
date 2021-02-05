@@ -56,7 +56,7 @@ class StudentLivePageViewController: UIPageViewController {
             }
         }
         
-        segmentedControl = SegmentedControl(items: ["unions", "n.2", "n.3"], sectionWidth: 90)
+        segmentedControl = SegmentedControl(items: ["unions", "sport", "sdo"], sectionWidth: 90)
         segmentedControl.delegate = self
         
         navigationItem.titleView = segmentedControl

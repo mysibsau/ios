@@ -13,5 +13,5 @@
 
 // Из StudentLive
 "unions" = "Unions";
-"n.2" = "Спорт";
-"n.3" = "СКБ";
+"sport" = "Sport";
+"sdo" = "SDO";
