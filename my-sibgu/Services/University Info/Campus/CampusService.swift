@@ -43,6 +43,17 @@ class CampusService {
         }
     }
     
+    func getSportClubsFromLocal() -> [SportClub]? {
+        let rSportClubs = DataManager.shared.getSportClubs()
+        let sportClubs = Translator.shared.converteSportClubs(from: rSportClubs)
+        
+        if sportClubs.isEmpty {
+            return nil
+        } else {
+            return sportClubs
+        }
+    }
+    
     // MARK: - From Local or From API -
     func getBuildings(completion: @escaping ([Building]?) -> Void) {
         let buildingsFromLocal = DataManager.shared.getBuildings()
@@ -140,12 +151,12 @@ class CampusService {
                 return
             }
             
+            print("RESPONSE", sportClubsResponse)
             DispatchQueue.main.async {
                 DataManager.shared.deleteAllSportClubs()
                 let sportClubs = sportClubsResponse.map { $0.converteToRealm() }
                 DataManager.shared.write(sportClubs: sportClubs)
                 let sportClubsForShowing = DataManager.shared.getSportClubs()
-                print(sportClubsForShowing)
                 completion(Translator.shared.converteSportClubs(from: sportClubsForShowing))
             }
         }

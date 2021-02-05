@@ -11,7 +11,7 @@ class DownloadOperation: Operation {
     
     private var task: URLSessionDataTask?
     private let session: URLSession
-    private let url: URL
+    private let urlRequest: URLRequest
     private let completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
     
     
@@ -43,7 +43,15 @@ class DownloadOperation: Operation {
     // MARK: - Initialization
     init(session: URLSession, url: URL, completionHandler: ((Data?, URLResponse?, Error?) -> Void)?) {
         self.session = session
-        self.url = url
+        self.urlRequest = URLRequest(url: url)
+        self.completionHandler = completionHandler
+        
+        super.init()
+    }
+    
+    init(session: URLSession, urlRequest: URLRequest, completionHandler: ((Data?, URLResponse?, Error?) -> Void)?) {
+        self.session = session
+        self.urlRequest = urlRequest
         self.completionHandler = completionHandler
         
         super.init()
@@ -62,7 +70,7 @@ class DownloadOperation: Operation {
             return
         }
         
-        task = session.dataTask(with: url) { [weak self] data, response, error in
+        task = session.dataTask(with: urlRequest) { [weak self] data, response, error in
             if let completionHandler = self?.completionHandler {
                 completionHandler(data, response, error)
             }

@@ -179,6 +179,10 @@
 		4AE030F025CD439800E8A9C0 /* DesignOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */; };
 		4AE030F425CD443E00E8A9C0 /* DesignOfficeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030F325CD443E00E8A9C0 /* DesignOfficeResponse.swift */; };
 		4AE030F825CD44C000E8A9C0 /* RDesingOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */; };
+		4AE0310025CD714100E8A9C0 /* SportClubsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */; };
+		4AE0310425CD72A600E8A9C0 /* SportClub+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310325CD72A600E8A9C0 /* SportClub+Equatable.swift */; };
+		4AE0310825CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */; };
+		4AE0310C25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310B25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */; };
@@ -426,6 +430,10 @@
 		4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOffice.swift; sourceTree = "<group>"; };
 		4AE030F325CD443E00E8A9C0 /* DesignOfficeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfficeResponse.swift; sourceTree = "<group>"; };
 		4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDesingOffice.swift; sourceTree = "<group>"; };
+		4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportClubsTableViewController.swift; sourceTree = "<group>"; };
+		4AE0310325CD72A600E8A9C0 /* SportClub+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SportClub+Equatable.swift"; sourceTree = "<group>"; };
+		4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfficesTableViewController.swift; sourceTree = "<group>"; };
+		4AE0310B25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignOffice+Equatable.swift"; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewController.swift; sourceTree = "<group>"; };
@@ -908,6 +916,8 @@
 				4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */,
 				4A7A56F2256BF5BF00E2CE0F /* UnionsTableViewController.swift */,
 				4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */,
+				4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */,
+				4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */,
 			);
 			path = Unions;
 			sourceTree = "<group>";
@@ -1351,6 +1361,8 @@
 			isa = PBXGroup;
 			children = (
 				4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */,
+				4AE0310325CD72A600E8A9C0 /* SportClub+Equatable.swift */,
+				4AE0310B25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1623,6 +1635,7 @@
 				4AEE1804256EB44600DD7D9F /* LessonView.swift in Sources */,
 				4A077FF625B08AF60038D87E /* NewsViewController.swift in Sources */,
 				4AF3EC8625AA4A5400AF0367 /* InformingService.swift in Sources */,
+				4AE0310825CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift in Sources */,
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
@@ -1687,6 +1700,7 @@
 				4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
+				4AE0310425CD72A600E8A9C0 /* SportClub+Equatable.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
 				4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */,
@@ -1720,6 +1734,7 @@
 				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,
 				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
 				4AD21F6F25C1AA870018D4F0 /* RPlace.swift in Sources */,
+				4AE0310025CD714100E8A9C0 /* SportClubsTableViewController.swift in Sources */,
 				4A07DDA4255D94800022B6A9 /* GroupDay.swift in Sources */,
 				4AD21F4F25C175220018D4F0 /* ProfessorResponse.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
@@ -1785,6 +1800,7 @@
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4AD21F6325C1A97E0018D4F0 /* Professor.swift in Sources */,
 				4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */,
+				4AE0310C25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift in Sources */,
 				4AC1912125B324B400325142 /* ShortSurvey.swift in Sources */,
 				4A736C0325A722670040BBED /* TappableLabel.swift in Sources */,
 				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,

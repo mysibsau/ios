@@ -27,16 +27,16 @@ struct ApiTimetable {
     
     
     // MARK: - Timetables
-    static func timetable(forGroupId groupId: Int) -> URL {
-        return URL(string: "\(address)/group/\(groupId)")!
+    static func timetable(forGroupId groupId: Int) -> URLRequest {
+        return URLRequest(url: URL(string: "\(address)/group/\(groupId)")!, cachePolicy: .reloadIgnoringLocalCacheData)
     }
     
-    static func timetable(forProfessorId professorId: Int) -> URL {
-        return URL(string: "\(address)/teacher/\(professorId)")!
+    static func timetable(forProfessorId professorId: Int) -> URLRequest {
+        return URLRequest(url: URL(string: "\(address)/teacher/\(professorId)")!, cachePolicy: .reloadIgnoringLocalCacheData)
     }
     
-    static func timetable(forPlaceId placeId: Int) -> URL {
-        return URL(string: "\(address)/place/\(placeId)")!
+    static func timetable(forPlaceId placeId: Int) -> URLRequest {
+        return URLRequest(url: URL(string: "\(address)/place/\(placeId)")!, cachePolicy: .reloadIgnoringLocalCacheData)
     }
     
     

@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Удаляем все badge
         UIApplication.shared.applicationIconBadgeNumber = 0
         
-        print(ApiCampus.desingOffices())
-        
         return true
     }
 

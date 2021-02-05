@@ -70,6 +70,15 @@ class PersonViewController: UIViewController {
         backgroupndImageView.loadImage(at: union.logoUrl)
         personImageView.loadImage(at: union.leaderPhotoUrl)
     }
+    
+    convenience init(sportClub: SportClub) {
+        self.init()
+        self.person = sportClub
+        updateText()
+        backgroupndImageView.blurRadius = 0
+        backgroupndImageView.loadImage(at: sportClub.logoUrl)
+        personImageView.isHidden = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,6 +163,25 @@ class PersonViewController: UIViewController {
                     self.present(vc, animated: true, completion: nil)
                 })
             }
+        } else if let sportClub = person as? SportClub {
+            self.navigationItem.setCenterTitle(title: sportClub.name)
+            
+//            addTextView(text: sportClub.name)
+            
+            addLabel(text: "head".localized(using: tableName))
+            addTextView(text: sportClub.fio)
+            
+            addLabel(text: "training.dates".localized(using: tableName))
+            addTextView(text: sportClub.dates)
+            
+            addView(text: sportClub.address, imageName: "place")
+            
+            addButton(text: sportClub.phone, imageName: "phone", action: {
+                guard let url = URL(string: "tel://\(sportClub.phone.removingWhitespaces())") else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })
         }
     }
     
@@ -220,7 +248,13 @@ class PersonViewController: UIViewController {
     private func setupStackView() {
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(personImageView.snp.bottom).offset(30)
+            // В спорт нет круглого изображения
+            if self.person is SportClub {
+                make.top.equalTo(separateLine.snp.bottom).offset(30)
+            } else {
+                make.top.equalTo(personImageView.snp.bottom).offset(30)
+            }
+//            make.top.equalTo(personImageView.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-40)
         }
