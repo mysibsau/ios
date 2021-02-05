@@ -333,9 +333,19 @@ extension DataManager {
         return Array(usions)
     }
     
+    func getSportClubs() -> [RSportClub] {
+        let sportClubs = downloadedRealm.objects(RSportClub.self)
+        return Array(sportClubs)
+    }
+    
     func getBuildings() -> [RBuilding] {
         let buildings = downloadedRealm.objects(RBuilding.self)
         return Array(buildings)
+    }
+    
+    func getDesingOffice() -> [RDesingOffice] {
+        let desingOffice = downloadedRealm.objects(RDesingOffice.self)
+        return Array(desingOffice)
     }
     
     func write(institutes: [RInstitute]) {
@@ -371,6 +381,18 @@ extension DataManager {
     func write(building: RBuilding) {
         try? downloadedRealm.write {
             downloadedRealm.add(building, update: .all)
+        }
+    }
+    
+    func write(sportClubs: [RSportClub]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(sportClubs, update: .all)
+        }
+    }
+    
+    func write(desingOffices: [RDesingOffice]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(desingOffices, update: .all)
         }
     }
     
@@ -440,6 +462,28 @@ extension DataManager {
         let downloadedBuildings = downloadedRealm.objects(RBuilding.self)
         try? downloadedRealm.write {
             downloadedRealm.delete(downloadedBuildings, cascading: true)
+        }
+    }
+    
+    func deleteAllSportClubs() {
+        let userSportClubs = userRealm.objects(RSportClub.self)
+        try? userRealm.write {
+            userRealm.delete(userSportClubs, cascading: true)
+        }
+        let downloadedSportClubs = downloadedRealm.objects(RSportClub.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedSportClubs, cascading: true)
+        }
+    }
+    
+    func deleteAllDesingOffices() {
+        let userDesingOffices = userRealm.objects(RDesingOffice.self)
+        try? userRealm.write {
+            userRealm.delete(userDesingOffices, cascading: true)
+        }
+        let downloadedDesingOffices = downloadedRealm.objects(RDesingOffice.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedDesingOffices, cascading: true)
         }
     }
     

@@ -11,19 +11,36 @@ struct ApiCampus {
     
     static let address = ApiUniversityInfo.addressByVersion
     
-    static func buildings() -> URL {
+    static func buildings() -> URLRequest {
         let lang = Localize.currentLanguage
-        return URL(string: "\(address)/campus/buildings/?language=\(lang)")!
+        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/buildings/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
     }
     
-    static func institutes() -> URL {
+    static func institutes() -> URLRequest {
         let lang = Localize.currentLanguage
-        return URL(string: "\(address)/campus/institutes/?language=\(lang)")!
+        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/institutes/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
     }
     
-    static func unions() -> URL {
+    // MARK: Student Life
+    static func unions() -> URLRequest {
         let lang = Localize.currentLanguage
-        return URL(string: "\(address)/campus/unions/?language=\(lang)")!
+        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/unions/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
+    }
+    
+    static func sportClubs() -> URLRequest {
+        let lang = Localize.currentLanguage
+        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/sport_clubs/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
+        
+    }
+    
+    static func desingOffices() -> URLRequest {
+        let lang = Localize.currentLanguage
+        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/design_offices/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
     }
     
     static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {

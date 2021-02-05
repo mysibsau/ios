@@ -37,8 +37,8 @@ class StudentLivePageViewController: UIPageViewController {
         setSegmentedController()
         
         let vc1 = UnionsTableViewController()
-        let vc2 = UIViewController()
-        let vc3 = UIViewController()
+        let vc2 = SportClubsTableViewController()
+        let vc3 = DesignOfficesTableViewController()
         
         informingViewControllers = [
             vc1,

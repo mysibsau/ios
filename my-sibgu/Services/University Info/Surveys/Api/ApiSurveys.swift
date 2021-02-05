@@ -11,14 +11,16 @@ class ApiSurveys {
     
     static let address = ApiUniversityInfo.addressByVersion
     
-    static func allSurveys() -> URL {
+    static func allSurveys() -> URLRequest {
         let uuid = ApiUniversityInfo.currDeviceStringUuid
-        return URL(string: "\(address)/surveys/all/?uuid=\(uuid)")!
+        let urlRequest = URLRequest(url: URL(string: "\(address)/surveys/all/?uuid=\(uuid)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
     }
     
-    static func survey(withId id: Int) -> URL {
+    static func survey(withId id: Int) -> URLRequest {
         let uuid = ApiUniversityInfo.currDeviceStringUuid
-        return URL(string: "\(address)/surveys/\(id)/?uuid=\(uuid)")!
+        let urlRequest = URLRequest(url: URL(string: "\(address)/surveys/\(id)/?uuid=\(uuid)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        return urlRequest
     }
     
     static func post(surveyId: Int, answers: [AnswerPost]) -> URLRequest {

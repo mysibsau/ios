@@ -40,27 +40,38 @@ class ApiCampusService {
         task.resume()
     }
     
-    func loadBuidlings(completion: @escaping (_ buildings: [BuidlingResponse]?) -> Void) {
-        load([BuidlingResponse].self, url: ApiCampus.buildings(), completion: completion)
-    }
     
-    func loadUnions(completion: @escaping (_ unions: [UnionResponse]?) -> Void) {
-        load([UnionResponse].self, url: ApiCampus.unions(), completion: completion)
+    // TODO: Надо удалить функцию ниже и юзать ту, что в `baseApiService`
+    func loadBuidlings(completion: @escaping (_ buildings: [BuidlingResponse]?) -> Void) {
+        load([BuidlingResponse].self, urlRequest: ApiCampus.buildings(), completion: completion)
     }
     
     func loadInstitutes(completion: @escaping (_ institutes: [InstituteResponse]?) -> Void) {
-        load([InstituteResponse].self, url: ApiCampus.institutes(), completion: completion)
+        load([InstituteResponse].self, urlRequest: ApiCampus.institutes(), completion: completion)
+    }
+    
+    // MARK: Student Life
+    func loadUnions(completion: @escaping (_ unions: [UnionResponse]?) -> Void) {
+        load([UnionResponse].self, urlRequest: ApiCampus.unions(), completion: completion)
+    }
+    
+    func loadSportClubs(completion: @escaping (_ sportClubs: [SportClubResponse]?) -> Void) {
+        baseApiService.load([SportClubResponse].self, url: ApiCampus.sportClubs(), completion: completion)
+    }
+    
+    func loadDesingOffices(completion: @escaping (_ desingOffices: [DesignOfficeResponse]?) -> Void) {
+        baseApiService.load([DesignOfficeResponse].self, url: ApiCampus.desingOffices(), completion: completion)
     }
     
     
-    private func load<T: Decodable>(_ type: [T].Type, url: URL, completion: @escaping ([T]?) -> Void) where T: ConvertableToRealm {
+    private func load<T: Decodable>(_ type: [T].Type, urlRequest: URLRequest, completion: @escaping ([T]?) -> Void) where T: ConvertableToRealm {
         var downloadedObjects: [T]?
         
         let completionOperation = BlockOperation {
             completion(downloadedObjects)
         }
         
-        let downloadingOperation = DownloadOperation(session: baseApiService.session, url: url) { data, response, error in
+        let downloadingOperation = DownloadOperation(session: baseApiService.session, urlRequest: urlRequest) { data, response, error in
             guard let response = ResponseHandler.handleResponse([T].self, data, response, error) else {
                 completion(nil)
                 self.baseApiService.cancelAllDownloading()

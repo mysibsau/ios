@@ -43,6 +43,28 @@ class CampusService {
         }
     }
     
+    func getSportClubsFromLocal() -> [SportClub]? {
+        let rSportClubs = DataManager.shared.getSportClubs()
+        let sportClubs = Translator.shared.converteSportClubs(from: rSportClubs)
+        
+        if sportClubs.isEmpty {
+            return nil
+        } else {
+            return sportClubs
+        }
+    }
+    
+    func getDesignOfficesFromLocal() -> [DesignOffice]? {
+        let rDesignOffices = DataManager.shared.getDesingOffice()
+        let designOffices = Translator.shared.convetreDesignOffices(from: rDesignOffices)
+        
+        if designOffices.isEmpty {
+            return nil
+        } else {
+            return designOffices
+        }
+    }
+    
     // MARK: - From Local or From API -
     func getBuildings(completion: @escaping ([Building]?) -> Void) {
         let buildingsFromLocal = DataManager.shared.getBuildings()
@@ -121,6 +143,56 @@ class CampusService {
                 DataManager.shared.write(unions: unions)
                 let unionsForShowing = DataManager.shared.getUnions()
                 completion(Translator.shared.converteUnions(from: unionsForShowing))
+            }
+        }
+    }
+    
+    func getSportClubs(completion: @escaping ([SportClub]?) -> Void) {
+        let sportClubsFromLocal = DataManager.shared.getSportClubs()
+        
+        ApiCampusService().loadSportClubs { sportClubsResponse in
+            guard let sportClubsResponse = sportClubsResponse else {
+                if sportClubsFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.converteSportClubs(from: sportClubsFromLocal))
+                    }
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                DataManager.shared.deleteAllSportClubs()
+                let sportClubs = sportClubsResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(sportClubs: sportClubs)
+                let sportClubsForShowing = DataManager.shared.getSportClubs()
+                completion(Translator.shared.converteSportClubs(from: sportClubsForShowing))
+            }
+        }
+    }
+    
+    func getDesignOffice(completion: @escaping ([DesignOffice]?) -> Void) {
+        let designOfficeFromLocal = DataManager.shared.getDesingOffice()
+        
+        ApiCampusService().loadDesingOffices { designOfficesResponse in
+            guard let designOfficesResponse = designOfficesResponse else {
+                if designOfficeFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.convetreDesignOffices(from: designOfficeFromLocal))
+                    }
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                DataManager.shared.deleteAllDesingOffices()
+                let designOffices = designOfficesResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(desingOffices: designOffices)
+                let designOfficesForShowing = DataManager.shared.getDesingOffice()
+                completion(Translator.shared.convetreDesignOffices(from: designOfficesForShowing))
             }
         }
     }

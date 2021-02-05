@@ -260,4 +260,37 @@ class Translator {
         return unions
     }
     
+    func converteSportClubs(from rSportClubs: [RSportClub]) -> [SportClub] {
+        var sportClubs = [SportClub]()
+        rSportClubs.forEach { rSportClub in
+            let sportClub = SportClub(
+                id: rSportClub.id,
+                name: rSportClub.name,
+                fio: rSportClub.fio,
+                phone: rSportClub.phone,
+                address: rSportClub.address,
+                dates: rSportClub.dates,
+                logoUrl: ApiUniversityInfo.download(with: rSportClub.logoUrl)
+            )
+            sportClubs.append(sportClub)
+        }
+        return sportClubs
+    }
+    
+    func convetreDesignOffices(from rDesignOffices: [RDesingOffice]) -> [DesignOffice] {
+        var designOffices = [DesignOffice]()
+        rDesignOffices.forEach { rDesignOffice in
+            let designOffice = DesignOffice(
+                id: rDesignOffice.id,
+                name: rDesignOffice.name,
+                address: rDesignOffice.address,
+                about: rDesignOffice.about,
+                fio: rDesignOffice.fio,
+                email: rDesignOffice.email
+            )
+            designOffices.append(designOffice)
+        }
+        return designOffices
+    }
+    
 }

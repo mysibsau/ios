@@ -64,7 +64,7 @@ class ApiTimetableService {
         withId id: Int,
         completion: @escaping (_ timetableResponse: TimetableResponse?) -> Void
     ) {
-        let url: URL
+        let url: URLRequest
         switch timetableType {
         case .group: url = ApiTimetable.timetable(forGroupId: id)
         case .professor: url = ApiTimetable.timetable(forProfessorId: id)
