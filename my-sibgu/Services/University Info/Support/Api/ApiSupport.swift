@@ -12,7 +12,8 @@ class ApiSupport {
     static let address = ApiUniversityInfo.addressByVersion
     
     static func allFaq() -> URL {
-        return URL(string: "\(address)/support/faq/")!
+        let lang = Localize.currentLanguage
+        return URL(string: "\(address)/support/faq/?language=\(lang)")!
     }
     
     static func askQuestion(question: String) -> URLRequest {
