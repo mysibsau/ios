@@ -277,4 +277,19 @@ class Translator {
         return sportClubs
     }
     
+    func convetreDesignOffices(from rDesignOffices: [RDesingOffice]) -> [DesignOffice] {
+        var designOffices = [DesignOffice]()
+        rDesignOffices.forEach { rDesignOffice in
+            let designOffice = DesignOffice(
+                id: rDesignOffice.id,
+                address: rDesignOffice.address,
+                about: rDesignOffice.about,
+                fio: rDesignOffice.fio,
+                email: rDesignOffice.email
+            )
+            designOffices.append(designOffice)
+        }
+        return designOffices
+    }
+    
 }

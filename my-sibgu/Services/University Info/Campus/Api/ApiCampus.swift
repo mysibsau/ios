@@ -39,7 +39,7 @@ struct ApiCampus {
     
     static func desingOffices() -> URLRequest {
         let lang = Localize.currentLanguage
-        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/desing_offices/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/design_offices/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
         return urlRequest
     }
     

@@ -151,13 +151,37 @@ class CampusService {
                 return
             }
             
-            print("RESPONSE", sportClubsResponse)
             DispatchQueue.main.async {
                 DataManager.shared.deleteAllSportClubs()
                 let sportClubs = sportClubsResponse.map { $0.converteToRealm() }
                 DataManager.shared.write(sportClubs: sportClubs)
                 let sportClubsForShowing = DataManager.shared.getSportClubs()
                 completion(Translator.shared.converteSportClubs(from: sportClubsForShowing))
+            }
+        }
+    }
+    
+    func getDesignOffice(completion: @escaping ([DesignOffice]?) -> Void) {
+        let designOfficeFromLocal = DataManager.shared.getDesingOffice()
+        
+        ApiCampusService().loadDesingOffices { designOfficesResponse in
+            guard let designOfficesResponse = designOfficesResponse else {
+                if designOfficeFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.convetreDesignOffices(from: designOfficeFromLocal))
+                    }
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                DataManager.shared.deleteAllDesingOffices()
+                let designOffices = designOfficesResponse.map { $0.converteToRealm() }
+                DataManager.shared.write(desingOffices: designOffices)
+                let designOfficesForShowing = DataManager.shared.getDesingOffice()
+                completion(Translator.shared.convetreDesignOffices(from: designOfficesForShowing))
             }
         }
     }
