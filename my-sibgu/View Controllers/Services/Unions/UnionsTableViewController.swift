@@ -73,9 +73,7 @@ class UnionsTableViewController: UITableViewController {
     }
     
     private func loadUnions() {
-        print("fine1")
         campusService.getUnions { optionalUnions in
-            print("fine2")
             guard let u = optionalUnions else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()

@@ -74,7 +74,6 @@ class DataManager {
         
         NotificationCenter.default.addObserver(self, selector: #selector(deleteAll), name: .languageChanged, object: nil)
         
-        // deleteTimetable(forGroupId: 1)
         // saveToInitData()
     }
     

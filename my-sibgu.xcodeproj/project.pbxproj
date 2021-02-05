@@ -48,7 +48,6 @@
 		4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DDF1255DA4E10022B6A9 /* ResponseTranslator.swift */; };
 		4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DDF4255DA5330022B6A9 /* DownloadOperation.swift */; };
 		4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DDFC255DA58F0022B6A9 /* ApiTimetableService.swift */; };
-		4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DDFF255DA5E20022B6A9 /* TimetableResponseHandler.swift */; };
 		4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */; };
 		4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */; };
 		4A1A93B125C49E5B008AF7E0 /* StudentLivePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */; };
@@ -294,7 +293,6 @@
 		4A07DDF1255DA4E10022B6A9 /* ResponseTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTranslator.swift; sourceTree = "<group>"; };
 		4A07DDF4255DA5330022B6A9 /* DownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
 		4A07DDFC255DA58F0022B6A9 /* ApiTimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTimetableService.swift; sourceTree = "<group>"; };
-		4A07DDFF255DA5E20022B6A9 /* TimetableResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableResponseHandler.swift; sourceTree = "<group>"; };
 		4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
 		4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLivePageViewController.swift; sourceTree = "<group>"; };
@@ -686,7 +684,6 @@
 				4A07DDE7255DA4100022B6A9 /* ResponseObjects */,
 				4A07DDFC255DA58F0022B6A9 /* ApiTimetableService.swift */,
 				4A07DDE4255DA3B70022B6A9 /* ApiTimetable.swift */,
-				4A07DDFF255DA5E20022B6A9 /* TimetableResponseHandler.swift */,
 			);
 			path = "Api Timetable Service";
 			sourceTree = "<group>";
@@ -1643,7 +1640,6 @@
 				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
 				4AC191A525B6E05F00325142 /* ThemeWindow.swift in Sources */,
-				4A07DE00255DA5E20022B6A9 /* TimetableResponseHandler.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
 				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,
 				4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */,

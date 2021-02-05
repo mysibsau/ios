@@ -235,7 +235,6 @@ class TimetableService {
                 let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
                 DataManager.shared.write(groups: rGroups)
                 UserDefaultsConfig.groupsHash = groupsHash
-                print("save groups")
             }
         }
         
@@ -251,7 +250,6 @@ class TimetableService {
                 let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
                 DataManager.shared.write(professors: rProfessors)
                 UserDefaultsConfig.professorsHash = professorsHash
-                print("save professors")
             }
         }
         
@@ -267,7 +265,6 @@ class TimetableService {
                 let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
                 DataManager.shared.write(places: rPlaces)
                 UserDefaultsConfig.placesHash = placesHash
-                print("save places")
             }
         }
     }

@@ -12,26 +12,10 @@ class CustomViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateText()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
-        
-//        UINavigationBar.appearance().barTintColor = UIColor.Pallete.content
-        //        UINavigationBar.appearance().tintColor = UIColor.white
-        //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-        //
-//        self.appe.backgroundColor = UIColor.red;
-                
-//        UITabBar.appearance().backgroundColor = .init(hex: "FFFFFF")
-        
-//        self.tabBar.tintColor = .red
-//        self.tabBar.backgroundColor = .red
-        
-        
-        
         self.tabBar.barTintColor = UIColor.Pallete.Special.tabNavBar
         
-        print(self.tabBar.barTintColor)
-        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     @objc

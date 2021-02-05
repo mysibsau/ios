@@ -22,9 +22,6 @@ class ImageLoader {
     
     
     func loadImage(_ url: URL, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
-//        print(loadedImages)
-//        print(loadedImages[url])
-//        print(url)
         if let image = loadedImages[url] {
             completion(.success(image))
             return nil

@@ -87,8 +87,6 @@ class SportClubsTableViewController: UITableViewController {
     }
     
     private func set(sportClubs: [SportClub]) {
-        print(sportClubs)
-        print(self.sportClubs)
         let newSportClubs = sportClubs
         if newSportClubs != self.sportClubs {
             self.sportClubs = newSportClubs

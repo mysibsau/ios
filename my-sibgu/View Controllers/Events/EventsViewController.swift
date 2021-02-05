@@ -97,7 +97,6 @@ class EventsViewController: UICollectionViewController {
     
     // MARK: - Collection View Data Source -
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(data.count)
         return data.count
     }
     

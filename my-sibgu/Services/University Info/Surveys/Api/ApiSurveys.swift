@@ -30,8 +30,6 @@ class ApiSurveys {
         let surveyAnswerPost = SurveyAnswersPost(uuid: uuid, question: answers)
         let jsonData = try! JSONEncoder().encode(surveyAnswerPost)
         
-        print(String(data: jsonData, encoding: .utf8)!)
-        
         let request = ApiUniversityInfo.postRequest(with: url, andJsonData: jsonData)
         return request
     }
