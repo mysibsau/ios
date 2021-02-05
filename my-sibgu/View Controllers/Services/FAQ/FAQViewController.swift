@@ -30,7 +30,7 @@ class FAQViewController: UIViewController {
         stackView.backgroundColor = .clear
         scrollView.backgroundColor = .clear
         
-        navigationItem.title = "Частые вопросы"
+        setupNavBar()
         
         setupScrollView()
         setupStackView()
@@ -43,11 +43,17 @@ class FAQViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
+    private func setupNavBar() {
+        self.navigationController?.configurateNavigationBar()
+        self.navigationItem.configurate()
+        self.navigationItem.setLeftTitle(title: "FAQ")
+    }
+    
     @objc
     private func updateText() {
         let tableName = "FAQ"
         
-        navigationItem.title = "nav.bar.title".localized(using: tableName)
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
         addQuestionButton.setTitle("ask.another.question".localized(using: tableName), for: .normal)
     }
     

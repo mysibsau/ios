@@ -264,6 +264,7 @@ class Translator {
         var sportClubs = [SportClub]()
         rSportClubs.forEach { rSportClub in
             let sportClub = SportClub(
+                id: rSportClub.id,
                 name: rSportClub.name,
                 fio: rSportClub.fio,
                 phone: rSportClub.phone,

@@ -343,6 +343,11 @@ extension DataManager {
         return Array(buildings)
     }
     
+    func getDesingOffice() -> [RDesingOffice] {
+        let desingOffice = downloadedRealm.objects(RDesingOffice.self)
+        return Array(desingOffice)
+    }
+    
     func write(institutes: [RInstitute]) {
         try? downloadedRealm.write {
             downloadedRealm.add(institutes, update: .all)
@@ -382,6 +387,12 @@ extension DataManager {
     func write(sportClubs: [RSportClub]) {
         try? downloadedRealm.write {
             downloadedRealm.add(sportClubs, update: .all)
+        }
+    }
+    
+    func write(desingOffices: [RDesingOffice]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(desingOffices, update: .all)
         }
     }
     
@@ -462,6 +473,17 @@ extension DataManager {
         let downloadedSportClubs = downloadedRealm.objects(RSportClub.self)
         try? downloadedRealm.write {
             downloadedRealm.delete(downloadedSportClubs, cascading: true)
+        }
+    }
+    
+    func deleteAllDesingOffices() {
+        let userDesingOffices = userRealm.objects(RDesingOffice.self)
+        try? userRealm.write {
+            userRealm.delete(userDesingOffices, cascading: true)
+        }
+        let downloadedDesingOffices = downloadedRealm.objects(RDesingOffice.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedDesingOffices, cascading: true)
         }
     }
     

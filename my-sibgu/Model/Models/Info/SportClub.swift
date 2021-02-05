@@ -9,6 +9,7 @@ import Foundation
 
 struct SportClub {
     
+    let id: Int
     let name: String
     let fio: String
     let phone: String

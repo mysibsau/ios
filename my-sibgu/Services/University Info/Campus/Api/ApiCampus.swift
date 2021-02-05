@@ -32,6 +32,11 @@ struct ApiCampus {
         return URL(string: "\(address)/campus/sport_clubs/?language=\(lang)")!
     }
     
+    static func desingOffices() -> URL {
+        let lang = Localize.currentLanguage
+        return URL(string: "\(address)/campus/desing_offices/?language=\(lang)")!
+    }
+    
     static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
         let parameters = [
             "fio": fio,

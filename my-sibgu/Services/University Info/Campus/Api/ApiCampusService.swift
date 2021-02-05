@@ -59,6 +59,10 @@ class ApiCampusService {
         baseApiService.load([SportClubResponse].self, url: ApiCampus.sportClubs(), completion: completion)
     }
     
+    func loadDesingOffices(completion: @escaping (_ desingOffices: [DesignOfficeResponse]?) -> Void) {
+        baseApiService.load([DesignOfficeResponse].self, url: ApiCampus.desingOffices(), completion: completion)
+    }
+    
     
     private func load<T: Decodable>(_ type: [T].Type, url: URL, completion: @escaping ([T]?) -> Void) where T: ConvertableToRealm {
         var downloadedObjects: [T]?

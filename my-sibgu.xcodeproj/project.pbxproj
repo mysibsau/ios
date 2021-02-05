@@ -176,6 +176,9 @@
 		4AE030E225CD2D9800E8A9C0 /* SportClub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030E125CD2D9800E8A9C0 /* SportClub.swift */; };
 		4AE030E625CD2F6700E8A9C0 /* SportClubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030E525CD2F6700E8A9C0 /* SportClubResponse.swift */; };
 		4AE030EA25CD315000E8A9C0 /* RSportClub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030E925CD315000E8A9C0 /* RSportClub.swift */; };
+		4AE030F025CD439800E8A9C0 /* DesignOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */; };
+		4AE030F425CD443E00E8A9C0 /* DesignOfficeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030F325CD443E00E8A9C0 /* DesignOfficeResponse.swift */; };
+		4AE030F825CD44C000E8A9C0 /* RDesingOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */; };
@@ -420,6 +423,9 @@
 		4AE030E125CD2D9800E8A9C0 /* SportClub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportClub.swift; sourceTree = "<group>"; };
 		4AE030E525CD2F6700E8A9C0 /* SportClubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportClubResponse.swift; sourceTree = "<group>"; };
 		4AE030E925CD315000E8A9C0 /* RSportClub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSportClub.swift; sourceTree = "<group>"; };
+		4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOffice.swift; sourceTree = "<group>"; };
+		4AE030F325CD443E00E8A9C0 /* DesignOfficeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfficeResponse.swift; sourceTree = "<group>"; };
+		4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDesingOffice.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewController.swift; sourceTree = "<group>"; };
@@ -1075,6 +1081,7 @@
 				4AB5A6A425A1E00000518FEA /* RUnion.swift */,
 				4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */,
 				4AE030E925CD315000E8A9C0 /* RSportClub.swift */,
+				4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -1094,6 +1101,7 @@
 				4AB5A6A825A1E3A500518FEA /* UnionResponse.swift */,
 				4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */,
 				4AE030E525CD2F6700E8A9C0 /* SportClubResponse.swift */,
+				4AE030F325CD443E00E8A9C0 /* DesignOfficeResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -1274,6 +1282,7 @@
 				4AC1912825B32BC300325142 /* Survey.swift */,
 				4A5063CF25CAA158004C2BC8 /* FAQ.swift */,
 				4AE030E125CD2D9800E8A9C0 /* SportClub.swift */,
+				4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1648,6 +1657,7 @@
 				4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
 				4A5063F425CAFB1E004C2BC8 /* ApiSupport.swift in Sources */,
+				4AE030F025CD439800E8A9C0 /* DesignOffice.swift in Sources */,
 				4A077FEA25B0660D0038D87E /* SegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
@@ -1672,6 +1682,7 @@
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,
 				4AD21F4925C1627F0018D4F0 /* RTimetable.swift in Sources */,
 				4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */,
+				4AE030F825CD44C000E8A9C0 /* RDesingOffice.swift in Sources */,
 				4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */,
 				4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
@@ -1697,6 +1708,7 @@
 				4AD21F4325C15C370018D4F0 /* Timetable.swift in Sources */,
 				4AD21F3D25C154BD0018D4F0 /* TimetableResponse.swift in Sources */,
 				4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */,
+				4AE030F425CD443E00E8A9C0 /* DesignOfficeResponse.swift in Sources */,
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */,
