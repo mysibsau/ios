@@ -10,6 +10,7 @@ import RealmSwift
 class RDesingOffice: Object {
     
     @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
     @objc dynamic var address: String = ""
     @objc dynamic var about: String = ""
     @objc dynamic var fio: String? = nil

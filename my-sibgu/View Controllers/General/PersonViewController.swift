@@ -79,6 +79,15 @@ class PersonViewController: UIViewController {
         backgroupndImageView.loadImage(at: sportClub.logoUrl)
         personImageView.isHidden = true
     }
+    
+    convenience init(designOffice: DesignOffice) {
+        self.init()
+        self.person = designOffice
+        updateText()
+        backgroupndImageView.blurRadius = 0
+        backgroupndImageView.image = UIImage(named: "back_main_logo")
+        personImageView.isHidden = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,8 +175,6 @@ class PersonViewController: UIViewController {
         } else if let sportClub = person as? SportClub {
             self.navigationItem.setCenterTitle(title: sportClub.name)
             
-//            addTextView(text: sportClub.name)
-            
             addLabel(text: "head".localized(using: tableName))
             addTextView(text: sportClub.fio)
             
@@ -182,6 +189,21 @@ class PersonViewController: UIViewController {
                     UIApplication.shared.open(url)
                 }
             })
+        } else if let designOffice = person as? DesignOffice {
+            self.navigationItem.setCenterTitle(title: designOffice.name)
+            
+            addLabel(text: "about".localized(using: tableName))
+            addTextView(text: designOffice.about)
+            
+            if let fio = designOffice.fio {
+                addLabel(text: "head".localized(using: tableName))
+                addTextView(text: fio)
+            }
+            
+            addView(text: designOffice.address, imageName: "place")
+            if let email = designOffice.email {
+                addView(text: email, imageName: "email")
+            }
         }
     }
     
@@ -249,7 +271,7 @@ class PersonViewController: UIViewController {
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             // В спорт нет круглого изображения
-            if self.person is SportClub {
+            if self.person is SportClub || self.person is DesignOffice {
                 make.top.equalTo(separateLine.snp.bottom).offset(30)
             } else {
                 make.top.equalTo(personImageView.snp.bottom).offset(30)

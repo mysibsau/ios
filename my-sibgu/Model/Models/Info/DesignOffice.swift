@@ -10,6 +10,7 @@ import Foundation
 struct DesignOffice {
     
     let id: Int
+    let name: String
     let address: String
     let about: String
     let fio: String?

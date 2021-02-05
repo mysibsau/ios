@@ -54,6 +54,17 @@ class CampusService {
         }
     }
     
+    func getDesignOfficesFromLocal() -> [DesignOffice]? {
+        let rDesignOffices = DataManager.shared.getDesingOffice()
+        let designOffices = Translator.shared.convetreDesignOffices(from: rDesignOffices)
+        
+        if designOffices.isEmpty {
+            return nil
+        } else {
+            return designOffices
+        }
+    }
+    
     // MARK: - From Local or From API -
     func getBuildings(completion: @escaping ([Building]?) -> Void) {
         let buildingsFromLocal = DataManager.shared.getBuildings()

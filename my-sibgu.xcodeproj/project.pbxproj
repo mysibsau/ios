@@ -183,6 +183,7 @@
 		4AE0310425CD72A600E8A9C0 /* SportClub+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310325CD72A600E8A9C0 /* SportClub+Equatable.swift */; };
 		4AE0310825CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */; };
 		4AE0310C25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310B25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift */; };
+		4AE0311025CD936C00E8A9C0 /* DesignOfficeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310F25CD936C00E8A9C0 /* DesignOfficeTableCell.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */; };
@@ -434,6 +435,7 @@
 		4AE0310325CD72A600E8A9C0 /* SportClub+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SportClub+Equatable.swift"; sourceTree = "<group>"; };
 		4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfficesTableViewController.swift; sourceTree = "<group>"; };
 		4AE0310B25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignOffice+Equatable.swift"; sourceTree = "<group>"; };
+		4AE0310F25CD936C00E8A9C0 /* DesignOfficeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfficeTableCell.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewController.swift; sourceTree = "<group>"; };
@@ -926,6 +928,7 @@
 			isa = PBXGroup;
 			children = (
 				4A54F572259A1F7000184BC0 /* UnionTableViewCell.swift */,
+				4AE0310F25CD936C00E8A9C0 /* DesignOfficeTableCell.swift */,
 			);
 			path = Unions;
 			sourceTree = "<group>";
@@ -1787,6 +1790,7 @@
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
+				4AE0311025CD936C00E8A9C0 /* DesignOfficeTableCell.swift in Sources */,
 				4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,

@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Удаляем все badge
         UIApplication.shared.applicationIconBadgeNumber = 0
         
-        CampusService().getDesignOffice(completion: { a in
-            dump(a)
-        })
-        
         return true
     }
 

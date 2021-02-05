@@ -282,6 +282,7 @@ class Translator {
         rDesignOffices.forEach { rDesignOffice in
             let designOffice = DesignOffice(
                 id: rDesignOffice.id,
+                name: rDesignOffice.name,
                 address: rDesignOffice.address,
                 about: rDesignOffice.about,
                 fio: rDesignOffice.fio,
