@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3219003E42857FBE59711B96 /* Pods_NotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */; };
 		3A8079B519B64497324F2163 /* Pods_my_sibgu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */; };
+		4A00497F25CEB0ED00F59CB3 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */; };
+		4A00499425CEB22E00F59CB3 /* VacancyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */; };
+		4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499925CEB2AC00F59CB3 /* ApiWork.swift */; };
+		4A00499E25CEB30000F59CB3 /* ApiWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */; };
+		4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A125CEB3E300F59CB3 /* WorkService.swift */; };
 		4A051B9825BD539400287FD5 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051B9A25BD539400287FD5 /* Services.strings */; };
 		4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BA625BD6F7100287FD5 /* Buildings.strings */; };
 		4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BB025BD71C800287FD5 /* Institutes.strings */; };
@@ -246,6 +251,11 @@
 /* Begin PBXFileReference section */
 		1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.release.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.debug.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
+		4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyResponse.swift; sourceTree = "<group>"; };
+		4A00499925CEB2AC00F59CB3 /* ApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWork.swift; sourceTree = "<group>"; };
+		4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWorkService.swift; sourceTree = "<group>"; };
+		4A0049A125CEB3E300F59CB3 /* WorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkService.swift; sourceTree = "<group>"; };
 		4A051B9925BD539400287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051B9D25BD539700287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051BA525BD6F7100287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Buildings.strings; sourceTree = "<group>"; };
@@ -497,6 +507,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A00498825CEB1F800F59CB3 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				4A0049A125CEB3E300F59CB3 /* WorkService.swift */,
+				4A00498925CEB20500F59CB3 /* Api */,
+			);
+			path = Work;
+			sourceTree = "<group>";
+		};
+		4A00498925CEB20500F59CB3 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4A00498A25CEB20E00F59CB3 /* ResponseObjects */,
+				4A00499925CEB2AC00F59CB3 /* ApiWork.swift */,
+				4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4A00498A25CEB20E00F59CB3 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
 		4A077FCB25AF02DE0038D87E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +824,7 @@
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
 				4A5063E425CAFA35004C2BC8 /* Support */,
+				4A00498825CEB1F800F59CB3 /* Work */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -1301,6 +1339,7 @@
 				4A5063CF25CAA158004C2BC8 /* FAQ.swift */,
 				4AE030E125CD2D9800E8A9C0 /* SportClub.swift */,
 				4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */,
+				4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1647,7 +1686,9 @@
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
+				4A00497F25CEB0ED00F59CB3 /* Vacancy.swift in Sources */,
 				4AC191A525B6E05F00325142 /* ThemeWindow.swift in Sources */,
+				4A00499425CEB22E00F59CB3 /* VacancyResponse.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
 				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,
 				4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */,
@@ -1659,6 +1700,7 @@
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */,
 				4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */,
+				4A00499E25CEB30000F59CB3 /* ApiWorkService.swift in Sources */,
 				4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */,
 				4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */,
 				4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */,
@@ -1708,10 +1750,12 @@
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
 				4AE0310425CD72A600E8A9C0 /* SportClub+Equatable.swift in Sources */,
+				4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
 				4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */,
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
+				4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */,
 				4AEB721C25C84EBB00161E32 /* GoodCollectionViewCell.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
 				4AC1915725B4759300325142 /* AnswerView.swift in Sources */,
