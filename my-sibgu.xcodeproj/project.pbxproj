@@ -14,6 +14,8 @@
 		4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499925CEB2AC00F59CB3 /* ApiWork.swift */; };
 		4A00499E25CEB30000F59CB3 /* ApiWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */; };
 		4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A125CEB3E300F59CB3 /* WorkService.swift */; };
+		4A0049A825CEB5B200F59CB3 /* VacanciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */; };
+		4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A0049B125CEBA6F00F59CB3 /* Work.strings */; };
 		4A051B9825BD539400287FD5 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051B9A25BD539400287FD5 /* Services.strings */; };
 		4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BA625BD6F7100287FD5 /* Buildings.strings */; };
 		4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BB025BD71C800287FD5 /* Institutes.strings */; };
@@ -256,6 +258,9 @@
 		4A00499925CEB2AC00F59CB3 /* ApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWork.swift; sourceTree = "<group>"; };
 		4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWorkService.swift; sourceTree = "<group>"; };
 		4A0049A125CEB3E300F59CB3 /* WorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkService.swift; sourceTree = "<group>"; };
+		4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesTableViewController.swift; sourceTree = "<group>"; };
+		4A0049B025CEBA6F00F59CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Work.strings; sourceTree = "<group>"; };
+		4A0049B225CEBA7100F59CB3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Work.strings; sourceTree = "<group>"; };
 		4A051B9925BD539400287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051B9D25BD539700287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051BA525BD6F7100287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Buildings.strings; sourceTree = "<group>"; };
@@ -854,6 +859,7 @@
 				4A9C9D8725BF55470054E011 /* StudentLife.strings */,
 				4AEB721625C84D7600161E32 /* OnlineShop.strings */,
 				4A5063DE25CAABED004C2BC8 /* FAQ.strings */,
+				4A0049B125CEBA6F00F59CB3 /* Work.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1272,6 +1278,7 @@
 		4ACE947325CEACF10044E9AF /* Work */ = {
 			isa = PBXGroup;
 			children = (
+				4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -1576,6 +1583,7 @@
 				4A38D0B825B87CA1006EE06F /* Profile.strings in Resources */,
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
 				4A42819525BE01D700B2306C /* Informing.strings in Resources */,
+				4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */,
 				4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */,
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
@@ -1726,6 +1734,7 @@
 				4AE030E625CD2F6700E8A9C0 /* SportClubResponse.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
 				4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */,
+				4A0049A825CEB5B200F59CB3 /* VacanciesTableViewController.swift in Sources */,
 				4AD21F6B25C1AA5F0018D4F0 /* RProfessor.swift in Sources */,
 				4AC1918B25B6181A00325142 /* UIColor+Pallete.swift in Sources */,
 				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
@@ -1886,6 +1895,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4A0049B125CEBA6F00F59CB3 /* Work.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A0049B025CEBA6F00F59CB3 /* en */,
+				4A0049B225CEBA7100F59CB3 /* ru */,
+			);
+			name = Work.strings;
+			sourceTree = "<group>";
+		};
 		4A051B9A25BD539400287FD5 /* Services.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
