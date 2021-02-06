@@ -76,7 +76,7 @@ class VacanciesTableViewController: UITableViewController {
     }
     
     private func set(vacancies: [Vacancy]) {
-        self.vacancies = vacancies.sorted(by: { $0.id > $1.id })
+        self.vacancies = vacancies//.sorted(by: { $0.id > $1.id })
         self.tableView.reloadData()
     }
     
@@ -109,8 +109,8 @@ extension VacanciesTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vacancy = vacancies[indexPath.row]
         
-//        let vc = SurveyViewController(shortSurvey: shortSurvey)
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = VacancyViewController(vacancy: vacancy)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

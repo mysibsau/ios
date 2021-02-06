@@ -16,6 +16,8 @@
 		4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A125CEB3E300F59CB3 /* WorkService.swift */; };
 		4A0049A825CEB5B200F59CB3 /* VacanciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */; };
 		4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A0049B125CEBA6F00F59CB3 /* Work.strings */; };
+		4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049B525CEBB1800F59CB3 /* VacancyViewController.swift */; };
+		4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049BA25CEBD4700F59CB3 /* TitleBodyView.swift */; };
 		4A051B9825BD539400287FD5 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051B9A25BD539400287FD5 /* Services.strings */; };
 		4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BA625BD6F7100287FD5 /* Buildings.strings */; };
 		4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BB025BD71C800287FD5 /* Institutes.strings */; };
@@ -261,6 +263,8 @@
 		4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesTableViewController.swift; sourceTree = "<group>"; };
 		4A0049B025CEBA6F00F59CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Work.strings; sourceTree = "<group>"; };
 		4A0049B225CEBA7100F59CB3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Work.strings; sourceTree = "<group>"; };
+		4A0049B525CEBB1800F59CB3 /* VacancyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewController.swift; sourceTree = "<group>"; };
+		4A0049BA25CEBD4700F59CB3 /* TitleBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBodyView.swift; sourceTree = "<group>"; };
 		4A051B9925BD539400287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051B9D25BD539700287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051BA525BD6F7100287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Buildings.strings; sourceTree = "<group>"; };
@@ -537,6 +541,14 @@
 				4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */,
 			);
 			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
+		4A0049B925CEBD3100F59CB3 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				4A0049BA25CEBD4700F59CB3 /* TitleBodyView.swift */,
+			);
+			path = Work;
 			sourceTree = "<group>";
 		};
 		4A077FCB25AF02DE0038D87E /* Extensions */ = {
@@ -1222,6 +1234,7 @@
 				4A54F571259A1F5600184BC0 /* Unions */,
 				4AC1914525B443D500325142 /* Surveys */,
 				4A5063D325CAA40E004C2BC8 /* FAQ */,
+				4A0049B925CEBD3100F59CB3 /* Work */,
 				4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */,
 			);
 			path = Services;
@@ -1279,6 +1292,7 @@
 			isa = PBXGroup;
 			children = (
 				4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */,
+				4A0049B525CEBB1800F59CB3 /* VacancyViewController.swift */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -1790,6 +1804,7 @@
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
+				4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */,
 				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
 				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,
 				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
@@ -1857,6 +1872,7 @@
 				4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */,
 				4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */,
 				4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */,
+				4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4AD21F6325C1A97E0018D4F0 /* Professor.swift in Sources */,
