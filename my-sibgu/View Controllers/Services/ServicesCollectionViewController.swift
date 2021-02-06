@@ -63,6 +63,10 @@ class ServicesCollectionViewController: UICollectionViewController {
             (
                 UIImage(systemName: "questionmark.square.fill")!, UIColor.Pallete.sibsuBlue,
                 "FAQ", vc: FAQViewController.self
+            ),
+            (
+                UIImage(named: "work")!, UIColor.Pallete.gray,
+                "Работа", vc: UIViewController.self
             )
         ]
         
@@ -88,6 +92,7 @@ class ServicesCollectionViewController: UICollectionViewController {
         services[3].name = "feedback".localized(using: tableName)
         services[4].name = "student.life".localized(using: tableName)
         services[5].name = "faq".localized(using: tableName)
+        services[6].name = "work".localized(using: tableName)
         
         collectionView.reloadData()
     }

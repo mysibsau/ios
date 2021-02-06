@@ -139,7 +139,7 @@
 		4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */; };
 		4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913825B336F900325142 /* CollectionViewHelper.swift */; };
 		4AC1914025B4425600325142 /* SurveysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913F25B4425600325142 /* SurveysTableViewController.swift */; };
-		4AC1914725B443F500325142 /* ShortSurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */; };
+		4AC1914725B443F500325142 /* OneLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914625B443F500325142 /* OneLabelTableViewCell.swift */; };
 		4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914C25B449EE00325142 /* SurveyViewController.swift */; };
 		4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */; };
 		4AC1915725B4759300325142 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915625B4759300325142 /* AnswerView.swift */; };
@@ -390,7 +390,7 @@
 		4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AC1913825B336F900325142 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		4AC1913F25B4425600325142 /* SurveysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTableViewController.swift; sourceTree = "<group>"; };
-		4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortSurveyTableViewCell.swift; sourceTree = "<group>"; };
+		4AC1914625B443F500325142 /* OneLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLabelTableViewCell.swift; sourceTree = "<group>"; };
 		4AC1914C25B449EE00325142 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnswerQuesionView.swift; sourceTree = "<group>"; };
 		4AC1915625B4759300325142 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
@@ -1162,6 +1162,7 @@
 				4A54F56F259A1EAC00184BC0 /* Unions */,
 				4AC1913E25B441EA00325142 /* Surveys */,
 				4A5063C625CA9B27004C2BC8 /* FAQ */,
+				4ACE947325CEACF10044E9AF /* Work */,
 				4AC1913825B336F900325142 /* CollectionViewHelper.swift */,
 				4AC1912D25B332A100325142 /* ServicesCollectionViewController.swift */,
 			);
@@ -1194,7 +1195,7 @@
 		4AC1914525B443D500325142 /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
-				4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */,
+				4AC1914625B443F500325142 /* OneLabelTableViewCell.swift */,
 				4AC1915625B4759300325142 /* AnswerView.swift */,
 				4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */,
 				4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */,
@@ -1228,6 +1229,13 @@
 				4A9C9A4425B81BD3001F3B0B /* String+localized.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		4ACE947325CEACF10044E9AF /* Work */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Work;
 			sourceTree = "<group>";
 		};
 		4AD21F2D25C04ABB0018D4F0 /* Storyboards */ = {
@@ -1738,7 +1746,7 @@
 				4AD21F4F25C175220018D4F0 /* ProfessorResponse.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
 				4A238C06257AC9B500CB861E /* UIImageView+loadImage.swift in Sources */,
-				4AC1914725B443F500325142 /* ShortSurveyTableViewCell.swift in Sources */,
+				4AC1914725B443F500325142 /* OneLabelTableViewCell.swift in Sources */,
 				4AF3EC6325A9A63700AF0367 /* Buildings+Equatable.swift in Sources */,
 				4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */,
 				4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */,

@@ -28,8 +28,8 @@ class SurveysTableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         tableView.register(
-            ShortSurveyTableViewCell.self,
-            forCellReuseIdentifier: ShortSurveyTableViewCell.reuseIdentifier
+            OneLabelTableViewCell.self,
+            forCellReuseIdentifier: OneLabelTableViewCell.reuseIdentifier
         )
     }
     
@@ -96,8 +96,8 @@ extension SurveysTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: ShortSurveyTableViewCell.reuseIdentifier,
-            for: indexPath) as! ShortSurveyTableViewCell
+            withIdentifier: OneLabelTableViewCell.reuseIdentifier,
+            for: indexPath) as! OneLabelTableViewCell
         
         let survey = surveys[indexPath.row]
         
