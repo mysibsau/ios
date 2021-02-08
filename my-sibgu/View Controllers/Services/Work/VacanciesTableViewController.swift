@@ -1,17 +1,17 @@
 //
-//  SurveysTableViewController.swift
+//  VacanciesTableViewController.swift
 //  my-sibgu
 //
-//  Created by art-off on 17.01.2021.
+//  Created by art-off on 06.02.2021.
 //
 
 import UIKit
 
-class SurveysTableViewController: UITableViewController {
+class VacanciesTableViewController: UITableViewController {
     
-    private let surveysService = SurveysService()
+    private let workService = WorkService()
     
-    private var surveys: [ShortSurvey] = []
+    private var vacancies: [Vacancy] = []
     
     
     private let activityIndicatorView =  UIActivityIndicatorView()
@@ -37,18 +37,13 @@ class SurveysTableViewController: UITableViewController {
         super.viewDidLoad()
         
         setupNavBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        surveys.removeAll()
-        tableView.reloadData()
         
-        loadEvents()
+        loadVacancies()
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
+    
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
@@ -57,16 +52,16 @@ class SurveysTableViewController: UITableViewController {
     
     @objc
     private func updateText() {
-        let tableName = "Surveys"
+        let tableName = "Work"
         
         self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
     }
     
     // MARK: - Helper Method
-    private func loadEvents() {
+    private func loadVacancies() {
         self.startActivityIndicator()
-        surveysService.getAllSurveys { surveys in
-            guard let s = surveys else {
+        workService.getAllVacancies { vacancies in
+            guard let v = vacancies else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()
                 }
@@ -74,24 +69,24 @@ class SurveysTableViewController: UITableViewController {
             }
             
             DispatchQueue.main.async {
-                self.set(surveys: s)
+                self.set(vacancies: v)
                 self.stopActivityIndicator()
             }
         }
     }
     
-    private func set(surveys: [ShortSurvey]) {
-        self.surveys = surveys.sorted(by: { $0.id > $1.id })
+    private func set(vacancies: [Vacancy]) {
+        self.vacancies = vacancies//.sorted(by: { $0.id > $1.id })
         self.tableView.reloadData()
     }
     
 }
 
 // MARK: - UITableView Data Source
-extension SurveysTableViewController {
+extension VacanciesTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return surveys.count
+        return vacancies.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,9 +94,9 @@ extension SurveysTableViewController {
             withIdentifier: OneLabelTableViewCell.reuseIdentifier,
             for: indexPath) as! OneLabelTableViewCell
         
-        let survey = surveys[indexPath.row]
+        let vacancy = vacancies[indexPath.row]
         
-        cell.nameLabel.text = survey.name
+        cell.nameLabel.text = vacancy.name
         
         return cell
     }
@@ -109,18 +104,18 @@ extension SurveysTableViewController {
 }
 
 // MARK: - UITableView Delegate
-extension SurveysTableViewController {
+extension VacanciesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let shortSurvey = surveys[indexPath.row]
+        let vacancy = vacancies[indexPath.row]
         
-        let vc = SurveyViewController(shortSurvey: shortSurvey)
+        let vc = VacancyViewController(vacancy: vacancy)
         navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
-extension SurveysTableViewController: AnimatingNetworkProtocol {
+extension VacanciesTableViewController: AnimatingNetworkProtocol {
     
     func animatingActivityIndicatorView() -> UIActivityIndicatorView {
         activityIndicatorView

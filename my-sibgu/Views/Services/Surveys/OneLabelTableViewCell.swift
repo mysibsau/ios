@@ -1,5 +1,5 @@
 //
-//  ShortSurveyTableViewCell.swift
+//  OneLabelTableViewCell.swift
 //  my-sibgu
 //
 //  Created by art-off on 17.01.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ShortSurveyTableViewCell: UITableViewCell {
+class OneLabelTableViewCell: UITableViewCell {
 
-    static let reuseIdentifier = "ShortSurveyCell"
+    static let reuseIdentifier = "OneLabelCell"
     
     
     private let containerView = UIView()
@@ -19,7 +19,8 @@ class ShortSurveyTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
@@ -54,7 +55,7 @@ class ShortSurveyTableViewCell: UITableViewCell {
 
 }
 
-extension ShortSurveyTableViewCell {
+extension OneLabelTableViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         containerView.makeShadow()

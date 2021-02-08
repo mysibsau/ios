@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		3219003E42857FBE59711B96 /* Pods_NotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */; };
 		3A8079B519B64497324F2163 /* Pods_my_sibgu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */; };
+		4A00497F25CEB0ED00F59CB3 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */; };
+		4A00499425CEB22E00F59CB3 /* VacancyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */; };
+		4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499925CEB2AC00F59CB3 /* ApiWork.swift */; };
+		4A00499E25CEB30000F59CB3 /* ApiWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */; };
+		4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A125CEB3E300F59CB3 /* WorkService.swift */; };
+		4A0049A825CEB5B200F59CB3 /* VacanciesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */; };
+		4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A0049B125CEBA6F00F59CB3 /* Work.strings */; };
+		4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049B525CEBB1800F59CB3 /* VacancyViewController.swift */; };
+		4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0049BA25CEBD4700F59CB3 /* TitleBodyView.swift */; };
 		4A051B9825BD539400287FD5 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051B9A25BD539400287FD5 /* Services.strings */; };
 		4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BA625BD6F7100287FD5 /* Buildings.strings */; };
 		4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A051BB025BD71C800287FD5 /* Institutes.strings */; };
@@ -139,7 +148,7 @@
 		4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */; };
 		4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913825B336F900325142 /* CollectionViewHelper.swift */; };
 		4AC1914025B4425600325142 /* SurveysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1913F25B4425600325142 /* SurveysTableViewController.swift */; };
-		4AC1914725B443F500325142 /* ShortSurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */; };
+		4AC1914725B443F500325142 /* OneLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914625B443F500325142 /* OneLabelTableViewCell.swift */; };
 		4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1914C25B449EE00325142 /* SurveyViewController.swift */; };
 		4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */; };
 		4AC1915725B4759300325142 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1915625B4759300325142 /* AnswerView.swift */; };
@@ -246,6 +255,16 @@
 /* Begin PBXFileReference section */
 		1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.release.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.debug.xcconfig"; path = "Target Support Files/Pods-NotificationService/Pods-NotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
+		4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyResponse.swift; sourceTree = "<group>"; };
+		4A00499925CEB2AC00F59CB3 /* ApiWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWork.swift; sourceTree = "<group>"; };
+		4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiWorkService.swift; sourceTree = "<group>"; };
+		4A0049A125CEB3E300F59CB3 /* WorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkService.swift; sourceTree = "<group>"; };
+		4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesTableViewController.swift; sourceTree = "<group>"; };
+		4A0049B025CEBA6F00F59CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Work.strings; sourceTree = "<group>"; };
+		4A0049B225CEBA7100F59CB3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Work.strings; sourceTree = "<group>"; };
+		4A0049B525CEBB1800F59CB3 /* VacancyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewController.swift; sourceTree = "<group>"; };
+		4A0049BA25CEBD4700F59CB3 /* TitleBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBodyView.swift; sourceTree = "<group>"; };
 		4A051B9925BD539400287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051B9D25BD539700287FD5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Services.strings; sourceTree = "<group>"; };
 		4A051BA525BD6F7100287FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Buildings.strings; sourceTree = "<group>"; };
@@ -390,7 +409,7 @@
 		4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AC1913825B336F900325142 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		4AC1913F25B4425600325142 /* SurveysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTableViewController.swift; sourceTree = "<group>"; };
-		4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortSurveyTableViewCell.swift; sourceTree = "<group>"; };
+		4AC1914625B443F500325142 /* OneLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLabelTableViewCell.swift; sourceTree = "<group>"; };
 		4AC1914C25B449EE00325142 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnswerQuesionView.swift; sourceTree = "<group>"; };
 		4AC1915625B4759300325142 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
@@ -497,6 +516,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A00498825CEB1F800F59CB3 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				4A0049A125CEB3E300F59CB3 /* WorkService.swift */,
+				4A00498925CEB20500F59CB3 /* Api */,
+			);
+			path = Work;
+			sourceTree = "<group>";
+		};
+		4A00498925CEB20500F59CB3 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4A00498A25CEB20E00F59CB3 /* ResponseObjects */,
+				4A00499925CEB2AC00F59CB3 /* ApiWork.swift */,
+				4A00499D25CEB30000F59CB3 /* ApiWorkService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4A00498A25CEB20E00F59CB3 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4A00499325CEB22E00F59CB3 /* VacancyResponse.swift */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
+		4A0049B925CEBD3100F59CB3 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				4A0049BA25CEBD4700F59CB3 /* TitleBodyView.swift */,
+			);
+			path = Work;
+			sourceTree = "<group>";
+		};
 		4A077FCB25AF02DE0038D87E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +841,7 @@
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
 				4A5063E425CAFA35004C2BC8 /* Support */,
+				4A00498825CEB1F800F59CB3 /* Work */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -816,6 +871,7 @@
 				4A9C9D8725BF55470054E011 /* StudentLife.strings */,
 				4AEB721625C84D7600161E32 /* OnlineShop.strings */,
 				4A5063DE25CAABED004C2BC8 /* FAQ.strings */,
+				4A0049B125CEBA6F00F59CB3 /* Work.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1162,6 +1218,7 @@
 				4A54F56F259A1EAC00184BC0 /* Unions */,
 				4AC1913E25B441EA00325142 /* Surveys */,
 				4A5063C625CA9B27004C2BC8 /* FAQ */,
+				4ACE947325CEACF10044E9AF /* Work */,
 				4AC1913825B336F900325142 /* CollectionViewHelper.swift */,
 				4AC1912D25B332A100325142 /* ServicesCollectionViewController.swift */,
 			);
@@ -1177,6 +1234,7 @@
 				4A54F571259A1F5600184BC0 /* Unions */,
 				4AC1914525B443D500325142 /* Surveys */,
 				4A5063D325CAA40E004C2BC8 /* FAQ */,
+				4A0049B925CEBD3100F59CB3 /* Work */,
 				4AC1913225B3342800325142 /* ServiceCollectionViewCell.swift */,
 			);
 			path = Services;
@@ -1194,7 +1252,7 @@
 		4AC1914525B443D500325142 /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
-				4AC1914625B443F500325142 /* ShortSurveyTableViewCell.swift */,
+				4AC1914625B443F500325142 /* OneLabelTableViewCell.swift */,
 				4AC1915625B4759300325142 /* AnswerView.swift */,
 				4AC1915025B451D000325142 /* SelectAnswerQuesionView.swift */,
 				4AC1916025B4A11E00325142 /* TextAnswerQuestionView.swift */,
@@ -1228,6 +1286,15 @@
 				4A9C9A4425B81BD3001F3B0B /* String+localized.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		4ACE947325CEACF10044E9AF /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				4A0049A725CEB5B200F59CB3 /* VacanciesTableViewController.swift */,
+				4A0049B525CEBB1800F59CB3 /* VacancyViewController.swift */,
+			);
+			path = Work;
 			sourceTree = "<group>";
 		};
 		4AD21F2D25C04ABB0018D4F0 /* Storyboards */ = {
@@ -1293,6 +1360,7 @@
 				4A5063CF25CAA158004C2BC8 /* FAQ.swift */,
 				4AE030E125CD2D9800E8A9C0 /* SportClub.swift */,
 				4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */,
+				4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1529,6 +1597,7 @@
 				4A38D0B825B87CA1006EE06F /* Profile.strings in Resources */,
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
 				4A42819525BE01D700B2306C /* Informing.strings in Resources */,
+				4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */,
 				4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */,
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
@@ -1639,7 +1708,9 @@
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
+				4A00497F25CEB0ED00F59CB3 /* Vacancy.swift in Sources */,
 				4AC191A525B6E05F00325142 /* ThemeWindow.swift in Sources */,
+				4A00499425CEB22E00F59CB3 /* VacancyResponse.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
 				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,
 				4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */,
@@ -1651,6 +1722,7 @@
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */,
 				4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */,
+				4A00499E25CEB30000F59CB3 /* ApiWorkService.swift in Sources */,
 				4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */,
 				4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */,
 				4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */,
@@ -1676,6 +1748,7 @@
 				4AE030E625CD2F6700E8A9C0 /* SportClubResponse.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
 				4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */,
+				4A0049A825CEB5B200F59CB3 /* VacanciesTableViewController.swift in Sources */,
 				4AD21F6B25C1AA5F0018D4F0 /* RProfessor.swift in Sources */,
 				4AC1918B25B6181A00325142 /* UIColor+Pallete.swift in Sources */,
 				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
@@ -1700,10 +1773,12 @@
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
 				4AE0310425CD72A600E8A9C0 /* SportClub+Equatable.swift in Sources */,
+				4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
 				4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */,
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
+				4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */,
 				4AEB721C25C84EBB00161E32 /* GoodCollectionViewCell.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
 				4AC1915725B4759300325142 /* AnswerView.swift in Sources */,
@@ -1729,6 +1804,7 @@
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
+				4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */,
 				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
 				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,
 				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
@@ -1738,7 +1814,7 @@
 				4AD21F4F25C175220018D4F0 /* ProfessorResponse.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
 				4A238C06257AC9B500CB861E /* UIImageView+loadImage.swift in Sources */,
-				4AC1914725B443F500325142 /* ShortSurveyTableViewCell.swift in Sources */,
+				4AC1914725B443F500325142 /* OneLabelTableViewCell.swift in Sources */,
 				4AF3EC6325A9A63700AF0367 /* Buildings+Equatable.swift in Sources */,
 				4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */,
 				4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */,
@@ -1796,6 +1872,7 @@
 				4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */,
 				4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */,
 				4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */,
+				4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4AD21F6325C1A97E0018D4F0 /* Professor.swift in Sources */,
@@ -1834,6 +1911,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4A0049B125CEBA6F00F59CB3 /* Work.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A0049B025CEBA6F00F59CB3 /* en */,
+				4A0049B225CEBA7100F59CB3 /* ru */,
+			);
+			name = Work.strings;
+			sourceTree = "<group>";
+		};
 		4A051B9A25BD539400287FD5 /* Services.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
