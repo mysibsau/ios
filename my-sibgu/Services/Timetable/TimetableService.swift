@@ -232,6 +232,7 @@ class TimetableService {
                 return
             }
             DispatchQueue.main.async {
+                DataManager.shared.deleteAllGroups()
                 let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
                 DataManager.shared.write(groups: rGroups)
                 UserDefaultsConfig.groupsHash = groupsHash
@@ -247,6 +248,7 @@ class TimetableService {
             }
             
             DispatchQueue.main.async {
+                DataManager.shared.deleteAllProfessors()
                 let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
                 DataManager.shared.write(professors: rProfessors)
                 UserDefaultsConfig.professorsHash = professorsHash
@@ -262,6 +264,7 @@ class TimetableService {
             }
             
             DispatchQueue.main.async {
+                DataManager.shared.deleteAllPlaces()
                 let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
                 DataManager.shared.write(places: rPlaces)
                 UserDefaultsConfig.placesHash = placesHash

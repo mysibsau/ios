@@ -243,6 +243,39 @@ extension DataManager {
         favoritePlacesId.delete(elem: placeId)
     }
     
+    func deleteAllGroups() {
+        let userGroups = userRealm.objects(RGroup.self)
+        try? userRealm.write {
+            userRealm.delete(userGroups, cascading: true)
+        }
+        let downloadedGroups = downloadedRealm.objects(RGroup.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedGroups, cascading: true)
+        }
+    }
+    
+    func deleteAllProfessors() {
+        let userProfessors = userRealm.objects(RProfessor.self)
+        try? userRealm.write {
+            userRealm.delete(userProfessors, cascading: true)
+        }
+        let downloadedProfessors = downloadedRealm.objects(RProfessor.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedProfessors, cascading: true)
+        }
+    }
+    
+    func deleteAllPlaces() {
+        let userPlaces = userRealm.objects(RPlace.self)
+        try? userRealm.write {
+            userRealm.delete(userPlaces, cascading: true)
+        }
+        let downloadedPlaces = downloadedRealm.objects(RPlace.self)
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedPlaces, cascading: true)
+        }
+    }
+    
 }
 
 // MARK: - Getting Timetable
