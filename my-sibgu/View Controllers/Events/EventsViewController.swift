@@ -91,7 +91,7 @@ class EventsViewController: UICollectionViewController {
     
     private func set(events: [Event]) {
 //        self.data = events.map { ($0, .short) }
-        self.data = events.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
+        self.data = events.map { ($0, .short) }//.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
         self.collectionView.reloadData()
     }
     

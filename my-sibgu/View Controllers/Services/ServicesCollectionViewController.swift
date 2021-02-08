@@ -57,7 +57,7 @@ class ServicesCollectionViewController: UICollectionViewController {
                 "Обратная связь", SurveysTableViewController.self
             ),
             (
-                UIImage(systemName: "person.2")!, UIColor.Pallete.green,
+                UIImage(systemName: "person.2.fill")!, UIColor.Pallete.green,
                 "Студ. жизнь", vc: StudentLivePageViewController.self
             ),
             (

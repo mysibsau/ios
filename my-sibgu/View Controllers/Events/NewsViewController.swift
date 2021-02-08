@@ -89,7 +89,7 @@ class NewsViewController: UICollectionViewController {
     }
     
     private func set(news: [News]) {
-        self.data = news.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
+        self.data = news.map { ($0, .short) }//.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
         self.collectionView.reloadData()
     }
     

@@ -76,6 +76,8 @@ class VacancyViewController: UIViewController {
         let nameLabel = UILabel()
         nameLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         nameLabel.textColor = UIColor.Pallete.gray
+        nameLabel.numberOfLines = 0
+        nameLabel.lineBreakMode = .byWordWrapping
         nameLabel.text = vacancy.name
         stackView.addArrangedSubview(nameLabel)
         
@@ -86,8 +88,53 @@ class VacancyViewController: UIViewController {
         separateView.backgroundColor = .clear
         stackView.addArrangedSubview(separateView)
         
-        for (title, body) in vacancy.info {
-            let titleBodyView = TitleBodyView(title: title, body: body)
+        if let company = vacancy.company {
+            let titleBodyView = TitleBodyView(title: "Компания", body: company)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let duties = vacancy.duties {
+            let titleBodyView = TitleBodyView(title: "Обязанности", body: duties)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let requirements = vacancy.requirements {
+            let titleBodyView = TitleBodyView(title: "Требования", body: requirements)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let conditions = vacancy.conditions {
+            let titleBodyView = TitleBodyView(title: "Условия", body: conditions)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let schedule = vacancy.schedule {
+            let titleBodyView = TitleBodyView(title: "График работы", body: schedule)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let salary = vacancy.salary {
+            let titleBodyView = TitleBodyView(title: "Заработная плата", body: salary)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let address = vacancy.address {
+            let titleBodyView = TitleBodyView(title: "Адрес", body: address)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let addInfo = vacancy.addInfo {
+            let titleBodyView = TitleBodyView(title: "Доп. информация", body: addInfo)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let contacts = vacancy.contacts {
+            let titleBodyView = TitleBodyView(title: "Контакты", body: contacts)
+            stackView.addArrangedSubview(titleBodyView)
+        }
+        
+        if let date = vacancy.publicationDate {
+            let titleBodyView = TitleBodyView(title: "Дата публикации", body: date)
             stackView.addArrangedSubview(titleBodyView)
         }
     }
