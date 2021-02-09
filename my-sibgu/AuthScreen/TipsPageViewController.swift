@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol TipsPageViewControllerDelegate {
+    func showAuthScreen()
+}
+
 class TipsPageViewController: UIPageViewController {
+    
+    var authDelegate: TipsPageViewControllerDelegate?
     
     private var tipViewControllers: [UIViewController] = []
     
@@ -110,6 +116,8 @@ class TipsPageViewController: UIPageViewController {
     private func didTapButton() {
         if currPageIndex < tipViewControllers.count - 1 {
             horisontalScrollToViewController(index: currPageIndex + 1)
+        } else {
+            authDelegate?.showAuthScreen()
         }
     }
     

@@ -33,6 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func showAuthModule() {
         let tipsVC = TipsPageViewController()
+        tipsVC.authDelegate = self
         window?.rootViewController = tipsVC
         window?.makeKeyAndVisible()
     }
@@ -73,4 +74,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+extension SceneDelegate: TipsPageViewControllerDelegate {
+    
+    func showAuthScreen() {
+        let vc = AuthViewController()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+        
+        UIView.transition(
+            with: window!,
+            duration: 0.5,
+            options: [.transitionFlipFromRight],
+            animations: nil,
+            completion: nil
+        )
+    }
+    
 }
