@@ -26,12 +26,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.initTheme()
         window?.windowScene = windowScene
-
+        
+//        showMainModule()
+        showAuthModule()
+    }
+    
+    private func showAuthModule() {
+        let tipsVC = TipsPageViewController()
+        window?.rootViewController = tipsVC
+        window?.makeKeyAndVisible()
+    }
+    
+    private func showMainModule() {
         let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainTabBarVC") as! UITabBarController
         tabBarVC.selectedIndex = 2
-
         window?.rootViewController = tabBarVC
-
         window?.makeKeyAndVisible()
     }
 

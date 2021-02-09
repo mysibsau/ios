@@ -48,10 +48,10 @@ class ServicesCollectionViewController: UICollectionViewController {
             (
                 UIImage(named: "institute")!, UIColor.Pallete.gray,
                 "Институты", InstitutionsViewController.self),
-            (
-                UIImage(systemName: "cart")!, UIColor.Pallete.orange,
-                "Онлайн каталог", CatalogCollectionViewController.self
-            ),
+//            (
+//                UIImage(systemName: "cart")!, UIColor.Pallete.orange,
+//                "Онлайн каталог", CatalogCollectionViewController.self
+//            ),
             (
                 UIImage(named: "feedback")!, UIColor.Pallete.sibsuGreen,
                 "Обратная связь", SurveysTableViewController.self
@@ -88,11 +88,11 @@ class ServicesCollectionViewController: UICollectionViewController {
         
         services[0].name = "buildings".localized(using: tableName)
         services[1].name = "institutes".localized(using: tableName)
-        services[2].name = "online.catalog".localized(using: tableName)
-        services[3].name = "feedback".localized(using: tableName)
-        services[4].name = "student.life".localized(using: tableName)
-        services[5].name = "faq".localized(using: tableName)
-        services[6].name = "work".localized(using: tableName)
+//        services[2].name = "online.catalog".localized(using: tableName)
+        services[2].name = "feedback".localized(using: tableName)
+        services[3].name = "student.life".localized(using: tableName)
+        services[4].name = "faq".localized(using: tableName)
+        services[5].name = "work".localized(using: tableName)
         
         collectionView.reloadData()
     }

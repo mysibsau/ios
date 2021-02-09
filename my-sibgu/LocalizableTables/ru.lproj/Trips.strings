@@ -1,0 +1,27 @@
+/* 
+  Trips.strings
+  my-sibgu
+
+  Created by art-off on 09.02.2021.
+  
+*/
+
+"feed" = "Лента";
+"feed.what" = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no";
+"feed.how" = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptat";
+
+"menu" = "Меню";
+"menu.what" = "What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu ";
+"menu.how" = "How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu ";
+
+"timetable" = "Расписание";
+"timetable.what" = "what timetable what timetable what timetable what timetable what timetable what timetable what timetable what timetable";
+"timetable.how" = "How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable ";
+
+"services" = "Сервисы";
+"services.what" = "What services What services What services What services What services What services What services What services What services What services What services ";
+"services.how" = "how services how services how services how services how services how services how services how services how services ";
+
+"profile" = "Профиль";
+"profile.what" = "what profile what profile what profile what profile what profile what profile what profile what profile what profile what profile what profile ";
+"profile.how" = "how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile ";

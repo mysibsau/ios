@@ -60,6 +60,7 @@
 		4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */; };
 		4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */; };
 		4A1A93B125C49E5B008AF7E0 /* StudentLivePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */; };
+		4A1AC3ED25D2376D007116F4 /* Trips.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AC3EF25D2376D007116F4 /* Trips.strings */; };
 		4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21AA41257AA0EF00BA203A /* InstituteTableViewCell.swift */; };
 		4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238BFF257AC25100CB861E /* ImageLoader.swift */; };
 		4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C02257AC73200CB861E /* UIImageLoader.swift */; };
@@ -120,6 +121,8 @@
 		4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9A4425B81BD3001F3B0B /* String+localized.swift */; };
 		4A9C9D7C25BF25C30054E011 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */; };
 		4A9C9D8525BF55470054E011 /* StudentLife.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C9D8725BF55470054E011 /* StudentLife.strings */; };
+		4AA095E525D1589C00BA09C8 /* TipsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA095E425D1589C00BA09C8 /* TipsPageViewController.swift */; };
+		4AA095E925D15FE500BA09C8 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA095E825D15FE500BA09C8 /* TipViewController.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
 		4AB5A67025A0FCA200518FEA /* CampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A66F25A0FCA200518FEA /* CampusService.swift */; };
 		4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67325A107C300518FEA /* ApiCampus.swift */; };
@@ -315,6 +318,8 @@
 		4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
 		4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLivePageViewController.swift; sourceTree = "<group>"; };
+		4A1AC3EE25D2376D007116F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Trips.strings; sourceTree = "<group>"; };
+		4A1AC3F025D23770007116F4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Trips.strings; sourceTree = "<group>"; };
 		4A21AA41257AA0EF00BA203A /* InstituteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstituteTableViewCell.swift; sourceTree = "<group>"; };
 		4A238BFF257AC25100CB861E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		4A238C02257AC73200CB861E /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
@@ -381,6 +386,8 @@
 		4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		4A9C9D8625BF55470054E011 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentLife.strings; sourceTree = "<group>"; };
 		4A9C9D8A25BF554A0054E011 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentLife.strings; sourceTree = "<group>"; };
+		4AA095E425D1589C00BA09C8 /* TipsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsPageViewController.swift; sourceTree = "<group>"; };
+		4AA095E825D15FE500BA09C8 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
 		4AB5A66F25A0FCA200518FEA /* CampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusService.swift; sourceTree = "<group>"; };
 		4AB5A67325A107C300518FEA /* ApiCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampus.swift; sourceTree = "<group>"; };
@@ -590,6 +597,7 @@
 				4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */,
 				4A07DD84255D89020022B6A9 /* AppDelegate.swift */,
 				4A07DD86255D89020022B6A9 /* SceneDelegate.swift */,
+				4AA095E325D1581A00BA09C8 /* AuthScreen */,
 				4A7A56E5256BF4A900E2CE0F /* View Controllers */,
 				4A7A56F6256C015F00E2CE0F /* Views */,
 				4A07DDDD255DA2F90022B6A9 /* Services */,
@@ -872,6 +880,7 @@
 				4AEB721625C84D7600161E32 /* OnlineShop.strings */,
 				4A5063DE25CAABED004C2BC8 /* FAQ.strings */,
 				4A0049B125CEBA6F00F59CB3 /* Work.strings */,
+				4A1AC3EF25D2376D007116F4 /* Trips.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1097,6 +1106,15 @@
 				4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AA095E325D1581A00BA09C8 /* AuthScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4AA095E425D1589C00BA09C8 /* TipsPageViewController.swift */,
+				4AA095E825D15FE500BA09C8 /* TipViewController.swift */,
+			);
+			path = AuthScreen;
 			sourceTree = "<group>";
 		};
 		4AB027462570FFD900974D08 /* Style */ = {
@@ -1594,6 +1612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9C9D8525BF55470054E011 /* StudentLife.strings in Resources */,
+				4A1AC3ED25D2376D007116F4 /* Trips.strings in Resources */,
 				4A38D0B825B87CA1006EE06F /* Profile.strings in Resources */,
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
 				4A42819525BE01D700B2306C /* Informing.strings in Resources */,
@@ -1705,6 +1724,7 @@
 				4A077FF625B08AF60038D87E /* NewsViewController.swift in Sources */,
 				4AF3EC8625AA4A5400AF0367 /* InformingService.swift in Sources */,
 				4AE0310825CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift in Sources */,
+				4AA095E925D15FE500BA09C8 /* TipViewController.swift in Sources */,
 				4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */,
 				4AC1912925B32BC300325142 /* Survey.swift in Sources */,
 				4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */,
@@ -1744,6 +1764,7 @@
 				4AE030F025CD439800E8A9C0 /* DesignOffice.swift in Sources */,
 				4A077FEA25B0660D0038D87E /* SegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
+				4AA095E525D1589C00BA09C8 /* TipsPageViewController.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4AE030E625CD2F6700E8A9C0 /* SportClubResponse.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
@@ -1988,6 +2009,15 @@
 				4A07DD90255D89050022B6A9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4A1AC3EF25D2376D007116F4 /* Trips.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A1AC3EE25D2376D007116F4 /* en */,
+				4A1AC3F025D23770007116F4 /* ru */,
+			);
+			name = Trips.strings;
 			sourceTree = "<group>";
 		};
 		4A38D0BA25B87CA1006EE06F /* Profile.strings */ = {
