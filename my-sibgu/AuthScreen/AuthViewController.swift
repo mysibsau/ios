@@ -7,7 +7,20 @@
 
 import UIKit
 
+
+protocol AuthViewControllerDelegate {
+    func showMainModule()
+}
+
+
 class AuthViewController: UIViewController {
+    
+    var delegate: AuthViewControllerDelegate?
+    
+    private let authService = AuthService()
+    
+    private let alertView = AlertView()
+    private let activityIndicatorView = UIActivityIndicatorView()
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -171,18 +184,41 @@ class AuthViewController: UIViewController {
         }
         registrationButton.setTitle("Войти как гость", for: .normal)
         registrationButton.setTitleColor(UIColor.Pallete.gray, for: .normal)
-        registrationButton.addTarget(self, action: #selector(didTapRegistrationButton), for: .touchUpInside)
+        registrationButton.addTarget(self, action: #selector(didTapSingIsAsGuestButton), for: .touchUpInside)
     }
     
     // MARK: - Actions
     @objc
     private func didTapSignInButton() {
-        print("helk")
+        guard
+            let number = numberTextField.text, !number.isEmpty,
+            let password = passwordTextFiled.text, !password.isEmpty
+        else {
+            showAlert(withText: "Заполните все поля")
+            return
+        }
+        
+        startActivityIndicator()
+        authService.authUser(number: number, password: password) { user in
+            guard user != nil else {
+                DispatchQueue.main.async {
+                    self.showAlert(withText: "Проблемы со входом")
+                    self.stopActivityIndicator()
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.delegate?.showMainModule()
+                self.stopActivityIndicator()
+            }
+        }
     }
     
     @objc
-    private func didTapRegistrationButton() {
-        print(";;;;;;")
+    private func didTapSingIsAsGuestButton() {
+        authService.outCurrUser()
+        delegate?.showMainModule()
     }
     
     private func addGestureRecongizerToHideKeyboard() {
@@ -221,6 +257,30 @@ class AuthViewController: UIViewController {
     private func keyboardWillHide(notification:NSNotification) {
         let contentInset = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
+    }
+    
+}
+
+extension AuthViewController: AlertingViewController {
+    
+    func alertingSuperViewForDisplay() -> UIView {
+        view
+    }
+    
+    func alertingAlertView() -> AlertView {
+        alertView
+    }
+    
+}
+
+extension AuthViewController: AnimatingNetworkProtocol {
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        view
     }
     
 }

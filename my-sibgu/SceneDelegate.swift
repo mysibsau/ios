@@ -27,8 +27,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.initTheme()
         window?.windowScene = windowScene
         
-//        showMainModule()
-        showAuthModule()
+        if AuthService().getCurrUser() != nil {
+            showMainModule()
+        } else {
+            showAuthModule()
+        }
     }
     
     private func showAuthModule() {
@@ -36,13 +39,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tipsVC.authDelegate = self
         window?.rootViewController = tipsVC
         window?.makeKeyAndVisible()
+        
+        UIView.transition(
+            with: window!,
+            duration: 0.5,
+            options: [.transitionFlipFromRight],
+            animations: nil,
+            completion: nil
+        )
     }
     
-    private func showMainModule() {
+    func showMainModule() {
         let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainTabBarVC") as! UITabBarController
         tabBarVC.selectedIndex = 2
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
+        
+        UIView.transition(
+            with: window!,
+            duration: 0.5,
+            options: [.transitionFlipFromRight],
+            animations: nil,
+            completion: nil
+        )
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -80,6 +99,7 @@ extension SceneDelegate: TipsPageViewControllerDelegate {
     
     func showAuthScreen() {
         let vc = AuthViewController()
+        vc.delegate = self
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
@@ -93,3 +113,5 @@ extension SceneDelegate: TipsPageViewControllerDelegate {
     }
     
 }
+
+extension SceneDelegate: AuthViewControllerDelegate { }
