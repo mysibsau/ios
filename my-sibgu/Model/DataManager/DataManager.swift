@@ -523,6 +523,29 @@ extension DataManager {
     
 }
 
+// MARK: - Auth
+extension DataManager {
+    
+    func replaceCurrUser(on user: RUser?) {
+        let rUsers = userRealm.objects(RUser.self)
+        try? userRealm.write {
+            userRealm.delete(rUsers, cascading: true)
+        }
+        
+        if let user = user {
+            try? userRealm.write {
+                userRealm.add(user, update: .all)
+            }
+        }
+    }
+    
+    func getCurrUser() -> User? {
+        guard let rUser = userRealm.objects(RUser.self).first else { return nil }
+        return Translator.shared.converteUser(from: rUser)
+    }
+    
+}
+
 
 extension DataManager {
     

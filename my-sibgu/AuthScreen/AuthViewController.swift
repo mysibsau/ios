@@ -96,7 +96,7 @@ class AuthViewController: UIViewController {
     private func setupTextFields() {
         contentView.addSubview(textFieldsView)
         textFieldsView.snp.makeConstraints { make in
-            make.top.equalTo(emblemImageView.snp.bottom).offset(100)
+            make.top.equalTo(emblemImageView.snp.bottom).offset(65)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         textFieldsView.backgroundColor = UIColor.Pallete.content

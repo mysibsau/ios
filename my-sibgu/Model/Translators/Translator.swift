@@ -293,4 +293,14 @@ class Translator {
         return designOffices
     }
     
+    func converteUser(from rUser: RUser) -> User {
+        return User(
+            token: rUser.token,
+            fio: rUser.fio,
+            averageRating: rUser.averageRating,
+            group: rUser.group,
+            zachotka: rUser.zachotka
+        )
+    }
+    
 }

@@ -79,6 +79,12 @@
 		4A38D0C625B882A4006EE06F /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0C825B882A4006EE06F /* Settings.strings */; };
 		4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38D0CC25B889AE006EE06F /* CustomViewController.swift */; };
 		4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0D825B88A12006EE06F /* TabBar.strings */; };
+		4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */; };
+		4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */; };
+		4A3C3F3E25D426F700F3A7B1 /* ApiAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3D25D426F700F3A7B1 /* ApiAuth.swift */; };
+		4A3C3F4225D4273600F3A7B1 /* ApiAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4125D4273600F3A7B1 /* ApiAuthService.swift */; };
+		4A3C3F4625D42DD600F3A7B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4525D42DD600F3A7B1 /* User.swift */; };
+		4A3C3F4A25D432BF00F3A7B1 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4925D432BF00F3A7B1 /* RUser.swift */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
 		4A42819525BE01D700B2306C /* Informing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A42819725BE01D700B2306C /* Informing.strings */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
@@ -342,6 +348,12 @@
 		4A38D0CC25B889AE006EE06F /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		4A38D0D725B88A12006EE06F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TabBar.strings; sourceTree = "<group>"; };
 		4A38D0DB25B88A16006EE06F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TabBar.strings; sourceTree = "<group>"; };
+		4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		4A3C3F3D25D426F700F3A7B1 /* ApiAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuth.swift; sourceTree = "<group>"; };
+		4A3C3F4125D4273600F3A7B1 /* ApiAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthService.swift; sourceTree = "<group>"; };
+		4A3C3F4525D42DD600F3A7B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4A3C3F4925D432BF00F3A7B1 /* RUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A42819625BE01D700B2306C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42819825BE01DA00B2306C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Informing.strings; sourceTree = "<group>"; };
@@ -847,6 +859,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */,
+				4A3C3F2E25D4242E00F3A7B1 /* Auth */,
 				4AB5A66E25A0FC7A00518FEA /* Campus */,
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
@@ -885,6 +898,33 @@
 				4A1AC3EF25D2376D007116F4 /* Trips.strings */,
 			);
 			path = LocalizableTables;
+			sourceTree = "<group>";
+		};
+		4A3C3F2E25D4242E00F3A7B1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */,
+				4A3C3F3525D4244600F3A7B1 /* Api */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4A3C3F3525D4244600F3A7B1 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4A3C3F3825D4245600F3A7B1 /* ResponseObjects */,
+				4A3C3F3D25D426F700F3A7B1 /* ApiAuth.swift */,
+				4A3C3F4125D4273600F3A7B1 /* ApiAuthService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4A3C3F3825D4245600F3A7B1 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */,
+			);
+			path = ResponseObjects;
 			sourceTree = "<group>";
 		};
 		4A3D7D57259C612100B6D38A /* Events */ = {
@@ -1169,6 +1209,7 @@
 				4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */,
 				4AE030E925CD315000E8A9C0 /* RSportClub.swift */,
 				4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */,
+				4A3C3F4925D432BF00F3A7B1 /* RUser.swift */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -1382,6 +1423,7 @@
 				4AE030E125CD2D9800E8A9C0 /* SportClub.swift */,
 				4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */,
 				4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */,
+				4A3C3F4525D42DD600F3A7B1 /* User.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1742,6 +1784,7 @@
 				4A5063EE25CAFAB5004C2BC8 /* FAQResponse.swift in Sources */,
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
+				4A3C3F4A25D432BF00F3A7B1 /* RUser.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */,
 				4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */,
@@ -1778,6 +1821,7 @@
 				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
 				4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */,
+				4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */,
 				4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */,
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
@@ -1810,6 +1854,7 @@
 				4AD21F5D25C182D60018D4F0 /* HashResponse.swift in Sources */,
 				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
+				4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
 				4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */,
 				4AC191DA25B784D000325142 /* Notification.Name+Localize.swift in Sources */,
@@ -1855,6 +1900,7 @@
 				4AC1919925B6D1B000325142 /* Theme.swift in Sources */,
 				4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */,
 				4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */,
+				4A3C3F4625D42DD600F3A7B1 /* User.swift in Sources */,
 				4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */,
 				4AC1911925B3231B00325142 /* ApiSurveysService.swift in Sources */,
 				4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */,
@@ -1882,6 +1928,7 @@
 				4AC1911D25B323C100325142 /* ShortSurveyResponse.swift in Sources */,
 				4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */,
 				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
+				4A3C3F4225D4273600F3A7B1 /* ApiAuthService.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
@@ -1895,6 +1942,7 @@
 				4A07DDAA255D94AD0022B6A9 /* GroupTimetable.swift in Sources */,
 				4A07DDCB255D9F190022B6A9 /* RGroupWeek.swift in Sources */,
 				4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */,
+				4A3C3F3E25D426F700F3A7B1 /* ApiAuth.swift in Sources */,
 				4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */,
 				4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */,
 				4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */,
