@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController {
     
     private let authService = AuthService()
     
+    private var user: User?
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
@@ -48,6 +50,12 @@ class ProfileViewController: UIViewController {
     private let signInButton = UIButton()
     
     // MARK: User
+    
+    private lazy var fioTitleLabel = getUserTitleLabel()
+    private lazy var groupTitleLabel = getUserTitleLabel()
+    private lazy var averageRateTitleLabel = getUserTitleLabel()
+    private lazy var studentIdTitleLabel = getUserTitleLabel()
+    
     private lazy var fioLabel = getUserLabel()
     private lazy var groupLabel = getUserLabel()
     private lazy var averageRateLabel = getUserLabel()
@@ -64,10 +72,18 @@ class ProfileViewController: UIViewController {
         return label
     }
     
+    private func getUserTitleLabel() -> UILabel {
+        let label = UILabel()
+        label.textColor = UIColor.Pallete.sibsuBlue
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        return label
+    }
+    
     private func getWrapView() -> UIView {
         let view = UIView()
         view.makeShadow()
         view.makeBorder()
+        view.layer.cornerRadius = 10
         view.backgroundColor = UIColor.Pallete.content
         return view
     }
@@ -99,7 +115,9 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if authService.getCurrUser() == nil {
+        user = authService.getCurrUser()
+        
+        if user == nil {
             setupSignInView()
         } else {
             setupUserViews()
@@ -245,39 +263,82 @@ class ProfileViewController: UIViewController {
         numberTextField.text?.removeAll()
         passwordTextFiled.text?.removeAll()
 
-        fioView.addSubview(fioLabel)
-        fioLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
-        }
-
-        groupView.addSubview(groupLabel)
-        groupLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
-        }
-
-        studentIdView.addSubview(studentIdLabel)
-        studentIdLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
-        }
-
-        averageRateView.addSubview(averageRateLabel)
-        averageRateLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
-        }
-
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 20
-
-        stackView.addArrangedSubview(fioView)
-        stackView.addArrangedSubview(groupView)
-        fioLabel.text = "sldkjfals;dkjf"
-        groupLabel.text = "sldkjf"
-
+        stackView.spacing = 15
+        
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(20)
         }
+        
+        let fioSegment = getViewWithTitleAndInfo(
+            titleLabel: fioTitleLabel,
+            infoView: fioView,
+            infoLabel: fioLabel
+        )
+        let groupSegment = getViewWithTitleAndInfo(
+            titleLabel: groupTitleLabel,
+            infoView: groupView,
+            infoLabel: groupLabel
+        )
+        let averageRateSegment = getViewWithTitleAndInfo(
+            titleLabel: averageRateTitleLabel,
+            infoView: averageRateView,
+            infoLabel: averageRateLabel
+        )
+        let studentIdSegment = getViewWithTitleAndInfo(
+            titleLabel: studentIdTitleLabel,
+            infoView: studentIdView,
+            infoLabel: studentIdLabel
+        )
+        
+        let hStackView = UIStackView()
+        hStackView.axis = .horizontal
+        hStackView.distribution = .fillEqually
+        hStackView.spacing = 20
+        
+        hStackView.addArrangedSubview(groupSegment)
+        hStackView.addArrangedSubview(averageRateSegment)
+        
+        
+        stackView.addArrangedSubview(fioSegment)
+        stackView.addArrangedSubview(hStackView)
+        stackView.addArrangedSubview(studentIdSegment)
+        
+        fioTitleLabel.text = "ФИО"
+        fioLabel.text = user?.fio
+        
+        groupTitleLabel.text = "Группа"
+        groupLabel.text = user?.group
+        
+        averageRateTitleLabel.text = "Средний балл"
+        averageRateLabel.text = String(user?.averageRating ?? 0)
+        
+        studentIdTitleLabel.text = "Номер зачетки"
+        studentIdLabel.text = user?.zachotka
+    }
+    
+    private func getViewWithTitleAndInfo(titleLabel: UILabel, infoView: UIView, infoLabel: UILabel) -> UIView {
+        let view = UIView()
+        view.addSubview(titleLabel)
+        view.addSubview(infoView)
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        infoView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        infoView.addSubview(infoLabel)
+        infoLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(12)
+        }
+        
+        return view
     }
     
     // MARK: - Actions
@@ -297,6 +358,11 @@ class ProfileViewController: UIViewController {
         passwordTextFiled.placeholder = "password".localized(using: tableName)
         signInButton.setTitle("sign.in".localized(using: tableName), for: .normal)
         descriptionLabel.text = "sign.in.description".localized(using: tableName)
+        
+        fioTitleLabel.text = "fio".localized(using: tableName)
+        groupTitleLabel.text = "group".localized(using: tableName)
+        averageRateTitleLabel.text = "average.rate".localized(using: tableName)
+        studentIdTitleLabel.text = "student.id".localized(using: tableName)
     }
     
     @objc
@@ -320,6 +386,7 @@ class ProfileViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
+                self.user = user
                 self.stopActivityIndicator()
                 self.setupUserViews()
             }

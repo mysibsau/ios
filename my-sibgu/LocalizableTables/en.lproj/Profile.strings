@@ -13,3 +13,8 @@
 
 "sign.in" = "Sign in";
 "sign.in.description" = "Sign in to your profile to have additional options";
+
+"fio" = "Full name";
+"group" = "Group";
+"average.rate" = "Average score";
+"student.id" = "Student ID";
