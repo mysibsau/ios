@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
         let view = UIView()
         view.makeShadow()
         view.makeBorder()
-        view.backgroundColor = UIColor.Pallete.background
+        view.backgroundColor = UIColor.Pallete.content
         return view
     }
     

@@ -195,9 +195,9 @@ class SettingsViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
-        outButton.backgroundColor = .gray
+        outButton.backgroundColor = UIColor.Pallete.content
+        outButton.setTitleColor(.systemRed, for: .normal)
         outButton.setTitle("Выйти", for: .normal)
-        outButton.alpha = 0.7
         
         outButton.layer.cornerRadius = 10
         outButton.makeShadow()
