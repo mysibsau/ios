@@ -8,9 +8,17 @@
 import UIKit
 import SnapKit
 
+
+protocol SettingsViewControllerDelegate {
+    func showAuthModule()
+}
+
+
 private let cellId = "LanguageCell"
 
 class SettingsViewController: UIViewController {
+    
+    private let authService = AuthService()
     
     // MARK: - Properties
     private var languages: [(identifier: String, displayName: String, isCurrent: Bool)] = []
@@ -38,6 +46,10 @@ class SettingsViewController: UIViewController {
     private let shadowViewTheme = UIView()
     
     private lazy var themeDescriptionLabel = _descriptionLabel()
+    
+    // MARK: - Out Button
+    private let outButton = UIButton()
+    
     
     // MARK: - UI Helper
     private func _titleLabel() -> UILabel {
@@ -71,6 +83,10 @@ class SettingsViewController: UIViewController {
         
         setupLanguageTableView()
         setupThemeSegmentedControl()
+        
+        if authService.getCurrUser() != nil {
+            setupOutButton()
+        }
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -154,8 +170,6 @@ class SettingsViewController: UIViewController {
         themeSegmentedControl.addTarget(self, action: #selector(themeSegmentedControlChanged), for: .valueChanged)
         themeSegmentedControl.selectedSegmentIndex = Theme.current.rawValue
         themeSegmentedControl.backgroundColor = UIColor.Pallete.Special.segmentedControl
-        // ВРоде как так можно сделать цвет получше
-//        themeSegmentedControl.setBackgroundImage(UIImage(colo), for: <#T##UIControl.State#>, barMetrics: <#T##UIBarMetrics#>)
         themeSegmentedControl.makeBorder()
         
         view.addSubview(shadowViewTheme)
@@ -172,6 +186,24 @@ class SettingsViewController: UIViewController {
             make.top.equalTo(themeSegmentedControl.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview().inset(20)
         }
+    }
+    
+    private func setupOutButton() {
+        view.addSubview(outButton)
+        outButton.snp.makeConstraints { make in
+            make.top.equalTo(themeDescriptionLabel.snp.bottom).offset(40)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+        }
+        outButton.backgroundColor = .gray
+        outButton.setTitle("Выйти", for: .normal)
+        outButton.alpha = 0.7
+        
+        outButton.layer.cornerRadius = 10
+        outButton.makeShadow()
+        outButton.makeBorder()
+        
+        outButton.addTarget(self, action: #selector(didTapOutButton), for: .touchUpInside)
     }
     
     // MARK: - Actions
@@ -196,6 +228,14 @@ class SettingsViewController: UIViewController {
         themeSegmentedControl.setTitle("appearance.light".localized(using: tableName), forSegmentAt: 1)
         themeSegmentedControl.setTitle("appearance.dark".localized(using: tableName), forSegmentAt: 2)
         themeDescriptionLabel.text = "appearance.description".localized(using: tableName)
+        
+        outButton.setTitle("sign.out".localized(using: tableName), for: .normal)
+    }
+    
+    @objc
+    private func didTapOutButton() {
+        authService.outCurrUser()
+        outButton.isHidden = true
     }
 
 }
@@ -256,6 +296,9 @@ extension SettingsViewController {
         shadowViewLanguage.makeBorder()
         
         themeSegmentedControl.makeBorder()
+        
+        outButton.makeShadow()
+        outButton.makeBorder()
     }
     
 }

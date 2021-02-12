@@ -76,8 +76,8 @@ class TipViewController: UIViewController {
         whatIsItImageView.image = UIImage(systemName: "wand.and.stars")
         howIsItImageView.image = UIImage(systemName: "questionmark")
         
-        whatIsItTitleLabel.text = "Что это такое?"
-        howIsItTitleLabel.text = "Как это работает?"
+        whatIsItTitleLabel.text = "what.is.it".localized(using: "Trips")
+        howIsItTitleLabel.text = "how.does.it.works".localized(using: "Trips")
     }
     
     private func addTitleLabel() {

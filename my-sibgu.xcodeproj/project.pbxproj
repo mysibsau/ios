@@ -68,6 +68,7 @@
 		4A238C06257AC9B500CB861E /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C05257AC9B500CB861E /* UIImageView+loadImage.swift */; };
 		4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C0F257B5C6600CB861E /* PersonViewController.swift */; };
 		4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C15257B74F700CB861E /* CenterLabelView.swift */; };
+		4A26AFD225D69F7400A8E35C /* Auth.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A26AFD425D69F7400A8E35C /* Auth.strings */; };
 		4A27A860255EE79D0018186B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A85F255EE79D0018186B /* Group.swift */; };
 		4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */; };
 		4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A3149F825724DE300FB7FC2 /* GroupSubgroupView.xib */; };
@@ -334,6 +335,8 @@
 		4A238C05257AC9B500CB861E /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		4A238C0F257B5C6600CB861E /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		4A238C15257B74F700CB861E /* CenterLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLabelView.swift; sourceTree = "<group>"; };
+		4A26AFD325D69F7400A8E35C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
+		4A26AFD725D69F7A00A8E35C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Auth.strings; sourceTree = "<group>"; };
 		4A27A85F255EE79D0018186B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingNetworkProtocol.swift; sourceTree = "<group>"; };
 		4A3149F825724DE300FB7FC2 /* GroupSubgroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSubgroupView.xib; sourceTree = "<group>"; };
@@ -896,6 +899,7 @@
 				4A5063DE25CAABED004C2BC8 /* FAQ.strings */,
 				4A0049B125CEBA6F00F59CB3 /* Work.strings */,
 				4A1AC3EF25D2376D007116F4 /* Trips.strings */,
+				4A26AFD425D69F7400A8E35C /* Auth.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1670,6 +1674,7 @@
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */,
 				4A5063DC25CAABED004C2BC8 /* FAQ.strings in Resources */,
+				4A26AFD225D69F7400A8E35C /* Auth.strings in Resources */,
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
 				4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */,
 				4A051BD425BDB37300287FD5 /* Timetable.strings in Resources */,
@@ -2070,6 +2075,15 @@
 				4A1AC3F025D23770007116F4 /* ru */,
 			);
 			name = Trips.strings;
+			sourceTree = "<group>";
+		};
+		4A26AFD425D69F7400A8E35C /* Auth.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A26AFD325D69F7400A8E35C /* en */,
+				4A26AFD725D69F7A00A8E35C /* ru */,
+			);
+			name = Auth.strings;
 			sourceTree = "<group>";
 		};
 		4A38D0BA25B87CA1006EE06F /* Profile.strings */ = {

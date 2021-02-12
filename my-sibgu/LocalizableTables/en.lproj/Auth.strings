@@ -1,0 +1,13 @@
+/* 
+  Auth.strings
+  my-sibgu
+
+  Created by art-off on 12.02.2021.
+  
+*/
+
+"number" = "Student ID";
+"password" = "Password";
+
+"sign.in" = "Sign in";
+"sign.in.as.guest" = "Sign in as a guest";

@@ -13,7 +13,7 @@ struct ApiAuth {
     
     static func authUser(number: String, password: String) -> URLRequest {
         let parameters = [
-            "number": number,
+            "username": number,
             "password": password,
         ]
         let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)

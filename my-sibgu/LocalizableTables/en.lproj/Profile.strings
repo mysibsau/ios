@@ -7,3 +7,9 @@
 */
 
 "navBarTitle" = "Profile";
+
+"number" = "Student ID";
+"password" = "Password";
+
+"sign.in" = "Sign in";
+"sign.in.description" = "Sign in to your profile to have additional options";

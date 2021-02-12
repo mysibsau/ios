@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    private func showAuthModule() {
+    func showAuthModule() {
         let tipsVC = TipsPageViewController()
         tipsVC.authDelegate = self
         window?.rootViewController = tipsVC
@@ -115,3 +115,5 @@ extension SceneDelegate: TipsPageViewControllerDelegate {
 }
 
 extension SceneDelegate: AuthViewControllerDelegate { }
+
+extension SceneDelegate: SettingsViewControllerDelegate { }

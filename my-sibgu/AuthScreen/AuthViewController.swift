@@ -55,6 +55,7 @@ class AuthViewController: UIViewController {
     private var passwordTextFiled: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Пароль"
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -114,7 +115,7 @@ class AuthViewController: UIViewController {
         }
         textFieldsView.backgroundColor = UIColor.Pallete.content
         textFieldsView.layer.cornerRadius = 15
-        textFieldsView.makeShadow()
+        textFieldsView.makeShadow(opacity: 0.2, radius: 6)
         textFieldsView.makeBorder()
         
         
