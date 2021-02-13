@@ -84,10 +84,12 @@ extension UINavigationItem {
     }
     
     private func _leftTitle(title: String) -> UIBarButtonItem {
-        let leftTitle = UIBarButtonItem(title: title, style: .plain, target: nil, action: nil)
-        leftTitle.tintColor = UIColor.Pallete.gray
-        leftTitle.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
-        // Это спасает от того, что title растягивается на весь нав бар, теперь он точички ставит если че
+        let label = UILabel()
+        label.text = title
+        label.textColor = UIColor.Pallete.gray
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        let leftTitle = UIBarButtonItem(customView: label)
         leftTitle.width = 30
         
         return leftTitle
