@@ -36,8 +36,8 @@ class InformingPageViewController: UIPageViewController {
         
         setSegmentedController()
         
-        let vc1 = EventsViewController()
-        let vc2 = NewsViewController()
+        let vc1 = NewsViewController()
+        let vc2 = EventsViewController()
         
         informingViewControllers = [
             vc1,
