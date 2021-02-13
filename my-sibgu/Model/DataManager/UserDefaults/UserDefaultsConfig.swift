@@ -33,7 +33,7 @@ struct UserDefaultsConfig {
     static var uuidForApi: String?
     
     // MARK: Для первой авторизации
-    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.isFirstLaunch", defaultValue: false)
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.isFirstLaunch", defaultValue: true)
     static var isFirstLaunch: Bool
     
 }

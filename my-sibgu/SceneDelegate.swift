@@ -26,11 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.initTheme()
         window?.windowScene = windowScene
-        
-        if AuthService().getCurrUser() != nil {
-            showMainModule()
-        } else {
+
+        if UserDefaultsConfig.isFirstLaunch && AuthService().getCurrUser() != nil {
             showAuthModule()
+            UserDefaultsConfig.isFirstLaunch = false
+        } else {
+            showMainModule()
         }
     }
     

@@ -41,6 +41,8 @@ class TipsPageViewController: UIPageViewController {
         
         let tableName = "Trips"
         
+        let vc0 = StartViewController()
+        
         let vc1 = TipViewController(
             titleText: "feed".localized(using: tableName),
             whatIsItText: "feed.what".localized(using: tableName),
@@ -82,13 +84,14 @@ class TipsPageViewController: UIPageViewController {
         vc5.view.backgroundColor = .init(hex: "#FF0000")
         
         tipViewControllers = [
+            vc0,
             vc1,
             vc2,
             vc3,
             vc4,
             vc5
         ]
-        self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
+        self.setViewControllers([vc0], direction: .forward, animated: true, completion: nil)
         
         
         addButton()

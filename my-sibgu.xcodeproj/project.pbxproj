@@ -69,6 +69,7 @@
 		4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C0F257B5C6600CB861E /* PersonViewController.swift */; };
 		4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C15257B74F700CB861E /* CenterLabelView.swift */; };
 		4A26AFD225D69F7400A8E35C /* Auth.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A26AFD425D69F7400A8E35C /* Auth.strings */; };
+		4A26AFDB25D6F5CE00A8E35C /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A26AFDA25D6F5CE00A8E35C /* StartViewController.swift */; };
 		4A27A860255EE79D0018186B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A27A85F255EE79D0018186B /* Group.swift */; };
 		4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */; };
 		4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A3149F825724DE300FB7FC2 /* GroupSubgroupView.xib */; };
@@ -337,6 +338,7 @@
 		4A238C15257B74F700CB861E /* CenterLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLabelView.swift; sourceTree = "<group>"; };
 		4A26AFD325D69F7400A8E35C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		4A26AFD725D69F7A00A8E35C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Auth.strings; sourceTree = "<group>"; };
+		4A26AFDA25D6F5CE00A8E35C /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		4A27A85F255EE79D0018186B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		4A3149F5257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingNetworkProtocol.swift; sourceTree = "<group>"; };
 		4A3149F825724DE300FB7FC2 /* GroupSubgroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSubgroupView.xib; sourceTree = "<group>"; };
@@ -1158,6 +1160,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA095E425D1589C00BA09C8 /* TipsPageViewController.swift */,
+				4A26AFDA25D6F5CE00A8E35C /* StartViewController.swift */,
 				4AA095E825D15FE500BA09C8 /* TipViewController.swift */,
 				4A1AC3F325D252B8007116F4 /* AuthViewController.swift */,
 			);
@@ -1961,6 +1964,7 @@
 				4A75819E25755FBB006C1F6C /* AlertView.swift in Sources */,
 				4A07DDC5255D9EDF0022B6A9 /* RGroupLesson.swift in Sources */,
 				4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */,
+				4A26AFDB25D6F5CE00A8E35C /* StartViewController.swift in Sources */,
 				4AC1918125B5F0CD00325142 /* SettingsViewController.swift in Sources */,
 				4AF3EC7025AA16A700AF0367 /* EventResponse.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
@@ -2279,14 +2283,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "my-sibgu/my-sibgu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = "my-sibgu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2303,14 +2307,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "my-sibgu/my-sibgu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = "my-sibgu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2323,7 +2327,7 @@
 			baseConfigurationReference = 464CD81D25064021C467A5F1 /* Pods-NotificationService.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2332,7 +2336,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2346,7 +2350,7 @@
 			baseConfigurationReference = 1CD23DB99C570C56CCF88465 /* Pods-NotificationService.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HM9WL9QKWM;
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2355,7 +2359,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
