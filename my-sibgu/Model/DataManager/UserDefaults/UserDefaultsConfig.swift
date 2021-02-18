@@ -36,4 +36,11 @@ struct UserDefaultsConfig {
     @UserDefaultsWrapper(key: "com.SibSU.MySibSU.system.isFirstLaunch", defaultValue: true)
     static var isFirstLaunch: Bool
     
+    // MARK: User
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.studentId", defaultValue: String?(nil))
+    static var userStudentId: String?
+    
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.password", defaultValue: String?(nil))
+    static var userPassword: String?
+    
 }

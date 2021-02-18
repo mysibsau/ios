@@ -558,8 +558,6 @@ extension ProfileViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        setupUserViews()
-        
         textFieldsView.makeBorder()
         textFieldsView.makeShadow(opacity: 0.2, radius: 6)
         
