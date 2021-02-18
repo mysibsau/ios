@@ -18,7 +18,7 @@ private let cellId = "LanguageCell"
 
 class SettingsViewController: UIViewController {
     
-    private let authService = AuthService()
+    private let userService = UserService()
     
     // MARK: - Properties
     private var languages: [(identifier: String, displayName: String, isCurrent: Bool)] = []
@@ -84,7 +84,7 @@ class SettingsViewController: UIViewController {
         setupLanguageTableView()
         setupThemeSegmentedControl()
         
-        if authService.getCurrUser() != nil {
+        if userService.getCurrUser() != nil {
             setupOutButton()
         }
         
@@ -234,7 +234,7 @@ class SettingsViewController: UIViewController {
     
     @objc
     private func didTapOutButton() {
-        authService.outCurrUser()
+        userService.outCurrUser()
         outButton.isHidden = true
     }
 

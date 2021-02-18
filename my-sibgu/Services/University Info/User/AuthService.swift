@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthService {
+class UserService {
     
     func getCurrUser() -> User? {
         return DataManager.shared.getCurrUser()
@@ -18,7 +18,7 @@ class AuthService {
     }
     
     func authUser(number: String, password: String, completion: @escaping (User?) -> Void) {
-        ApiAuthService().authUser(number: number, password: password) { userResponse in
+        ApiUserService().authUser(number: number, password: password) { userResponse in
             guard let userResponse = userResponse else {
                 DispatchQueue.main.async {
                     DataManager.shared.replaceCurrUser(on: nil)

@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    private let authService = AuthService()
+    private let userService = UserService()
     
     private var user: User?
     
@@ -132,7 +132,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        user = authService.getCurrUser()
+        user = userService.getCurrUser()
         
         if user == nil {
             setupSignInView()
@@ -487,7 +487,7 @@ class ProfileViewController: UIViewController {
         }
         
         startActivityIndicator()
-        authService.authUser(number: number, password: password) { user in
+        userService.authUser(number: number, password: password) { user in
             guard user != nil else {
                 DispatchQueue.main.async {
                     self.showAlert(withText: "Проблемы со входом")

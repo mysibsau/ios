@@ -7,13 +7,13 @@
 
 import Foundation
 
-class ApiAuthService {
+class ApiUserService {
     
     private let baseApiService = BaseApiService()
     
     
     func authUser(number: String, password: String, completion: @escaping (_ faq: UserResponse?) -> Void) {
-        baseApiService.load(UserResponse.self, url: ApiAuth.authUser(number: number, password: password), completion: completion)
+        baseApiService.load(UserResponse.self, url: ApiUser.authUser(number: number, password: password), completion: completion)
     }
     
 }

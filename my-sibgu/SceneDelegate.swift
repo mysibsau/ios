@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.initTheme()
         window?.windowScene = windowScene
 
-        if UserDefaultsConfig.isFirstLaunch && AuthService().getCurrUser() != nil {
+        if UserDefaultsConfig.isFirstLaunch && UserService().getCurrUser() != nil {
             showAuthModule()
             UserDefaultsConfig.isFirstLaunch = false
         } else {

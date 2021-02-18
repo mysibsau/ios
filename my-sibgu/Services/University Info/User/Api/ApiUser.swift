@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ApiAuth {
+struct ApiUser {
     
     static let address = ApiUniversityInfo.addressByVersion
     

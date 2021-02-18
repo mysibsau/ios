@@ -81,10 +81,13 @@
 		4A38D0C625B882A4006EE06F /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0C825B882A4006EE06F /* Settings.strings */; };
 		4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A38D0CC25B889AE006EE06F /* CustomViewController.swift */; };
 		4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A38D0D825B88A12006EE06F /* TabBar.strings */; };
+		4A3957C725DEA1BC009958BC /* MarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957C625DEA1BC009958BC /* MarksViewController.swift */; };
+		4A3957D225DEA5BB009958BC /* MarksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957D125DEA5BB009958BC /* MarksResponse.swift */; };
+		4A3957DC25DEA74D009958BC /* AttestationItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */; };
 		4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */; };
 		4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */; };
-		4A3C3F3E25D426F700F3A7B1 /* ApiAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3D25D426F700F3A7B1 /* ApiAuth.swift */; };
-		4A3C3F4225D4273600F3A7B1 /* ApiAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4125D4273600F3A7B1 /* ApiAuthService.swift */; };
+		4A3C3F3E25D426F700F3A7B1 /* ApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */; };
+		4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4125D4273600F3A7B1 /* ApiUserService.swift */; };
 		4A3C3F4625D42DD600F3A7B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4525D42DD600F3A7B1 /* User.swift */; };
 		4A3C3F4A25D432BF00F3A7B1 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4925D432BF00F3A7B1 /* RUser.swift */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
@@ -353,10 +356,13 @@
 		4A38D0CC25B889AE006EE06F /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		4A38D0D725B88A12006EE06F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TabBar.strings; sourceTree = "<group>"; };
 		4A38D0DB25B88A16006EE06F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TabBar.strings; sourceTree = "<group>"; };
+		4A3957C625DEA1BC009958BC /* MarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksViewController.swift; sourceTree = "<group>"; };
+		4A3957D125DEA5BB009958BC /* MarksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksResponse.swift; sourceTree = "<group>"; };
+		4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationItemResponse.swift; sourceTree = "<group>"; };
 		4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		4A3C3F3D25D426F700F3A7B1 /* ApiAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuth.swift; sourceTree = "<group>"; };
-		4A3C3F4125D4273600F3A7B1 /* ApiAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthService.swift; sourceTree = "<group>"; };
+		4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUser.swift; sourceTree = "<group>"; };
+		4A3C3F4125D4273600F3A7B1 /* ApiUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUserService.swift; sourceTree = "<group>"; };
 		4A3C3F4525D42DD600F3A7B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A3C3F4925D432BF00F3A7B1 /* RUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -864,7 +870,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */,
-				4A3C3F2E25D4242E00F3A7B1 /* Auth */,
+				4A3C3F2E25D4242E00F3A7B1 /* User */,
 				4AB5A66E25A0FC7A00518FEA /* Campus */,
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
@@ -906,21 +912,21 @@
 			path = LocalizableTables;
 			sourceTree = "<group>";
 		};
-		4A3C3F2E25D4242E00F3A7B1 /* Auth */ = {
+		4A3C3F2E25D4242E00F3A7B1 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */,
 				4A3C3F3525D4244600F3A7B1 /* Api */,
 			);
-			path = Auth;
+			path = User;
 			sourceTree = "<group>";
 		};
 		4A3C3F3525D4244600F3A7B1 /* Api */ = {
 			isa = PBXGroup;
 			children = (
 				4A3C3F3825D4245600F3A7B1 /* ResponseObjects */,
-				4A3C3F3D25D426F700F3A7B1 /* ApiAuth.swift */,
-				4A3C3F4125D4273600F3A7B1 /* ApiAuthService.swift */,
+				4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */,
+				4A3C3F4125D4273600F3A7B1 /* ApiUserService.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -929,6 +935,8 @@
 			isa = PBXGroup;
 			children = (
 				4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */,
+				4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */,
+				4A3957D125DEA5BB009958BC /* MarksResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -1343,6 +1351,7 @@
 			children = (
 				4AC1917A25B5E5E800325142 /* ProfileViewController.swift */,
 				4AC1918025B5F0CC00325142 /* SettingsViewController.swift */,
+				4A3957C625DEA1BC009958BC /* MarksViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1849,6 +1858,7 @@
 				4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
 				4A07DDA7255D94960022B6A9 /* GroupWeek.swift in Sources */,
+				4A3957C725DEA1BC009958BC /* MarksViewController.swift in Sources */,
 				4AE0310425CD72A600E8A9C0 /* SportClub+Equatable.swift in Sources */,
 				4A0049A225CEB3E300F59CB3 /* WorkService.swift in Sources */,
 				4A07DDD6255DA08B0022B6A9 /* Translator.swift in Sources */,
@@ -1916,6 +1926,7 @@
 				4AD21F5725C175AF0018D4F0 /* PlaceResponse.swift in Sources */,
 				4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */,
 				4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */,
+				4A3957D225DEA5BB009958BC /* MarksResponse.swift in Sources */,
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
 				4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */,
 				4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */,
@@ -1936,7 +1947,7 @@
 				4AC1911D25B323C100325142 /* ShortSurveyResponse.swift in Sources */,
 				4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */,
 				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
-				4A3C3F4225D4273600F3A7B1 /* ApiAuthService.swift in Sources */,
+				4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
@@ -1946,11 +1957,12 @@
 				4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
+				4A3957DC25DEA74D009958BC /* AttestationItemResponse.swift in Sources */,
 				4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */,
 				4A07DDAA255D94AD0022B6A9 /* GroupTimetable.swift in Sources */,
 				4A07DDCB255D9F190022B6A9 /* RGroupWeek.swift in Sources */,
 				4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */,
-				4A3C3F3E25D426F700F3A7B1 /* ApiAuth.swift in Sources */,
+				4A3C3F3E25D426F700F3A7B1 /* ApiUser.swift in Sources */,
 				4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */,
 				4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */,
 				4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */,
