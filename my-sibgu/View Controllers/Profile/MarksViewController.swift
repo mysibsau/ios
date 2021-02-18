@@ -20,9 +20,6 @@ class MarksViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
     
-//    private let borderColor = UIColor.Pallete.border
-//    private let shadowColor = UIColor.Pallete.shadow
-    
     
     // MARK: - Life Circle
     override func viewDidLoad() {
@@ -43,7 +40,7 @@ class MarksViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: "Work"))
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: "Marks"))
     }
     
     private func setupScrollView() {
@@ -63,7 +60,7 @@ class MarksViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 10
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 20, right: 5)
+        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         scrollView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -74,8 +71,6 @@ class MarksViewController: UIViewController {
     }
     
     private func loadMarks() {
-        print(UIColor.Pallete.border.toHexString())
-        
         startActivityIndicator()
         userService.getMarks { marks in
             guard let marks = marks else {
@@ -92,8 +87,6 @@ class MarksViewController: UIViewController {
                 self.set(marks: marks)
             }
         }
-        
-        print(UIColor.Pallete.border.toHexString())
     }
     
     private func set(marks: [Marks]) {
@@ -121,7 +114,7 @@ class MarksViewController: UIViewController {
                 separateView.snp.makeConstraints { make in
                     make.height.equalTo(1)
                 }
-                separateView.backgroundColor = .red //UIColor.Pallete.gray
+                separateView.backgroundColor = UIColor.Pallete.gray
                 termStackView.addArrangedSubview(separateView)
             }
         }

@@ -86,6 +86,7 @@
 		4A3957DC25DEA74D009958BC /* AttestationItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */; };
 		4A3957EA25DEB328009958BC /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957E925DEB328009958BC /* Marks.swift */; };
 		4A3957EE25DEB368009958BC /* AttestationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957ED25DEB368009958BC /* AttestationItem.swift */; };
+		4A3957F825DED190009958BC /* Marks.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3957FA25DED190009958BC /* Marks.strings */; };
 		4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */; };
 		4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */; };
 		4A3C3F3E25D426F700F3A7B1 /* ApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */; };
@@ -363,6 +364,8 @@
 		4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationItemResponse.swift; sourceTree = "<group>"; };
 		4A3957E925DEB328009958BC /* Marks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marks.swift; sourceTree = "<group>"; };
 		4A3957ED25DEB368009958BC /* AttestationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationItem.swift; sourceTree = "<group>"; };
+		4A3957F925DED190009958BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Marks.strings; sourceTree = "<group>"; };
+		4A3957FB25DED192009958BC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Marks.strings; sourceTree = "<group>"; };
 		4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUser.swift; sourceTree = "<group>"; };
@@ -912,6 +915,7 @@
 				4A0049B125CEBA6F00F59CB3 /* Work.strings */,
 				4A1AC3EF25D2376D007116F4 /* Trips.strings */,
 				4A26AFD425D69F7400A8E35C /* Auth.strings */,
+				4A3957FA25DED190009958BC /* Marks.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1681,6 +1685,7 @@
 				4A9C9D8525BF55470054E011 /* StudentLife.strings in Resources */,
 				4A1AC3ED25D2376D007116F4 /* Trips.strings in Resources */,
 				4A38D0B825B87CA1006EE06F /* Profile.strings in Resources */,
+				4A3957F825DED190009958BC /* Marks.strings in Resources */,
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
 				4A42819525BE01D700B2306C /* Informing.strings in Resources */,
 				4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */,
@@ -2135,6 +2140,15 @@
 				4A38D0DB25B88A16006EE06F /* ru */,
 			);
 			name = TabBar.strings;
+			sourceTree = "<group>";
+		};
+		4A3957FA25DED190009958BC /* Marks.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A3957F925DED190009958BC /* en */,
+				4A3957FB25DED192009958BC /* ru */,
+			);
+			name = Marks.strings;
 			sourceTree = "<group>";
 		};
 		4A42819725BE01D700B2306C /* Informing.strings */ = {
