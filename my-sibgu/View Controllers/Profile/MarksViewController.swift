@@ -90,11 +90,16 @@ class MarksViewController: UIViewController {
     }
     
     private func set(marks: [Marks]) {
-        
-        let sortedMarks = marks.sorted(by: { $0.term < $1.term })
+        let sortedMarks = marks.sorted(by: { $0.term > $1.term })
         
         for itemMarks in sortedMarks {
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+            label.textColor = UIColor.Pallete.sibsuBlue
+            label.text = itemMarks.term + " " + "term".localized(using: "Marks")
+            
             let segment = termMarksSegmetn(termMarks: itemMarks.items)
+            stackView.addArrangedSubview(label)
             stackView.addArrangedSubview(segment)
         }
     }
