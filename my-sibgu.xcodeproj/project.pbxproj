@@ -84,6 +84,8 @@
 		4A3957C725DEA1BC009958BC /* MarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957C625DEA1BC009958BC /* MarksViewController.swift */; };
 		4A3957D225DEA5BB009958BC /* MarksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957D125DEA5BB009958BC /* MarksResponse.swift */; };
 		4A3957DC25DEA74D009958BC /* AttestationItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */; };
+		4A3957EA25DEB328009958BC /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957E925DEB328009958BC /* Marks.swift */; };
+		4A3957EE25DEB368009958BC /* AttestationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957ED25DEB368009958BC /* AttestationItem.swift */; };
 		4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */; };
 		4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */; };
 		4A3C3F3E25D426F700F3A7B1 /* ApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */; };
@@ -359,6 +361,8 @@
 		4A3957C625DEA1BC009958BC /* MarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksViewController.swift; sourceTree = "<group>"; };
 		4A3957D125DEA5BB009958BC /* MarksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksResponse.swift; sourceTree = "<group>"; };
 		4A3957DB25DEA74D009958BC /* AttestationItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationItemResponse.swift; sourceTree = "<group>"; };
+		4A3957E925DEB328009958BC /* Marks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marks.swift; sourceTree = "<group>"; };
+		4A3957ED25DEB368009958BC /* AttestationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationItem.swift; sourceTree = "<group>"; };
 		4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUser.swift; sourceTree = "<group>"; };
@@ -1440,6 +1444,8 @@
 				4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */,
 				4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */,
 				4A3C3F4525D42DD600F3A7B1 /* User.swift */,
+				4A3957E925DEB328009958BC /* Marks.swift */,
+				4A3957ED25DEB368009958BC /* AttestationItem.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1885,6 +1891,7 @@
 				4AD21F3D25C154BD0018D4F0 /* TimetableResponse.swift in Sources */,
 				4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */,
 				4AE030F425CD443E00E8A9C0 /* DesignOfficeResponse.swift in Sources */,
+				4A3957EE25DEB368009958BC /* AttestationItem.swift in Sources */,
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */,
@@ -1892,6 +1899,7 @@
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
+				4A3957EA25DEB328009958BC /* Marks.swift in Sources */,
 				4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */,
 				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
 				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,

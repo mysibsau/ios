@@ -17,3 +17,18 @@ class AttestationItemResponse: Decodable {
     let att: String
     
 }
+
+extension AttestationItemResponse {
+    
+    func converteToDomain() -> AttestationItem {
+        return AttestationItem(
+            name: name,
+            type: type,
+            att1: att1,
+            att2: att2,
+            att3: att3,
+            att: att
+        )
+    }
+    
+}

@@ -16,4 +16,12 @@ class ApiUserService {
         baseApiService.load(UserResponse.self, url: ApiUser.authUser(number: number, password: password), completion: completion)
     }
     
+    func loadMarks(number: String, password: String, completion: @escaping (_ marksResponse: [MarksResponse]?) -> Void) {
+        baseApiService.load([MarksResponse].self, url: ApiUser.marks(number: number, password: password), completion: completion)
+    }
+    
+    func loadAttestation(number: String, password: String, completion: @escaping (_ attestations: [AttestationItemResponse]?) -> Void) {
+        baseApiService.load([AttestationItemResponse].self, url: ApiUser.attestations(number: number, password: password), completion: completion)
+    }
+    
 }

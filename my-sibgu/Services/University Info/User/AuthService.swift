@@ -41,4 +41,32 @@ class UserService {
         }
     }
     
+    func getMarks(completion: @escaping ([Marks]?) -> Void) {
+        guard
+            let number = UserDefaultsConfig.userStudentId,
+            let password = UserDefaultsConfig.userPassword
+        else {
+            completion(nil)
+            return
+        }
+        
+        ApiUserService().loadMarks(number: number, password: password) { marksResponse in
+            completion(marksResponse?.map { $0.converteToDomain() })
+        }
+    }
+    
+    func getAttestation(completion: @escaping ([AttestationItem]?) -> Void) {
+        guard
+            let number = UserDefaultsConfig.userStudentId,
+            let password = UserDefaultsConfig.userPassword
+        else {
+            completion(nil)
+            return
+        }
+        
+        ApiUserService().loadAttestation(number: number, password: password) { attestationItemsResponse in
+            completion(attestationItemsResponse?.map { $0.converteToDomain() })
+        }
+    }
+    
 }
