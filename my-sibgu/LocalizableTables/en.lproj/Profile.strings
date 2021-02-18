@@ -18,3 +18,7 @@
 "group" = "Group";
 "average.rate" = "Average score";
 "student.id" = "Student ID";
+
+"performance" = "Academic performance";
+"attestation" = "Attestation";
+"marks" = "Record book";

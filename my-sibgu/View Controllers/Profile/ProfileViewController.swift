@@ -55,16 +55,26 @@ class ProfileViewController: UIViewController {
     private lazy var groupTitleLabel = getUserTitleLabel()
     private lazy var averageRateTitleLabel = getUserTitleLabel()
     private lazy var studentIdTitleLabel = getUserTitleLabel()
+    private lazy var performanceTitleLabel = getUserTitleLabel()
     
     private lazy var fioLabel = getUserLabel()
     private lazy var groupLabel = getUserLabel()
     private lazy var averageRateLabel = getUserLabel()
     private lazy var studentIdLabel = getUserLabel()
+    private lazy var attestationLabel = getUserLabel()
+    private lazy var marksLabel = getUserLabel()
     
     private lazy var fioView = getWrapView()
     private lazy var groupView = getWrapView()
     private lazy var averageRateView = getWrapView()
     private lazy var studentIdView = getWrapView()
+    private lazy var performanceView = getWrapView()
+    private lazy var performanceStackView = getPerformanceStackView()
+    private lazy var attestationView = UIView()
+    private lazy var marksView = UIView()
+    
+    private let separateView = UIView()
+    
     
     private func getUserLabel() -> UILabel {
         let label = UILabel()
@@ -86,6 +96,13 @@ class ProfileViewController: UIViewController {
         view.layer.cornerRadius = 10
         view.backgroundColor = UIColor.Pallete.content
         return view
+    }
+    
+    private func getPerformanceStackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        return stackView
     }
     
     
@@ -272,39 +289,10 @@ class ProfileViewController: UIViewController {
             make.edges.equalToSuperview().inset(20)
         }
         
-        let fioSegment = getViewWithTitleAndInfo(
-            titleLabel: fioTitleLabel,
-            infoView: fioView,
-            infoLabel: fioLabel
-        )
-        let groupSegment = getViewWithTitleAndInfo(
-            titleLabel: groupTitleLabel,
-            infoView: groupView,
-            infoLabel: groupLabel
-        )
-        let averageRateSegment = getViewWithTitleAndInfo(
-            titleLabel: averageRateTitleLabel,
-            infoView: averageRateView,
-            infoLabel: averageRateLabel
-        )
-        let studentIdSegment = getViewWithTitleAndInfo(
-            titleLabel: studentIdTitleLabel,
-            infoView: studentIdView,
-            infoLabel: studentIdLabel
-        )
-        
-        let hStackView = UIStackView()
-        hStackView.axis = .horizontal
-        hStackView.distribution = .fillEqually
-        hStackView.spacing = 20
-        
-        hStackView.addArrangedSubview(groupSegment)
-        hStackView.addArrangedSubview(averageRateSegment)
-        
-        
-        stackView.addArrangedSubview(fioSegment)
-        stackView.addArrangedSubview(hStackView)
-        stackView.addArrangedSubview(studentIdSegment)
+        stackView.addArrangedSubview(getFioSegment())
+        stackView.addArrangedSubview(getGroupAndAverageRateSegment())
+        stackView.addArrangedSubview(getStudentIdSegment())
+        stackView.addArrangedSubview(getPerformanceSegment())
         
         fioTitleLabel.text = "ФИО"
         fioLabel.text = user?.fio
@@ -317,9 +305,126 @@ class ProfileViewController: UIViewController {
         
         studentIdTitleLabel.text = "Номер зачетки"
         studentIdLabel.text = user?.zachotka
+        
+        performanceTitleLabel.text = "Успеваемость"
     }
     
-    private func getViewWithTitleAndInfo(titleLabel: UILabel, infoView: UIView, infoLabel: UILabel) -> UIView {
+    private func getFioSegment() -> UIView {
+        let fioSegment = getViewWithTitleAndInfo(
+            titleLabel: fioTitleLabel,
+            infoView: fioView,
+            infoLabel: fioLabel
+        )
+        return fioSegment
+    }
+    
+    private func getGroupAndAverageRateSegment() -> UIView {
+        let groupSegment = getViewWithTitleAndInfo(
+            titleLabel: groupTitleLabel,
+            infoView: groupView,
+            infoLabel: groupLabel
+        )
+        let averageRateSegment = getViewWithTitleAndInfo(
+            titleLabel: averageRateTitleLabel,
+            infoView: averageRateView,
+            infoLabel: averageRateLabel
+        )
+        
+        let hStackView = UIStackView()
+        hStackView.axis = .horizontal
+        hStackView.distribution = .fillEqually
+        hStackView.spacing = 20
+        
+        hStackView.addArrangedSubview(groupSegment)
+        hStackView.addArrangedSubview(averageRateSegment)
+        
+        return hStackView
+    }
+    
+    private func getStudentIdSegment() -> UIView {
+        let studentIdSegment = getViewWithTitleAndInfo(
+            titleLabel: studentIdTitleLabel,
+            infoView: studentIdView,
+            infoLabel: studentIdLabel
+        )
+        return studentIdSegment
+    }
+    
+    private func getPerformanceSegment() -> UIView {
+        attestationView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
+        attestationView.addSubview(attestationLabel)
+        attestationLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.centerY.equalToSuperview()
+        }
+        let attestationArrow = getArrowImage()
+        attestationView.addSubview(attestationArrow)
+        attestationArrow.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-15)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(22)
+        }
+        
+        attestationLabel.text = "Аттестация"
+
+        marksView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
+        marksView.addSubview(marksLabel)
+        marksLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.centerY.equalToSuperview()
+        }
+        let marksArrow = getArrowImage()
+        marksView.addSubview(marksArrow)
+        marksArrow.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-15)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(22)
+        }
+        
+        separateView.snp.makeConstraints { make in
+            make.height.equalTo(0.3)
+        }
+        separateView.backgroundColor = UIColor.Pallete.gray
+        
+        marksLabel.text = "Оценки"
+        
+        performanceStackView.addArrangedSubview(attestationView)
+        performanceStackView.addArrangedSubview(separateView)
+        performanceStackView.addArrangedSubview(marksView)
+        performanceStackView.clipsToBounds = true
+        
+        performanceView.addSubview(performanceStackView)
+        performanceStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        let performanceSegment = getViewWithTitleAndInfo(
+            titleLabel: performanceTitleLabel,
+            infoView: performanceView
+        )
+        
+        let attestationGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapToAttestation))
+        let marksGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapToMarks))
+        
+        attestationView.addGestureRecognizer(attestationGestureRecognizer)
+        marksView.addGestureRecognizer(marksGestureRecognizer)
+        
+        return performanceSegment
+    }
+    
+    private func getArrowImage() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor.Pallete.sibsuBlue
+        return imageView
+    }
+    
+    private func getViewWithTitleAndInfo(titleLabel: UILabel, infoView: UIView, infoLabel: UILabel? = nil) -> UIView {
         let view = UIView()
         view.addSubview(titleLabel)
         view.addSubview(infoView)
@@ -333,9 +438,11 @@ class ProfileViewController: UIViewController {
             make.leading.trailing.bottom.equalToSuperview()
         }
         
-        infoView.addSubview(infoLabel)
-        infoLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(12)
+        if let infoLabel = infoLabel {
+            infoView.addSubview(infoLabel)
+            infoLabel.snp.makeConstraints { make in
+                make.edges.equalToSuperview().inset(12)
+            }
         }
         
         return view
@@ -363,6 +470,10 @@ class ProfileViewController: UIViewController {
         groupTitleLabel.text = "group".localized(using: tableName)
         averageRateTitleLabel.text = "average.rate".localized(using: tableName)
         studentIdTitleLabel.text = "student.id".localized(using: tableName)
+        
+        performanceTitleLabel.text = "performance".localized(using: tableName)
+        attestationLabel.text = "attestation".localized(using: tableName)
+        marksLabel.text = "marks".localized(using: tableName)
     }
     
     @objc
@@ -391,6 +502,16 @@ class ProfileViewController: UIViewController {
                 self.setupUserViews()
             }
         }
+    }
+    
+    @objc
+    private func didTapToMarks() {
+        print("marks")
+    }
+    
+    @objc
+    private func didTapToAttestation() {
+        print("attestation")
     }
     
     // MARK: - Notification
@@ -435,6 +556,10 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        setupUserViews()
+        
         textFieldsView.makeBorder()
         textFieldsView.makeShadow(opacity: 0.2, radius: 6)
         
@@ -449,6 +574,9 @@ extension ProfileViewController {
         
         averageRateView.makeBorder()
         averageRateView.makeShadow()
+        
+        performanceView.makeBorder()
+        performanceView.makeShadow()
     }
     
 }
