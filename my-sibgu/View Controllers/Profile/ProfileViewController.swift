@@ -506,7 +506,9 @@ class ProfileViewController: UIViewController {
     
     @objc
     private func didTapToMarks() {
-        print("marks")
+        let vc = MarksViewController()
+        print(UIColor.Pallete.border.toHexString())
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc

@@ -42,7 +42,7 @@ class VacancyViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setLeftTitle(title: "Вакансия")
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: "Work"))
     }
     
     private func setupScrollView() {
