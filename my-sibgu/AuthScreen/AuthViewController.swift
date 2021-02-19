@@ -17,7 +17,7 @@ class AuthViewController: UIViewController {
     
     var delegate: AuthViewControllerDelegate?
     
-    private let authService = AuthService()
+    private let userService = UserService()
     
     private let alertView = AlertView()
     private let activityIndicatorView = UIActivityIndicatorView()
@@ -200,7 +200,7 @@ class AuthViewController: UIViewController {
         }
         
         startActivityIndicator()
-        authService.authUser(number: number, password: password) { user in
+        userService.authUser(number: number, password: password) { user in
             guard user != nil else {
                 DispatchQueue.main.async {
                     self.showAlert(withText: "Проблемы со входом")
@@ -218,7 +218,7 @@ class AuthViewController: UIViewController {
     
     @objc
     private func didTapSingIsAsGuestButton() {
-        authService.outCurrUser()
+        userService.outCurrUser()
         delegate?.showMainModule()
     }
     

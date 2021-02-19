@@ -11,7 +11,7 @@ extension UIColor {
     
     static func color(light: UIColor, dark: UIColor) -> UIColor {
         return UIColor.init { traitCollection in
-            (traitCollection.userInterfaceStyle == .dark) ? dark : light
+            return (Theme.current.userInterfaceStyle == .dark) ? dark : light
         }
     }
     
