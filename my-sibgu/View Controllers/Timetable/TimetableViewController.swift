@@ -21,6 +21,8 @@ class TimetableViewController: UIPageViewController {
 
     private var weekViewControllers = [WeekViewController]()
     private var displayedWeek = 0
+    
+    private var isDisplaydNow: Bool = false
 
     // MARK: - Private UI
     private let activityIndicatorView = UIActivityIndicatorView()
@@ -52,6 +54,18 @@ class TimetableViewController: UIPageViewController {
         self.delegate = self
         
         setTimetable()
+        
+        tabBarController?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isDisplaydNow = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        isDisplaydNow = false
     }
     
     
@@ -127,8 +141,8 @@ class TimetableViewController: UIPageViewController {
             WeekViewController(week: timetable.weeks[1], weekNumber: 1, todayNumber: (currWeekNumber == 1 ? currWeekdayNumber : nil))
         ]
         
-        horisontalScrollToViewController(viewController: weekViewControllers[currWeekNumber])
         setWeekNumber(number: currWeekNumber)
+        horisontalScrollToViewController(viewController: weekViewControllers[currWeekNumber])
     }
     
     private func horisontalScrollToViewController(viewController: UIViewController, direction: UIPageViewController.NavigationDirection = .forward) {
@@ -153,6 +167,24 @@ class TimetableViewController: UIPageViewController {
     private func setWeekNumber(number: Int) {
         controlTimetableDelegate?.setWeekNumber(number: number)
         displayedWeek = number
+    }
+    
+    private func scrollToToday() {
+        let currWeekNumber = dateTimeService.currWeekNumber()
+        
+        if displayedWeek != currWeekNumber {
+            if displayedWeek == 0 {
+                horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
+                toggleWeekNumber()
+            } else {
+                horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
+                toggleWeekNumber()
+            }
+        }
+        
+        setWeekNumber(number: currWeekNumber)
+        weekViewControllers[0].scrollToToday()
+        weekViewControllers[1].scrollToToday()
     }
 
 }
@@ -219,6 +251,25 @@ extension TimetableViewController: ShowingTimetableViewController {
             horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
             toggleWeekNumber()
         }
+    }
+    
+}
+
+extension TimetableViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController == navigationController! {
+//            scrollToToday()
+//            print("hel")
+            
+            if isDisplaydNow {
+                scrollToToday()
+            }
+            
+            tabBarController.selectedIndex = 2
+            return false
+        }
+        return true
     }
     
 }

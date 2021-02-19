@@ -107,4 +107,14 @@ class WeekViewController: UIViewController {
         }
     }
     
+    func scrollToToday() {
+        guard let todayNumber = todayNumber else { return }
+        
+        view.layoutIfNeeded()
+        guard todayNumber >= 0 && todayNumber <= 5 else { return }
+        let todayView = lessonDayViews[todayNumber]
+        let origin = CGPoint(x: todayView.frame.origin.x, y: todayView.frame.origin.y - 60)
+        scrollView.setContentOffset(origin, animated: true)
+    }
+    
 }
