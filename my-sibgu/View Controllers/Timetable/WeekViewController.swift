@@ -103,8 +103,34 @@ class WeekViewController: UIViewController {
             guard todayNumber >= 0 && todayNumber <= 5 else { return }
             let todayView = lessonDayViews[todayNumber]
             todayView.makeToday()
-            scrollView.setContentOffset(todayView.frame.origin, animated: true)
         }
+    }
+    
+    func scrollToToday() {
+        guard let todayNumber = todayNumber else { return }
+        
+        view.layoutIfNeeded()
+        guard todayNumber >= 0 && todayNumber <= 5 else { return }
+        let todayView = lessonDayViews[todayNumber]
+        
+        let viewHeight = view.bounds.height
+        
+        var heightAfterToday: CGFloat = 0
+        for dayViewIndex in todayNumber...5 {
+            heightAfterToday += lessonDayViews[dayViewIndex].frame.height
+        }
+        
+        let point: CGPoint
+        
+        // Вот ты спросишь что это за число такое `60`
+        // А я тебе отвечу что сам не понимаю, но этот костыль дает возможность коду работать чуток правильно
+        if heightAfterToday > viewHeight {
+            point = CGPoint(x: todayView.frame.origin.x, y: todayView.frame.origin.y - 60)
+        } else {
+            point = CGPoint(x: todayView.frame.origin.x, y: (todayView.frame.origin.y) - (viewHeight - heightAfterToday - 60))
+        }
+        
+        scrollView.setContentOffset(point, animated: true)
     }
     
 }
