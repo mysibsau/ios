@@ -174,17 +174,6 @@ class MarksViewController: UIViewController {
 
 }
 
-extension MarksViewController {
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        stackView.removeAllArrangedSubviews()
-        set(marks: self.marks)
-    }
-    
-}
-
 extension MarksViewController: AnimatingNetworkProtocol {
     
     func animatingActivityIndicatorView() -> UIActivityIndicatorView {

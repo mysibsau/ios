@@ -512,7 +512,8 @@ class ProfileViewController: UIViewController {
     
     @objc
     private func didTapToAttestation() {
-        print("attestation")
+        let vc = AttestaionViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Notification

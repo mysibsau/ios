@@ -87,6 +87,8 @@
 		4A3957EA25DEB328009958BC /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957E925DEB328009958BC /* Marks.swift */; };
 		4A3957EE25DEB368009958BC /* AttestationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957ED25DEB368009958BC /* AttestationItem.swift */; };
 		4A3957F825DED190009958BC /* Marks.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3957FA25DED190009958BC /* Marks.strings */; };
+		4A3957FF25DFADFC009958BC /* AttestaionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3957FE25DFADFC009958BC /* AttestaionViewController.swift */; };
+		4A39582825DFD056009958BC /* Attestation.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A39582A25DFD056009958BC /* Attestation.strings */; };
 		4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */; };
 		4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */; };
 		4A3C3F3E25D426F700F3A7B1 /* ApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */; };
@@ -366,6 +368,9 @@
 		4A3957ED25DEB368009958BC /* AttestationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationItem.swift; sourceTree = "<group>"; };
 		4A3957F925DED190009958BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Marks.strings; sourceTree = "<group>"; };
 		4A3957FB25DED192009958BC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Marks.strings; sourceTree = "<group>"; };
+		4A3957FE25DFADFC009958BC /* AttestaionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestaionViewController.swift; sourceTree = "<group>"; };
+		4A39582925DFD056009958BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Attestation.strings; sourceTree = "<group>"; };
+		4A39582D25DFD058009958BC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Attestation.strings; sourceTree = "<group>"; };
 		4A3C3F2F25D4244200F3A7B1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4A3C3F3925D4246700F3A7B1 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		4A3C3F3D25D426F700F3A7B1 /* ApiUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUser.swift; sourceTree = "<group>"; };
@@ -916,6 +921,7 @@
 				4A1AC3EF25D2376D007116F4 /* Trips.strings */,
 				4A26AFD425D69F7400A8E35C /* Auth.strings */,
 				4A3957FA25DED190009958BC /* Marks.strings */,
+				4A39582A25DFD056009958BC /* Attestation.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1360,6 +1366,7 @@
 				4AC1917A25B5E5E800325142 /* ProfileViewController.swift */,
 				4AC1918025B5F0CC00325142 /* SettingsViewController.swift */,
 				4A3957C625DEA1BC009958BC /* MarksViewController.swift */,
+				4A3957FE25DFADFC009958BC /* AttestaionViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1705,6 +1712,7 @@
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4A051BC025BDA2FC00287FD5 /* Person.strings in Resources */,
 				4AEBE6F625639388005F6CBE /* union.json in Resources */,
+				4A39582825DFD056009958BC /* Attestation.strings in Resources */,
 				4AF3ECA125AC3E2000AF0367 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1911,6 +1919,7 @@
 				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
 				4AD21F6F25C1AA870018D4F0 /* RPlace.swift in Sources */,
 				4AE0310025CD714100E8A9C0 /* SportClubsTableViewController.swift in Sources */,
+				4A3957FF25DFADFC009958BC /* AttestaionViewController.swift in Sources */,
 				4A07DDA4255D94800022B6A9 /* GroupDay.swift in Sources */,
 				4AD21F4F25C175220018D4F0 /* ProfessorResponse.swift in Sources */,
 				4A07DDA0255D943F0022B6A9 /* GroupLesson.swift in Sources */,
@@ -2149,6 +2158,15 @@
 				4A3957FB25DED192009958BC /* ru */,
 			);
 			name = Marks.strings;
+			sourceTree = "<group>";
+		};
+		4A39582A25DFD056009958BC /* Attestation.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A39582925DFD056009958BC /* en */,
+				4A39582D25DFD058009958BC /* ru */,
+			);
+			name = Attestation.strings;
 			sourceTree = "<group>";
 		};
 		4A42819725BE01D700B2306C /* Informing.strings */ = {
