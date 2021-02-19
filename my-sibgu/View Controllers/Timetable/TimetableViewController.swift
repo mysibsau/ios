@@ -88,6 +88,7 @@ class TimetableViewController: UIPageViewController {
                     self.set(timetable: TimetableViewModelTranslator.groupTimetableToViewModel(groupTimetable: gt))
                     self.stopActivityIndicator()
                     self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+                    self.scrollToToday()
                 }
             }
         case .professor(let professor):
@@ -103,6 +104,7 @@ class TimetableViewController: UIPageViewController {
                     self.set(timetable: TimetableViewModelTranslator.professorTimetableToViewModel(professorTimetable: pt))
                     self.stopActivityIndicator()
                     self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+                    self.scrollToToday()
                 }
             }
         case .place(let place):
@@ -118,6 +120,7 @@ class TimetableViewController: UIPageViewController {
                     self.set(timetable: TimetableViewModelTranslator.placeTimetableToViewModel(placeTimetable: pt))
                     self.stopActivityIndicator()
                     self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
+                    self.scrollToToday()
                 }
             }
         case .none:
@@ -259,9 +262,6 @@ extension TimetableViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == navigationController! {
-//            scrollToToday()
-//            print("hel")
-            
             if isDisplaydNow {
                 scrollToToday()
             }
