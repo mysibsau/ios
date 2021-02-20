@@ -45,6 +45,7 @@ class DateTimeService {
             currWeekdayNumber += 7
         }
         
+        return 6
         return currWeekdayNumber
     }
     

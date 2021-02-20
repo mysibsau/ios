@@ -16,6 +16,7 @@ class TimetableViewController: UIPageViewController {
     private weak var controlTimetableDelegate: ControlTimetableDelegate?
 
     private var viewType: TimetableViewType!
+//    private var timetableViewModel: TimetableViewModel!
 
     var rightBarButton: UIButton?
 
@@ -88,7 +89,7 @@ class TimetableViewController: UIPageViewController {
                     self.set(timetable: TimetableViewModelTranslator.groupTimetableToViewModel(groupTimetable: gt))
                     self.stopActivityIndicator()
                     self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-                    self.scrollToToday()
+//                    self.scrollToToday()
                 }
             }
         case .professor(let professor):
@@ -104,7 +105,7 @@ class TimetableViewController: UIPageViewController {
                     self.set(timetable: TimetableViewModelTranslator.professorTimetableToViewModel(professorTimetable: pt))
                     self.stopActivityIndicator()
                     self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-                    self.scrollToToday()
+//                    self.scrollToToday()
                 }
             }
         case .place(let place):
@@ -120,7 +121,7 @@ class TimetableViewController: UIPageViewController {
                     self.set(timetable: TimetableViewModelTranslator.placeTimetableToViewModel(placeTimetable: pt))
                     self.stopActivityIndicator()
                     self.controlTimetableDelegate?.setControlIsUserInteractionEnabled(true)
-                    self.scrollToToday()
+//                    self.scrollToToday()
                 }
             }
         case .none:
@@ -172,23 +173,23 @@ class TimetableViewController: UIPageViewController {
         displayedWeek = number
     }
     
-    private func scrollToToday() {
-        let currWeekNumber = dateTimeService.currWeekNumber()
-        
-        if displayedWeek != currWeekNumber {
-            if displayedWeek == 0 {
-                horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
-                toggleWeekNumber()
-            } else {
-                horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
-                toggleWeekNumber()
-            }
-        }
-        
-        setWeekNumber(number: currWeekNumber)
-        weekViewControllers[0].scrollToToday()
-        weekViewControllers[1].scrollToToday()
-    }
+//    private func scrollToToday() {
+//        let currWeekNumber = dateTimeService.currWeekNumber()
+//        
+//        if displayedWeek != currWeekNumber {
+//            if displayedWeek == 0 {
+//                horisontalScrollToViewController(viewController: weekViewControllers[1], direction: .forward)
+//                toggleWeekNumber()
+//            } else {
+//                horisontalScrollToViewController(viewController: weekViewControllers[0], direction: .reverse)
+//                toggleWeekNumber()
+//            }
+//        }
+//        
+//        setWeekNumber(number: currWeekNumber)
+//        weekViewControllers[0].scrollToToday()
+//        weekViewControllers[1].scrollToToday()
+//    }
 
 }
 
@@ -262,10 +263,10 @@ extension TimetableViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == navigationController! {
-            if isDisplaydNow {
-                scrollToToday()
-            }
-            
+//            if isDisplaydNow {
+//                scrollToToday()
+//            }
+//
             tabBarController.selectedIndex = 2
             return false
         }
