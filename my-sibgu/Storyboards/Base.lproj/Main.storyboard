@@ -81,10 +81,42 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Rv-E6-BQy" kind="relationship" relationship="rootViewController" id="5wu-Ki-USA"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lj2-tl-Rtw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916" y="-622"/>
+        </scene>
+        <!--Cafeterias Table View Controller-->
+        <scene sceneID="Wd6-Ii-rQQ">
+            <objects>
+                <tableViewController id="3Rv-E6-BQy" customClass="CafeteriasTableViewController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ked-Oc-ubb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MK9-yP-gfs">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MK9-yP-gfs" id="aP5-uQ-Gyf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3Rv-E6-BQy" id="CBC-VL-vLx"/>
+                            <outlet property="delegate" destination="3Rv-E6-BQy" id="IuZ-nc-S2X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8NM-Gi-cYW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M2I-iY-8ow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="-622"/>
         </scene>
         <!--Расписание-->
         <scene sceneID="WF3-S3-Zo7">

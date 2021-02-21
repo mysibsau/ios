@@ -95,6 +95,8 @@
 		4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4125D4273600F3A7B1 /* ApiUserService.swift */; };
 		4A3C3F4625D42DD600F3A7B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4525D42DD600F3A7B1 /* User.swift */; };
 		4A3C3F4A25D432BF00F3A7B1 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C3F4925D432BF00F3A7B1 /* RUser.swift */; };
+		4A3D14DB25E12372006895E1 /* DinerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D14DA25E12372006895E1 /* DinerTableViewCell.swift */; };
+		4A3D14E425E12981006895E1 /* Cafeteria.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3D14E625E12981006895E1 /* Cafeteria.strings */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
 		4A42819525BE01D700B2306C /* Informing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A42819725BE01D700B2306C /* Informing.strings */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
@@ -155,6 +157,9 @@
 		4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */; };
 		4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */; };
 		4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */; };
+		4AB9790625E0F2170025B937 /* CafeteriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */; };
+		4AB9790A25E0F2770025B937 /* Cafetefia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790925E0F2770025B937 /* Cafetefia.swift */; };
+		4AB9791025E0F5740025B937 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */; };
 		4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC18FB925B19AB800325142 /* SubgroupResponse.swift */; };
 		4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC18FC125B1A46600325142 /* MetaResponse.swift */; };
 		4AC1910F25B3227400325142 /* SurveysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1910E25B3227400325142 /* SurveysService.swift */; };
@@ -231,6 +236,10 @@
 		4AEE181325700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181225700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift */; };
 		4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */; };
 		4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE181E2570203100DD7D9F /* PopableViewController.swift */; };
+		4AF0301E25E2B4730045D032 /* CafetefiaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0301D25E2B4730045D032 /* CafetefiaService.swift */; };
+		4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0302525E2B53C0045D032 /* CafeteriaResponse.swift */; };
+		4AF0302C25E2B60D0045D032 /* ApiCafeteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0302B25E2B60D0045D032 /* ApiCafeteria.swift */; };
+		4AF0303225E2B68F0045D032 /* ApiCafeteriaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF0303125E2B68F0045D032 /* ApiCafeteriaService.swift */; };
 		4AF3EC5625A888B600AF0367 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5525A888B600AF0367 /* FileHelper.swift */; };
 		4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */; };
 		4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */; };
@@ -377,6 +386,9 @@
 		4A3C3F4125D4273600F3A7B1 /* ApiUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUserService.swift; sourceTree = "<group>"; };
 		4A3C3F4525D42DD600F3A7B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A3C3F4925D432BF00F3A7B1 /* RUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
+		4A3D14DA25E12372006895E1 /* DinerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerTableViewCell.swift; sourceTree = "<group>"; };
+		4A3D14E525E12981006895E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Cafeteria.strings; sourceTree = "<group>"; };
+		4A3D14E725E12983006895E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Cafeteria.strings; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A42819625BE01D700B2306C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42819825BE01DA00B2306C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Informing.strings; sourceTree = "<group>"; };
@@ -440,6 +452,9 @@
 		4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RInstitute.swift; sourceTree = "<group>"; };
 		4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstituteResponse.swift; sourceTree = "<group>"; };
 		4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+removeWhitespaces.swift"; sourceTree = "<group>"; };
+		4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriasTableViewController.swift; sourceTree = "<group>"; };
+		4AB9790925E0F2770025B937 /* Cafetefia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafetefia.swift; sourceTree = "<group>"; };
+		4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4AC18FB925B19AB800325142 /* SubgroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubgroupResponse.swift; sourceTree = "<group>"; };
 		4AC18FC125B1A46600325142 /* MetaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaResponse.swift; sourceTree = "<group>"; };
 		4AC1910E25B3227400325142 /* SurveysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysService.swift; sourceTree = "<group>"; };
@@ -517,6 +532,10 @@
 		4AEE181225700B1900DD7D9F /* UINavigationController+configurateNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+configurateNavigationBar.swift"; sourceTree = "<group>"; };
 		4AEE181A2570116000DD7D9F /* UINavigationItem+configurate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+configurate.swift"; sourceTree = "<group>"; };
 		4AEE181E2570203100DD7D9F /* PopableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopableViewController.swift; sourceTree = "<group>"; };
+		4AF0301D25E2B4730045D032 /* CafetefiaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafetefiaService.swift; sourceTree = "<group>"; };
+		4AF0302525E2B53C0045D032 /* CafeteriaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriaResponse.swift; sourceTree = "<group>"; };
+		4AF0302B25E2B60D0045D032 /* ApiCafeteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCafeteria.swift; sourceTree = "<group>"; };
+		4AF0303125E2B68F0045D032 /* ApiCafeteriaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCafeteriaService.swift; sourceTree = "<group>"; };
 		4AF3EC5525A888B600AF0367 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Union+Equatable.swift"; sourceTree = "<group>"; };
 		4AF3EC5E25A99F6C00AF0367 /* Institution+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Institution+Equatable.swift"; sourceTree = "<group>"; };
@@ -884,6 +903,7 @@
 				4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */,
 				4A3C3F2E25D4242E00F3A7B1 /* User */,
 				4AB5A66E25A0FC7A00518FEA /* Campus */,
+				4AF0301C25E2B4500045D032 /* Cafeteria */,
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
 				4A5063E425CAFA35004C2BC8 /* Support */,
@@ -922,6 +942,7 @@
 				4A26AFD425D69F7400A8E35C /* Auth.strings */,
 				4A3957FA25DED190009958BC /* Marks.strings */,
 				4A39582A25DFD056009958BC /* Attestation.strings */,
+				4A3D14E625E12981006895E1 /* Cafeteria.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -953,6 +974,14 @@
 				4A3957D125DEA5BB009958BC /* MarksResponse.swift */,
 			);
 			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
+		4A3D14D925E12353006895E1 /* Cafeteria */ = {
+			isa = PBXGroup;
+			children = (
+				4A3D14DA25E12372006895E1 /* DinerTableViewCell.swift */,
+			);
+			path = Cafeteria;
 			sourceTree = "<group>";
 		};
 		4A3D7D57259C612100B6D38A /* Events */ = {
@@ -1127,6 +1156,7 @@
 				4AEE181125700B0000DD7D9F /* Extensions */,
 				4A54F57A259B1BA500184BC0 /* General */,
 				4A54F57C259B3DF800184BC0 /* Events */,
+				4AB9790425E0F1EA0025B937 /* Cafeteria */,
 				4AEE1801256EB1B600DD7D9F /* Timetable */,
 				4AC1912C25B3326C00325142 /* Services */,
 				4AC1917925B5E5BA00325142 /* Profile */,
@@ -1142,6 +1172,7 @@
 				4AB027462570FFD900974D08 /* Style */,
 				4A75819C25755FB1006C1F6C /* General */,
 				4A3D7D57259C612100B6D38A /* Events */,
+				4A3D14D925E12353006895E1 /* Cafeteria */,
 				4AEE1802256EB27C00DD7D9F /* Timetable */,
 				4AC1913125B3340F00325142 /* Services */,
 			);
@@ -1269,6 +1300,15 @@
 				4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */,
 			);
 			path = Ext;
+			sourceTree = "<group>";
+		};
+		4AB9790425E0F1EA0025B937 /* Cafeteria */ = {
+			isa = PBXGroup;
+			children = (
+				4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */,
+				4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */,
+			);
+			path = Cafeteria;
 			sourceTree = "<group>";
 		};
 		4AC1910D25B3225100325142 /* Surveys */ = {
@@ -1457,6 +1497,7 @@
 				4A3C3F4525D42DD600F3A7B1 /* User.swift */,
 				4A3957E925DEB328009958BC /* Marks.swift */,
 				4A3957ED25DEB368009958BC /* AttestationItem.swift */,
+				4AB9790925E0F2770025B937 /* Cafetefia.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1519,6 +1560,33 @@
 				4A75819925755DD0006C1F6C /* AlertingViewController.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4AF0301C25E2B4500045D032 /* Cafeteria */ = {
+			isa = PBXGroup;
+			children = (
+				4AF0301D25E2B4730045D032 /* CafetefiaService.swift */,
+				4AF0302125E2B47C0045D032 /* Api */,
+			);
+			path = Cafeteria;
+			sourceTree = "<group>";
+		};
+		4AF0302125E2B47C0045D032 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4AF0302425E2B4C30045D032 /* ResponseObjects */,
+				4AF0302B25E2B60D0045D032 /* ApiCafeteria.swift */,
+				4AF0303125E2B68F0045D032 /* ApiCafeteriaService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4AF0302425E2B4C30045D032 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4AF0302525E2B53C0045D032 /* CafeteriaResponse.swift */,
+			);
+			path = ResponseObjects;
 			sourceTree = "<group>";
 		};
 		4AF3EC5825A99BE700AF0367 /* Extensions */ = {
@@ -1696,6 +1764,7 @@
 				4A38D0C625B882A4006EE06F /* Settings.strings in Resources */,
 				4A42819525BE01D700B2306C /* Informing.strings in Resources */,
 				4A0049AF25CEBA6F00F59CB3 /* Work.strings in Resources */,
+				4A3D14E425E12981006895E1 /* Cafeteria.strings in Resources */,
 				4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */,
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
@@ -1836,6 +1905,7 @@
 				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4AD21F6725C1A9D30018D4F0 /* Place.swift in Sources */,
+				4AB9791025E0F5740025B937 /* MenuTableViewController.swift in Sources */,
 				4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */,
 				4AC1916525B4B2AF00325142 /* CenterTitleButton.swift in Sources */,
 				4AC1912525B3299A00325142 /* SurveyResponse.swift in Sources */,
@@ -1873,6 +1943,7 @@
 				4AD21F4925C1627F0018D4F0 /* RTimetable.swift in Sources */,
 				4A077FE425B03C090038D87E /* InformingPageViewController.swift in Sources */,
 				4AE030F825CD44C000E8A9C0 /* RDesingOffice.swift in Sources */,
+				4AF0301E25E2B4730045D032 /* CafetefiaService.swift in Sources */,
 				4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */,
 				4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */,
 				4A314A0B2572DFFF00FB7FC2 /* UIScrollView+scrollTo.swift in Sources */,
@@ -1891,6 +1962,7 @@
 				4AD21F5D25C182D60018D4F0 /* HashResponse.swift in Sources */,
 				4A077FF225B089E60038D87E /* News.swift in Sources */,
 				4AEE181B2570116000DD7D9F /* UINavigationItem+configurate.swift in Sources */,
+				4AF0302C25E2B60D0045D032 /* ApiCafeteria.swift in Sources */,
 				4A3C3F3025D4244200F3A7B1 /* AuthService.swift in Sources */,
 				4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */,
 				4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */,
@@ -1898,6 +1970,7 @@
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
 				4A7A56F3256BF5BF00E2CE0F /* UnionsTableViewController.swift in Sources */,
+				4AB9790625E0F2170025B937 /* CafeteriasTableViewController.swift in Sources */,
 				4AB5A67725A1091900518FEA /* ApiUniversityInfo.swift in Sources */,
 				4A5063CC25CA9BE7004C2BC8 /* FAQViewController.swift in Sources */,
 				4AD21F4325C15C370018D4F0 /* Timetable.swift in Sources */,
@@ -1909,6 +1982,7 @@
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */,
 				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
+				4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */,
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
@@ -1949,6 +2023,7 @@
 				4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */,
 				4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */,
 				4A3957D225DEA5BB009958BC /* MarksResponse.swift in Sources */,
+				4AF0303225E2B68F0045D032 /* ApiCafeteriaService.swift in Sources */,
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
 				4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */,
 				4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */,
@@ -1981,6 +2056,7 @@
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
 				4A3957DC25DEA74D009958BC /* AttestationItemResponse.swift in Sources */,
 				4A077FC625AEFD520038D87E /* BlurImageView.swift in Sources */,
+				4A3D14DB25E12372006895E1 /* DinerTableViewCell.swift in Sources */,
 				4A07DDAA255D94AD0022B6A9 /* GroupTimetable.swift in Sources */,
 				4A07DDCB255D9F190022B6A9 /* RGroupWeek.swift in Sources */,
 				4AC1913325B3342800325142 /* ServiceCollectionViewCell.swift in Sources */,
@@ -2004,6 +2080,7 @@
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
 				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
 				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
+				4AB9790A25E0F2770025B937 /* Cafetefia.swift in Sources */,
 				4AF3EC5625A888B600AF0367 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2167,6 +2244,15 @@
 				4A39582D25DFD058009958BC /* ru */,
 			);
 			name = Attestation.strings;
+			sourceTree = "<group>";
+		};
+		4A3D14E625E12981006895E1 /* Cafeteria.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A3D14E525E12981006895E1 /* en */,
+				4A3D14E725E12983006895E1 /* ru */,
+			);
+			name = Cafeteria.strings;
 			sourceTree = "<group>";
 		};
 		4A42819725BE01D700B2306C /* Informing.strings */ = {
