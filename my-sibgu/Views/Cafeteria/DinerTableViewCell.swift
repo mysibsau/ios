@@ -65,7 +65,7 @@ class DinerTableViewCell: UITableViewCell {
         }
         
         containerView.backgroundColor = UIColor.Pallete.content
-        containerView.makeShadow()
+        containerView.makeShadow(radius: 3)
         containerView.makeBorder()
         containerView.layer.cornerRadius = 15
         
@@ -93,8 +93,8 @@ class DinerTableViewCell: UITableViewCell {
         
         includedLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom)
-            make.bottom.leading.trailing.equalToSuperview().inset(10)
-//            make.trailing.equalTo(weightLabel.snp.leading)
+            make.bottom.leading.equalToSuperview().inset(10)
+            make.trailing.equalTo(weightLabel.snp.leading)
         }
     }
     
@@ -107,7 +107,7 @@ class DinerTableViewCell: UITableViewCell {
 extension DinerTableViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        containerView.makeShadow()
+        containerView.makeShadow(radius: 3)
         containerView.makeBorder()
     }
     

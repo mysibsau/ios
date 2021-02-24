@@ -65,7 +65,7 @@ class MenuTableViewController: UITableViewController {
         let diner = cafeteria.menus[indexPath.section].diners[indexPath.row]
         cell.weightLabel.text = diner.weight + " г."
         cell.nameLabel.text = diner.name
-        cell.priceLabel.text = String(diner.price) + "₽"
+        cell.priceLabel.text = String(diner.price) + " ₽"
         if let included = diner.included {
             cell.includedLabel.text = "(\(included))"
         } else {
