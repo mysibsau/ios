@@ -66,6 +66,11 @@ class MenuTableViewController: UITableViewController {
         cell.weightLabel.text = diner.weight + " г."
         cell.nameLabel.text = diner.name
         cell.priceLabel.text = String(diner.price) + "₽"
+        if let included = diner.included {
+            cell.includedLabel.text = "(\(included))"
+        } else {
+            cell.includedLabel.text = nil
+        }
         
         return cell
     }

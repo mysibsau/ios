@@ -26,5 +26,6 @@ struct Diner {
     let name: String
     let weight: String
     let price: Double
+    let included: String?
     
 }

@@ -31,12 +31,14 @@ class DinerResponse: Decodable {
     let name: String
     let weight: String
     let price: Double
+    let included: String?
     
     
     enum CodingKeys: String, CodingKey {
         case name = "diner_name"
         case weight
         case price
+        case included
     }
 }
 
@@ -54,6 +56,6 @@ extension MenuResponse {
 
 extension DinerResponse {
     func converteToDomain() -> Diner {
-        return Diner(name: name, weight: weight, price: price)
+        return Diner(name: name, weight: weight, price: price, included: included)
     }
 }

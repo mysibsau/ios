@@ -41,6 +41,16 @@ class DinerTableViewCell: UITableViewCell {
         return label
     }()
     
+    let includedLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = UIColor.Pallete.gray
+        return label
+    }()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -62,21 +72,29 @@ class DinerTableViewCell: UITableViewCell {
         containerView.addSubview(nameLabel)
         containerView.addSubview(weightLabel)
         containerView.addSubview(priceLabel)
+        containerView.addSubview(includedLabel)
         
         priceLabel.snp.makeConstraints { make in
-            make.trailing.top.bottom.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().offset(-10)
+            make.centerY.equalTo(nameLabel)
             make.width.equalTo(65)
         }
         
         weightLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(10)
+            make.centerY.equalTo(nameLabel)
             make.trailing.equalTo(priceLabel.snp.leading)
             make.width.equalTo(80)
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.leading.top.bottom.equalToSuperview().inset(10)
+            make.leading.top.equalToSuperview().inset(10)
             make.trailing.equalTo(weightLabel.snp.leading)
+        }
+        
+        includedLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom)
+            make.bottom.leading.trailing.equalToSuperview().inset(10)
+//            make.trailing.equalTo(weightLabel.snp.leading)
         }
     }
     
