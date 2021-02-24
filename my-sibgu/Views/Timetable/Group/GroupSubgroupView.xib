@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="749" text="Очень длинное название предмета которых не бывает" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-nk-Ete">
-                    <rect key="frame" x="0.0" y="0.0" width="354" height="29.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="354" height="37.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="(вид занятия)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hr-Xk-F6o">
-                    <rect key="frame" x="0.0" y="35.5" width="354" height="19.5"/>
+                    <rect key="frame" x="0.0" y="39.5" width="354" height="19.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -53,10 +53,10 @@
             <constraints>
                 <constraint firstItem="jaa-nk-Ete" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DAc-Qa-lIS"/>
                 <constraint firstAttribute="trailing" secondItem="jaa-nk-Ete" secondAttribute="trailing" id="IEr-UJ-zct"/>
-                <constraint firstItem="7Hr-Xk-F6o" firstAttribute="top" secondItem="jaa-nk-Ete" secondAttribute="bottom" constant="6" id="K6Z-Bc-uw5"/>
+                <constraint firstItem="7Hr-Xk-F6o" firstAttribute="top" secondItem="jaa-nk-Ete" secondAttribute="bottom" constant="2" id="K6Z-Bc-uw5"/>
                 <constraint firstItem="7Hr-Xk-F6o" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Q9U-29-vdX"/>
                 <constraint firstItem="LUb-Cj-ZWS" firstAttribute="top" secondItem="Rdc-KZ-NWX" secondAttribute="bottom" constant="2" id="SRY-b8-yad"/>
-                <constraint firstItem="Rdc-KZ-NWX" firstAttribute="top" secondItem="7Hr-Xk-F6o" secondAttribute="bottom" constant="6" id="T4u-zf-Ltu"/>
+                <constraint firstItem="Rdc-KZ-NWX" firstAttribute="top" secondItem="7Hr-Xk-F6o" secondAttribute="bottom" constant="2" id="T4u-zf-Ltu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LUb-Cj-ZWS" secondAttribute="bottom" id="bDE-g1-UXj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Hr-Xk-F6o" secondAttribute="trailing" id="g5x-Hb-uPe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LUb-Cj-ZWS" secondAttribute="trailing" id="hip-vT-9as"/>
