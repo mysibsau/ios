@@ -43,4 +43,8 @@ struct UserDefaultsConfig {
     @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.password", defaultValue: String?(nil))
     static var userPassword: String?
     
+    // MARK: Cafeteria
+    @UserDefaultsWrapper(key: "com.SibSU.MySibSU.user.cafeteria", defaultValue: String?(nil))
+    static var cafeteria: String?
+    
 }

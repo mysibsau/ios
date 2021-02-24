@@ -8,11 +8,23 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
+    
+    private let cafeteriaService = CafetefiaService()
+    
+    var delegate: CafeterialViewControllerProtocol?
+    var lastCafeteriaName: String?
 
-    var cafeteria: Cafeteria!
+    var cafeteria: Cafeteria! = Cafeteria(name: "", menus: [])
+    
+    
+    private let activityIndicatorView = UIActivityIndicatorView()
+    private let alertView = AlertView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarController?.delegate = self
         
         setupNavBar()
         
@@ -26,6 +38,12 @@ class MenuTableViewController: UITableViewController {
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        
+        if let lastCafeteriaName = lastCafeteriaName {
+            loadCafeterialAndShow(with: lastCafeteriaName)
+        } else {
+            tableView.reloadData()
+        }
     }
     
     private func setupNavBar() {
@@ -35,9 +53,39 @@ class MenuTableViewController: UITableViewController {
     
     @objc
     private func updateText() {
-        let tableName = "Cafeteria"
+//        let tableName = "Cafeteria"
         
-        self.navigationItem.setLeftTitle(title: "nav.bar.title.menu".localized(using: tableName))
+        if let lastCafeteriaName = lastCafeteriaName {
+            self.navigationItem.setLeftExitButtonAndLeftTitle(title: lastCafeteriaName, vc: self)
+        } else {
+            self.navigationItem.setLeftExitButtonAndLeftTitle(title: cafeteria.name, vc: self)
+        }
+    }
+    
+    private func loadCafeterialAndShow(with name: String) {
+        self.startActivityIndicator()
+        cafeteriaService.getAllCafeterias { cafeterias in
+            guard let c = cafeterias else {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.showNetworkAlert()
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.delegate?.set(cafeterias: c)
+                
+                if let curr = c.filter({ $0.name == name }).first {
+                    self.cafeteria = curr
+                    self.tableView.reloadData()
+                } else {
+                    self.popViewController()
+                }
+                
+                self.stopActivityIndicator()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -75,4 +123,41 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
 
+}
+
+extension MenuTableViewController: AlertingViewController {
+    func alertingSuperViewForDisplay() -> UIView {
+        view
+    }
+    
+    func alertingAlertView() -> AlertView {
+        alertView
+    }
+}
+
+extension MenuTableViewController: AnimatingNetworkProtocol {
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        view
+    }
+}
+
+extension MenuTableViewController: PopableViewController {
+    func popViewController() {
+        UserDefaultsConfig.cafeteria = nil
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MenuTableViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController == navigationController! {
+            tabBarController.selectedIndex = 1
+            return false
+        }
+        return true
+    }
 }

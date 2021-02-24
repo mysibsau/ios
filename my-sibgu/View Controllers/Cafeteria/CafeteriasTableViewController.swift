@@ -7,9 +7,15 @@
 
 import UIKit
 
+
+protocol CafeterialViewControllerProtocol {
+    func set(cafeterias: [Cafeteria])
+}
+
+
 class CafeteriasTableViewController: UITableViewController {
     
-    private var cafeterias: [Cafeteria] = []
+    var cafeterias: [Cafeteria] = []
     
     private let cafeteriaService = CafetefiaService()
     
@@ -33,10 +39,19 @@ class CafeteriasTableViewController: UITableViewController {
             forCellReuseIdentifier: OneLabelTableViewCell.reuseIdentifier
         )
         
-        loadCafeterial()
-        
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        
+        // Если есть сохраненная столовка - открываем экран и качаем оттуда
+        // Иначе - качаем тут
+        if let lastCafeteria = UserDefaultsConfig.cafeteria {
+            let vc = MenuTableViewController()
+            vc.delegate = self
+            vc.lastCafeteriaName = lastCafeteria
+            navigationController?.pushViewController(vc, animated: false)
+        } else {
+            loadCafeterial()
+        }
     }
     
     private func setupNavBar() {
@@ -69,7 +84,7 @@ class CafeteriasTableViewController: UITableViewController {
         }
     }
     
-    private func set(cafeterias: [Cafeteria]) {
+    func set(cafeterias: [Cafeteria]) {
         self.cafeterias = cafeterias
         self.tableView.reloadData()
     }
@@ -90,8 +105,12 @@ class CafeteriasTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cafeteria = cafeterias[indexPath.row]
+        
+        UserDefaultsConfig.cafeteria = cafeteria.name
+        
         let vc = MenuTableViewController()
-        vc.cafeteria = cafeterias[indexPath.row]
+        vc.cafeteria = cafeteria
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -117,3 +136,5 @@ extension CafeteriasTableViewController: AnimatingNetworkProtocol {
         view
     }
 }
+
+extension CafeteriasTableViewController: CafeterialViewControllerProtocol { }
