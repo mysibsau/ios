@@ -219,6 +219,7 @@
 		4AE0311025CD936C00E8A9C0 /* DesignOfficeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0310F25CD936C00E8A9C0 /* DesignOfficeTableCell.swift */; };
 		4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */; };
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
+		4AEA296425E6A767005B47DD /* SavedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA296325E6A767005B47DD /* SavedEntity.swift */; };
 		4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */; };
 		4AEB721425C84D7600161E32 /* OnlineShop.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB721625C84D7600161E32 /* OnlineShop.strings */; };
 		4AEB721C25C84EBB00161E32 /* GoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */; };
@@ -514,6 +515,7 @@
 		4AE0310F25CD936C00E8A9C0 /* DesignOfficeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignOfficeTableCell.swift; sourceTree = "<group>"; };
 		4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelButton.swift; sourceTree = "<group>"; };
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
+		4AEA296325E6A767005B47DD /* SavedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEntity.swift; sourceTree = "<group>"; };
 		4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewController.swift; sourceTree = "<group>"; };
 		4AEB721525C84D7600161E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnlineShop.strings; sourceTree = "<group>"; };
 		4AEB721725C84D7A00161E32 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OnlineShop.strings; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				4A07DDDF255DA3750022B6A9 /* EntityType.swift */,
+				4AEA296325E6A767005B47DD /* SavedEntity.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -2026,6 +2029,7 @@
 				4AF0303225E2B68F0045D032 /* ApiCafeteriaService.swift in Sources */,
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
 				4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */,
+				4AEA296425E6A767005B47DD /* SavedEntity.swift in Sources */,
 				4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */,
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,

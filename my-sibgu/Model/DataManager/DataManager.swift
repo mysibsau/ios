@@ -13,14 +13,23 @@ class DataManager {
     static let shared = DataManager()
     
     
-    @UserDefaultsWrapper(key: "favorite-groups-id", defaultValue: [Int]())
-    private var favoriteGroupsId: [Int]
+//    @UserDefaultsWrapper(key: "favorite-groups-id", defaultValue: [Int]())
+//    private var favoriteGroupsId: [Int]
+//
+//    @UserDefaultsWrapper(key: "favorite-professors-id", defaultValue: [Int]())
+//    private var favoriteProfessorsId: [Int]
+//
+//    @UserDefaultsWrapper(key: "favorite-places-id", defaultValue: [Int]())
+//    private var favoritePlacesId: [Int]
+//
+//    @UserDefaultsWrapper(key: "favorite-types", defaultValue: [String]())
+//    private var favoriteTypes: [String]
+////
+////    @UserDefaultsWrapper(key: "favorite-types", defaultValue: [Int]())
+////    private var favoriteIds: [Int]
     
-    @UserDefaultsWrapper(key: "favorite-professors-id", defaultValue: [Int]())
-    private var favoriteProfessorsId: [Int]
-    
-    @UserDefaultsWrapper(key: "favorite-places-id", defaultValue: [Int]())
-    private var favoritePlacesId: [Int]
+    @UserDefaultsWrapper(key: "favorite-ids", defaultValue: Data())
+    private var favoriteIdsData: Data
     
     
     // загруженные данные
@@ -108,16 +117,6 @@ extension DataManager {
         return groups
     }
     
-    func getFavoriteGroups() -> [Group] {
-        var groups: [Group] = []
-        for id in favoriteGroupsId.reversed() {
-            if let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: id) {
-                groups.append(Translator.shared.converteGroup(from: rGroup))
-            }
-        }
-        return groups
-    }
-    
     func getGroup(withId id: Int) -> Group? {
         guard let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: id) else { return nil }
         let group = Translator.shared.converteGroup(from: rGroup)
@@ -131,16 +130,6 @@ extension DataManager {
         return professors
     }
     
-    func getFavoriteProfessors() -> [Professor] {
-        var professors: [Professor] = []
-        for id in favoriteProfessorsId.reversed() {
-            if let rProfessor = downloadedRealm.object(ofType: RProfessor.self, forPrimaryKey: id) {
-                professors.append(Translator.shared.converteProfessor(from: rProfessor))
-            }
-        }
-        return professors
-    }
-    
     // MARK: Places
     func getPlaces() -> [Place] {
         let rPlaces = downloadedRealm.objects(RPlace.self)
@@ -148,14 +137,63 @@ extension DataManager {
         return places
     }
     
-    func getFavoritePlaces() -> [Place] {
-        var places: [Place] = []
-        for id in favoritePlacesId.reversed() {
-            if let rPlace = downloadedRealm.object(ofType: RPlace.self, forPrimaryKey: id) {
-                places.append(Translator.shared.convertePlace(from: rPlace))
+}
+
+
+// MARK: - Favorites
+extension DataManager {
+    
+    func getFavorites() -> [TimetableEntity] {
+        var result: [TimetableEntity] = []
+        
+        let favorites = getFavoritesSaved()
+        
+        for favorite in favorites {
+            switch favorite.type {
+            case .group:
+                if let rGroup = downloadedRealm.object(ofType: RGroup.self, forPrimaryKey: favorite.id) {
+                    let group = Translator.shared.converteGroup(from: rGroup)
+                    result.append(.group(group))
+                }
+            case .professor:
+                if let rProfessor = downloadedRealm.object(ofType: RProfessor.self, forPrimaryKey: favorite.id) {
+                    let professor = Translator.shared.converteProfessor(from: rProfessor)
+                    result.append(.professor(professor))
+                }
+            case .place:
+                if let rPlace = downloadedRealm.object(ofType: RPlace.self, forPrimaryKey: favorite.id) {
+                    let place = Translator.shared.convertePlace(from: rPlace)
+                    result.append(.place(place))
+                }
             }
         }
-        return places
+        
+        return result
+    }
+    
+    func writeFavorite(entity: SavedEntity) {
+        var favorites = getFavoritesSaved()
+        
+        if !favorites.contains(where: { $0.type == entity.type && $0.id == entity.id }) {
+            favorites.append(entity)
+            if let newFavorites = try? JSONEncoder().encode(favorites) {
+                favoriteIdsData = newFavorites
+            }
+        }
+    }
+    
+    func deleteFavorite(entity: SavedEntity) {
+        var favorites = getFavoritesSaved()
+        
+        favorites.removeAll(where: { $0.type == entity.type && $0.id == entity.id })
+        
+        if let newFavorites = try? JSONEncoder().encode(favorites) {
+            favoriteIdsData = newFavorites
+        }
+    }
+    
+    private func getFavoritesSaved() -> [SavedEntity] {
+        return (try? JSONDecoder().decode([SavedEntity].self, from: favoriteIdsData)) ?? []
     }
     
 }
@@ -178,12 +216,6 @@ extension DataManager {
         }
     }
     
-    func writeFavorite(groupId: Int) {
-        if !favoriteGroupsId.contains(groupId) {
-            favoriteGroupsId.append(groupId)
-        }
-    }
-    
     // MARK: Professors
     func write(professor: RProfessor) {
         let copyProfessor = professor.newObject()
@@ -196,12 +228,6 @@ extension DataManager {
         let copyProfessors = professors.map { $0.newObject() }
         try? downloadedRealm.write {
             downloadedRealm.add(copyProfessors, update: .all)
-        }
-    }
-    
-    func writeFavorite(professorId: Int) {
-        if !favoriteProfessorsId.contains(professorId) {
-            favoriteProfessorsId.append(professorId)
         }
     }
     
@@ -219,29 +245,11 @@ extension DataManager {
             downloadedRealm.add(copyPlaces, update: .all)
         }
     }
-    
-    func writeFavorite(placeId: Int) {
-        if !favoritePlacesId.contains(placeId) {
-            favoritePlacesId.append(placeId)
-        }
-    }
 
 }
 
 // MARK: - Deleting Entities
 extension DataManager {
-    
-    func deleteFavorite(groupId: Int) {
-        favoriteGroupsId.delete(elem: groupId)
-    }
-    
-    func deleteFavorite(professorId: Int) {
-        favoriteProfessorsId.delete(elem: professorId)
-    }
-    
-    func deleteFavorite(placeId: Int) {
-        favoritePlacesId.delete(elem: placeId)
-    }
     
     func deleteAllGroups() {
         let userGroups = userRealm.objects(RGroup.self)

@@ -150,25 +150,20 @@ class TimetableSearchViewController: UIViewController {
     private func setFavorite(_ type: EntitiesType) {
         favoriteStackView.removeAllArrangedSubviews()
         
-        switch type {
-        case .group:
-            let favorites = timetableService.getFavoriteGroupsFromLocal()
-            for favorite in favorites {
-                let v = FavoriteTimetableElemView(name: favorite.name, id: favorite.id)
+        let favorites = timetableService.getFavoritesFromLocal()
+        
+        for favorite in favorites {
+            switch favorite {
+            case .group(let group):
+                let v = FavoriteTimetableElemView(name: group.name, id: group.id, type: .group)
                 v.delegate = self
                 favoriteStackView.addArrangedSubview(v)
-            }
-        case .professor:
-            let favorites = timetableService.getFavoriteProfessorsFromLocal()
-            for favorite in favorites {
-                let v = FavoriteTimetableElemView(name: favorite.name, id: favorite.id)
+            case .professor(let professor):
+                let v = FavoriteTimetableElemView(name: professor.name, id: professor.id, type: .professor)
                 v.delegate = self
                 favoriteStackView.addArrangedSubview(v)
-            }
-        case .place:
-            let favorites = timetableService.getFavoritePlacesFromLocal()
-            for favorite in favorites {
-                let v = FavoriteTimetableElemView(name: favorite.name, id: favorite.id)
+            case .place(let place):
+                let v = FavoriteTimetableElemView(name: place.name, id: place.id, type: .place)
                 v.delegate = self
                 favoriteStackView.addArrangedSubview(v)
             }
@@ -497,13 +492,13 @@ extension TimetableSearchViewController: TimetableElemTableViewCellDelegate {
         switch currType {
         case .group:
             let group = filtredGroups[indexPath.row]
-            timetableService.addFavorite(groupId: group.id)
+            timetableService.addFavorite(entity: SavedEntity(type: currType, id: group.id))
         case .professor:
             let professor = filtredProfessors[indexPath.row]
-            timetableService.addFavorite(professorId: professor.id)
+            timetableService.addFavorite(entity: SavedEntity(type: currType, id: professor.id))
         case .place:
             let place = filtredPlaces[indexPath.row]
-            timetableService.addFavorite(placeId: place.id)
+            timetableService.addFavorite(entity: SavedEntity(type: currType, id: place.id))
         }
         showAlert(withText: "add.to.favorite".localized(using: "Timetable"))
         helpTableView.isHidden = true
@@ -514,20 +509,21 @@ extension TimetableSearchViewController: TimetableElemTableViewCellDelegate {
 
 extension TimetableSearchViewController: FavoriteTimetableElemViewDelegate {
     
-    func didTapToDeleteFavorite(with id: Int) {
-        switch currType {
-        case .group:
-            timetableService.deleteFavorite(groupId: id)
-        case .professor:
-            timetableService.deleteFavorite(professorId: id)
-        case .place:
-            timetableService.deleteFavorite(placeId: id)
-        }
+    func didTapToDeleteFavorite(with id: Int, type: EntitiesType) {
+//        switch currType {
+//        case .group:
+//            timetableService.deleteFavorite(groupId: id)
+//        case .professor:
+//            timetableService.deleteFavorite(professorId: id)
+//        case .place:
+//            timetableService.deleteFavorite(placeId: id)
+//        }
+        timetableService.deleteFavorite(entity: SavedEntity(type: type, id: id))
         setFavorite(currType)
     }
     
-    func didTapToFavorite(with id: Int) {
-        showTimetable(forType: currType, withId: id, animated: true)
+    func didTapToFavorite(with id: Int, type: EntitiesType) {
+        showTimetable(forType: type, withId: id, animated: true)
     }
     
 }

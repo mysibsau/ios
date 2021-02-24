@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EntitiesType: Int {
+enum EntitiesType: Int, Codable {
     case group = 0
     case professor = 1
     case place = 2

@@ -79,43 +79,56 @@ class TimetableService {
     
     // MARK: - Favorite
     // MARK: Groups
-    func getFavoriteGroupsFromLocal() -> [Group] {
-        return DataManager.shared.getFavoriteGroups()
-    }
-    
-    func addFavorite(groupId: Int) {
-        DataManager.shared.writeFavorite(groupId: groupId)
-    }
-    
-    func deleteFavorite(groupId: Int) {
-        DataManager.shared.deleteFavorite(groupId: groupId)
-    }
-    
+//    func getFavoriteGroupsFromLocal() -> [Group] {
+//        return DataManager.shared.getFavoriteGroups()
+//    }
+//
+//    func addFavorite(groupId: Int) {
+//        DataManager.shared.writeFavorite(groupId: groupId)
+//    }
+//
+//    func deleteFavorite(groupId: Int) {
+//        DataManager.shared.deleteFavorite(groupId: groupId)
+//    }
+//
     // MARK: Professors
-    func getFavoriteProfessorsFromLocal() -> [Professor] {
-        return DataManager.shared.getFavoriteProfessors()
-    }
+//    func getFavoriteProfessorsFromLocal() -> [Professor] {
+//        return DataManager.shared.getFavoriteProfessors()
+//    }
     
-    func addFavorite(professorId: Int) {
-        DataManager.shared.writeFavorite(professorId: professorId)
-    }
-    
-    func deleteFavorite(professorId: Int) {
-        DataManager.shared.deleteFavorite(professorId: professorId)
-    }
-    
+//    func addFavorite(professorId: Int) {
+//        DataManager.shared.writeFavorite(professorId: professorId)
+//    }
+//
+//    func deleteFavorite(professorId: Int) {
+//        DataManager.shared.deleteFavorite(professorId: professorId)
+//    }
+//
     // MARK: Places
-    func getFavoritePlacesFromLocal() -> [Place] {
-        return DataManager.shared.getFavoritePlaces()
+//    func getFavoritePlacesFromLocal() -> [Place] {
+//        return DataManager.shared.getFavoritePlaces()
+//    }
+//
+//    func addFavorite(placeId: Int) {
+//        DataManager.shared.writeFavorite(placeId: placeId)
+//    }
+//
+//    func deleteFavorite(placeId: Int) {
+//        DataManager.shared.deleteFavorite(placeId: placeId)
+//    }
+//
+    func getFavoritesFromLocal() -> [TimetableEntity] {
+        return DataManager.shared.getFavorites().reversed()
     }
     
-    func addFavorite(placeId: Int) {
-        DataManager.shared.writeFavorite(placeId: placeId)
+    func addFavorite(entity: SavedEntity) {
+        DataManager.shared.writeFavorite(entity: entity)
     }
     
-    func deleteFavorite(placeId: Int) {
-        DataManager.shared.deleteFavorite(placeId: placeId)
+    func deleteFavorite(entity: SavedEntity) {
+        DataManager.shared.deleteFavorite(entity: entity)
     }
+    
     
     // MARK: - NEW VERSION -
     func getGroupTimetable(

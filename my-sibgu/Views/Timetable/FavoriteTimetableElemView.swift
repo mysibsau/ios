@@ -8,8 +8,8 @@
 import UIKit
 
 protocol FavoriteTimetableElemViewDelegate {
-    func didTapToDeleteFavorite(with id: Int)
-    func didTapToFavorite(with id: Int)
+    func didTapToDeleteFavorite(with id: Int, type: EntitiesType)
+    func didTapToFavorite(with id: Int, type: EntitiesType)
 }
 
 class FavoriteTimetableElemView: UIView {
@@ -17,6 +17,7 @@ class FavoriteTimetableElemView: UIView {
     var delegate: FavoriteTimetableElemViewDelegate?
     var objectId: Int!
     var objectName: String!
+    var objectType: EntitiesType!
     
     let titleLabel = UILabel()
     let button = UIButton()
@@ -31,10 +32,11 @@ class FavoriteTimetableElemView: UIView {
         setupViews()
     }
     
-    convenience init(name: String, id: Int) {
+    convenience init(name: String, id: Int, type: EntitiesType) {
         self.init()
         objectId = id
         objectName = name
+        objectType = type
         
         titleLabel.text = objectName
     }
@@ -65,11 +67,11 @@ class FavoriteTimetableElemView: UIView {
     
     @objc
     private func didTapButton() {
-        delegate?.didTapToDeleteFavorite(with: objectId)
+        delegate?.didTapToDeleteFavorite(with: objectId, type: objectType)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        delegate?.didTapToFavorite(with: objectId)
+        delegate?.didTapToFavorite(with: objectId, type: objectType)
     }
 
 }
