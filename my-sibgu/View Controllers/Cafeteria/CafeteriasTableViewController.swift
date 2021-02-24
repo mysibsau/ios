@@ -23,6 +23,13 @@ class CafeteriasTableViewController: UITableViewController {
     private let activityIndicatorView = UIActivityIndicatorView()
     private let alertView = AlertView()
     
+    private let dontExistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.Pallete.gray
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +71,7 @@ class CafeteriasTableViewController: UITableViewController {
         let tableName = "Cafeteria"
         
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title.cafeteria".localized(using: tableName))
+        dontExistLabel.text = "empty".localized(using: tableName)
     }
     
     private func loadCafeterial() {
@@ -85,6 +93,14 @@ class CafeteriasTableViewController: UITableViewController {
     }
     
     func set(cafeterias: [Cafeteria]) {
+        if cafeterias.isEmpty {
+            if !view.subviews.contains(dontExistLabel) {
+                view.addSubview(dontExistLabel)
+                dontExistLabel.snp.makeConstraints { make in
+                    make.center.equalTo(view.safeAreaLayoutGuide)
+                }
+            }
+        }
         self.cafeterias = cafeterias
         self.tableView.reloadData()
     }
