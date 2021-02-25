@@ -67,6 +67,10 @@ class ServicesCollectionViewController: UICollectionViewController {
             (
                 UIImage(named: "work")!, UIColor.Pallete.gray,
                 "Работа", vc: VacanciesTableViewController.self
+            ),
+            (
+                UIImage(named: "work")!, UIColor.Pallete.gray,
+                "Библиотека", vc: LibrarySearchViewController.self
             )
         ]
         
