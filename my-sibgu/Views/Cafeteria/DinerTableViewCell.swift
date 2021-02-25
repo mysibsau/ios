@@ -20,7 +20,7 @@ class DinerTableViewCell: UITableViewCell {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return label
     }()
     
@@ -29,7 +29,7 @@ class DinerTableViewCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -38,6 +38,7 @@ class DinerTableViewCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -76,12 +77,12 @@ class DinerTableViewCell: UITableViewCell {
         
         priceLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-10)
-            make.centerY.equalTo(nameLabel)
+            make.centerY.equalToSuperview()
             make.width.equalTo(65)
         }
         
         weightLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(nameLabel)
+            make.centerY.equalToSuperview()
             make.trailing.equalTo(priceLabel.snp.leading)
             make.width.equalTo(80)
         }
