@@ -12,7 +12,6 @@ class InformingPageViewController: UIPageViewController {
     
     private var informingViewControllers: [UIViewController] = []
     
-    
     private var currPageIndex = 0
     
     private var segmentedControl: SegmentedControl!

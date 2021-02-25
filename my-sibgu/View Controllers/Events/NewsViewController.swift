@@ -17,6 +17,13 @@ class NewsViewController: UICollectionViewController {
     
     private let activityIndicatorView = UIActivityIndicatorView()
     
+    private let dontExistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.Pallete.gray
+        return label
+    }()
+    
     // MARK: - Collection View Layout
     private let spacing: CGFloat = 6
     
@@ -49,6 +56,9 @@ class NewsViewController: UICollectionViewController {
         configureCollectionView()
         
         loadEvents()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     
@@ -57,6 +67,13 @@ class NewsViewController: UICollectionViewController {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Мероприятия")
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Informing"
+        
+        dontExistLabel.text = "empty".localized(using: tableName)
     }
     
     private func configureCollectionView() {
@@ -89,6 +106,14 @@ class NewsViewController: UICollectionViewController {
     }
     
     private func set(news: [News]) {
+        if news.isEmpty {
+            if !view.subviews.contains(dontExistLabel) {
+                view.addSubview(dontExistLabel)
+                dontExistLabel.snp.makeConstraints { make in
+                    make.center.equalTo(view.safeAreaLayoutGuide)
+                }
+            }
+        }
         self.data = news.map { ($0, .short) }//.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
         self.collectionView.reloadData()
     }

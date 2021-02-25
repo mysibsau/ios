@@ -18,6 +18,13 @@ class EventsViewController: UICollectionViewController {
     
     private let activityIndicatorView = UIActivityIndicatorView()
     
+    private let dontExistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.Pallete.gray
+        return label
+    }()
+    
     // MARK: - Collection View Layout
     private let spacing: CGFloat = 6
     
@@ -50,6 +57,9 @@ class EventsViewController: UICollectionViewController {
         configureCollectionView()
         
         loadEvents()
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     
@@ -58,6 +68,13 @@ class EventsViewController: UICollectionViewController {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Мероприятия")
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Informing"
+        
+        dontExistLabel.text = "empty".localized(using: tableName)
     }
     
     private func configureCollectionView() {
@@ -90,6 +107,14 @@ class EventsViewController: UICollectionViewController {
     }
     
     private func set(events: [Event]) {
+        if events.isEmpty {
+            if !view.subviews.contains(dontExistLabel) {
+                view.addSubview(dontExistLabel)
+                dontExistLabel.snp.makeConstraints { make in
+                    make.center.equalTo(view.safeAreaLayoutGuide)
+                }
+            }
+        }
 //        self.data = events.map { ($0, .short) }
         self.data = events.map { ($0, .short) }//.sorted(by: { $0.id > $1.id }).map { ($0, .short) }
         self.collectionView.reloadData()
