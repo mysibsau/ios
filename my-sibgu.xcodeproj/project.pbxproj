@@ -157,6 +157,19 @@
 		4AB5A6AC25A1E8D200518FEA /* RInstitute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */; };
 		4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */; };
 		4AB5A6B425A32C7B00518FEA /* String+removeWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */; };
+		4AB8053B25E7CE3A0080CBE8 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8053A25E7CE3A0080CBE8 /* Book.swift */; };
+		4AB8054025E7CF560080CBE8 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8053F25E7CF560080CBE8 /* LibraryService.swift */; };
+		4AB8054825E7CF840080CBE8 /* DigitalBookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8054725E7CF840080CBE8 /* DigitalBookResponse.swift */; };
+		4AB8054C25E7CFC90080CBE8 /* PhysicalBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8054B25E7CFC90080CBE8 /* PhysicalBook.swift */; };
+		4AB8055025E7CFE60080CBE8 /* ApiLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8054F25E7CFE60080CBE8 /* ApiLibrary.swift */; };
+		4AB8055425E7D03A0080CBE8 /* ApiLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8055325E7D03A0080CBE8 /* ApiLibraryService.swift */; };
+		4AB8055825E7D07D0080CBE8 /* BooksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8055725E7D07D0080CBE8 /* BooksResponse.swift */; };
+		4AB8055D25E7E2070080CBE8 /* LibrarySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8055C25E7E2070080CBE8 /* LibrarySearchViewController.swift */; };
+		4AB8056625E7E4920080CBE8 /* Library.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AB8056825E7E4920080CBE8 /* Library.strings */; };
+		4AB8056F25E7EC580080CBE8 /* LibraryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */; };
+		4AB8057325E7EE6E0080CBE8 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */; };
+		4AB8057825E7F3170080CBE8 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8057725E7F3170080CBE8 /* BookTableViewCell.swift */; };
+		4AB8058625E80E4C0080CBE8 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8058525E80E4C0080CBE8 /* BookView.swift */; };
 		4AB9790625E0F2170025B937 /* CafeteriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */; };
 		4AB9790A25E0F2770025B937 /* Cafetefia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790925E0F2770025B937 /* Cafetefia.swift */; };
 		4AB9791025E0F5740025B937 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */; };
@@ -453,6 +466,20 @@
 		4AB5A6AB25A1E8D200518FEA /* RInstitute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RInstitute.swift; sourceTree = "<group>"; };
 		4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstituteResponse.swift; sourceTree = "<group>"; };
 		4AB5A6B325A32C7B00518FEA /* String+removeWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+removeWhitespaces.swift"; sourceTree = "<group>"; };
+		4AB8053A25E7CE3A0080CBE8 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		4AB8053F25E7CF560080CBE8 /* LibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryService.swift; sourceTree = "<group>"; };
+		4AB8054725E7CF840080CBE8 /* DigitalBookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalBookResponse.swift; sourceTree = "<group>"; };
+		4AB8054B25E7CFC90080CBE8 /* PhysicalBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalBook.swift; sourceTree = "<group>"; };
+		4AB8054F25E7CFE60080CBE8 /* ApiLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLibrary.swift; sourceTree = "<group>"; };
+		4AB8055325E7D03A0080CBE8 /* ApiLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLibraryService.swift; sourceTree = "<group>"; };
+		4AB8055725E7D07D0080CBE8 /* BooksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksResponse.swift; sourceTree = "<group>"; };
+		4AB8055C25E7E2070080CBE8 /* LibrarySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySearchViewController.swift; sourceTree = "<group>"; };
+		4AB8056725E7E4920080CBE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Library.strings; sourceTree = "<group>"; };
+		4AB8056B25E7E4960080CBE8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Library.strings; sourceTree = "<group>"; };
+		4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageViewController.swift; sourceTree = "<group>"; };
+		4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
+		4AB8057725E7F3170080CBE8 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		4AB8058525E80E4C0080CBE8 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriasTableViewController.swift; sourceTree = "<group>"; };
 		4AB9790925E0F2770025B937 /* Cafetefia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafetefia.swift; sourceTree = "<group>"; };
 		4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -911,6 +938,7 @@
 				4AC1910D25B3225100325142 /* Surveys */,
 				4A5063E425CAFA35004C2BC8 /* Support */,
 				4A00498825CEB1F800F59CB3 /* Work */,
+				4AB8053E25E7CF3A0080CBE8 /* Library */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -946,6 +974,7 @@
 				4A3957FA25DED190009958BC /* Marks.strings */,
 				4A39582A25DFD056009958BC /* Attestation.strings */,
 				4A3D14E625E12981006895E1 /* Cafeteria.strings */,
+				4AB8056825E7E4920080CBE8 /* Library.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1305,6 +1334,54 @@
 			path = Ext;
 			sourceTree = "<group>";
 		};
+		4AB8053E25E7CF3A0080CBE8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8053F25E7CF560080CBE8 /* LibraryService.swift */,
+				4AB8054525E7CF640080CBE8 /* Api */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		4AB8054525E7CF640080CBE8 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8054625E7CF6B0080CBE8 /* ResponseObjects */,
+				4AB8054F25E7CFE60080CBE8 /* ApiLibrary.swift */,
+				4AB8055325E7D03A0080CBE8 /* ApiLibraryService.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4AB8054625E7CF6B0080CBE8 /* ResponseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8054725E7CF840080CBE8 /* DigitalBookResponse.swift */,
+				4AB8054B25E7CFC90080CBE8 /* PhysicalBook.swift */,
+				4AB8055725E7D07D0080CBE8 /* BooksResponse.swift */,
+			);
+			path = ResponseObjects;
+			sourceTree = "<group>";
+		};
+		4AB8055B25E7E1C10080CBE8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8055C25E7E2070080CBE8 /* LibrarySearchViewController.swift */,
+				4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */,
+				4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		4AB8057625E7F2F60080CBE8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8057725E7F3170080CBE8 /* BookTableViewCell.swift */,
+				4AB8058525E80E4C0080CBE8 /* BookView.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		4AB9790425E0F1EA0025B937 /* Cafeteria */ = {
 			isa = PBXGroup;
 			children = (
@@ -1346,6 +1423,7 @@
 		4AC1912C25B3326C00325142 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4AB8055B25E7E1C10080CBE8 /* Library */,
 				4A54F57D259B3EFB00184BC0 /* Buildings */,
 				4A238C0E257B5C4100CB861E /* Institutions */,
 				4AEB720925C84A3900161E32 /* OnlineShop */,
@@ -1362,6 +1440,7 @@
 		4AC1913125B3340F00325142 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4AB8057625E7F2F60080CBE8 /* Library */,
 				4AEB721A25C84E9F00161E32 /* OnlineShop */,
 				4A42A516257944A000283459 /* Buildings */,
 				4A21AA40257AA0CC00BA203A /* Institutions */,
@@ -1501,6 +1580,7 @@
 				4A3957E925DEB328009958BC /* Marks.swift */,
 				4A3957ED25DEB368009958BC /* AttestationItem.swift */,
 				4AB9790925E0F2770025B937 /* Cafetefia.swift */,
+				4AB8053A25E7CE3A0080CBE8 /* Book.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1780,6 +1860,7 @@
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
 				4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */,
 				4A051BD425BDB37300287FD5 /* Timetable.strings in Resources */,
+				4AB8056625E7E4920080CBE8 /* Library.strings in Resources */,
 				4A051B9825BD539400287FD5 /* Services.strings in Resources */,
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4A051BC025BDA2FC00287FD5 /* Person.strings in Resources */,
@@ -1886,6 +1967,7 @@
 				4A00499425CEB22E00F59CB3 /* VacancyResponse.swift in Sources */,
 				4AC1916125B4A11E00325142 /* TextAnswerQuestionView.swift in Sources */,
 				4AC1918525B6175900325142 /* UIColor+color.swift in Sources */,
+				4AB8055425E7D03A0080CBE8 /* ApiLibraryService.swift in Sources */,
 				4A38D0CD25B889AE006EE06F /* CustomViewController.swift in Sources */,
 				4A07DDE9255DA4310022B6A9 /* GroupResponse.swift in Sources */,
 				4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */,
@@ -1893,6 +1975,7 @@
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
 				4A3C3F4A25D432BF00F3A7B1 /* RUser.swift in Sources */,
+				4AB8055825E7D07D0080CBE8 /* BooksResponse.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */,
 				4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */,
@@ -1940,6 +2023,7 @@
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
+				4AB8058625E80E4C0080CBE8 /* BookView.swift in Sources */,
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
 				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,
@@ -1985,8 +2069,10 @@
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */,
 				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
+				4AB8054825E7CF840080CBE8 /* DigitalBookResponse.swift in Sources */,
 				4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */,
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
+				4AB8054025E7CF560080CBE8 /* LibraryService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
 				4A3957EA25DEB328009958BC /* Marks.swift in Sources */,
@@ -2022,6 +2108,7 @@
 				4AC1911925B3231B00325142 /* ApiSurveysService.swift in Sources */,
 				4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */,
 				4AB5A6A925A1E3A500518FEA /* UnionResponse.swift in Sources */,
+				4AB8057825E7F3170080CBE8 /* BookTableViewCell.swift in Sources */,
 				4AD21F5725C175AF0018D4F0 /* PlaceResponse.swift in Sources */,
 				4A7A56ED256BF53600E2CE0F /* TimetableViewController.swift in Sources */,
 				4A314A082572D80700FB7FC2 /* WeekViewController.swift in Sources */,
@@ -2037,6 +2124,7 @@
 				4AC1910F25B3227400325142 /* SurveysService.swift in Sources */,
 				4AE030E225CD2D9800E8A9C0 /* SportClub.swift in Sources */,
 				4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */,
+				4AB8057325E7EE6E0080CBE8 /* BooksTableViewController.swift in Sources */,
 				4AC191D425B77E8600325142 /* Localize.swift in Sources */,
 				4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
@@ -2046,14 +2134,17 @@
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
 				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
 				4AC1911D25B323C100325142 /* ShortSurveyResponse.swift in Sources */,
+				4AB8056F25E7EC580080CBE8 /* LibraryPageViewController.swift in Sources */,
 				4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */,
 				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
 				4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
+				4AB8054C25E7CFC90080CBE8 /* PhysicalBook.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
+				4AB8055D25E7E2070080CBE8 /* LibrarySearchViewController.swift in Sources */,
 				4AE0311025CD936C00E8A9C0 /* DesignOfficeTableCell.swift in Sources */,
 				4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
@@ -2068,6 +2159,7 @@
 				4AD21F7525C2C5070018D4F0 /* TimetableViewType.swift in Sources */,
 				4AC1919F25B6D45B00325142 /* UIWindow+initTheme.swift in Sources */,
 				4A0049BB25CEBD4700F59CB3 /* TitleBodyView.swift in Sources */,
+				4AB8053B25E7CE3A0080CBE8 /* Book.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4AD21F6325C1A97E0018D4F0 /* Professor.swift in Sources */,
@@ -2081,6 +2173,7 @@
 				4A26AFDB25D6F5CE00A8E35C /* StartViewController.swift in Sources */,
 				4AC1918125B5F0CD00325142 /* SettingsViewController.swift in Sources */,
 				4AF3EC7025AA16A700AF0367 /* EventResponse.swift in Sources */,
+				4AB8055025E7CFE60080CBE8 /* ApiLibrary.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
 				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
 				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
@@ -2284,6 +2377,15 @@
 				4A9C9D8A25BF554A0054E011 /* ru */,
 			);
 			name = StudentLife.strings;
+			sourceTree = "<group>";
+		};
+		4AB8056825E7E4920080CBE8 /* Library.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AB8056725E7E4920080CBE8 /* en */,
+				4AB8056B25E7E4960080CBE8 /* ru */,
+			);
+			name = Library.strings;
 			sourceTree = "<group>";
 		};
 		4AEB721625C84D7600161E32 /* OnlineShop.strings */ = {

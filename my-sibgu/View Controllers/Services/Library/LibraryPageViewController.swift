@@ -1,14 +1,16 @@
 //
-//  InformingPageViewController.swift
+//  LibraryPageViewController.swift
 //  my-sibgu
 //
-//  Created by art-off on 14.01.2021.
+//  Created by art-off on 25.02.2021.
 //
 
 import UIKit
 
-class InformingPageViewController: UIPageViewController {
+class LibraryPageViewController: UIPageViewController {
     
+    var digitalBooks: [DigitalBook]!
+    var physicalBooks: [PhysicalBook]!
     
     private var informingViewControllers: [UIViewController] = []
     
@@ -35,8 +37,10 @@ class InformingPageViewController: UIPageViewController {
         
         setSegmentedController()
         
-        let vc1 = NewsViewController()
-        let vc2 = EventsViewController()
+        let vc1 = BooksTableViewController()
+        let vc2 = BooksTableViewController()
+        vc1.viewModel = .digital(digitalBooks)
+        vc2.viewModel = .physical(physicalBooks)
         
         informingViewControllers = [
             vc1,
@@ -51,10 +55,10 @@ class InformingPageViewController: UIPageViewController {
     
     @objc
     private func updateText() {
-        let tableName = "Informing"
+        let tableName = "Library"
         
-        segmentedControl.sectionLabels[0].text = "news".localized(using: tableName)
-        segmentedControl.sectionLabels[1].text = "events".localized(using: tableName)
+        segmentedControl.sectionLabels[0].text = "digital".localized(using: tableName)
+        segmentedControl.sectionLabels[1].text = "physical".localized(using: tableName)
     }
     
     private func setSegmentedController() {
@@ -64,7 +68,7 @@ class InformingPageViewController: UIPageViewController {
             }
         }
         
-        segmentedControl = SegmentedControl(items: ["news", "events"], sectionWidth: 90)
+        segmentedControl = SegmentedControl(items: ["digital", "physical"], sectionWidth: 100)
         segmentedControl.delegate = self
         
         navigationItem.titleView = segmentedControl
@@ -85,7 +89,7 @@ class InformingPageViewController: UIPageViewController {
 
 }
 
-extension InformingPageViewController: UIPageViewControllerDataSource {
+extension LibraryPageViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currIndex = informingViewControllers.firstIndex(of: viewController) else { return nil }
@@ -103,7 +107,7 @@ extension InformingPageViewController: UIPageViewControllerDataSource {
 
 }
 
-extension InformingPageViewController: UIPageViewControllerDelegate {
+extension LibraryPageViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard
@@ -121,7 +125,7 @@ extension InformingPageViewController: UIPageViewControllerDelegate {
     
 }
 
-extension InformingPageViewController: UIScrollViewDelegate {
+extension LibraryPageViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x
@@ -135,7 +139,7 @@ extension InformingPageViewController: UIScrollViewDelegate {
     
 }
 
-extension InformingPageViewController: SegmentedControlDelegate {
+extension LibraryPageViewController: SegmentedControlDelegate {
     
     func didTapToSegment(with index: Int) {
         if currPageIndex < index {
