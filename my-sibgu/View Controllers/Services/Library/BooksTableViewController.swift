@@ -14,7 +14,7 @@ enum BooksViewModel {
 
 class BooksTableViewController: UITableViewController {
     
-    private let workService = WorkService()
+    private let libraryService = LibraryService()
     
     var viewModel: BooksViewModel!
     
@@ -136,6 +136,7 @@ extension BooksTableViewController {
             let book = books[indexPath.row]
             if let url = book.url {
                 if UIApplication.shared.canOpenURL(url) {
+                    libraryService.addLastBook(book: book)
                     UIApplication.shared.open(url)
                 }
             }

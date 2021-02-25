@@ -169,6 +169,7 @@
 		4AB8056F25E7EC580080CBE8 /* LibraryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */; };
 		4AB8057325E7EE6E0080CBE8 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */; };
 		4AB8057825E7F3170080CBE8 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8057725E7F3170080CBE8 /* BookTableViewCell.swift */; };
+		4AB8058625E80E4C0080CBE8 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8058525E80E4C0080CBE8 /* BookView.swift */; };
 		4AB9790625E0F2170025B937 /* CafeteriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */; };
 		4AB9790A25E0F2770025B937 /* Cafetefia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790925E0F2770025B937 /* Cafetefia.swift */; };
 		4AB9791025E0F5740025B937 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */; };
@@ -478,6 +479,7 @@
 		4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageViewController.swift; sourceTree = "<group>"; };
 		4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
 		4AB8057725E7F3170080CBE8 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		4AB8058525E80E4C0080CBE8 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriasTableViewController.swift; sourceTree = "<group>"; };
 		4AB9790925E0F2770025B937 /* Cafetefia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafetefia.swift; sourceTree = "<group>"; };
 		4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -1375,6 +1377,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB8057725E7F3170080CBE8 /* BookTableViewCell.swift */,
+				4AB8058525E80E4C0080CBE8 /* BookView.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -2020,6 +2023,7 @@
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,
+				4AB8058625E80E4C0080CBE8 /* BookView.swift in Sources */,
 				4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */,
 				4AEBE6E925637BC1005F6CBE /* Institute+Soviet.swift in Sources */,
 				4A436416255E85C400C11E03 /* TimetableService.swift in Sources */,

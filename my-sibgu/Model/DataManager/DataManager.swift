@@ -11,25 +11,12 @@ import RealmSwift
 class DataManager {
     
     static let shared = DataManager()
-    
-    
-//    @UserDefaultsWrapper(key: "favorite-groups-id", defaultValue: [Int]())
-//    private var favoriteGroupsId: [Int]
-//
-//    @UserDefaultsWrapper(key: "favorite-professors-id", defaultValue: [Int]())
-//    private var favoriteProfessorsId: [Int]
-//
-//    @UserDefaultsWrapper(key: "favorite-places-id", defaultValue: [Int]())
-//    private var favoritePlacesId: [Int]
-//
-//    @UserDefaultsWrapper(key: "favorite-types", defaultValue: [String]())
-//    private var favoriteTypes: [String]
-////
-////    @UserDefaultsWrapper(key: "favorite-types", defaultValue: [Int]())
-////    private var favoriteIds: [Int]
-    
+
     @UserDefaultsWrapper(key: "favorite-ids", defaultValue: Data())
     private var favoriteIdsData: Data
+    
+    @UserDefaultsWrapper(key: "last-books", defaultValue: Data())
+    private var lastBooks: Data
     
     
     // загруженные данные
@@ -550,6 +537,30 @@ extension DataManager {
     func getCurrUser() -> User? {
         guard let rUser = userRealm.objects(RUser.self).first else { return nil }
         return Translator.shared.converteUser(from: rUser)
+    }
+    
+}
+
+
+// MARK: - Library
+extension DataManager {
+    
+    func getLastBooks() -> [DigitalBook] {
+        return (try? JSONDecoder().decode([DigitalBook].self, from: lastBooks)) ?? []
+    }
+    
+    func writeLastBook(newBook: DigitalBook) {
+        var books = getLastBooks()
+        
+        books.removeAll(where: { $0.name == newBook.name && $0.author == newBook.author })
+        books.append(newBook)
+        
+        if books.count > 10 {
+            books.removeFirst()
+        }
+        if let newBooks = try? JSONEncoder().encode(books) {
+            lastBooks = newBooks
+        }
     }
     
 }

@@ -25,4 +25,12 @@ class LibraryService {
         }
     }
     
+    func getLastBooksFromLocal() -> [DigitalBook] {
+        return DataManager.shared.getLastBooks().reversed()
+    }
+    
+    func addLastBook(book: DigitalBook) {
+        DataManager.shared.writeLastBook(newBook: book)
+    }
+    
 }

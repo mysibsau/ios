@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DigitalBook {
+struct DigitalBook: Codable {
     
     let name: String
     let author: String
@@ -15,7 +15,7 @@ struct DigitalBook {
     
 }
 
-struct PhysicalBook {
+struct PhysicalBook: Codable {
     
     let name: String
     let author: String

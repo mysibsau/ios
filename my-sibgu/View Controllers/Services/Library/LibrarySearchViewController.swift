@@ -55,6 +55,12 @@ class LibrarySearchViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setLast()
+    }
+    
     @objc
     private func updateText() {
         let tableName = "Library"
@@ -67,7 +73,24 @@ class LibrarySearchViewController: UIViewController {
     private func setLast() {
         favoriteStackView.removeAllArrangedSubviews()
         
+        let lastBooks = libraryService.getLastBooksFromLocal()
         
+        if lastBooks.isEmpty {
+            let label = UILabel()
+            label.textColor = UIColor.Pallete.gray
+            label.text = "last.is.empty".localized(using: "Library")
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            favoriteStackView.addArrangedSubview(label)
+        } else {
+            for book in lastBooks {
+                let v = BookView()
+                v.nameLabel.text = book.name
+                v.authorLabel.text = book.author
+                v.url = book.url
+                favoriteStackView.addArrangedSubview(v)
+            }
+        }
     }
     
     
