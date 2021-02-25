@@ -1,0 +1,13 @@
+/* 
+  Library.strings
+  my-sibgu
+
+  Created by art-off on 25.02.2021.
+  
+*/
+
+"nav.bar.title" = "Библиотека";
+"last" = "Последние";
+
+"digital" = "Цифровые";
+"physical" = "Физические";

@@ -165,6 +165,9 @@
 		4AB8055425E7D03A0080CBE8 /* ApiLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8055325E7D03A0080CBE8 /* ApiLibraryService.swift */; };
 		4AB8055825E7D07D0080CBE8 /* BooksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8055725E7D07D0080CBE8 /* BooksResponse.swift */; };
 		4AB8055D25E7E2070080CBE8 /* LibrarySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8055C25E7E2070080CBE8 /* LibrarySearchViewController.swift */; };
+		4AB8056625E7E4920080CBE8 /* Library.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AB8056825E7E4920080CBE8 /* Library.strings */; };
+		4AB8056F25E7EC580080CBE8 /* LibraryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */; };
+		4AB8057325E7EE6E0080CBE8 /* BooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */; };
 		4AB9790625E0F2170025B937 /* CafeteriasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */; };
 		4AB9790A25E0F2770025B937 /* Cafetefia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790925E0F2770025B937 /* Cafetefia.swift */; };
 		4AB9791025E0F5740025B937 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */; };
@@ -469,6 +472,10 @@
 		4AB8055325E7D03A0080CBE8 /* ApiLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLibraryService.swift; sourceTree = "<group>"; };
 		4AB8055725E7D07D0080CBE8 /* BooksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksResponse.swift; sourceTree = "<group>"; };
 		4AB8055C25E7E2070080CBE8 /* LibrarySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySearchViewController.swift; sourceTree = "<group>"; };
+		4AB8056725E7E4920080CBE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Library.strings; sourceTree = "<group>"; };
+		4AB8056B25E7E4960080CBE8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Library.strings; sourceTree = "<group>"; };
+		4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPageViewController.swift; sourceTree = "<group>"; };
+		4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewController.swift; sourceTree = "<group>"; };
 		4AB9790525E0F2170025B937 /* CafeteriasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeteriasTableViewController.swift; sourceTree = "<group>"; };
 		4AB9790925E0F2770025B937 /* Cafetefia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafetefia.swift; sourceTree = "<group>"; };
 		4AB9790F25E0F5740025B937 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -963,6 +970,7 @@
 				4A3957FA25DED190009958BC /* Marks.strings */,
 				4A39582A25DFD056009958BC /* Attestation.strings */,
 				4A3D14E625E12981006895E1 /* Cafeteria.strings */,
+				4AB8056825E7E4920080CBE8 /* Library.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1355,6 +1363,8 @@
 			isa = PBXGroup;
 			children = (
 				4AB8055C25E7E2070080CBE8 /* LibrarySearchViewController.swift */,
+				4AB8056E25E7EC580080CBE8 /* LibraryPageViewController.swift */,
+				4AB8057225E7EE6E0080CBE8 /* BooksTableViewController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1836,6 +1846,7 @@
 				4A07DD8C255D89020022B6A9 /* Main.storyboard in Resources */,
 				4A38D0D625B88A12006EE06F /* TabBar.strings in Resources */,
 				4A051BD425BDB37300287FD5 /* Timetable.strings in Resources */,
+				4AB8056625E7E4920080CBE8 /* Library.strings in Resources */,
 				4A051B9825BD539400287FD5 /* Services.strings in Resources */,
 				4A3149F925724DE300FB7FC2 /* GroupSubgroupView.xib in Resources */,
 				4A051BC025BDA2FC00287FD5 /* Person.strings in Resources */,
@@ -2097,6 +2108,7 @@
 				4AC1910F25B3227400325142 /* SurveysService.swift in Sources */,
 				4AE030E225CD2D9800E8A9C0 /* SportClub.swift in Sources */,
 				4A077FEE25B0889F0038D87E /* NewsResponse.swift in Sources */,
+				4AB8057325E7EE6E0080CBE8 /* BooksTableViewController.swift in Sources */,
 				4AC191D425B77E8600325142 /* Localize.swift in Sources */,
 				4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
@@ -2106,6 +2118,7 @@
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
 				4AEBE6D525637700005F6CBE /* Building.swift in Sources */,
 				4AC1911D25B323C100325142 /* ShortSurveyResponse.swift in Sources */,
+				4AB8056F25E7EC580080CBE8 /* LibraryPageViewController.swift in Sources */,
 				4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */,
 				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
 				4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */,
@@ -2348,6 +2361,15 @@
 				4A9C9D8A25BF554A0054E011 /* ru */,
 			);
 			name = StudentLife.strings;
+			sourceTree = "<group>";
+		};
+		4AB8056825E7E4920080CBE8 /* Library.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AB8056725E7E4920080CBE8 /* en */,
+				4AB8056B25E7E4960080CBE8 /* ru */,
+			);
+			name = Library.strings;
 			sourceTree = "<group>";
 		};
 		4AEB721625C84D7600161E32 /* OnlineShop.strings */ = {

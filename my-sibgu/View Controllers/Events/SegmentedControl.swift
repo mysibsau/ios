@@ -22,7 +22,7 @@ class SegmentedControl: UIView {
     
     private let items: [String]
     private let lineView: UIView
-    private var sectionLabels: [UILabel]
+    var sectionLabels: [UILabel]
     
     
     init(items: [String], sectionWidth: CGFloat) {
@@ -79,9 +79,6 @@ class SegmentedControl: UIView {
         }
         
         setCurrentSection(number: 0)
-        
-        updateText()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
     deinit {
@@ -118,13 +115,13 @@ class SegmentedControl: UIView {
         delegate?.didTapToSegment(with: tag)
     }
     
-    @objc
-    private func updateText() {
-        let tableName = "Informing"
-        
-        for (i, label) in sectionLabels.enumerated() {
-            label.text = items[i].localized(using: tableName)
-        }
-    }
+//    @objc
+//    private func updateText() {
+//        let tableName = "Informing"
+//
+//        for (i, label) in sectionLabels.enumerated() {
+//            label.text = items[i].localized(using: tableName)
+//        }
+//    }
     
 }

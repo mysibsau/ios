@@ -47,6 +47,18 @@ class StudentLivePageViewController: UIPageViewController {
         ]
         
         self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
+        
+        updateText()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        let tableName = "Informing"
+        
+        segmentedControl.sectionLabels[0].text = "unions".localized(using: tableName)
+        segmentedControl.sectionLabels[1].text = "sport".localized(using: tableName)
+        segmentedControl.sectionLabels[2].text = "sdo".localized(using: tableName)
     }
     
     private func setSegmentedController() {

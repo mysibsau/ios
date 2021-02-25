@@ -9,13 +9,15 @@ import UIKit
 
 class LibrarySearchViewController: UIViewController {
     
+    private let libraryService = LibraryService()
+    
     // MARK: Outlets
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
     private let wrapView = UIView()
     private let textField = UITextField()
-    private let goToTimetableButton = UIButton()
+    private let goToButton = UIButton()
     
     private let favoriteTitleLabel: UILabel = {
         let label = UILabel()
@@ -55,11 +57,11 @@ class LibrarySearchViewController: UIViewController {
     
     @objc
     private func updateText() {
-        let tableName = "Timetable"
+        let tableName = "Library"
         
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
-        favoriteTitleLabel.text = "favorite".localized(using: tableName)
+        favoriteTitleLabel.text = "last".localized(using: tableName)
     }
     
     private func setFavorite(_ type: EntitiesType) {
@@ -108,14 +110,14 @@ class LibrarySearchViewController: UIViewController {
         // add wrapView to contentView
         contentView.addSubview(wrapView)
         wrapView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
         // configure wrapView
-        wrapView.addSubview(goToTimetableButton)
-        goToTimetableButton.snp.makeConstraints { make in
+        wrapView.addSubview(goToButton)
+        goToButton.snp.makeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
             make.width.equalTo(70)
         }
@@ -124,15 +126,15 @@ class LibrarySearchViewController: UIViewController {
         textField.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(8)
-            make.trailing.equalTo(goToTimetableButton.snp.leading)
+            make.trailing.equalTo(goToButton.snp.leading)
         }
         
         wrapView.backgroundColor = UIColor.Pallete.content
         textField.borderStyle = .none
         textField.placeholder = "Введите название группу"
         textField.font = UIFont.systemFont(ofSize: 14)
-        goToTimetableButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        goToTimetableButton.addTarget(self, action: #selector(goToTimetableButtonTapped), for: .touchUpInside)
+        goToButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        goToButton.addTarget(self, action: #selector(goToButtonTapped), for: .touchUpInside)
     }
     
     private func setupFavoriteStackView() {
@@ -155,10 +157,10 @@ class LibrarySearchViewController: UIViewController {
         wrapView.makeBorder()
         wrapView.layer.cornerRadius = 10
         
-        goToTimetableButton.makeShadow(opacity: 0.2, radius: 2)
-        goToTimetableButton.makeBorder()
-        goToTimetableButton.backgroundColor = UIColor.Pallete.content
-        goToTimetableButton.layer.cornerRadius = 10
+        goToButton.makeShadow(opacity: 0.2, radius: 2)
+        goToButton.makeBorder()
+        goToButton.backgroundColor = UIColor.Pallete.content
+        goToButton.layer.cornerRadius = 10
     }
     
     private func configureNabBar() {
@@ -177,14 +179,26 @@ class LibrarySearchViewController: UIViewController {
         view.endEditing(true)
     }
 
-    @objc private func goToTimetableButtonTapped() {
-//        guard let group = filtredGroups.first else { return }
-//        
-//        showTimetable(forType: currType, withId: group.id, animated: true)
-    }
-    
-    private func prepareForGoToTimetable(entityType: EntitiesType, id: Int) {
-        textField.text = ""
+    @objc private func goToButtonTapped() {
+        guard let searchText = textField.text, !searchText.isEmpty else { return }
+        
+        startActivityIndicator()
+        
+        libraryService.getBooks(by: searchText) { result in
+            DispatchQueue.main.async {
+                guard let result = result else {
+                    self.stopActivityIndicator()
+                    self.showNetworkAlert()
+                    return
+                }
+                
+                let vc = LibraryPageViewController()
+                vc.digitalBooks = result.0
+                vc.physicalBooks = result.1
+                self.navigationController?.pushViewController(vc, animated: true)
+                self.stopActivityIndicator()
+            }
+        }
     }
     
 }
@@ -192,8 +206,8 @@ class LibrarySearchViewController: UIViewController {
 extension LibrarySearchViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        goToTimetableButton.makeShadow(opacity: 0.2, radius: 2)
-        goToTimetableButton.makeBorder()
+        goToButton.makeShadow(opacity: 0.2, radius: 2)
+        goToButton.makeBorder()
         
         wrapView.makeShadow()
         wrapView.makeBorder()
