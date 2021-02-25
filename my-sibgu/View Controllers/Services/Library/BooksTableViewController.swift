@@ -33,8 +33,8 @@ class BooksTableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         tableView.register(
-            OneLabelTableViewCell.self,
-            forCellReuseIdentifier: OneLabelTableViewCell.reuseIdentifier
+            BookTableViewCell.self,
+            forCellReuseIdentifier: BookTableViewCell.reuseIdentifier
         )
     }
     
@@ -78,17 +78,22 @@ extension BooksTableViewController {
         switch viewModel {
         case .digital(let books):
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: OneLabelTableViewCell.reuseIdentifier,
-                for: indexPath) as! OneLabelTableViewCell
+                withIdentifier: BookTableViewCell.reuseIdentifier,
+                for: indexPath) as! BookTableViewCell
             
-            cell.nameLabel.text = books[indexPath.row].name
+            let book = books[indexPath.row]
+            cell.nameLabel.text = book.name
+            cell.authorLabel.text = book.author
             return cell
         case .physical(let books):
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: OneLabelTableViewCell.reuseIdentifier,
-                for: indexPath) as! OneLabelTableViewCell
+                withIdentifier: BookTableViewCell.reuseIdentifier,
+                for: indexPath) as! BookTableViewCell
             
-            cell.nameLabel.text = books[indexPath.row].name
+            let book = books[indexPath.row]
+            cell.nameLabel.text = book.name
+            cell.authorLabel.text = book.author
+            cell.goToLabel.text = "Можете найти в \(book.place) (\(book.count) шт.)"
             return cell
         default:
             return UITableViewCell()
@@ -97,14 +102,20 @@ extension BooksTableViewController {
     
 }
 
-//// MARK: - UITableView Delegate
-//extension BooksTableViewController {
-//    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vacancy = vacancies[indexPath.row]
-//        
-//        let vc = VacancyViewController(vacancy: vacancy)
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//    
-//}
+// MARK: - UITableView Delegate
+extension BooksTableViewController {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch viewModel {
+        case .digital(let books):
+            let book = books[indexPath.row]
+            if let url = book.url {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        default: break
+        }
+    }
+
+}

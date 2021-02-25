@@ -64,27 +64,10 @@ class LibrarySearchViewController: UIViewController {
         favoriteTitleLabel.text = "last".localized(using: tableName)
     }
     
-    private func setFavorite(_ type: EntitiesType) {
-//        favoriteStackView.removeAllArrangedSubviews()
-//
-//        let favorites = timetableService.getFavoritesFromLocal()
-//
-//        for favorite in favorites {
-//            switch favorite {
-//            case .group(let group):
-//                let v = FavoriteTimetableElemView(name: group.name, id: group.id, type: .group)
-//                v.delegate = self
-//                favoriteStackView.addArrangedSubview(v)
-//            case .professor(let professor):
-//                let v = FavoriteTimetableElemView(name: professor.name, id: professor.id, type: .professor)
-//                v.delegate = self
-//                favoriteStackView.addArrangedSubview(v)
-//            case .place(let place):
-//                let v = FavoriteTimetableElemView(name: place.name, id: place.id, type: .place)
-//                v.delegate = self
-//                favoriteStackView.addArrangedSubview(v)
-//            }
-//        }
+    private func setLast() {
+        favoriteStackView.removeAllArrangedSubviews()
+        
+        
     }
     
     
