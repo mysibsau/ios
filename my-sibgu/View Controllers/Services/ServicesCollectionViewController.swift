@@ -47,11 +47,8 @@ class ServicesCollectionViewController: UICollectionViewController {
             ),
             (
                 UIImage(named: "institute")!, UIColor.Pallete.gray,
-                "Институты", InstitutionsViewController.self),
-//            (
-//                UIImage(systemName: "cart")!, UIColor.Pallete.orange,
-//                "Онлайн каталог", CatalogCollectionViewController.self
-//            ),
+                "Институты", InstitutionsViewController.self
+            ),
             (
                 UIImage(named: "feedback")!, UIColor.Pallete.sibsuGreen,
                 "Обратная связь", SurveysTableViewController.self
@@ -69,7 +66,7 @@ class ServicesCollectionViewController: UICollectionViewController {
                 "Работа", vc: VacanciesTableViewController.self
             ),
             (
-                UIImage(named: "work")!, UIColor.Pallete.gray,
+                UIImage(systemName: "book.fill")!, UIColor.Pallete.gray,
                 "Библиотека", vc: LibrarySearchViewController.self
             )
         ]
@@ -97,6 +94,7 @@ class ServicesCollectionViewController: UICollectionViewController {
         services[3].name = "student.life".localized(using: tableName)
         services[4].name = "faq".localized(using: tableName)
         services[5].name = "work".localized(using: tableName)
+        services[6].name = "library".localized(using: tableName)
         
         collectionView.reloadData()
     }
