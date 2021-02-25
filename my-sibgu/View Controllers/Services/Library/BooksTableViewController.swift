@@ -18,8 +18,12 @@ class BooksTableViewController: UITableViewController {
     
     var viewModel: BooksViewModel!
     
-    
-    private let activityIndicatorView =  UIActivityIndicatorView()
+    private let dontExistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.Pallete.gray
+        return label
+    }()
 
     // MARK: - Life Circle
     override func loadView() {
@@ -36,6 +40,25 @@ class BooksTableViewController: UITableViewController {
             BookTableViewCell.self,
             forCellReuseIdentifier: BookTableViewCell.reuseIdentifier
         )
+        
+        
+        let isEmpty: Bool
+        switch viewModel {
+        case .digital(let books):
+            isEmpty = books.isEmpty
+        case .physical(let books):
+            isEmpty = books.isEmpty
+        default:
+            isEmpty = true
+        }
+        if isEmpty {
+            if !view.subviews.contains(dontExistLabel) {
+                view.addSubview(dontExistLabel)
+                dontExistLabel.snp.makeConstraints { make in
+                    make.center.equalTo(view.safeAreaLayoutGuide)
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -55,7 +78,9 @@ class BooksTableViewController: UITableViewController {
     
     @objc
     private func updateText() {
-//        let tableName = "Library"
+        let tableName = "Library"
+        
+        dontExistLabel.text = "empty".localized(using: tableName)
     }
     
 }
