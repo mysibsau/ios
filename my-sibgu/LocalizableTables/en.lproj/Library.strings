@@ -10,7 +10,7 @@
 "last" = "Last";
 
 "digital" = "Digital";
-"physical" = "Physical";
+"physical" = "Printed";
 
 "empty" = "Empty";
 "last.is.empty" = "No last opened\nOpen any material and it will be added here";
