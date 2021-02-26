@@ -14,3 +14,4 @@
 
 "empty" = "Empty";
 "last.is.empty" = "No last opened\nOpen any material and it will be added here";
+"enter.query" = "Enter query";

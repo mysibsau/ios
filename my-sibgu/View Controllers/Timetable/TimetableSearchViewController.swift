@@ -145,6 +145,8 @@ class TimetableSearchViewController: UIViewController {
         case .professor: textField.placeholder = "enter.professor.name".localized(using: tableName)
         case .place: textField.placeholder = "enter.place.name".localized(using: tableName)
         }
+        
+        setFavorite(currType)
     }
     
     private func setFavorite(_ type: EntitiesType) {
@@ -152,20 +154,29 @@ class TimetableSearchViewController: UIViewController {
         
         let favorites = timetableService.getFavoritesFromLocal()
         
-        for favorite in favorites {
-            switch favorite {
-            case .group(let group):
-                let v = FavoriteTimetableElemView(name: group.name, id: group.id, type: .group)
-                v.delegate = self
-                favoriteStackView.addArrangedSubview(v)
-            case .professor(let professor):
-                let v = FavoriteTimetableElemView(name: professor.name, id: professor.id, type: .professor)
-                v.delegate = self
-                favoriteStackView.addArrangedSubview(v)
-            case .place(let place):
-                let v = FavoriteTimetableElemView(name: place.name, id: place.id, type: .place)
-                v.delegate = self
-                favoriteStackView.addArrangedSubview(v)
+        if favorites.isEmpty {
+            let label = UILabel()
+            label.textColor = UIColor.Pallete.gray
+            label.text = "favorite.is.empty".localized(using: "Timetable")
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            favoriteStackView.addArrangedSubview(label)
+        } else {
+            for favorite in favorites {
+                switch favorite {
+                case .group(let group):
+                    let v = FavoriteTimetableElemView(name: group.name, id: group.id, type: .group)
+                    v.delegate = self
+                    favoriteStackView.addArrangedSubview(v)
+                case .professor(let professor):
+                    let v = FavoriteTimetableElemView(name: professor.name, id: professor.id, type: .professor)
+                    v.delegate = self
+                    favoriteStackView.addArrangedSubview(v)
+                case .place(let place):
+                    let v = FavoriteTimetableElemView(name: place.name, id: place.id, type: .place)
+                    v.delegate = self
+                    favoriteStackView.addArrangedSubview(v)
+                }
             }
         }
     }

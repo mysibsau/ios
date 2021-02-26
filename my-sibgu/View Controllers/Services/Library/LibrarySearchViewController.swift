@@ -68,6 +68,7 @@ class LibrarySearchViewController: UIViewController {
         self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
         favoriteTitleLabel.text = "last".localized(using: tableName)
+        textField.placeholder = "enter.query".localized(using: tableName)
     }
     
     private func setLast() {
