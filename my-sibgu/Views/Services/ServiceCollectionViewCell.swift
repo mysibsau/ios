@@ -13,9 +13,9 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "ServiceCell"
     
     // MARK: - Views
-    let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+    var viewWithImage: UIView = {
+        let imageView = UIView()
+//        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -43,7 +43,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Setup Views
-    func setupViews() {
+    private func setupViews() {
         self.layer.cornerRadius = 15
         self.backgroundColor = UIColor.Pallete.content
         contentView.layer.cornerRadius = 15
@@ -51,6 +51,15 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         
         self.makeShadow()
         self.makeBorder()
+    }
+    
+    func configure(viewWithImage: UIView) {
+        for subview in contentView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        self.viewWithImage = viewWithImage
+        self.viewWithImage.clipsToBounds = true
         
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
@@ -58,12 +67,12 @@ class ServiceCollectionViewCell: UICollectionViewCell {
             make.top.leading.trailing.equalToSuperview().inset(10)
         }
         
-        contentView.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
+        contentView.addSubview(viewWithImage)
+        viewWithImage.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
-            make.bottom.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(10)
-            make.width.equalTo(75)
+            make.bottom.equalToSuperview().offset(5)
+            make.trailing.equalToSuperview().offset(5)
+            make.width.equalTo(viewWithImage.snp.height)
         }
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-private typealias ServicesDataSource = [(image: UIImage, color: UIColor, name: String, vc: UIViewController.Type)]
+private typealias ServicesDataSource = [(viewWithImage: UIView, name: String, vc: UIViewController.Type)]
 
 class ServicesCollectionViewController: UICollectionViewController {
     
@@ -42,34 +42,67 @@ class ServicesCollectionViewController: UICollectionViewController {
         
         services = [
             (
-                UIImage(systemName: "map")!, UIColor.Pallete.sibsuBlue,
-                "Строения", BuildingsViewController.self
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(systemName: "map")!,
+                    backgroundColor: UIColor.Pallete.sibsuBlue,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Строения",
+                BuildingsViewController.self
             ),
             (
-                UIImage(named: "institute")!, UIColor.Pallete.gray,
-                "Институты", InstitutionsViewController.self
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(named: "institute")!,
+                    backgroundColor: UIColor.Pallete.gray,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Институты",
+                InstitutionsViewController.self
             ),
             (
                 // Раньше переходил на экран со всеми вопросами,
                 // Но Илье не понравилось и теперь только один экран с одним опросом
-                UIImage(named: "feedback")!, UIColor.Pallete.sibsuGreen,
-                "Обратная связь", SurveyViewController.self
+                CollectionViewHelper.getFeedbackView(
+                    backgroundColor: UIColor.Pallete.sibsuGreen,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Обратная связь",
+                SurveyViewController.self
             ),
             (
-                UIImage(systemName: "person.2.fill")!, UIColor.Pallete.green,
-                "Студ. жизнь", vc: StudentLivePageViewController.self
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(systemName: "person.2.fill")!,
+                    backgroundColor: UIColor.Pallete.green,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Студ. жизнь",
+                vc: StudentLivePageViewController.self
             ),
             (
-                UIImage(systemName: "questionmark.square.fill")!, UIColor.Pallete.sibsuBlue,
-                "FAQ", vc: FAQViewController.self
+                CollectionViewHelper.getFAQView(
+                    backgroundColor: UIColor.Pallete.sibsuBlue,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "FAQ",
+                vc: FAQViewController.self
             ),
             (
-                UIImage(named: "work")!, UIColor.Pallete.gray,
-                "Работа", vc: VacanciesTableViewController.self
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(named: "work")!,
+                    backgroundColor: UIColor.Pallete.gray,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Работа",
+                vc: VacanciesTableViewController.self
             ),
             (
-                UIImage(systemName: "book.fill")!, UIColor.Pallete.gray,
-                "Библиотека", vc: LibrarySearchViewController.self
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(systemName: "book.fill")!,
+                    backgroundColor: UIColor.Pallete.gray,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Библиотека",
+                vc: LibrarySearchViewController.self
             )
         ]
         
@@ -116,8 +149,9 @@ extension ServicesCollectionViewController {
             for: indexPath) as! ServiceCollectionViewCell
         
         let service = services[indexPath.item]
-        cell.imageView.image = service.image.withRenderingMode(.alwaysTemplate)
-        cell.imageView.tintColor = service.color
+//        cell.imageView.image = service.image.withRenderingMode(.alwaysTemplate)
+//        cell.imageView.tintColor = service.color
+        cell.configure(viewWithImage: service.viewWithImage)
         cell.nameLabel.text = service.name
         
         return cell
