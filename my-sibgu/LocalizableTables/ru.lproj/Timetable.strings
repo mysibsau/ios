@@ -9,7 +9,7 @@
 "nav.bar.title" = "Расписание";
 
 "group" = "Группа";
-"professor" = "Профессор";
+"professor" = "Преподаватель";
 "place" = "Кабинет";
 
 "enter.group.name" = "Введите название группы";

@@ -50,8 +50,10 @@ class ServicesCollectionViewController: UICollectionViewController {
                 "Институты", InstitutionsViewController.self
             ),
             (
+                // Раньше переходил на экран со всеми вопросами,
+                // Но Илье не понравилось и теперь только один экран с одним опросом
                 UIImage(named: "feedback")!, UIColor.Pallete.sibsuGreen,
-                "Обратная связь", SurveysTableViewController.self
+                "Обратная связь", SurveyViewController.self
             ),
             (
                 UIImage(systemName: "person.2.fill")!, UIColor.Pallete.green,
@@ -115,7 +117,7 @@ extension ServicesCollectionViewController {
         
         let service = services[indexPath.item]
         cell.imageView.image = service.image.withRenderingMode(.alwaysTemplate)
-        cell.tintColor = service.color
+        cell.imageView.tintColor = service.color
         cell.nameLabel.text = service.name
         
         return cell

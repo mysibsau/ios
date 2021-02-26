@@ -39,6 +39,10 @@ class SurveyViewController: UIViewController {
         super.loadView()
         
         view.backgroundColor = UIColor.Pallete.background
+        
+        if shortSurvey == nil {
+            shortSurvey = ShortSurvey(id: 3, name: "Связаться с разработчиками")
+        }
     }
 
     override func viewDidLoad() {
