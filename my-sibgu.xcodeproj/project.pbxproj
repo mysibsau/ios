@@ -234,7 +234,7 @@
 		4AE343212598DA1700AB368C /* InstitutionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */; };
 		4AEA296425E6A767005B47DD /* SavedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA296325E6A767005B47DD /* SavedEntity.swift */; };
 		4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */; };
-		4AEB721425C84D7600161E32 /* OnlineShop.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB721625C84D7600161E32 /* OnlineShop.strings */; };
+		4AEB721425C84D7600161E32 /* Tickets.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB721625C84D7600161E32 /* Tickets.strings */; };
 		4AEB721C25C84EBB00161E32 /* GoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */; };
 		4AEBE6D525637700005F6CBE /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6D425637700005F6CBE /* Building.swift */; };
 		4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEBE6DE25637977005F6CBE /* Institute.swift */; };
@@ -544,8 +544,8 @@
 		4AE343202598DA1700AB368C /* InstitutionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPageViewController.swift; sourceTree = "<group>"; };
 		4AEA296325E6A767005B47DD /* SavedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEntity.swift; sourceTree = "<group>"; };
 		4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewController.swift; sourceTree = "<group>"; };
-		4AEB721525C84D7600161E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnlineShop.strings; sourceTree = "<group>"; };
-		4AEB721725C84D7A00161E32 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OnlineShop.strings; sourceTree = "<group>"; };
+		4AEB721525C84D7600161E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tickets.strings; sourceTree = "<group>"; };
+		4AEB721725C84D7A00161E32 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tickets.strings; sourceTree = "<group>"; };
 		4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AEBE6D425637700005F6CBE /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		4AEBE6DE25637977005F6CBE /* Institute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Institute.swift; sourceTree = "<group>"; };
@@ -966,7 +966,7 @@
 				4A051BD625BDB37300287FD5 /* Timetable.strings */,
 				4A42819725BE01D700B2306C /* Informing.strings */,
 				4A9C9D8725BF55470054E011 /* StudentLife.strings */,
-				4AEB721625C84D7600161E32 /* OnlineShop.strings */,
+				4AEB721625C84D7600161E32 /* Tickets.strings */,
 				4A5063DE25CAABED004C2BC8 /* FAQ.strings */,
 				4A0049B125CEBA6F00F59CB3 /* Work.strings */,
 				4A1AC3EF25D2376D007116F4 /* Trips.strings */,
@@ -1426,7 +1426,7 @@
 				4AB8055B25E7E1C10080CBE8 /* Library */,
 				4A54F57D259B3EFB00184BC0 /* Buildings */,
 				4A238C0E257B5C4100CB861E /* Institutions */,
-				4AEB720925C84A3900161E32 /* OnlineShop */,
+				4AEB720925C84A3900161E32 /* Tickets */,
 				4A54F56F259A1EAC00184BC0 /* Unions */,
 				4AC1913E25B441EA00325142 /* Surveys */,
 				4A5063C625CA9B27004C2BC8 /* FAQ */,
@@ -1532,12 +1532,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		4AEB720925C84A3900161E32 /* OnlineShop */ = {
+		4AEB720925C84A3900161E32 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
 				4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */,
 			);
-			path = OnlineShop;
+			path = Tickets;
 			sourceTree = "<group>";
 		};
 		4AEB721A25C84E9F00161E32 /* OnlineShop */ = {
@@ -1851,7 +1851,7 @@
 				4A051BAE25BD71C800287FD5 /* Institutes.strings in Resources */,
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
-				4AEB721425C84D7600161E32 /* OnlineShop.strings in Resources */,
+				4AEB721425C84D7600161E32 /* Tickets.strings in Resources */,
 				4AD21F3525C073E50018D4F0 /* Corols.xcassets in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */,
@@ -2388,13 +2388,13 @@
 			name = Library.strings;
 			sourceTree = "<group>";
 		};
-		4AEB721625C84D7600161E32 /* OnlineShop.strings */ = {
+		4AEB721625C84D7600161E32 /* Tickets.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4AEB721525C84D7600161E32 /* en */,
 				4AEB721725C84D7A00161E32 /* ru */,
 			);
-			name = OnlineShop.strings;
+			name = Tickets.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

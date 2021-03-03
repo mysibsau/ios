@@ -103,6 +103,15 @@ class ServicesCollectionViewController: UICollectionViewController {
                 ),
                 "Библиотека",
                 vc: LibrarySearchViewController.self
+            ),
+            (
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(named: "theater")!,
+                    backgroundColor: UIColor.Pallete.sibsuGreen,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "Билеты",
+                vc: CatalogCollectionViewController.self
             )
         ]
         
@@ -130,6 +139,7 @@ class ServicesCollectionViewController: UICollectionViewController {
         services[4].name = "faq".localized(using: tableName)
         services[5].name = "work".localized(using: tableName)
         services[6].name = "library".localized(using: tableName)
+        services[7].name = "tickets".localized(using: tableName)
         
         collectionView.reloadData()
     }

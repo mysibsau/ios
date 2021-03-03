@@ -61,14 +61,13 @@ class CatalogCollectionViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Онлайн каталог")
     }
     
     @objc
     private func updateText() {
-        let tableName = "OnlineShop"
+        let tableName = "Tickets"
         
-        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
     }
     
 }
@@ -77,7 +76,7 @@ class CatalogCollectionViewController: UIViewController {
 extension CatalogCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,6 +85,7 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
             for: indexPath) as! GoodCollectionViewCell
         
         // Configure
+        cell.nameLabel.text = "\(indexPath.row) laskdjfl;aksdj f;l"
         
         return cell
     }
