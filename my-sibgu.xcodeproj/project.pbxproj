@@ -140,6 +140,8 @@
 		4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9A4425B81BD3001F3B0B /* String+localized.swift */; };
 		4A9C9D7C25BF25C30054E011 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */; };
 		4A9C9D8525BF55470054E011 /* StudentLife.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C9D8725BF55470054E011 /* StudentLife.strings */; };
+		4A9FEF3325EFD111005DD121 /* HistrionicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FEF3225EFD111005DD121 /* HistrionicsViewController.swift */; };
+		4A9FEF3725EFDC00005DD121 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FEF3625EFDC00005DD121 /* LabelButton.swift */; };
 		4AA095E525D1589C00BA09C8 /* TipsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA095E425D1589C00BA09C8 /* TipsPageViewController.swift */; };
 		4AA095E925D15FE500BA09C8 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA095E825D15FE500BA09C8 /* TipViewController.swift */; };
 		4AB0222B257B88A700F1EF25 /* ImageAndLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */; };
@@ -449,6 +451,8 @@
 		4A9C9D7B25BF25C30054E011 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		4A9C9D8625BF55470054E011 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentLife.strings; sourceTree = "<group>"; };
 		4A9C9D8A25BF554A0054E011 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentLife.strings; sourceTree = "<group>"; };
+		4A9FEF3225EFD111005DD121 /* HistrionicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistrionicsViewController.swift; sourceTree = "<group>"; };
+		4A9FEF3625EFDC00005DD121 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		4AA095E425D1589C00BA09C8 /* TipsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsPageViewController.swift; sourceTree = "<group>"; };
 		4AA095E825D15FE500BA09C8 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndLabelView.swift; sourceTree = "<group>"; };
@@ -1176,6 +1180,7 @@
 				4A238C15257B74F700CB861E /* CenterLabelView.swift */,
 				4AB0222A257B88A700F1EF25 /* ImageAndLabelView.swift */,
 				4AE3431C2598D25100AB368C /* ImageAndLabelButton.swift */,
+				4A9FEF3625EFDC00005DD121 /* LabelButton.swift */,
 				4A238C14257B74BF00CB861E /* People */,
 			);
 			path = General;
@@ -1536,6 +1541,7 @@
 			isa = PBXGroup;
 			children = (
 				4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */,
+				4A9FEF3225EFD111005DD121 /* HistrionicsViewController.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -2019,6 +2025,7 @@
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,
 				4A1AC3F425D252B8007116F4 /* AuthViewController.swift in Sources */,
+				4A9FEF3725EFDC00005DD121 /* LabelButton.swift in Sources */,
 				4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */,
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
@@ -2140,6 +2147,7 @@
 				4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4AB8054C25E7CFC90080CBE8 /* PhysicalBook.swift in Sources */,
+				4A9FEF3325EFD111005DD121 /* HistrionicsViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,

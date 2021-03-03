@@ -53,6 +53,7 @@ class CatalogCollectionViewController: UIViewController {
             forCellWithReuseIdentifier: GoodCollectionViewCell.reuseIdentifier
         )
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -93,12 +94,12 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionView Delegate
-extension CatalogCollectionViewController {
+extension CatalogCollectionViewController: UICollectionViewDelegate {
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vcType = services[indexPath.item].vc
-//        
-//        navigationController?.pushViewController(vcType.init(), animated: true)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = HistrionicsViewController(a: 3)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
