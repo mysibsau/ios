@@ -52,7 +52,8 @@ class HistrionicsViewController: UIViewController {
         addTextView(text: "Большой зал")
         
         addButton(text: "Забранировать билет", action: {
-            print("hello")
+            let vc = TicketDatesViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         })
     }
 

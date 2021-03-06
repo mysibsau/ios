@@ -121,6 +121,10 @@
 		4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A16482574F25D00F5D652 /* UIColor+hex.swift */; };
 		4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */; };
 		4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */; };
+		4A71011A25F0D12B00549146 /* TicketDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71011925F0D12B00549146 /* TicketDatesViewController.swift */; };
+		4A71012025F0D55E00549146 /* ChoicePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71011F25F0D55E00549146 /* ChoicePlaceViewController.swift */; };
+		4A71012825F1F2AC00549146 /* RoomStructView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71012725F1F2AC00549146 /* RoomStructView.swift */; };
+		4A71012E25F1F83400549146 /* RoomPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71012D25F1F83400549146 /* RoomPlaceCollectionViewCell.swift */; };
 		4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */; };
 		4A736BFC25A63F380040BBED /* String+linkAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736BFB25A63F380040BBED /* String+linkAttributedString.swift */; };
 		4A736C0325A722670040BBED /* TappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A736C0225A722670040BBED /* TappableLabel.swift */; };
@@ -431,6 +435,10 @@
 		4A5A16482574F25D00F5D652 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		4A5A164B2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+shortDateFormatter.swift"; sourceTree = "<group>"; };
 		4A5C3EF62576B2DC00E3FFB0 /* ContainerTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTimetableViewController.swift; sourceTree = "<group>"; };
+		4A71011925F0D12B00549146 /* TicketDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDatesViewController.swift; sourceTree = "<group>"; };
+		4A71011F25F0D55E00549146 /* ChoicePlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePlaceViewController.swift; sourceTree = "<group>"; };
+		4A71012725F1F2AC00549146 /* RoomStructView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStructView.swift; sourceTree = "<group>"; };
+		4A71012D25F1F83400549146 /* RoomPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToUnionViewController.swift; sourceTree = "<group>"; };
 		4A736BFB25A63F380040BBED /* String+linkAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+linkAttributedString.swift"; sourceTree = "<group>"; };
 		4A736C0225A722670040BBED /* TappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableLabel.swift; sourceTree = "<group>"; };
@@ -1446,7 +1454,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB8057625E7F2F60080CBE8 /* Library */,
-				4AEB721A25C84E9F00161E32 /* OnlineShop */,
+				4AEB721A25C84E9F00161E32 /* Tickets */,
 				4A42A516257944A000283459 /* Buildings */,
 				4A21AA40257AA0CC00BA203A /* Institutions */,
 				4A54F571259A1F5600184BC0 /* Unions */,
@@ -1542,16 +1550,20 @@
 			children = (
 				4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */,
 				4A9FEF3225EFD111005DD121 /* HistrionicsViewController.swift */,
+				4A71011925F0D12B00549146 /* TicketDatesViewController.swift */,
+				4A71011F25F0D55E00549146 /* ChoicePlaceViewController.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
 		};
-		4AEB721A25C84E9F00161E32 /* OnlineShop */ = {
+		4AEB721A25C84E9F00161E32 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
 				4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */,
+				4A71012725F1F2AC00549146 /* RoomStructView.swift */,
+				4A71012D25F1F83400549146 /* RoomPlaceCollectionViewCell.swift */,
 			);
-			path = OnlineShop;
+			path = Tickets;
 			sourceTree = "<group>";
 		};
 		4AEBE6D2256376C0005F6CBE /* Timetable */ = {
@@ -2026,6 +2038,7 @@
 				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,
 				4A1AC3F425D252B8007116F4 /* AuthViewController.swift in Sources */,
 				4A9FEF3725EFDC00005DD121 /* LabelButton.swift in Sources */,
+				4A71012E25F1F83400549146 /* RoomPlaceCollectionViewCell.swift in Sources */,
 				4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */,
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
@@ -2049,6 +2062,7 @@
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
 				4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */,
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
+				4A71012025F0D55E00549146 /* ChoicePlaceViewController.swift in Sources */,
 				4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */,
 				4AEB721C25C84EBB00161E32 /* GoodCollectionViewCell.swift in Sources */,
 				4A07DDE0255DA3750022B6A9 /* EntityType.swift in Sources */,
@@ -2124,6 +2138,7 @@
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
 				4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */,
 				4AEA296425E6A767005B47DD /* SavedEntity.swift in Sources */,
+				4A71011A25F0D12B00549146 /* TicketDatesViewController.swift in Sources */,
 				4A75819A25755DD0006C1F6C /* AlertingViewController.swift in Sources */,
 				4A07DD85255D89020022B6A9 /* AppDelegate.swift in Sources */,
 				4A54F573259A1F7000184BC0 /* UnionTableViewCell.swift in Sources */,
@@ -2136,6 +2151,7 @@
 				4AC18FBA25B19AB800325142 /* SubgroupResponse.swift in Sources */,
 				4AB5A6AF25A1F3F400518FEA /* InstituteResponse.swift in Sources */,
 				4A314A002572CA5F00FB7FC2 /* DateTimeService.swift in Sources */,
+				4A71012825F1F2AC00549146 /* RoomStructView.swift in Sources */,
 				4A07DDBA255D96B70022B6A9 /* RObject+newObject.swift in Sources */,
 				4A7AE704259F61AD007181E2 /* UILabel+contentSize.swift in Sources */,
 				4AEE1808256EB48500DD7D9F /* UIStackVIew+removeAllArrangedSubviews.swift in Sources */,
@@ -2542,7 +2558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9.6;
+				MARKETING_VERSION = 1.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2566,7 +2582,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9.6;
+				MARKETING_VERSION = 1.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2588,7 +2604,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.9.6;
+				MARKETING_VERSION = 1.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2611,7 +2627,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.9.6;
+				MARKETING_VERSION = 1.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
