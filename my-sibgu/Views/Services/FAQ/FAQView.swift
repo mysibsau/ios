@@ -33,8 +33,8 @@ class FAQView: UIView {
         return label
     }()
     
-    private let answerLabel: UILabel = {
-        let label = UILabel()
+    private let answerLabel: UrlTappableLabel = {
+        let label = UrlTappableLabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15)
         label.numberOfLines = 0
@@ -47,7 +47,8 @@ class FAQView: UIView {
         self.init()
         self.faq = faq
         self.questionLabel.text = faq.question
-        self.answerLabel.text = faq.answer
+        self.answerLabel.makeUrlTappable()
+        self.answerLabel.setTextWithUrls(text: faq.answer)
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)

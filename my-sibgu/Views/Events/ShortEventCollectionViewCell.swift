@@ -28,8 +28,8 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         return imgView
     }()
 
-    let textLabel: TappableLabel = {
-        let label = TappableLabel()
+    let textLabel: UrlTappableLabel = {
+        let label = UrlTappableLabel()
         label.numberOfLines = 3
         label.lineBreakMode = .byTruncatingTail
         label.font = UIFont.systemFont(ofSize: 14)
@@ -90,7 +90,8 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 15
         
         readMoreOrLessButton.addTarget(self, action: #selector(readMoreOrLessButtonAction), for: .touchUpInside)
-        textLabel.makeTappable()
+//        textLabel.makeTappable()
+        textLabel.makeUrlTappable()
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -129,17 +130,7 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
         set(mode: mode)
         
         if let text = text {
-            let result = text.attributedStringWithLinkAndLinkRangesWithUrl()
-            let atrStr = result.0
-            rangesAndUrls = result.1
-            textLabel.attributedText = atrStr
-            textLabel.onCharacterTapped = { label, index in
-                for (range, url) in self.rangesAndUrls {
-                    if range.contains(index) {
-                        UIApplication.shared.open(url)
-                    }
-                }
-            }
+            textLabel.setTextWithUrls(text: text)
         } else {
             textLabel.attributedText = nil
         }

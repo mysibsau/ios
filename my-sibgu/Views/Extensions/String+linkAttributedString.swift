@@ -8,20 +8,26 @@
 import Foundation
 import UIKit
 
-extension String {
+extension NSMutableAttributedString {
 
-    func attributedStringWithLinkAndLinkRangesWithUrl() -> (NSMutableAttributedString, [NSRange: URL]) {
+    func addAttributesWithLinkAndLinkRangesWithUrl() -> [NSRange: URL] {
         let stringLinkRegex = "https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
-        
-        let attrString = NSMutableAttributedString(string: self)
         
         // Нельзя менять местами, потому что первый заменяет все шаблоны [текст](ссылка)
         // если выполнить сначала второй - то 2 раза добавить ссылку в словарь
-        let rangesAndUrlByNamedLink = addAttributesAndGetParseNamedLink(stringLinkRegex: stringLinkRegex, attrString: attrString)
-        var rangesAndUrlByLink = addAttributesAndGetParseLink(stringLinkRegex: stringLinkRegex, attrString: attrString)
+        let rangesAndUrlByNamedLink = addAttributesAndGetParseNamedLink(stringLinkRegex: stringLinkRegex, attrString: self)
+        var rangesAndUrlByLink = addAttributesAndGetParseLink(stringLinkRegex: stringLinkRegex, attrString: self)
         
         rangesAndUrlByLink.merge(dict: rangesAndUrlByNamedLink)
-        return (attrString, rangesAndUrlByLink)
+        return rangesAndUrlByLink
+    }
+    
+    func addAttributesWithEmailAndEmailRangesWithUrl() -> [NSRange: URL] {
+        let stringEmailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        var rangesAndUrlByLink = addAttributesAndGetParseEmail(stringEmailRegex: stringEmailRegex, attrString: self)
+        
+        return rangesAndUrlByLink
     }
 
     private func addAttributesAndGetParseLink(stringLinkRegex: String, attrString: NSMutableAttributedString) -> [NSRange: URL] {
@@ -74,6 +80,26 @@ extension String {
             rangesAndUrls[newRange] = url
             
             nameAndLinkRange = namedLinkRegex.firstMatch(in: attrString.string, range: NSRange(attrString.string.startIndex..., in: attrString.string))?.range
+        }
+        
+        return rangesAndUrls
+    }
+    
+    private func addAttributesAndGetParseEmail(stringEmailRegex: String, attrString: NSMutableAttributedString) -> [NSRange: URL] {
+        let emailRegex = try! NSRegularExpression(pattern: stringEmailRegex)
+
+        let results = emailRegex.matches(
+            in: attrString.string,
+            range: NSRange(attrString.string.startIndex..., in: attrString.string)
+        )
+        let ranges = results.map { $0.range }
+        
+        var rangesAndUrls: [NSRange: URL] = [:]
+        for range in ranges {
+            let stringUrl = String(attrString.string[Range(range, in: attrString.string)!])
+            attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: range)
+            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+            rangesAndUrls[range] = URL(string: "mailto:\(stringUrl)")!
         }
         
         return rangesAndUrls
