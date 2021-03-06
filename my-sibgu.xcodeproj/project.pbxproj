@@ -113,6 +113,7 @@
 		4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */; };
 		4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */; };
 		4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */; };
+		4A5126AB25F3D86D00ED67D2 /* UrlTappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */; };
 		4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */; };
 		4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5672599EF9000184BC0 /* DepartmentView.swift */; };
 		4A54F56B259A033600184BC0 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F56A259A033600184BC0 /* CopyableLabel.swift */; };
@@ -427,6 +428,7 @@
 		4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuesionPost.swift; sourceTree = "<group>"; };
 		4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupportService.swift; sourceTree = "<group>"; };
 		4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
+		4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlTappableLabel.swift; sourceTree = "<group>"; };
 		4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
 		4A54F5672599EF9000184BC0 /* DepartmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentView.swift; sourceTree = "<group>"; };
 		4A54F56A259A033600184BC0 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
@@ -1183,6 +1185,7 @@
 				4A077FCB25AF02DE0038D87E /* Extensions */,
 				4A077FC525AEFD520038D87E /* BlurImageView.swift */,
 				4A736C0225A722670040BBED /* TappableLabel.swift */,
+				4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */,
 				4A54F56A259A033600184BC0 /* CopyableLabel.swift */,
 				4A75819D25755FBB006C1F6C /* AlertView.swift */,
 				4A238C15257B74F700CB861E /* CenterLabelView.swift */,
@@ -2095,6 +2098,7 @@
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4AB8054025E7CF560080CBE8 /* LibraryService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
+				4A5126AB25F3D86D00ED67D2 /* UrlTappableLabel.swift in Sources */,
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
 				4A3957EA25DEB328009958BC /* Marks.swift in Sources */,
 				4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */,

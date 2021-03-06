@@ -8,20 +8,26 @@
 import Foundation
 import UIKit
 
-extension String {
+extension NSMutableAttributedString {
 
-    func attributedStringWithLinkAndLinkRangesWithUrl() -> (NSMutableAttributedString, [NSRange: URL]) {
+    func addAttributesWithLinkAndLinkRangesWithUrl() -> [NSRange: URL] {
         let stringLinkRegex = "https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
-        
-        let attrString = NSMutableAttributedString(string: self)
         
         // Нельзя менять местами, потому что первый заменяет все шаблоны [текст](ссылка)
         // если выполнить сначала второй - то 2 раза добавить ссылку в словарь
-        let rangesAndUrlByNamedLink = addAttributesAndGetParseNamedLink(stringLinkRegex: stringLinkRegex, attrString: attrString)
-        var rangesAndUrlByLink = addAttributesAndGetParseLink(stringLinkRegex: stringLinkRegex, attrString: attrString)
+        let rangesAndUrlByNamedLink = addAttributesAndGetParseNamedLink(stringLinkRegex: stringLinkRegex, attrString: self)
+        var rangesAndUrlByLink = addAttributesAndGetParseLink(stringLinkRegex: stringLinkRegex, attrString: self)
         
         rangesAndUrlByLink.merge(dict: rangesAndUrlByNamedLink)
-        return (attrString, rangesAndUrlByLink)
+        return rangesAndUrlByLink
+    }
+    
+    func addAttributesWithEmailAndEmailRangesWithUrl() -> [NSRange: URL] {
+        let stringEmailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        var rangesAndUrlByLink = addAttributesAndGetParseLink(stringLinkRegex: stringEmailRegex, attrString: self)
+        
+        return rangesAndUrlByLink
     }
 
     private func addAttributesAndGetParseLink(stringLinkRegex: String, attrString: NSMutableAttributedString) -> [NSRange: URL] {
