@@ -22,7 +22,7 @@ class CenterLabelView: UIView {
         setupView()
     }
     
-    convenience init(text: String) {
+    init(text: String) {
         self.init()
         centerLabel.text = text
     }
@@ -30,7 +30,6 @@ class CenterLabelView: UIView {
     private func setupView() {
         self.backgroundColor = UIColor.Pallete.content
         self.layer.cornerRadius = 20
-//        self.makeShadow(color: .black, opacity: 0.4, shadowOffser: .zero, radius: 5)
         makeShadow()
         makeBorder()
         

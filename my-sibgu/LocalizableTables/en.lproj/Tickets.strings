@@ -6,4 +6,6 @@
   
 */
 
-"nav.bar.title" = "Онлайн каталог";
+"nav.bar.title" = "Tickets";
+
+"date" = "Date and time";

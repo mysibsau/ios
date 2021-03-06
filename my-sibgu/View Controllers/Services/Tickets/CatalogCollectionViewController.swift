@@ -53,6 +53,7 @@ class CatalogCollectionViewController: UIViewController {
             forCellWithReuseIdentifier: GoodCollectionViewCell.reuseIdentifier
         )
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -61,14 +62,13 @@ class CatalogCollectionViewController: UIViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Онлайн каталог")
     }
     
     @objc
     private func updateText() {
-        let tableName = "OnlineShop"
+        let tableName = "Tickets"
         
-        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
     }
     
 }
@@ -77,7 +77,7 @@ class CatalogCollectionViewController: UIViewController {
 extension CatalogCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,6 +86,7 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
             for: indexPath) as! GoodCollectionViewCell
         
         // Configure
+        cell.nameLabel.text = "\(indexPath.row) laskdjfl;aksdj f;l"
         
         return cell
     }
@@ -93,12 +94,12 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionView Delegate
-extension CatalogCollectionViewController {
+extension CatalogCollectionViewController: UICollectionViewDelegate {
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vcType = services[indexPath.item].vc
-//        
-//        navigationController?.pushViewController(vcType.init(), animated: true)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = HistrionicsViewController(a: 3)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }

@@ -1,18 +1,18 @@
 //
-//  ImageAndLabelButton.swift
+//  LabelButton.swift
 //  my-sibgu
 //
-//  Created by art-off on 27.12.2020.
+//  Created by art-off on 03.03.2021.
 //
 
 import UIKit
 
-class ImageAndLabelButton: ImageAndLabelView {
+class LabelButton: CenterLabelView {
     
     var action: (() -> Void)!
     
-    init(text: String, imageName: String, action: @escaping () -> Void) {
-        super.init(text: text, imageName: imageName)
+    init(text: String, action: @escaping () -> Void) {
+        super.init(text: text)
         self.action = action
     }
     
@@ -31,4 +31,3 @@ class ImageAndLabelButton: ImageAndLabelView {
     }
     
 }
-

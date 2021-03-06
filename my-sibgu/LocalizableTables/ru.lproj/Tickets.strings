@@ -6,4 +6,6 @@
   
 */
 
-"nav.bar.title" = "Online catalog";
+"nav.bar.title" = "Билеты";
+
+"date" = "Дата и время";
