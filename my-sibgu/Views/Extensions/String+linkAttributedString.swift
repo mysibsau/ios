@@ -25,7 +25,7 @@ extension NSMutableAttributedString {
     func addAttributesWithEmailAndEmailRangesWithUrl() -> [NSRange: URL] {
         let stringEmailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
-        var rangesAndUrlByLink = addAttributesAndGetParseLink(stringLinkRegex: stringEmailRegex, attrString: self)
+        var rangesAndUrlByLink = addAttributesAndGetParseEmail(stringEmailRegex: stringEmailRegex, attrString: self)
         
         return rangesAndUrlByLink
     }
@@ -80,6 +80,26 @@ extension NSMutableAttributedString {
             rangesAndUrls[newRange] = url
             
             nameAndLinkRange = namedLinkRegex.firstMatch(in: attrString.string, range: NSRange(attrString.string.startIndex..., in: attrString.string))?.range
+        }
+        
+        return rangesAndUrls
+    }
+    
+    private func addAttributesAndGetParseEmail(stringEmailRegex: String, attrString: NSMutableAttributedString) -> [NSRange: URL] {
+        let emailRegex = try! NSRegularExpression(pattern: stringEmailRegex)
+
+        let results = emailRegex.matches(
+            in: attrString.string,
+            range: NSRange(attrString.string.startIndex..., in: attrString.string)
+        )
+        let ranges = results.map { $0.range }
+        
+        var rangesAndUrls: [NSRange: URL] = [:]
+        for range in ranges {
+            let stringUrl = String(attrString.string[Range(range, in: attrString.string)!])
+            attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: range)
+            attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+            rangesAndUrls[range] = URL(string: "mailto:\(stringUrl)")!
         }
         
         return rangesAndUrls
