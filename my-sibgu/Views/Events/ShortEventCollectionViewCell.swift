@@ -129,23 +129,8 @@ class ShortEventCollectionViewCell: UICollectionViewCell {
     func set(mode: EventCellMode, image: Image?, text: String?) {
         set(mode: mode)
         
-//        if let text = text {
-//            let atrStr = NSMutableAttributedString(string: text)
-//            let result = atrStr.addAttributesWithLinkAndLinkRangesWithUrl()
-//            rangesAndUrls = result
-//            textLabel.attributedText = atrStr
-//            textLabel.onCharacterTapped = { label, index in
-//                for (range, url) in self.rangesAndUrls {
-//                    if range.contains(index) {
-//                        UIApplication.shared.open(url)
-//                    }
-//                }
-//            }
-//        } else {
-//            textLabel.attributedText = nil
-//        }
         if let text = text {
-            textLabel.attributedTextWithUrl = NSAttributedString(string: text)
+            textLabel.setTextWithUrls(text: text)
         } else {
             textLabel.attributedText = nil
         }

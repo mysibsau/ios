@@ -11,22 +11,21 @@ class UrlTappableLabel: TappableLabel {
     
     private var rangesAndUrls: [NSRange: URL] = [:]
     
-    var attributedTextWithUrl: NSAttributedString? {
-        get { attributedText }
-        set { updateUrlsAndAttributedText(newValue: newValue) }
-    }
-    
     func makeUrlTappable() {
         self.makeTappable()
-        updateUrlsAndAttributedText(newValue: attributedTextWithUrl)
+        updateUrlsAndAttributedText(newValue: attributedText?.string)
     }
     
-    private func updateUrlsAndAttributedText(newValue: NSAttributedString?) {
+    func setTextWithUrls(text: String) {
+        updateUrlsAndAttributedText(newValue: text)
+    }
+    
+    private func updateUrlsAndAttributedText(newValue: String?) {
         rangesAndUrls.removeAll()
         
         guard let newValue = newValue else { return }
         
-        let mutAtrString = NSMutableAttributedString(attributedString: newValue)
+        let mutAtrString = NSMutableAttributedString(string: newValue)
         
         let linkUrls = mutAtrString.addAttributesWithLinkAndLinkRangesWithUrl()
         var emailUrls = mutAtrString.addAttributesWithEmailAndEmailRangesWithUrl()
