@@ -24,7 +24,7 @@ class GoodCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 17)
         return label
     }()
     
@@ -65,8 +65,6 @@ class GoodCollectionViewCell: UICollectionViewCell {
             make.top.trailing.leading.equalToSuperview()
         }
         imageView.layer.cornerRadius = 10
-        
-        imageView.image = UIImage(named: "main_logo")!
         
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in

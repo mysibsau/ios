@@ -39,7 +39,7 @@ class PerformanceViewController: UIViewController {
         self.init()
         self.performance = performance
         
-        backgroupndImageView.image = UIImage(named: "back_main_logo")
+        backgroupndImageView.loadImage(at: performance.logoUrl)
         
         addLabel(text: "Название")
         addNameView(name: performance.name)

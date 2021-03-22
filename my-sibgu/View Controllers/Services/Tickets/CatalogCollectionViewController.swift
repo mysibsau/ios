@@ -115,9 +115,10 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
             withReuseIdentifier: GoodCollectionViewCell.reuseIdentifier,
             for: indexPath) as! GoodCollectionViewCell
         
-        // Configure
-        cell.nameLabel.text = performances[indexPath.item].name
+        let performance = performances[indexPath.row]
         
+        cell.nameLabel.text = performance.name
+        cell.imageView.loadImage(at: performance.logoUrl)
         return cell
     }
     
