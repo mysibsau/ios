@@ -245,6 +245,8 @@
 		4AE588AC26089D5B0036D9CA /* ApiTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE588AB26089D5B0036D9CA /* ApiTickets.swift */; };
 		4AE588B026089D690036D9CA /* ApiTicketsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE588AF26089D690036D9CA /* ApiTicketsService.swift */; };
 		4AE588B42608A28E0036D9CA /* PerformanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE588B32608A28E0036D9CA /* PerformanceResponse.swift */; };
+		4AE588CD2608C8AC0036D9CA /* PerformanceConcert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE588CC2608C8AC0036D9CA /* PerformanceConcert.swift */; };
+		4AE588D32608C8F40036D9CA /* PerformanceConcertResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE588D22608C8F40036D9CA /* PerformanceConcertResponse.swift */; };
 		4AEA296425E6A767005B47DD /* SavedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA296325E6A767005B47DD /* SavedEntity.swift */; };
 		4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */; };
 		4AEB721425C84D7600161E32 /* Tickets.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB721625C84D7600161E32 /* Tickets.strings */; };
@@ -568,6 +570,8 @@
 		4AE588AB26089D5B0036D9CA /* ApiTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTickets.swift; sourceTree = "<group>"; };
 		4AE588AF26089D690036D9CA /* ApiTicketsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTicketsService.swift; sourceTree = "<group>"; };
 		4AE588B32608A28E0036D9CA /* PerformanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceResponse.swift; sourceTree = "<group>"; };
+		4AE588CC2608C8AC0036D9CA /* PerformanceConcert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceConcert.swift; sourceTree = "<group>"; };
+		4AE588D22608C8F40036D9CA /* PerformanceConcertResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceConcertResponse.swift; sourceTree = "<group>"; };
 		4AEA296325E6A767005B47DD /* SavedEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEntity.swift; sourceTree = "<group>"; };
 		4AEB720A25C84A7100161E32 /* CatalogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewController.swift; sourceTree = "<group>"; };
 		4AEB721525C84D7600161E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tickets.strings; sourceTree = "<group>"; };
@@ -1564,8 +1568,9 @@
 		4AE5889D26089CD10036D9CA /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
-				4AE5888F26087FD30036D9CA /* RoomItem.swift */,
 				4AE5889926089CCA0036D9CA /* Performance.swift */,
+				4AE5888F26087FD30036D9CA /* RoomItem.swift */,
+				4AE588CC2608C8AC0036D9CA /* PerformanceConcert.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -1593,6 +1598,7 @@
 			isa = PBXGroup;
 			children = (
 				4AE588B32608A28E0036D9CA /* PerformanceResponse.swift */,
+				4AE588D22608C8F40036D9CA /* PerformanceConcertResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -2079,6 +2085,7 @@
 				4AA095E525D1589C00BA09C8 /* TipsPageViewController.swift in Sources */,
 				4A5C3EF72576B2DC00E3FFB0 /* ContainerTimetableViewController.swift in Sources */,
 				4AE030E625CD2F6700E8A9C0 /* SportClubResponse.swift in Sources */,
+				4AE588CD2608C8AC0036D9CA /* PerformanceConcert.swift in Sources */,
 				4A7AE707259F8A8A007181E2 /* EventsCellDelegate.swift in Sources */,
 				4AB5A6A525A1E00000518FEA /* RUnion.swift in Sources */,
 				4A0049A825CEB5B200F59CB3 /* VacanciesTableViewController.swift in Sources */,
@@ -2151,6 +2158,7 @@
 				4AE5889A26089CCA0036D9CA /* Performance.swift in Sources */,
 				4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */,
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
+				4AE588D32608C8F40036D9CA /* PerformanceConcertResponse.swift in Sources */,
 				4AB8054025E7CF560080CBE8 /* LibraryService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
 				4A5126AB25F3D86D00ED67D2 /* UrlTappableLabel.swift in Sources */,

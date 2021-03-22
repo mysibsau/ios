@@ -51,7 +51,7 @@ class PerformanceViewController: UIViewController {
         addTextView(text: performance.theatre)
         
         addButton(text: "Забранировать билет", action: {
-            let vc = TicketDatesViewController()
+            let vc = TicketDatesViewController(performance: performance)
             self.navigationController?.pushViewController(vc, animated: true)
         })
     }

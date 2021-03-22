@@ -9,11 +9,20 @@ import UIKit
 
 class TicketDatesViewController: UITableViewController {
     
-//    private var vacancies: [Vacancy] = []
+    private let ticketsService = TicketsService()
     
+    
+    var performance: Performance!
+    private var concerts: [PerformanceConcert] = []
     
     private let activityIndicatorView =  UIActivityIndicatorView()
-
+    
+    
+    convenience init(performance: Performance) {
+        self.init()
+        self.performance = performance
+    }
+    
     // MARK: - Life Circle
     override func loadView() {
         super.loadView()
@@ -38,8 +47,32 @@ class TicketDatesViewController: UITableViewController {
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        
+        loadConcerts()
     }
     
+    
+    private func loadConcerts() {
+        startActivityIndicator()
+        ticketsService.getConcert(by: performance.id) { concerts in
+            guard let concerts = concerts else {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.set(concerts: concerts)
+                self.stopActivityIndicator()
+            }
+        }
+    }
+    
+    private func set(concerts: [PerformanceConcert]) {
+        self.concerts = concerts
+        tableView.reloadData()
+    }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
@@ -59,7 +92,7 @@ class TicketDatesViewController: UITableViewController {
 extension TicketDatesViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return concerts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,10 +100,10 @@ extension TicketDatesViewController {
             withIdentifier: OneLabelTableViewCell.reuseIdentifier,
             for: indexPath) as! OneLabelTableViewCell
         
-//        let vacancy = vacancies[indexPath.row]
+        let concert = concerts[indexPath.row]
         
         cell.nameLabel.textAlignment = .center
-        cell.nameLabel.text = "\(indexPath.row)1.20.2020\n0\(indexPath.row):00"
+        cell.nameLabel.text = "\(concert.date) \(concert.time)"
         
         return cell
     }
@@ -85,4 +118,15 @@ extension TicketDatesViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+
+extension TicketDatesViewController: AnimatingNetworkProtocol {
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        view
+    }
 }

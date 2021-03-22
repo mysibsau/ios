@@ -15,4 +15,10 @@ class TicketsService {
         }
     }
     
+    func getConcert(by performanceId: Int, completion: @escaping ([PerformanceConcert]?) -> Void) {
+        ApiTicketsService().loadConcerts(by: performanceId) { concertsResponse in
+            completion(concertsResponse?.map { $0.converteToDomain() })
+        }
+    }
+    
 }
