@@ -28,15 +28,15 @@ class GoodCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let priceLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .right
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = UIColor.Pallete.gray
-        return label
-    }()
+//    let priceLabel: UILabel = {
+//        let label = UILabel()
+//        label.numberOfLines = 0
+//        label.lineBreakMode = .byWordWrapping
+//        label.textAlignment = .right
+//        label.font = UIFont.systemFont(ofSize: 15)
+//        label.textColor = UIColor.Pallete.gray
+//        return label
+//    }()
     
     
     // MARK: - Overrides
@@ -73,17 +73,18 @@ class GoodCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(imageView.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview().inset(10)
             make.height.equalTo(45)
+            make.bottom.equalToSuperview().offset(-10)
         }
         nameLabel.text = "f;lk jas;dlfjлдодл ождждло ждло дло ждло ждло длждло ждло ждло"
         
-        contentView.addSubview(priceLabel)
-        priceLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(5)
-            make.leading.trailing.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.height.equalTo(20)
-        }
-        priceLabel.text = "100 р"
+//        contentView.addSubview(priceLabel)
+//        priceLabel.snp.makeConstraints { make in
+//            make.top.equalTo(nameLabel.snp.bottom).offset(5)
+//            make.leading.trailing.equalToSuperview().inset(10)
+//            make.bottom.equalToSuperview().offset(-10)
+//            make.height.equalTo(20)
+//        }
+//        priceLabel.text = "100 р"
     }
     
 }

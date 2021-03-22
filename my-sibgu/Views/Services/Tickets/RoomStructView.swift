@@ -9,8 +9,10 @@ import UIKit
 
 class RoomStructView: UIView {
     
-    var columns: Int!
-    var rows: Int!
+//    var columns: Int!
+//    var rows: Int!
+    
+    var items: [[RoomItem?]]!
     
     
     var collectionView: UICollectionView!
@@ -23,11 +25,13 @@ class RoomStructView: UIView {
         fatalError()
     }
     
-    init(rows: Int, columns: Int, viewWidth: CGFloat, viewHeight: CGFloat) {
+    init(items: [[RoomItem?]], viewWidth: CGFloat, viewHeight: CGFloat) {
         self.init()
         
-        self.columns = columns
-        self.rows = rows
+        self.items = items
+        
+        let columns = items.first!.count
+        let rows = items.count
         
         backgroundColor = .purple
         
@@ -36,11 +40,11 @@ class RoomStructView: UIView {
         
         let itemWidthByWidth = getItemWidth(
             byCollectionViewWidth: viewWidth - 2 * insetSpacing,
-            numberItemsPerLine: self.columns,
+            numberItemsPerLine: columns,
             spacing: cellSpacing)
         let itemWidthByHeidth = getItemWidth(
             byCollectionViewWidth: viewHeight - 2 * insetSpacing - 100,
-            numberItemsPerLine: self.rows,
+            numberItemsPerLine: rows,
             spacing: cellSpacing)
         
         let itemWidth: CGFloat
@@ -51,10 +55,10 @@ class RoomStructView: UIView {
         if itemWidthByWidth < itemWidthByHeidth {
             itemWidth = itemWidthByWidth
             leftRightInsetSpacing = insetSpacing
-            topBottomInsetSpacing = (viewHeight - 100 - (CGFloat(self.rows) * itemWidth) - ((CGFloat(self.rows) + 1) *  cellSpacing)) / 2
+            topBottomInsetSpacing = (viewHeight - 100 - (CGFloat(rows) * itemWidth) - ((CGFloat(rows) + 1) *  cellSpacing)) / 2
         } else {
             itemWidth = itemWidthByHeidth
-            leftRightInsetSpacing = (viewWidth - (CGFloat(self.columns) * itemWidth) - ((CGFloat(self.columns) + 1) *  cellSpacing)) / 2
+            leftRightInsetSpacing = (viewWidth - (CGFloat(columns) * itemWidth) - ((CGFloat(columns) + 1) *  cellSpacing)) / 2
             topBottomInsetSpacing = insetSpacing
         }
         
@@ -96,20 +100,25 @@ class RoomStructView: UIView {
 
 extension RoomStructView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.columns * self.rows
+        return items.count * items.first!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoomPlaceCollectionViewCell.reuseIdentifier, for: indexPath)
-        if indexPath.item == 19 || indexPath.item == 34 || indexPath.item == 35 || indexPath.item == 36 || indexPath.item == 30 {
-            cell.backgroundColor = .clear
-        } else if indexPath.item % 16 == 0 {
-            cell.backgroundColor = .clear
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: RoomPlaceCollectionViewCell.reuseIdentifier,
+            for: indexPath
+        )
+        
+        let lenght = items.first!.count
+        let index1 = indexPath.item / lenght
+        let index2 = indexPath.item % lenght
+
+        if items[index1][index2] == nil {
+            cell.isHidden = true
         } else {
-            cell.backgroundColor = .blue
+            cell.isHidden = false
         }
         
-        cell.layer.cornerRadius = 3
         return cell
     }
 }

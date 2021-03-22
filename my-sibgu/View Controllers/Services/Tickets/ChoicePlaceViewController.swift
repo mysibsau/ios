@@ -45,8 +45,8 @@ class ChoicePlaceViewController: UIViewController {
         
         let roomStructViewWidth = scrollView.frame.width
         let roomStructViewHeight = scrollView.frame.height - 200
-
-        roomStructView = RoomStructView(rows: 20, columns: 30, viewWidth: roomStructViewWidth, viewHeight: roomStructViewHeight)
+        
+        roomStructView = RoomStructView(items: Common.getRootItems(), viewWidth: roomStructViewWidth, viewHeight: roomStructViewHeight)
         scrollView.addSubview(roomStructView)
         roomStructView.frame = CGRect(x: 0, y: 0, width: roomStructViewWidth, height: roomStructViewHeight)
         roomStructView.backgroundColor = .blue

@@ -15,6 +15,7 @@ class RoomPlaceCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         backgroundColor = .link
+        layer.cornerRadius = 3
     }
     
     required init?(coder: NSCoder) {

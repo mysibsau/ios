@@ -7,13 +7,19 @@
 
 import UIKit
 
-private typealias GoodsDataSource = [(imageUrl: URL, name: String, price: Double)]
+//private typealias TicketsDataSource = [(imageUrl: URL, name: String)]
 
 class CatalogCollectionViewController: UIViewController {
     
+    private let ticketsService = TicketsService()
+    
+    
+    private let activityIndicatorView = UIActivityIndicatorView()
+    private let alertView = AlertView()
+    
     var collectionView: UICollectionView!
     
-    private var goods: GoodsDataSource!
+    private var performances: [Performance] = []
     
     
     private let spacing: CGFloat = 15
@@ -57,6 +63,30 @@ class CatalogCollectionViewController: UIViewController {
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        loadPerformances()
+    }
+    
+    private func loadPerformances() {
+        startActivityIndicator()
+        ticketsService.getPerformances { performances in
+            guard let performances = performances else {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                    self.showNetworkAlert()
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.set(performances: performances)
+                self.stopActivityIndicator()
+            }
+        }
+    }
+    
+    private func set(performances: [Performance]) {
+        self.performances = performances
+        collectionView.reloadData()
     }
     
     private func setupNavBar() {
@@ -77,7 +107,7 @@ class CatalogCollectionViewController: UIViewController {
 extension CatalogCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return performances.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,7 +116,7 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
             for: indexPath) as! GoodCollectionViewCell
         
         // Configure
-        cell.nameLabel.text = "\(indexPath.row) laskdjfl;aksdj f;l"
+        cell.nameLabel.text = performances[indexPath.item].name
         
         return cell
     }
@@ -97,9 +127,29 @@ extension CatalogCollectionViewController: UICollectionViewDataSource {
 extension CatalogCollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = HistrionicsViewController(a: 3)
+        let vc = PerformanceViewController(performance: performances[indexPath.item])
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension CatalogCollectionViewController: AnimatingNetworkProtocol {
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        view
+    }
+}
+
+extension CatalogCollectionViewController: AlertingViewController {
+    func alertingSuperViewForDisplay() -> UIView {
+        view
+    }
+    
+    func alertingAlertView() -> AlertView {
+        alertView
+    }
 }
