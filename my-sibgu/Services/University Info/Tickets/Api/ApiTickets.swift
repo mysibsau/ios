@@ -20,7 +20,12 @@ class ApiTickets {
     }
     
     static func buy(ticketsId: [Int]) -> URLRequest {
-        let token = UserService().getCurrUser()?.token ?? "0"
+        let tokenParameter: String
+        if let token = UserService().getCurrUser()?.token {
+            tokenParameter = "?" + token
+        } else {
+            tokenParameter = ""
+        }
         
         let json = [
             "tickets": ticketsId
@@ -28,7 +33,7 @@ class ApiTickets {
         let jsonData = try! JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         
         var url = ApiUniversityInfo.postRequest(
-            with: URL(string: "\(address)/tickets/buy/?token=\(token)")!,
+            with: URL(string: "\(address)/tickets/buy/\(tokenParameter)")!,
             andJsonData: jsonData
         )
         url.cachePolicy = .reloadIgnoringLocalCacheData
@@ -46,7 +51,7 @@ class ApiTickets {
     
     static func concert(by performanceId: Int) -> URLRequest {
         let url = URLRequest(
-            url: URL(string: "\(address)/tickets/all_concerts/?id=\(performanceId)")!,
+            url: URL(string: "\(address)/tickets/all_concerts/\(performanceId)/")!,
             cachePolicy: .reloadRevalidatingCacheData
         )
         return url
