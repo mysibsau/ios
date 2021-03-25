@@ -147,6 +147,7 @@ extension TicketDatesViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ChoicePlaceViewController()
+        vc.concert = concerts[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     

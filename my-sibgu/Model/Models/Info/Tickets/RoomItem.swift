@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct RoomItem: Decodable {
+struct RoomItem {
     let id: Int
     let row: Int
     let place: Int
+    let price: Double
 }

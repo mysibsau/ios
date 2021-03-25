@@ -99,6 +99,7 @@
 		4A3D14E425E12981006895E1 /* Cafeteria.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3D14E625E12981006895E1 /* Cafeteria.strings */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
 		4A3F72BA260CAE0B00946388 /* CancertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */; };
+		4A3F72C0260CF50900946388 /* RoomItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72BF260CF50900946388 /* RoomItemResponse.swift */; };
 		4A42819525BE01D700B2306C /* Informing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A42819725BE01D700B2306C /* Informing.strings */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
 		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
@@ -421,6 +422,7 @@
 		4A3D14E725E12983006895E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Cafeteria.strings; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancertTableViewCell.swift; sourceTree = "<group>"; };
+		4A3F72BF260CF50900946388 /* RoomItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomItemResponse.swift; sourceTree = "<group>"; };
 		4A42819625BE01D700B2306C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42819825BE01DA00B2306C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
@@ -1601,6 +1603,7 @@
 			children = (
 				4AE588B32608A28E0036D9CA /* PerformanceResponse.swift */,
 				4AE588D22608C8F40036D9CA /* PerformanceConcertResponse.swift */,
+				4A3F72BF260CF50900946388 /* RoomItemResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -1619,10 +1622,10 @@
 		4AEB721A25C84E9F00161E32 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
-				4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */,
-				4A71012725F1F2AC00549146 /* RoomStructView.swift */,
-				4A71012D25F1F83400549146 /* RoomPlaceCollectionViewCell.swift */,
 				4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */,
+				4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */,
+				4A71012D25F1F83400549146 /* RoomPlaceCollectionViewCell.swift */,
+				4A71012725F1F2AC00549146 /* RoomStructView.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -2129,6 +2132,7 @@
 				4AF3EC7525AA421700AF0367 /* ImageResponse.swift in Sources */,
 				4AC1915125B451D000325142 /* SelectAnswerQuesionView.swift in Sources */,
 				4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */,
+				4A3F72C0260CF50900946388 /* RoomItemResponse.swift in Sources */,
 				4A71012025F0D55E00549146 /* ChoicePlaceViewController.swift in Sources */,
 				4A00499A25CEB2AC00F59CB3 /* ApiWork.swift in Sources */,
 				4AEB721C25C84EBB00161E32 /* GoodCollectionViewCell.swift in Sources */,

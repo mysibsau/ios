@@ -9,11 +9,10 @@ import UIKit
 
 class RoomStructView: UIView {
     
-//    var columns: Int!
-//    var rows: Int!
-    
     var items: [[RoomItem?]]!
-    
+    var viewWidth: CGFloat!
+    var viewHeight: CGFloat!
+
     
     var collectionView: UICollectionView!
 
@@ -29,11 +28,11 @@ class RoomStructView: UIView {
         self.init()
         
         self.items = items
+        self.viewWidth = viewWidth
+        self.viewHeight = viewHeight
         
         let columns = items.first!.count
         let rows = items.count
-        
-        backgroundColor = .purple
         
         let cellSpacing: CGFloat = 2
         let insetSpacing: CGFloat = 10
@@ -72,7 +71,6 @@ class RoomStructView: UIView {
         
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height), collectionViewLayout: layout)
         collectionView.isScrollEnabled = false
-        collectionView.backgroundColor = .brown
         
         collectionView.register(
             RoomPlaceCollectionViewCell.self,
@@ -84,8 +82,11 @@ class RoomStructView: UIView {
             make.trailing.leading.bottom.equalToSuperview()
         }
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         collectionView.reloadData()
+        
+        collectionView.backgroundColor = .clear
     }
     
     private func getItemWidth(byCollectionViewWidth collectionViewWidth: CGFloat,
@@ -107,18 +108,29 @@ extension RoomStructView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: RoomPlaceCollectionViewCell.reuseIdentifier,
             for: indexPath
-        )
+        ) as! RoomPlaceCollectionViewCell
         
         let lenght = items.first!.count
         let index1 = indexPath.item / lenght
         let index2 = indexPath.item % lenght
-
-        if items[index1][index2] == nil {
-            cell.isHidden = true
-        } else {
+        
+        let item = items[index1][index2]
+        
+        if let item = item {
             cell.isHidden = false
+                
+            cell.backgroundColor = .yellow
+        } else {
+            cell.isHidden = true
         }
         
         return cell
+    }
+}
+
+extension RoomStructView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .brown
     }
 }

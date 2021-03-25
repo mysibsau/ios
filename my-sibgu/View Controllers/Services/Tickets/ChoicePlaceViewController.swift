@@ -9,6 +9,13 @@ import UIKit
 
 class ChoicePlaceViewController: UIViewController {
     
+    var concert: PerformanceConcert!
+    
+    
+    private let activityIndicatorView = UIActivityIndicatorView()
+    private let alertView = AlertView()
+    
+    
     private let scrollView = UIScrollView()
     private var roomStructView: RoomStructView!
     
@@ -16,8 +23,9 @@ class ChoicePlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupScrollView()
-        setupRoomStructView()
+        view.backgroundColor = UIColor.Pallete.background
+        
+        loadItems()
     }
     
     private func setupScrollView() {
@@ -34,28 +42,61 @@ class ChoicePlaceViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        scrollView.backgroundColor = .red
     }
     
-    private func setupRoomStructView() {
+    private func loadItems() {
+        startActivityIndicator()
+        
+        TicketsService().getConcert(id: concert.id) { items in
+            DispatchQueue.main.async {
+                guard let items = items else {
+                    self.stopActivityIndicator()
+                    self.showNetworkAlert()
+                    return
+                }
+                self.setupScrollView()
+                self.setupRoomStructView(items: items)
+                self.stopActivityIndicator()
+            }
+        }
+    }
+    
+    private func setupRoomStructView(items: [[RoomItem?]]) {
         view.layoutIfNeeded()
         scrollView.layoutIfNeeded()
-        view.backgroundColor = .darkGray
-        scrollView.backgroundColor = .red
         
         let roomStructViewWidth = scrollView.frame.width
         let roomStructViewHeight = scrollView.frame.height - 200
         
-        roomStructView = RoomStructView(items: Common.getRootItems(), viewWidth: roomStructViewWidth, viewHeight: roomStructViewHeight)
+        roomStructView = RoomStructView(items: items, viewWidth: roomStructViewWidth, viewHeight: roomStructViewHeight)
         scrollView.addSubview(roomStructView)
         roomStructView.frame = CGRect(x: 0, y: 0, width: roomStructViewWidth, height: roomStructViewHeight)
-        roomStructView.backgroundColor = .blue
     }
 
 }
 
 extension ChoicePlaceViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return roomStructView
+        return roomStructView ?? nil
+    }
+}
+
+extension ChoicePlaceViewController: AnimatingNetworkProtocol {
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        view
+    }
+}
+
+extension ChoicePlaceViewController: AlertingViewController {
+    func alertingSuperViewForDisplay() -> UIView {
+        view
+    }
+    
+    func alertingAlertView() -> AlertView {
+        alertView
     }
 }

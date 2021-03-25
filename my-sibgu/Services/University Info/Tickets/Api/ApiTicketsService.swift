@@ -17,7 +17,11 @@ class ApiTicketsService {
     }
     
     func loadConcerts(by performanceId: Int, completion: @escaping (_ concerts: [PerformanceConcertResponse]?) -> Void) {
-        baseApiService.load([PerformanceConcertResponse].self, url: ApiTickets.concert(by: performanceId), completion: completion)
+        baseApiService.load([PerformanceConcertResponse].self, url: ApiTickets.concerts(by: performanceId), completion: completion)
+    }
+    
+    func loadConcert(id: Int, completion: @escaping (_ concert: [[RoomItemResponse?]]?) -> Void) {
+        baseApiService.load([[RoomItemResponse?]].self, url: ApiTickets.concert(id: id), completion: completion)
     }
     
 }

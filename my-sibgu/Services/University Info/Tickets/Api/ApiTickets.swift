@@ -49,9 +49,17 @@ class ApiTickets {
         return url
     }
     
-    static func concert(by performanceId: Int) -> URLRequest {
+    static func concerts(by performanceId: Int) -> URLRequest {
         let url = URLRequest(
             url: URL(string: "\(address)/tickets/all_concerts/\(performanceId)/")!,
+            cachePolicy: .reloadRevalidatingCacheData
+        )
+        return url
+    }
+    
+    static func concert(id: Int) -> URLRequest {
+        let url = URLRequest(
+            url: URL(string: "\(address)/tickets/concert/\(id)/")!,
             cachePolicy: .reloadRevalidatingCacheData
         )
         return url

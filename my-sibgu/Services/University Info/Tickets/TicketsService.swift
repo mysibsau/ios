@@ -21,4 +21,10 @@ class TicketsService {
         }
     }
     
+    func getConcert(id: Int, completion: @escaping ([[RoomItem?]]?) -> Void) {
+        ApiTicketsService().loadConcert(id: id) { itemsResponse in
+            completion(itemsResponse?.map { $0.map { $0?.converteToDomain() } })
+        }
+    }
+    
 }
