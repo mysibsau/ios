@@ -98,6 +98,7 @@
 		4A3D14DB25E12372006895E1 /* DinerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D14DA25E12372006895E1 /* DinerTableViewCell.swift */; };
 		4A3D14E425E12981006895E1 /* Cafeteria.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3D14E625E12981006895E1 /* Cafeteria.strings */; };
 		4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */; };
+		4A3F72BA260CAE0B00946388 /* CancertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */; };
 		4A42819525BE01D700B2306C /* Informing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A42819725BE01D700B2306C /* Informing.strings */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
 		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
@@ -419,6 +420,7 @@
 		4A3D14E525E12981006895E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Cafeteria.strings; sourceTree = "<group>"; };
 		4A3D14E725E12983006895E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Cafeteria.strings; sourceTree = "<group>"; };
 		4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortEventCollectionViewCell.swift; sourceTree = "<group>"; };
+		4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancertTableViewCell.swift; sourceTree = "<group>"; };
 		4A42819625BE01D700B2306C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42819825BE01DA00B2306C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
@@ -1620,6 +1622,7 @@
 				4AEB721B25C84EBB00161E32 /* GoodCollectionViewCell.swift */,
 				4A71012725F1F2AC00549146 /* RoomStructView.swift */,
 				4A71012D25F1F83400549146 /* RoomPlaceCollectionViewCell.swift */,
+				4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -2166,6 +2169,7 @@
 				4A3957EA25DEB328009958BC /* Marks.swift in Sources */,
 				4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */,
 				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
+				4A3F72BA260CAE0B00946388 /* CancertTableViewCell.swift in Sources */,
 				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,
 				4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */,
 				4AD21F6F25C1AA870018D4F0 /* RPlace.swift in Sources */,

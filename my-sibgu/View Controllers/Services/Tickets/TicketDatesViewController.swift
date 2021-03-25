@@ -35,8 +35,8 @@ class TicketDatesViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         tableView.register(
-            OneLabelTableViewCell.self,
-            forCellReuseIdentifier: OneLabelTableViewCell.reuseIdentifier
+            CancertTableViewCell.self,
+            forCellReuseIdentifier: CancertTableViewCell.reuseIdentifier
         )
     }
     
@@ -71,6 +71,7 @@ class TicketDatesViewController: UITableViewController {
     
     private func set(concerts: [PerformanceConcert]) {
         self.concerts = concerts
+        dump(concerts)
         tableView.reloadData()
     }
     
@@ -84,6 +85,7 @@ class TicketDatesViewController: UITableViewController {
         let tableName = "Tickets"
         
         self.navigationItem.setLeftTitle(title: "date".localized(using: tableName))
+        self.tableView.reloadData()
     }
     
 }
@@ -97,15 +99,45 @@ extension TicketDatesViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: OneLabelTableViewCell.reuseIdentifier,
-            for: indexPath) as! OneLabelTableViewCell
+            withIdentifier: CancertTableViewCell.reuseIdentifier,
+            for: indexPath) as! CancertTableViewCell
         
         let concert = concerts[indexPath.row]
         
-        cell.nameLabel.textAlignment = .center
-        cell.nameLabel.text = "\(concert.date) \(concert.time)"
+        cell.dateLabel.text = formattedDate(fromFullDateString: concert.date)
+        cell.priceLabel.text = "\("from".localized(using: "Tickets")) \(Int(concert.minPrice)) ₽"
+        cell.hallLabel.text = "\("hall".localized(using: "Tickets")): \(concert.hall)"
+        cell.weekdayAndTimeLabel.text = "\(formattedWeekDay(fromFullDateString: concert.date)), \(concert.time)"
         
         return cell
+    }
+    
+    private func formattedDate(fromFullDateString fullDate: String) -> String {
+        guard let date = date(fromFullDateString: fullDate) else { return fullDate }
+        
+        let df = DateFormatter()
+        df.locale = Locale(identifier: Localize.currentLanguage)
+        df.dateFormat = "d MMMM"
+        
+        return df.string(from: date)
+    }
+    
+    private func formattedWeekDay(fromFullDateString fullDate: String) -> String {
+        guard let date = date(fromFullDateString: fullDate) else { return fullDate }
+        
+        let df = DateFormatter()
+        df.locale = Locale(identifier: Localize.currentLanguage)
+        df.dateFormat = "EEEE"
+        
+        return df.string(from: date)
+    }
+    
+    private func date(fromFullDateString fullDate: String) -> Date? {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: Localize.currentLanguage)
+        df.dateFormat = "dd.MM.yyyy"
+        
+        return df.date(from: fullDate)
     }
     
 }
