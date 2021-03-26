@@ -55,7 +55,11 @@ extension UIColor {
                 purple,
                 lightRed,
                 sibsuBlue,
+                sibsuGreen,
+                orange,
             ]
+            
+            static let inactiveCell = UIColor.color(light: .init(hex: "E1E1E1"), dark: .init(hex: "c9c7c7"))
         }
         
     }

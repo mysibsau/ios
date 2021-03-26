@@ -51,7 +51,7 @@ class RoomStructView: UIView {
     private func fillPricesAndColors(fromItems items: [[RoomItem?]]) {
         for row in items {
             for item in row {
-                if let item = item, item.price > 0 {
+                if let item = item, item.price >= 0 {
                     let index = pricesAndColors.firstIndex(where: { $0.price == item.price })
                     
                     if index == nil {
@@ -103,7 +103,7 @@ class RoomStructView: UIView {
         addSubview(pricesCollectionView)
         pricesCollectionView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(100)
+            make.height.equalTo(125)
         }
         pricesCollectionView.dataSource = self
         pricesCollectionView.delegate = self
@@ -160,7 +160,7 @@ class RoomStructView: UIView {
         
         addSubview(structCollectionView)
         structCollectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
+            make.top.equalTo(pricesCollectionView.snp.bottom)
             make.trailing.leading.bottom.equalToSuperview()
         }
         structCollectionView.dataSource = self
@@ -208,7 +208,7 @@ extension RoomStructView: UICollectionViewDataSource {
                 cell.isHidden = false
                 
                 if value.price < 0 {
-                    cell.backgroundColor = UIColor.Pallete.gray
+                    cell.backgroundColor = UIColor.Pallete.Special.inactiveCell
                     cell.isUserInteractionEnabled = false
                 } else {
                     cell.isUserInteractionEnabled = true
