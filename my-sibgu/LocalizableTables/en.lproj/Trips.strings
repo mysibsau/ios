@@ -13,21 +13,21 @@
 "what.is.it" = "What's it?";
 
 "feed" = "Feed";
-"feed.what" = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no";
-"feed.how" = "Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how Feed how ";
+"feed.what" = "Stay up to date with all the news and events of your University!";
+"feed.how" = "The \"Events\" tab informs about upcoming University events. The \"News\" tab tells what has already happened.";
 
 "menu" = "Menu";
-"menu.what" = "What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu ";
-"menu.how" = "How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu ";
+"menu.what" = "Now you can learn the University canteen menu without leaving the classroom!";
+"menu.how" = "To get acquainted with the list of dishes, choose a suitable cafeteria from the list provided.";
 
 "timetable" = "Timetable";
-"timetable.what" = "what timetable what timetable what timetable what timetable what timetable what timetable what timetable what timetable";
-"timetable.how" = "How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable ";
+"timetable.what" = "This service allows you to monitor the schedule of groups, teachers, or classrooms of your interest.";
+"timetable.how" = "On the start screen, there is a search bar for the study group. Enter the one you are interested in and follow the schedule. It works in a similar way with the other two forms when you swipe to the right. The search bar remembers previously entered queries.";
 
 "services" = "Services";
-"services.what" = "What services What services What services What services What services What services What services What services What services What services What services ";
-"services.how" = "how services how services how services how services how services how services how services how services how services ";
+"services.what" = "Part-time job vacancies, quick questions, campus, and more are available in the “Services” tab.";
+"services.how" = "\"Institute\" - contacts of the institute director’s office, academic department and Student Council.\n\"Student life\" – there is more to being a part of Reshetnev University than getting a higher education!\n\"Buildings\" - geolocation of university buildings with redirection to 2gis app\n\"Vacancies\" - work offers for young specialists from partner companies of the University.";
 
 "profile" = "Profile";
-"profile.what" = "what profile what profile what profile what profile what profile what profile what profile what profile what profile what profile what profile ";
-"profile.how" = "how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile ";
+"profile.what" = "After authorization, you will have access to your current academic performance and much more!";
+"profile.how" = "In the settings, you can change the language or set the \"dark theme\".";

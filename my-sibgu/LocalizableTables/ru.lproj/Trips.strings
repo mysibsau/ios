@@ -13,21 +13,21 @@
 "what.is.it" = "Что это такое?";
 
 "feed" = "Лента";
-"feed.what" = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no";
-"feed.how" = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptat";
+"feed.what" = "Будь в курсе всех новостей и событий твоего вуза!";
+"feed.how" = "Вкладка «события» - информирует о предстоящих событиях в вузе. Вкладка «Новости» - об уже случившихся.";
 
 "menu" = "Меню";
-"menu.what" = "What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu What menu ";
-"menu.how" = "How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu How menu ";
+"menu.what" = "Теперь меню столовой можно узнать, не выходя из аудитории!";
+"menu.how" = "Чтобы ознакомиться с перечнем блюд, выбери подходящий буфет из представленного перечня.";
 
 "timetable" = "Расписание";
-"timetable.what" = "what timetable what timetable what timetable what timetable what timetable what timetable what timetable what timetable";
-"timetable.how" = "How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable How timetable ";
+"timetable.what" = "Этот сервис позволит следить за расписанием интересующих групп, преподавателей или аудиторий.";
+"timetable.how" = "На стартовом экране расположена строка поиска учебной группы. Введи интересующую и следи за расписанием. Аналогично с другими двумя формами по «свайпу» вправо. Строка поиска запоминает ранее введенные запросы.";
 
 "services" = "Сервисы";
-"services.what" = "What services What services What services What services What services What services What services What services What services What services What services ";
-"services.how" = "how services how services how services how services how services how services how services how services how services ";
+"services.what" = "Вакансии для подработки, быстрые вопросы – ответы, кампус и многое другое доступно во вкладке «Сервисы».";
+"services.how" = "«Институт» - контакты дирекции, кафедры и студенческого совета.\n«Студенческая жизнь» - в СибГУ им. М.Ф. Решетнева можно не только получить высшее образование!\n«Корпуса» - геолокация корпусов университета с переадресацией на 2гис\n«Вакансии» - приглашение на работу молодых специалистов от компаний-партнеров вуза.";
 
 "profile" = "Профиль";
-"profile.what" = "what profile what profile what profile what profile what profile what profile what profile what profile what profile what profile what profile ";
-"profile.how" = "how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile how profile ";
+"profile.what" = "Пройдя авторизацию, тебе станет доступна своя успеваемость на текущий момент. И многое другое!";
+"profile.how" = "В настройках можно изменить язык или поставить «темную тему»";
