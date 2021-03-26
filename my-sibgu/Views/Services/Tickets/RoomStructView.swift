@@ -60,6 +60,7 @@ class RoomStructView: UIView {
                 }
             }
         }
+        pricesAndColors.sort(by: { $0.price < $1.price })
     }
     
     private func getColor(forIndex index: Int) -> UIColor {
