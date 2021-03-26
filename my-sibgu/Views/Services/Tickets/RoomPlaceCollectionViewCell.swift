@@ -11,31 +11,42 @@ class RoomPlaceCollectionViewCell: UICollectionViewCell {
     
     static let reuseIdentifier = "RoomPlaceCell"
     
-    
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .red
-        return label
+    private let circleView: UIView = {
+        let v = UIView()
+        v.backgroundColor = .black
+        return v
     }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 3
         
-        addSubview(textLabel)
-        
-        textLabel.adjustsFontSizeToFitWidth = true
-        
-        textLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        addSubview(circleView)
+        circleView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(1)
         }
+        
+        circleView.isHidden = true
     }
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    
+    func circleIsHide(_ hide: Bool, diametr: CGFloat) {
+        if hide {
+            circleView.isHidden = true
+        } else {
+            let size = diametr * 0.7
+            
+            circleView.isHidden = false
+            circleView.snp.updateConstraints { update in
+                update.size.equalTo(size)
+            }
+            circleView.layer.cornerRadius = size / 2
+        }
     }
     
 }

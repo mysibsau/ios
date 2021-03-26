@@ -7,9 +7,19 @@
 
 import UIKit
 
+protocol RoomStructViewDelegate {
+    func didSelectTicket(ticket: RoomItem, allow: (Bool) -> Void)
+    func didDeselectTicket(ticket: RoomItem)
+}
+
+
 class RoomStructView: UIView {
     
-    var items: [[RoomItem?]]!
+    var delegate: RoomStructViewDelegate?
+    
+    
+    var items: [[(value: RoomItem?, selected: Bool)]]!
+    var itemWidth: CGFloat!
     var viewWidth: CGFloat!
     var viewHeight: CGFloat!
     
@@ -29,7 +39,7 @@ class RoomStructView: UIView {
     init(items: [[RoomItem?]], viewWidth: CGFloat, viewHeight: CGFloat) {
         self.init()
         
-        self.items = items
+        self.items = items.map { $0.map { ($0, false) } }
         self.viewWidth = viewWidth
         self.viewHeight = viewHeight
         
@@ -132,6 +142,7 @@ class RoomStructView: UIView {
             leftRightInsetSpacing = (viewWidth - (CGFloat(columns) * itemWidth) - ((CGFloat(columns) + 1) *  cellSpacing)) / 2
             topBottomInsetSpacing = insetSpacing
         }
+        self.itemWidth = itemWidth
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
@@ -192,15 +203,15 @@ extension RoomStructView: UICollectionViewDataSource {
             
             let item = items[index1][index2]
             
-            if let item = item {
+            if let value = item.value {
                 cell.isHidden = false
                 
-                if item.price < 0 {
+                if value.price < 0 {
                     cell.backgroundColor = UIColor.Pallete.gray
                     cell.isUserInteractionEnabled = false
                 } else {
                     cell.isUserInteractionEnabled = true
-                    let colorIndex = pricesAndColors.firstIndex(where: { $0.price == item.price })
+                    let colorIndex = pricesAndColors.firstIndex(where: { $0.price == value.price })
                     if let colorIndex = colorIndex {
                         cell.backgroundColor = pricesAndColors[colorIndex].color
                     } else {
@@ -240,7 +251,26 @@ extension RoomStructView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard collectionView === self.structCollectionView else { return }
         
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .brown
+        let lenght = items.first!.count
+        let index1 = indexPath.item / lenght
+        let index2 = indexPath.item % lenght
+        
+        let item = items[index1][index2]
+        
+        guard let value = item.value else { return }
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! RoomPlaceCollectionViewCell
+        
+        if item.selected {
+            delegate?.didDeselectTicket(ticket: value)
+            cell.circleIsHide(true, diametr: itemWidth)
+            items[index1][index2].selected = false
+        } else {
+            delegate?.didSelectTicket(ticket: value, allow: { isAllow in
+                guard isAllow else { return }
+                cell.circleIsHide(false, diametr: itemWidth)
+                items[index1][index2].selected = true
+            })
+        }
     }
 }

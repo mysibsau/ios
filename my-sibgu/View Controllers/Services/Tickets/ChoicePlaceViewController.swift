@@ -11,6 +11,8 @@ class ChoicePlaceViewController: UIViewController {
     
     var concert: PerformanceConcert!
     
+    private var selectedTickets: [RoomItem] = []
+    
     
     private let activityIndicatorView = UIActivityIndicatorView()
     private let alertView = AlertView()
@@ -71,6 +73,7 @@ class ChoicePlaceViewController: UIViewController {
         roomStructView = RoomStructView(items: items, viewWidth: roomStructViewWidth, viewHeight: roomStructViewHeight)
         scrollView.addSubview(roomStructView)
         roomStructView.frame = CGRect(x: 0, y: 0, width: roomStructViewWidth, height: roomStructViewHeight)
+        roomStructView.delegate = self
     }
 
 }
@@ -78,6 +81,28 @@ class ChoicePlaceViewController: UIViewController {
 extension ChoicePlaceViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return roomStructView ?? nil
+    }
+}
+
+extension ChoicePlaceViewController: RoomStructViewDelegate {
+    func didSelectTicket(ticket: RoomItem, allow: (Bool) -> Void) {
+        guard selectedTickets.count < 2 else {
+            allow(false)
+            return
+        }
+        selectedTickets.append(ticket)
+        allow(true)
+        print(selectedTickets)
+    }
+    
+    func didDeselectTicket(ticket: RoomItem) {
+        selectedTickets.removeAll(where: {
+            $0.id == ticket.id &&
+                $0.place == ticket.place &&
+                $0.price == ticket.price &&
+                $0.row == ticket.row
+        })
+        print(selectedTickets)
     }
 }
 
