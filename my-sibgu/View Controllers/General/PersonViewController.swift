@@ -153,6 +153,8 @@ class PersonViewController: UIViewController {
             } else {
                 addLabel(text: "head".localized(using: tableName))
             }
+            addNameView(name: union.leaderName)
+            
             addView(text: union.address, imageName: "place")
             addButton(text: union.phone, imageName: "phone", action: {
                 guard let url = URL(string: "tel://\(union.phone.removingWhitespaces())") else { return }

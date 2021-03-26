@@ -18,3 +18,5 @@
 "appearance.dark" = "Dark";
 "appearance.description" = "* System appearance - The appearance of the app changes automatically when you change the appearance in the phone settings";
 "sign.out" = "Sign out";
+
+"version" = "Version";

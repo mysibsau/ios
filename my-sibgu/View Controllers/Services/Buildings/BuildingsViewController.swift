@@ -43,7 +43,7 @@ class BuildingsViewController: UITableViewController {
     private func updateText(isFirst: Bool = false) {
         let tableName = "Buildings"
         
-        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
         headers = [
             "right.coast".localized(using: tableName),

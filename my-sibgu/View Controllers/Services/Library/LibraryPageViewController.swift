@@ -43,11 +43,11 @@ class LibraryPageViewController: UIPageViewController {
         vc2.viewModel = .physical(physicalBooks)
         
         informingViewControllers = [
-            vc1,
             vc2,
+            vc1,
         ]
         
-        self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
+        self.setViewControllers([vc2], direction: .forward, animated: true, completion: nil)
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -57,8 +57,8 @@ class LibraryPageViewController: UIPageViewController {
     private func updateText() {
         let tableName = "Library"
         
-        segmentedControl.sectionLabels[0].text = "digital".localized(using: tableName)
-        segmentedControl.sectionLabels[1].text = "physical".localized(using: tableName)
+        segmentedControl.sectionLabels[0].text = "physical".localized(using: tableName)
+        segmentedControl.sectionLabels[1].text = "digital".localized(using: tableName)
     }
     
     private func setSegmentedController() {
@@ -68,7 +68,7 @@ class LibraryPageViewController: UIPageViewController {
             }
         }
         
-        segmentedControl = SegmentedControl(items: ["digital", "physical"], sectionWidth: 100)
+        segmentedControl = SegmentedControl(items: ["physical", "digital"], sectionWidth: 100)
         segmentedControl.delegate = self
         
         navigationItem.titleView = segmentedControl

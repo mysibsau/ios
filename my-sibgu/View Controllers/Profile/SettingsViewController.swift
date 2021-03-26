@@ -50,6 +50,13 @@ class SettingsViewController: UIViewController {
     // MARK: - Out Button
     private let outButton = UIButton()
     
+    private let versionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.Pallete.gray
+        label.font = UIFont.systemFont(ofSize: 13)
+        return label
+    }()
+    
     
     // MARK: - UI Helper
     private func _titleLabel() -> UILabel {
@@ -87,6 +94,8 @@ class SettingsViewController: UIViewController {
         if userService.getCurrUser() != nil {
             setupOutButton()
         }
+        
+        setupVersionLabel()
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -206,6 +215,14 @@ class SettingsViewController: UIViewController {
         outButton.addTarget(self, action: #selector(didTapOutButton), for: .touchUpInside)
     }
     
+    private func setupVersionLabel() {
+        view.addSubview(versionLabel)
+        versionLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
+        }
+    }
+    
     // MARK: - Actions
     @objc
     private func themeSegmentedControlChanged() {
@@ -230,6 +247,8 @@ class SettingsViewController: UIViewController {
         themeDescriptionLabel.text = "appearance.description".localized(using: tableName)
         
         outButton.setTitle("sign.out".localized(using: tableName), for: .normal)
+        
+        versionLabel.text = "version".localized(using: tableName) + ": " + AppService.appVersion()
     }
     
     @objc

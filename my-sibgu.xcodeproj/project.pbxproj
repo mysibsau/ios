@@ -101,6 +101,7 @@
 		4A3F72BA260CAE0B00946388 /* CancertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */; };
 		4A3F72C0260CF50900946388 /* RoomItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72BF260CF50900946388 /* RoomItemResponse.swift */; };
 		4A3F72C6260DAA6100946388 /* TicketPriceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72C5260DAA6100946388 /* TicketPriceCollectionViewCell.swift */; };
+		4A3F72D5260E0FFD00946388 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F72D4260E0FFD00946388 /* AppService.swift */; };
 		4A42819525BE01D700B2306C /* Informing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A42819725BE01D700B2306C /* Informing.strings */; };
 		4A42A5102578F79300283459 /* ControlTimetableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */; };
 		4A42A5142578F7BF00283459 /* ShowingTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A5132578F7BF00283459 /* ShowingTimetableViewController.swift */; };
@@ -425,6 +426,7 @@
 		4A3F72B9260CAE0B00946388 /* CancertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancertTableViewCell.swift; sourceTree = "<group>"; };
 		4A3F72BF260CF50900946388 /* RoomItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomItemResponse.swift; sourceTree = "<group>"; };
 		4A3F72C5260DAA6100946388 /* TicketPriceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketPriceCollectionViewCell.swift; sourceTree = "<group>"; };
+		4A3F72D4260E0FFD00946388 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		4A42819625BE01D700B2306C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42819825BE01DA00B2306C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Informing.strings; sourceTree = "<group>"; };
 		4A42A50F2578F79300283459 /* ControlTimetableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTimetableDelegate.swift; sourceTree = "<group>"; };
@@ -846,6 +848,7 @@
 				4A07DDF4255DA5330022B6A9 /* DownloadOperation.swift */,
 				4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */,
 				4AB5A69C25A1D2A100518FEA /* ResponseHandler.swift */,
+				4A3F72D3260E0FED00946388 /* App */,
 				4A3149FE2572CA2000FB7FC2 /* DateTime */,
 				4A436414255E859300C11E03 /* Timetable */,
 				4A27A864255F08190018186B /* University Info */,
@@ -1060,6 +1063,14 @@
 				4A3D7D58259C614600B6D38A /* ShortEventCollectionViewCell.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		4A3F72D3260E0FED00946388 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4A3F72D4260E0FFD00946388 /* AppService.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		4A42A5122578F79900283459 /* Protocols */ = {
@@ -2239,6 +2250,7 @@
 				4AC1913925B336F900325142 /* CollectionViewHelper.swift in Sources */,
 				4A077FC225AEF9310038D87E /* UIImage+blur.swift in Sources */,
 				4A3C3F4225D4273600F3A7B1 /* ApiUserService.swift in Sources */,
+				4A3F72D5260E0FFD00946388 /* AppService.swift in Sources */,
 				4A736BF625A4DBF60040BBED /* JoinToUnionViewController.swift in Sources */,
 				4AB8054C25E7CFC90080CBE8 /* PhysicalBook.swift in Sources */,
 				4A9FEF3325EFD111005DD121 /* PerformanceViewController.swift in Sources */,
