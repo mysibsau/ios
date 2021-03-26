@@ -66,7 +66,7 @@ class ChoicePlaceViewController: UIViewController {
         scrollView.layoutIfNeeded()
         
         let roomStructViewWidth = scrollView.frame.width
-        let roomStructViewHeight = scrollView.frame.height - 200
+        let roomStructViewHeight = scrollView.frame.height - 200 // тут можно убрать -200 скорее всего
         
         roomStructView = RoomStructView(items: items, viewWidth: roomStructViewWidth, viewHeight: roomStructViewHeight)
         scrollView.addSubview(roomStructView)

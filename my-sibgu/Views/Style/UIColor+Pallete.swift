@@ -49,6 +49,13 @@ extension UIColor {
         struct Special {
             static let segmentedControl = UIColor.color(light: .init(hex: "FFFFFF"), dark: .init(hex: "090908"))
             static let tabNavBar = UIColor.color(light: .init(hex: "F9F9F9"), dark: .init(hex: "101010"))
+            
+            static let priceColors = [
+                green,
+                purple,
+                lightRed,
+                sibsuBlue,
+            ]
         }
         
     }
