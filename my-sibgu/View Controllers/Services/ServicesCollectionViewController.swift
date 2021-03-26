@@ -104,15 +104,15 @@ class ServicesCollectionViewController: UICollectionViewController {
                 "Библиотека",
                 vc: LibrarySearchViewController.self
             ),
-            (
-                CollectionViewHelper.getViewWithImage(
-                    image: UIImage(named: "theater")!,
-                    backgroundColor: UIColor.Pallete.sibsuGreen,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "Билеты",
-                vc: CatalogCollectionViewController.self
-            )
+//            (
+//                CollectionViewHelper.getViewWithImage(
+//                    image: UIImage(named: "theater")!,
+//                    backgroundColor: UIColor.Pallete.sibsuGreen,
+//                    imageColor: UIColor.Pallete.content
+//                ),
+//                "Билеты",
+//                vc: CatalogCollectionViewController.self
+//            )
         ]
         
         updateText()
@@ -133,13 +133,12 @@ class ServicesCollectionViewController: UICollectionViewController {
         
         services[0].name = "buildings".localized(using: tableName)
         services[1].name = "institutes".localized(using: tableName)
-//        services[2].name = "online.catalog".localized(using: tableName)
         services[2].name = "feedback".localized(using: tableName)
         services[3].name = "student.life".localized(using: tableName)
         services[4].name = "faq".localized(using: tableName)
         services[5].name = "work".localized(using: tableName)
         services[6].name = "library".localized(using: tableName)
-        services[7].name = "tickets".localized(using: tableName)
+//        services[7].name = "tickets".localized(using: tableName)
         
         collectionView.reloadData()
     }

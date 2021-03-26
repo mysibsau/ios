@@ -34,10 +34,16 @@ class FAQViewController: UIViewController {
         
         setupScrollView()
         setupStackView()
-        setupAddQeustionButton()
+        
+        if UserService().getCurrUser() != nil {
+            setupAddQeustionButton()
+        }
         
         setFaq()
         
+        scrollView.subviews.last?.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-20)
+        }
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -121,7 +127,6 @@ class FAQViewController: UIViewController {
         addQuestionButton.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().offset(-20)
             make.height.equalTo(50)
         }
         
