@@ -1,5 +1,5 @@
 //
-//  HistrionicsViewController.swift
+//  PerformanceViewController.swift
 //  my-sibgu
 //
 //  Created by art-off on 03.03.2021.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class HistrionicsViewController: UIViewController {
+class PerformanceViewController: UIViewController {
     
-//    var person: Any?
+    var performance: Performance!
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
-
+    
     private let backgroupndImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -35,24 +35,23 @@ class HistrionicsViewController: UIViewController {
     
     
     // В этот инициализатор буду пихать потом мероприятие
-    convenience init(a: Int) {
+    convenience init(performance: Performance) {
         self.init()
-        backgroupndImageView.image = UIImage(named: "back_main_logo")
+        self.performance = performance
+        
+        backgroupndImageView.loadImage(at: performance.logoUrl)
         
         addLabel(text: "Название")
-        addNameView(name: "Какое-то название и какое-то название")
+        addNameView(name: performance.name)
         
         addLabel(text: "Описание")
-        addTextView(text: "Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. Очень длинное описание. ")
+        addTextView(text: performance.about)
         
-        addLabel(text: "Дата и время")
-        addTextView(text: "04.04.2020\n15:00")
-        
-        addLabel(text: "Тип зала")
-        addTextView(text: "Большой зал")
+        addLabel(text: "Театр")
+        addTextView(text: performance.theatre)
         
         addButton(text: "Забранировать билет", action: {
-            let vc = TicketDatesViewController()
+            let vc = TicketDatesViewController(performance: performance)
             self.navigationController?.pushViewController(vc, animated: true)
         })
     }

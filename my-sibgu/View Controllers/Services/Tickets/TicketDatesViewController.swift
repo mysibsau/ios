@@ -9,11 +9,20 @@ import UIKit
 
 class TicketDatesViewController: UITableViewController {
     
-//    private var vacancies: [Vacancy] = []
+    private let ticketsService = TicketsService()
     
+    
+    var performance: Performance!
+    private var concerts: [PerformanceConcert] = []
     
     private let activityIndicatorView =  UIActivityIndicatorView()
-
+    
+    
+    convenience init(performance: Performance) {
+        self.init()
+        self.performance = performance
+    }
+    
     // MARK: - Life Circle
     override func loadView() {
         super.loadView()
@@ -26,8 +35,8 @@ class TicketDatesViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         tableView.register(
-            OneLabelTableViewCell.self,
-            forCellReuseIdentifier: OneLabelTableViewCell.reuseIdentifier
+            CancertTableViewCell.self,
+            forCellReuseIdentifier: CancertTableViewCell.reuseIdentifier
         )
     }
     
@@ -38,8 +47,33 @@ class TicketDatesViewController: UITableViewController {
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        
+        loadConcerts()
     }
     
+    
+    private func loadConcerts() {
+        startActivityIndicator()
+        ticketsService.getConcert(by: performance.id) { concerts in
+            guard let concerts = concerts else {
+                DispatchQueue.main.async {
+                    self.stopActivityIndicator()
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.set(concerts: concerts)
+                self.stopActivityIndicator()
+            }
+        }
+    }
+    
+    private func set(concerts: [PerformanceConcert]) {
+        self.concerts = concerts
+        dump(concerts)
+        tableView.reloadData()
+    }
     
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
@@ -51,6 +85,7 @@ class TicketDatesViewController: UITableViewController {
         let tableName = "Tickets"
         
         self.navigationItem.setLeftTitle(title: "date".localized(using: tableName))
+        self.tableView.reloadData()
     }
     
 }
@@ -59,20 +94,50 @@ class TicketDatesViewController: UITableViewController {
 extension TicketDatesViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return concerts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: OneLabelTableViewCell.reuseIdentifier,
-            for: indexPath) as! OneLabelTableViewCell
+            withIdentifier: CancertTableViewCell.reuseIdentifier,
+            for: indexPath) as! CancertTableViewCell
         
-//        let vacancy = vacancies[indexPath.row]
+        let concert = concerts[indexPath.row]
         
-        cell.nameLabel.textAlignment = .center
-        cell.nameLabel.text = "\(indexPath.row)1.20.2020\n0\(indexPath.row):00"
+        cell.dateLabel.text = formattedDate(fromFullDateString: concert.date)
+        cell.priceLabel.text = "\("from".localized(using: "Tickets")) \(Int(concert.minPrice)) ₽"
+        cell.hallLabel.text = "\("hall".localized(using: "Tickets")): \(concert.hall)"
+        cell.weekdayAndTimeLabel.text = "\(formattedWeekDay(fromFullDateString: concert.date)), \(concert.time)"
         
         return cell
+    }
+    
+    private func formattedDate(fromFullDateString fullDate: String) -> String {
+        guard let date = date(fromFullDateString: fullDate) else { return fullDate }
+        
+        let df = DateFormatter()
+        df.locale = Locale(identifier: Localize.currentLanguage)
+        df.dateFormat = "d MMMM"
+        
+        return df.string(from: date)
+    }
+    
+    private func formattedWeekDay(fromFullDateString fullDate: String) -> String {
+        guard let date = date(fromFullDateString: fullDate) else { return fullDate }
+        
+        let df = DateFormatter()
+        df.locale = Locale(identifier: Localize.currentLanguage)
+        df.dateFormat = "EEEE"
+        
+        return df.string(from: date)
+    }
+    
+    private func date(fromFullDateString fullDate: String) -> Date? {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: Localize.currentLanguage)
+        df.dateFormat = "dd.MM.yyyy"
+        
+        return df.date(from: fullDate)
     }
     
 }
@@ -82,7 +147,19 @@ extension TicketDatesViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ChoicePlaceViewController()
+        vc.concert = concerts[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+
+extension TicketDatesViewController: AnimatingNetworkProtocol {
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView {
+        activityIndicatorView
+    }
+    
+    func animatingSuperViewForDisplay() -> UIView {
+        view
+    }
 }
