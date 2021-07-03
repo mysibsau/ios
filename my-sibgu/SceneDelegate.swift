@@ -1,7 +1,7 @@
 //
 //  SceneDelegate.swift
 //  my-sibgu
-//
+// хуй
 //  Created by art-off on 12.11.2020.
 //
 
