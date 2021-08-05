@@ -430,13 +430,13 @@ extension TimetableSearchViewController: UITextFieldDelegate {
         switch currType {
         case .group:
             let filtredGr = groups?.filter { $0.name.lowercased().contains(searchText) }
-            self.filtredGroups = Array(filtredGr!)
+            self.filtredGroups = Array(filtredGr ?? [])
         case .professor:
             let filtredPr = professors?.filter { $0.name.lowercased().contains(searchText) }
-            self.filtredProfessors = Array(filtredPr!)
+            self.filtredProfessors = Array(filtredPr ?? [])
         case .place:
             let filtredPl = places?.filter { $0.name.lowercased().contains(searchText) }
-            self.filtredPlaces = Array(filtredPl!)
+            self.filtredPlaces = Array(filtredPl ?? [])
         }
         showHelpTable()
     }

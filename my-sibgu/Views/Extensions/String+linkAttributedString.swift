@@ -11,7 +11,7 @@ import UIKit
 extension NSMutableAttributedString {
 
     func addAttributesWithLinkAndLinkRangesWithUrl() -> [NSRange: URL] {
-        let stringLinkRegex = "https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+        let stringLinkRegex = "https?://(www\\.)?[-a-zA-ZА-Яа-я0-9@:%._\\+~#=]{2,256}\\.[А-Яа-яa-z]{2,4}\\b([-a-zA-ZА-Яа-я0-9@:%_\\+.~#?&//=]*)"
         
         // Нельзя менять местами, потому что первый заменяет все шаблоны [текст](ссылка)
         // если выполнить сначала второй - то 2 раза добавить ссылку в словарь
@@ -23,7 +23,7 @@ extension NSMutableAttributedString {
     }
     
     func addAttributesWithEmailAndEmailRangesWithUrl() -> [NSRange: URL] {
-        let stringEmailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let stringEmailRegex = "[А-Яа-яA-Z0-9a-z._%+-]+@[А-Яа-яA-Za-z0-9.-]+\\.[А-Яа-яA-Za-z]{2,64}"
         
         var rangesAndUrlByLink = addAttributesAndGetParseEmail(stringEmailRegex: stringEmailRegex, attrString: self)
         
@@ -70,7 +70,7 @@ extension NSMutableAttributedString {
             
             let name = String(nameAndLink[Range(nameRangeWitoutFirstAndLast, in: nameAndLink)!])
             let stringUrl = String(nameAndLink[Range(linkRangeWitoutFirstAndLast, in: nameAndLink)!])
-            let url = URL(string: stringUrl)!
+            let url = URL(string: stringUrl.encodeUrl) ?? URL(string: "https://www.google.com/?client=safari")!
             
             attrString.replaceCharacters(in: nameAndLinkRange!, with: name)
             let newRange = NSRange(location: nameAndLinkRange!.location, length: name.count)
@@ -115,4 +115,15 @@ extension Dictionary {
         }
     }
     
+}
+
+extension String{
+    
+    var encodeUrl : String {
+        return self.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    }
+    
+    var decodeUrl : String {
+        return self.removingPercentEncoding!
+    }
 }
