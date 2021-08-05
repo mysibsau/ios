@@ -1152,7 +1152,7 @@
 			path = PostObjects;
 			sourceTree = "<group>";
 		};
-		4A54F56F259A1EAC00184BC0 /* Unions */ = {
+		4A54F56F259A1EAC00184BC0 /* StudentsLive */ = {
 			isa = PBXGroup;
 			children = (
 				4AF3EC5825A99BE700AF0367 /* Extensions */,
@@ -1162,7 +1162,7 @@
 				4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */,
 				4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */,
 			);
-			path = Unions;
+			path = StudentsLive;
 			sourceTree = "<group>";
 		};
 		4A54F571259A1F5600184BC0 /* Unions */ = {
@@ -1477,7 +1477,7 @@
 				4A54F57D259B3EFB00184BC0 /* Buildings */,
 				4A238C0E257B5C4100CB861E /* Institutions */,
 				4AEB720925C84A3900161E32 /* Tickets */,
-				4A54F56F259A1EAC00184BC0 /* Unions */,
+				4A54F56F259A1EAC00184BC0 /* StudentsLive */,
 				4AC1913E25B441EA00325142 /* Surveys */,
 				4A5063C625CA9B27004C2BC8 /* FAQ */,
 				4ACE947325CEACF10044E9AF /* Work */,
