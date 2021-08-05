@@ -288,6 +288,8 @@
 		4AF3ECAD25AC845100AF0367 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECAC25AC845100AF0367 /* NotificationService.swift */; };
 		4AF3ECB125AC845100AF0367 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AF3ECAA25AC845100AF0367 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */; };
+		7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C34121F26BC576E00EA94FD /* StudentsCollection.strings */; };
+		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -622,6 +624,9 @@
 		4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePushNotificationManager.swift; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C34121E26BC576E00EA94FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
+		7C34122026BC577200EA94FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
+		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1015,6 +1020,7 @@
 				4A39582A25DFD056009958BC /* Attestation.strings */,
 				4A3D14E625E12981006895E1 /* Cafeteria.strings */,
 				4AB8056825E7E4920080CBE8 /* Library.strings */,
+				7C34121F26BC576E00EA94FD /* StudentsCollection.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -1161,6 +1167,7 @@
 				4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */,
 				4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */,
 				4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */,
+				7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */,
 			);
 			path = StudentsLive;
 			sourceTree = "<group>";
@@ -1949,6 +1956,7 @@
 				4A07DD91255D89050022B6A9 /* LaunchScreen.storyboard in Resources */,
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
 				4AEB721425C84D7600161E32 /* Tickets.strings in Resources */,
+				7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */,
 				4AD21F3525C073E50018D4F0 /* Corols.xcassets in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */,
@@ -2259,6 +2267,7 @@
 				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,
 				4A07DDF2255DA4E10022B6A9 /* ResponseTranslator.swift in Sources */,
 				4AB8055D25E7E2070080CBE8 /* LibrarySearchViewController.swift in Sources */,
+				7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */,
 				4AE0311025CD936C00E8A9C0 /* DesignOfficeTableCell.swift in Sources */,
 				4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
@@ -2511,6 +2520,15 @@
 				4AEB721725C84D7A00161E32 /* ru */,
 			);
 			name = Tickets.strings;
+			sourceTree = "<group>";
+		};
+		7C34121F26BC576E00EA94FD /* StudentsCollection.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C34121E26BC576E00EA94FD /* en */,
+				7C34122026BC577200EA94FD /* ru */,
+			);
+			name = StudentsCollection.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
