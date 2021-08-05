@@ -1,23 +1,25 @@
 //
-//  ServicesCollectionViewController.swift
+//  StudentsLiveCollectionView.swift
 //  my-sibgu
 //
-//  Created by art-off on 16.01.2021.
+//  Created by Artem Rylov on 06.08.2021.
 //
 
 import UIKit
 
-private typealias ServicesDataSource = [(viewWithImage: UIView, name: String, vc: () -> UIViewController)]
+private typealias ServicesDataSource = [(viewWithImage: UIView,
+                                         name: String,
+                                         vc: () -> UIViewController)]
 
-class ServicesCollectionViewController: UICollectionViewController {
+class StudentsLiveCollectionView: UICollectionViewController {
     
     private var services: ServicesDataSource!
     
     
-    private let spacing: CGFloat = 10
+    private let spacing: CGFloat = 20
     private lazy var itemWidth = CollectionViewHelper.getItemWidth(
         byCollectionViewWidth: collectionView.bounds.width,
-        numberItemsPerLine: 3,
+        numberItemsPerLine: 2,
         spacing: spacing)
 
     override func viewDidLoad() {
@@ -47,8 +49,8 @@ class ServicesCollectionViewController: UICollectionViewController {
                     backgroundColor: UIColor.Pallete.sibsuBlue,
                     imageColor: UIColor.Pallete.content
                 ),
-                "Строения",
-                { BuildingsViewController() }
+                "1",
+                { UnionsTableViewController() }
             ),
             (
                 CollectionViewHelper.getViewWithImage(
@@ -56,8 +58,8 @@ class ServicesCollectionViewController: UICollectionViewController {
                     backgroundColor: UIColor.Pallete.gray,
                     imageColor: UIColor.Pallete.content
                 ),
-                "Институты",
-                { InstitutionsViewController() }
+                "2",
+                { SportClubsTableViewController() }
             ),
             (
                 // Раньше переходил на экран со всеми вопросами,
@@ -66,53 +68,9 @@ class ServicesCollectionViewController: UICollectionViewController {
                     backgroundColor: UIColor.Pallete.sibsuGreen,
                     imageColor: UIColor.Pallete.content
                 ),
-                "Обратная связь",
-                { SurveyViewController() }
+                "3",
+                { DesignOfficesTableViewController() }
             ),
-            (
-                CollectionViewHelper.getViewWithImage(
-                    image: UIImage(systemName: "person.2.fill")!,
-                    backgroundColor: UIColor.Pallete.green,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "Студ. жизнь",
-                { StudentsLiveCollectionView(collectionViewLayout: .init()) }
-            ),
-            (
-                CollectionViewHelper.getFAQView(
-                    backgroundColor: UIColor.Pallete.sibsuBlue,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "FAQ",
-                { FAQViewController() }
-            ),
-            (
-                CollectionViewHelper.getViewWithImage(
-                    image: UIImage(named: "work")!,
-                    backgroundColor: UIColor.Pallete.gray,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "Работа",
-                { VacanciesTableViewController() }
-            ),
-            (
-                CollectionViewHelper.getViewWithImage(
-                    image: UIImage(systemName: "book.fill")!,
-                    backgroundColor: UIColor.Pallete.gray,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "Библиотека",
-                { LibrarySearchViewController() }
-            ),
-//            (
-//                CollectionViewHelper.getViewWithImage(
-//                    image: UIImage(named: "theater")!,
-//                    backgroundColor: UIColor.Pallete.sibsuGreen,
-//                    imageColor: UIColor.Pallete.content
-//                ),
-//                "Билеты",
-//                vc: CatalogCollectionViewController.self
-//            )
         ]
         
         updateText()
@@ -122,23 +80,17 @@ class ServicesCollectionViewController: UICollectionViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Сервисы")
     }
     
     @objc
     private func updateText() {
-        let tableName = "Services"
+        let tableName = "StudentsCollection"
         
-        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
-        services[0].name = "buildings".localized(using: tableName)
-        services[1].name = "institutes".localized(using: tableName)
-        services[2].name = "feedback".localized(using: tableName)
-        services[3].name = "student.life".localized(using: tableName)
-        services[4].name = "faq".localized(using: tableName)
-        services[5].name = "work".localized(using: tableName)
-        services[6].name = "library".localized(using: tableName)
-//        services[7].name = "tickets".localized(using: tableName)
+        services[0].name = "unions".localized(using: tableName)
+        services[1].name = "sport".localized(using: tableName)
+        services[2].name = "sdo".localized(using: tableName)
         
         collectionView.reloadData()
     }
@@ -146,7 +98,7 @@ class ServicesCollectionViewController: UICollectionViewController {
 }
 
 // MARK: - UICollectionView Data Source
-extension ServicesCollectionViewController {
+extension StudentsLiveCollectionView {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return services.count
@@ -169,7 +121,7 @@ extension ServicesCollectionViewController {
 }
 
 // MARK: - UICollectionView Delegate
-extension ServicesCollectionViewController {
+extension StudentsLiveCollectionView {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vcType = services[indexPath.item].vc

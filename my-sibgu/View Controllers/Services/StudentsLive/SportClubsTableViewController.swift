@@ -1,18 +1,18 @@
 //
-//  UnionsTableViewController.swift
+//  SportClubsTableViewController.swift
 //  my-sibgu
 //
-//  Created by art-off on 23.11.2020.
+//  Created by art-off on 05.02.2021.
 //
 
 import UIKit
 
-class UnionsTableViewController: UITableViewController {
+class SportClubsTableViewController: UITableViewController {
     
     private let campusService = CampusService()
     private let activityIndicatorView = UIActivityIndicatorView(style: .medium)
     
-    private var unions: [Union] = []
+    private var sportClubs: [SportClub] = []
 
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class UnionsTableViewController: UITableViewController {
         
         configurateTableView()
         
-        setUnions()
+        setSportClubs()
         
         updateText(isFirst: true)
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -32,9 +32,9 @@ class UnionsTableViewController: UITableViewController {
     
     @objc
     private func updateText(isFirst: Bool = false) {
-        let tableName = "StudentLife"
+        let tableName = "StudentsCollection"
         
-        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        self.navigationItem.setLeftTitle(title: "sport".localized(using: tableName))
         
         if !isFirst {
             navigationController?.popToRootViewController(animated: true)
@@ -58,70 +58,68 @@ class UnionsTableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
     
-    private func setUnions() {
-        let unionsFromLocal = campusService.getUnionsFromLocal()
+    private func setSportClubs() {
+        let sportClubsFromLocal = campusService.getSportClubsFromLocal()
         
-        // Если в БД были объединения - то показываем их и без спинера качаем и обновляем
-        if let unionsFromLocal = unionsFromLocal {
-            set(unions: unionsFromLocal)
-            loadUnions()
-        // Если в БД ничего нет - то показываем спинет и качаем
+        if let sportClubsFromLocal = sportClubsFromLocal {
+            set(sportClubs: sportClubsFromLocal)
+            loadSportClubs()
         } else {
             self.startActivityIndicator()
-            loadUnions()
+            loadSportClubs()
         }
     }
     
-    private func loadUnions() {
-        campusService.getUnions { optionalUnions in
-            guard let u = optionalUnions else {
+    private func loadSportClubs() {
+        campusService.getSportClubs { optionalSportClubs in
+            guard let sc = optionalSportClubs else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()
                 }
                 return
             }
-            
+
             DispatchQueue.main.async {
-                self.set(unions: u)
+                self.set(sportClubs: sc)
                 self.stopActivityIndicator()
             }
         }
     }
     
-    private func set(unions: [Union]) {
-        let newUnions = unions.sorted(by: { $0.rank < $1.rank })
-        if newUnions != self.unions {
-            self.unions = newUnions
+    private func set(sportClubs: [SportClub]) {
+        let newSportClubs = sportClubs
+        if newSportClubs != self.sportClubs {
+            self.sportClubs = newSportClubs
             self.tableView.reloadData()
         }
     }
     
     // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return unions.count
+        return sportClubs.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UnionTableViewCell.reuseIdentifier, for: indexPath) as! UnionTableViewCell
         
-        let union = unions[indexPath.row]
+        let sportClub = sportClubs[indexPath.row]
         
-        cell.nameLabel.text = union.name
-        cell.logoImageView.loadImage(at: union.logoUrl)
+        cell.nameLabel.text = sportClub.name
+        cell.logoImageView.loadImage(at: sportClub.logoUrl)
         
         return cell
     }
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let personVC = PersonViewController(union: unions[indexPath.row])
+        let personVC = PersonViewController(sportClub: sportClubs[indexPath.row])
         
         navigationController?.pushViewController(personVC, animated: true)
     }
 
 }
 
-extension UnionsTableViewController: AnimatingNetworkProtocol {
+extension SportClubsTableViewController: AnimatingNetworkProtocol {
     
     func animatingActivityIndicatorView() -> UIActivityIndicatorView {
         return activityIndicatorView

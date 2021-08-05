@@ -1,0 +1,13 @@
+/* 
+  StudentsCollection.strings
+  my-sibgu
+
+  Created by Artem Rylov on 06.08.2021.
+  
+*/
+
+"nav.bar.title" = "Student life";
+
+"unions" = "Active";
+"sport" = "Sport";
+"sdo" = "Science";
