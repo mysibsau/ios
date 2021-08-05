@@ -49,8 +49,8 @@ class StudentsLiveCollectionView: UICollectionViewController {
                     backgroundColor: UIColor.Pallete.sibsuBlue,
                     imageColor: UIColor.Pallete.content
                 ),
-                "Строения",
-                { BuildingsViewController() }
+                "1",
+                { UnionsTableViewController() }
             ),
             (
                 CollectionViewHelper.getViewWithImage(
@@ -58,8 +58,8 @@ class StudentsLiveCollectionView: UICollectionViewController {
                     backgroundColor: UIColor.Pallete.gray,
                     imageColor: UIColor.Pallete.content
                 ),
-                "Институты",
-                { InstitutionsViewController() }
+                "2",
+                { SportClubsTableViewController() }
             ),
             (
                 // Раньше переходил на экран со всеми вопросами,
@@ -68,9 +68,9 @@ class StudentsLiveCollectionView: UICollectionViewController {
                     backgroundColor: UIColor.Pallete.sibsuGreen,
                     imageColor: UIColor.Pallete.content
                 ),
-                "Обратная связь",
-                { SurveyViewController() }
-            )
+                "3",
+                { DesignOfficesTableViewController() }
+            ),
         ]
         
         updateText()
@@ -80,14 +80,13 @@ class StudentsLiveCollectionView: UICollectionViewController {
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
-        self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "Сервисы")
     }
     
     @objc
     private func updateText() {
         let tableName = "StudentsCollection"
         
-        navigationItem.setBarLeftMainLogoAndLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
         
         services[0].name = "unions".localized(using: tableName)
         services[1].name = "sport".localized(using: tableName)

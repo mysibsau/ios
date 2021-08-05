@@ -32,9 +32,9 @@ class UnionsTableViewController: UITableViewController {
     
     @objc
     private func updateText(isFirst: Bool = false) {
-        let tableName = "StudentLife"
+        let tableName = "StudentsCollection"
         
-        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        self.navigationItem.setLeftTitle(title: "unions".localized(using: tableName))
         
         if !isFirst {
             navigationController?.popToRootViewController(animated: true)

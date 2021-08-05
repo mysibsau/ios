@@ -32,9 +32,9 @@ class SportClubsTableViewController: UITableViewController {
     
     @objc
     private func updateText(isFirst: Bool = false) {
-        let tableName = "StudentLife"
+        let tableName = "StudentsCollection"
         
-        self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
+        self.navigationItem.setLeftTitle(title: "sport".localized(using: tableName))
         
         if !isFirst {
             navigationController?.popToRootViewController(animated: true)
