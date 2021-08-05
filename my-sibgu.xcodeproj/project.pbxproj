@@ -59,7 +59,6 @@
 		4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DDFC255DA58F0022B6A9 /* ApiTimetableService.swift */; };
 		4A07DE05255DA6740022B6A9 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */; };
 		4A07DE08255DA68E0022B6A9 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */; };
-		4A1A93B125C49E5B008AF7E0 /* StudentLivePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */; };
 		4A1AC3ED25D2376D007116F4 /* Trips.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AC3EF25D2376D007116F4 /* Trips.strings */; };
 		4A1AC3F425D252B8007116F4 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AC3F325D252B8007116F4 /* AuthViewController.swift */; };
 		4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A21AA41257AA0EF00BA203A /* InstituteTableViewCell.swift */; };
@@ -378,7 +377,6 @@
 		4A07DDFC255DA58F0022B6A9 /* ApiTimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTimetableService.swift; sourceTree = "<group>"; };
 		4A07DE04255DA6740022B6A9 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		4A07DE07255DA68E0022B6A9 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
-		4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLivePageViewController.swift; sourceTree = "<group>"; };
 		4A1AC3EE25D2376D007116F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Trips.strings; sourceTree = "<group>"; };
 		4A1AC3F025D23770007116F4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Trips.strings; sourceTree = "<group>"; };
 		4A1AC3F325D252B8007116F4 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -1162,7 +1160,6 @@
 			isa = PBXGroup;
 			children = (
 				4AF3EC5825A99BE700AF0367 /* Extensions */,
-				4A1A93B025C49E5B008AF7E0 /* StudentLivePageViewController.swift */,
 				4A7A56F2256BF5BF00E2CE0F /* UnionsTableViewController.swift */,
 				4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */,
 				4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */,
@@ -2056,7 +2053,6 @@
 				4AF3EC6925AA136300AF0367 /* ApiInforming.swift in Sources */,
 				4AF3EC7F25AA47EA00AF0367 /* Image.swift in Sources */,
 				4AB5A67D25A10DA500518FEA /* ApiCampusService.swift in Sources */,
-				4A1A93B125C49E5B008AF7E0 /* StudentLivePageViewController.swift in Sources */,
 				4A07DDED255DA4450022B6A9 /* GroupTimetableResponse.swift in Sources */,
 				4A07DDE5255DA3B70022B6A9 /* ApiTimetable.swift in Sources */,
 				4AE588B026089D690036D9CA /* ApiTicketsService.swift in Sources */,
