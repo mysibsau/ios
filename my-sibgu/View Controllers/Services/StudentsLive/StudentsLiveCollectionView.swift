@@ -45,8 +45,8 @@ class StudentsLiveCollectionView: UICollectionViewController {
         services = [
             (
                 CollectionViewHelper.getViewWithImage(
-                    image: UIImage(systemName: "map")!,
-                    backgroundColor: UIColor.Pallete.sibsuBlue,
+                    image: UIImage(named: "active")!,
+                    backgroundColor: UIColor.Pallete.green,
                     imageColor: UIColor.Pallete.content
                 ),
                 "1",
@@ -54,22 +54,30 @@ class StudentsLiveCollectionView: UICollectionViewController {
             ),
             (
                 CollectionViewHelper.getViewWithImage(
-                    image: UIImage(named: "institute")!,
-                    backgroundColor: UIColor.Pallete.gray,
+                    image: UIImage(named: "sport")!,
+                    backgroundColor: UIColor.Pallete.sibsuBlue,
                     imageColor: UIColor.Pallete.content
                 ),
                 "2",
                 { SportClubsTableViewController() }
             ),
             (
-                // Раньше переходил на экран со всеми вопросами,
-                // Но Илье не понравилось и теперь только один экран с одним опросом
-                CollectionViewHelper.getFeedbackView(
-                    backgroundColor: UIColor.Pallete.sibsuGreen,
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(named: "science")!,
+                    backgroundColor: UIColor.Pallete.orange,
                     imageColor: UIColor.Pallete.content
                 ),
                 "3",
                 { DesignOfficesTableViewController() }
+            ),
+            (
+                CollectionViewHelper.getViewWithImage(
+                    image: UIImage(named: "art")!,
+                    backgroundColor: UIColor.Pallete.gray,
+                    imageColor: UIColor.Pallete.content
+                ),
+                "4",
+                { ArtListViewController() }
             ),
         ]
         
@@ -91,6 +99,7 @@ class StudentsLiveCollectionView: UICollectionViewController {
         services[0].name = "unions".localized(using: tableName)
         services[1].name = "sport".localized(using: tableName)
         services[2].name = "sdo".localized(using: tableName)
+        services[3].name = "art".localized(using: tableName)
         
         collectionView.reloadData()
     }
@@ -114,6 +123,7 @@ extension StudentsLiveCollectionView {
 //        cell.imageView.tintColor = service.color
         cell.configure(viewWithImage: service.viewWithImage)
         cell.nameLabel.text = service.name
+        cell.nameLabel.font = .boldSystemFont(ofSize: 19)
         
         return cell
     }

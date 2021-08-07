@@ -288,6 +288,7 @@
 		4AF3ECB125AC845100AF0367 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AF3ECAA25AC845100AF0367 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */; };
 		7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C34121F26BC576E00EA94FD /* StudentsCollection.strings */; };
+		7C34122626BE948500EA94FD /* ArtListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122526BE948500EA94FD /* ArtListViewController.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -624,6 +625,7 @@
 		5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C34121E26BC576E00EA94FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122026BC577200EA94FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
+		7C34122526BE948500EA94FD /* ArtListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListViewController.swift; sourceTree = "<group>"; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1165,6 +1167,7 @@
 				4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */,
 				4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */,
 				7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */,
+				7C34122526BE948500EA94FD /* ArtListViewController.swift */,
 			);
 			path = StudentsLive;
 			sourceTree = "<group>";
@@ -2125,6 +2128,7 @@
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,
 				4A1AC3F425D252B8007116F4 /* AuthViewController.swift in Sources */,
+				7C34122626BE948500EA94FD /* ArtListViewController.swift in Sources */,
 				4A9FEF3725EFDC00005DD121 /* LabelButton.swift in Sources */,
 				4A71012E25F1F83400549146 /* RoomPlaceCollectionViewCell.swift in Sources */,
 				4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */,
@@ -2664,7 +2668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2688,7 +2692,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2710,7 +2714,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2733,7 +2737,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SibSU.MySibSU.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
