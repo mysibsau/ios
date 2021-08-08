@@ -65,7 +65,7 @@
 		4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238BFF257AC25100CB861E /* ImageLoader.swift */; };
 		4A238C03257AC73200CB861E /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C02257AC73200CB861E /* UIImageLoader.swift */; };
 		4A238C06257AC9B500CB861E /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C05257AC9B500CB861E /* UIImageView+loadImage.swift */; };
-		4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C0F257B5C6600CB861E /* PersonViewController.swift */; };
+		4A238C10257B5C6600CB861E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C0F257B5C6600CB861E /* DetailViewController.swift */; };
 		4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A238C15257B74F700CB861E /* CenterLabelView.swift */; };
 		4A26AFD225D69F7400A8E35C /* Auth.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A26AFD425D69F7400A8E35C /* Auth.strings */; };
 		4A26AFDB25D6F5CE00A8E35C /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A26AFDA25D6F5CE00A8E35C /* StartViewController.swift */; };
@@ -294,6 +294,7 @@
 		7C34122C26BEDCED00EA94FD /* ArtAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */; };
 		7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */; };
 		7C34123026BFD54F00EA94FD /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */; };
+		7C34123326C018C200EA94FD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34123226C018C200EA94FD /* DetailViewModel.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -390,7 +391,7 @@
 		4A238BFF257AC25100CB861E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		4A238C02257AC73200CB861E /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
 		4A238C05257AC9B500CB861E /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
-		4A238C0F257B5C6600CB861E /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		4A238C0F257B5C6600CB861E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4A238C15257B74F700CB861E /* CenterLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLabelView.swift; sourceTree = "<group>"; };
 		4A26AFD325D69F7400A8E35C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		4A26AFD725D69F7A00A8E35C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Auth.strings; sourceTree = "<group>"; };
@@ -636,6 +637,7 @@
 		7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociated.swift; sourceTree = "<group>"; };
 		7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToArtViewController.swift; sourceTree = "<group>"; };
 		7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
+		7C34123226C018C200EA94FD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1195,8 +1197,8 @@
 		4A54F57A259B1BA500184BC0 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				7C34123126C0189000EA94FD /* DetailScreen */,
 				4AB5A6B225A32C5800518FEA /* Ext */,
-				4A238C0F257B5C6600CB861E /* PersonViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1855,6 +1857,15 @@
 			path = NotificationService;
 			sourceTree = "<group>";
 		};
+		7C34123126C0189000EA94FD /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4A238C0F257B5C6600CB861E /* DetailViewController.swift */,
+				7C34123226C018C200EA94FD /* DetailViewModel.swift */,
+			);
+			path = DetailScreen;
+			sourceTree = "<group>";
+		};
 		8202915E8C5B172EB76B9257 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2100,6 +2111,7 @@
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
 				4AEB720B25C84A7100161E32 /* CatalogCollectionViewController.swift in Sources */,
 				4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */,
+				7C34123326C018C200EA94FD /* DetailViewModel.swift in Sources */,
 				4A00499E25CEB30000F59CB3 /* ApiWorkService.swift in Sources */,
 				4AF3EC5A25A99BF600AF0367 /* Union+Equatable.swift in Sources */,
 				4AD21F7F25C2CC3C0018D4F0 /* TimetableViewModel.swift in Sources */,
@@ -2139,7 +2151,7 @@
 				4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */,
 				4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */,
 				4AE588AC26089D5B0036D9CA /* ApiTickets.swift in Sources */,
-				4A238C10257B5C6600CB861E /* PersonViewController.swift in Sources */,
+				4A238C10257B5C6600CB861E /* DetailViewController.swift in Sources */,
 				4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */,
 				4A07DDCE255D9F2B0022B6A9 /* RGroupTimetable.swift in Sources */,
 				4AC18FC225B1A46600325142 /* MetaResponse.swift in Sources */,

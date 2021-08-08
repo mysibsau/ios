@@ -114,9 +114,9 @@ class UnionsTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let personVC = PersonViewController(union: unions[indexPath.row])
-        
-        navigationController?.pushViewController(personVC, animated: true)
+        navigationController?.pushViewController(
+            DetailViewController(viewModel: unions[indexPath.row]),
+            animated: true)
     }
 
 }
@@ -131,4 +131,54 @@ extension UnionsTableViewController: AnimatingNetworkProtocol {
         return view
     }
     
+}
+
+extension Union: DetailViewModel {
+    
+    var navigationTitle: String? { name }
+    
+    var backgroundImage: DetailModel.Image { .init(type: .url(logoUrl), useBlur: true) }
+    var foregroundImage: DetailModel.Image { .init(type: .url(leaderPhotoUrl)) }
+    
+    func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
+        let tn = "Person"
+        
+        var aboutContent: [DetailModel.Content] = []
+        if let about = about {
+            aboutContent.append(.title("about".localized(using: tn)))
+            aboutContent.append(.textView(.init(text: about)))
+        }
+        
+        let leaderRankContetn: [DetailModel.Content]
+        if let leaderRank = leaderRank, !leaderRank.isEmpty {
+            leaderRankContetn = [.title(leaderRank)]
+        } else {
+            leaderRankContetn = [.title("head".localized(using: tn))]
+        }
+        
+        var joinContent: [DetailModel.Content] = []
+        if leaderPageVkUrl != nil {
+            joinContent.append(.button(.init(imageName: "add_circle", text: "join.to".localized(using: tn), action: {
+                let vc = JoinToUnionViewController()
+                vc.unionId = id
+                viewController.present(vc, animated: true)
+            })))
+        }
+        
+        return aboutContent + leaderRankContetn + [
+            .nameView(leaderName),
+            .imageAndTextView(.init(imageName: "place", text: address)),
+            .button(.init(imageName: "phone", text: phone, action: {
+                guard let url = phone.phoneUrl else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })),
+            .button(.init(imageName: "vk", text: "group.vk".localized(using: tn), action: {
+                if UIApplication.shared.canOpenURL(groupVkUrl) {
+                    UIApplication.shared.open(groupVkUrl)
+                }
+            }))
+        ] + joinContent
+    }
 }

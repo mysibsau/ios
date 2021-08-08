@@ -111,11 +111,10 @@ class DesignOfficesTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let personVC = PersonViewController(designOffice: designOffices[indexPath.row])
-        
-        navigationController?.pushViewController(personVC, animated: true)
+        navigationController?.pushViewController(
+            DetailViewController(viewModel: designOffices[indexPath.row]),
+            animated: true)
     }
-
 }
 
 extension DesignOfficesTableViewController: AnimatingNetworkProtocol {
@@ -128,4 +127,34 @@ extension DesignOfficesTableViewController: AnimatingNetworkProtocol {
         return view
     }
     
+}
+
+extension DesignOffice: DetailViewModel {
+    
+    var navigationTitle: String? { name }
+    
+    var backgroundImage: DetailModel.Image { .init(type: .local("back_main_logo")) }
+    var foregroundImage: DetailModel.Image { .init(type: .hide) }
+    
+    func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
+        let tn = "Person"
+        
+        var fioContent: [DetailModel.Content] = []
+        if let fio = fio {
+            fioContent.append(.title("head".localized(using: tn)))
+            fioContent.append(.textView(.init(text: fio)))
+        }
+        var emailContent: [DetailModel.Content] = []
+        if let email = email {
+            emailContent.append(.imageAndTextView(.init(imageName: "email", text: email)))
+        }
+        
+        return [
+            .title("about".localized(using: tn)),
+            .textView(.init(text: about)),
+        ]
+        + fioContent + [
+            .imageAndTextView(.init(imageName: "place", text: address)),
+        ] + emailContent
+    }
 }

@@ -112,9 +112,9 @@ class SportClubsTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let personVC = PersonViewController(sportClub: sportClubs[indexPath.row])
-        
-        navigationController?.pushViewController(personVC, animated: true)
+        navigationController?.pushViewController(
+            DetailViewController(viewModel: sportClubs[indexPath.row]),
+            animated: true)
     }
 
 }
@@ -129,4 +129,30 @@ extension SportClubsTableViewController: AnimatingNetworkProtocol {
         return view
     }
     
+}
+
+extension SportClub: DetailViewModel {
+    
+    var navigationTitle: String? { name }
+    
+    var backgroundImage: DetailModel.Image { .init(type: .url(logoUrl)) }
+    var foregroundImage: DetailModel.Image { .init(type: .hide) }
+    
+    func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
+        let tn = "Person"
+        
+        return [
+            .title("head".localized(using: tn)),
+            .textView(.init(text: fio)),
+            .title("training.dates".localized(using: tn)),
+            .textView(.init(text: dates)),
+            .imageAndTextView(.init(imageName: "place", text: address)),
+            .button(.init(imageName: "phone", text: phone, action: {
+                guard let url = phone.phoneUrl else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }))
+        ]
+    }
 }

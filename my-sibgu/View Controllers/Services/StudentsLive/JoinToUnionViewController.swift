@@ -196,7 +196,6 @@ class JoinToUnionViewController: UIViewController {
             alert.addAction(.init(title: "Ок", style: .default, handler: nil))
             present(alert, animated: true)
             return
-            return
         }
         
         ApiCampusService().postJoinToUnion(

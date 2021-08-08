@@ -111,10 +111,10 @@ class ArtListViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let personVC = PersonViewController(art: arts[indexPath.row])
-        navigationController?.pushViewController(personVC, animated: true)
+        navigationController?.pushViewController(
+            DetailViewController(viewModel: arts[indexPath.row]),
+            animated: true)
     }
-
 }
 
 extension ArtListViewController: AnimatingNetworkProtocol {
@@ -127,4 +127,27 @@ extension ArtListViewController: AnimatingNetworkProtocol {
         return view
     }
     
+}
+
+extension ArtAssociation: DetailViewModel {
+    
+    var navigationTitle: String? { name }
+    
+    var backgroundImage: DetailModel.Image { .init(type: .url(logo)) }
+    var foregroundImage: DetailModel.Image { .init(type: .hide) }
+    
+    func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
+        let tn = "Person"
+        return [
+            .title("about".localized(using: tn)),
+            .textView(.init(text: description)),
+            .title("contacts".localized(using: tn)),
+            .textView(.init(text: contacts, tappable: true)),
+            .button(.init(imageName: "add_circle", text: "join.to".localized(using: tn), action: {
+                let vc = JoinToArtViewController()
+                vc.artId = id
+                viewController.present(vc, animated: true)
+            }))
+        ]
+    }
 }
