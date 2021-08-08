@@ -14,6 +14,14 @@ struct ArtAssociationResponse: Decodable {
     let name: String
     let description: String
     let contacts: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id,
+             logo,
+             name,
+             description = "about",
+             contacts
+    }
 }
 
 extension ArtAssociationResponse: ConvertableToRealm {
