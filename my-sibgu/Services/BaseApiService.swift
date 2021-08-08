@@ -48,4 +48,30 @@ class BaseApiService {
         downloadingQueue.addOperation(completionOperation)
     }
     
+    func sendPost(request: URLRequest, completion: @escaping (_ isDone: Bool) -> Void) {
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            
+            print(response)
+            
+            print(try! JSONSerialization.jsonObject(with: data ?? Data()))
+
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                (200..<300).contains(httpResponse.statusCode)
+            else {
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
+        
+        task.resume()
+    }
+    
 }

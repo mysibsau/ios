@@ -72,9 +72,16 @@ extension ApiUniversityInfo {
 // MARK: - Post Request
 extension ApiUniversityInfo {
     
+    static func postRequest(with url: URL, json: [String: Any]) -> URLRequest {
+        postRequest(with: url,
+                    andJsonData: try! JSONSerialization.data(withJSONObject: json,
+                                                             options: .prettyPrinted))
+    }
+    
     static func postRequest(with url: URL, andJsonData jsonData: Data) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         
         return request

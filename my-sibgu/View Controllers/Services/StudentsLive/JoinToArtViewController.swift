@@ -182,24 +182,23 @@ class JoinToArtViewController: UIViewController {
             return
         }
         
-//        ApiCampusService().postJoinToUnion(
-//            unionId: unionId,
-//            fio: fio,
-//            institute: institute,
-//            group: group,
-//            vk: idVk,
-//            hobby: hobby,
-//            reason: reason) { isDone in
-//
-//            DispatchQueue.main.async {
-//                if isDone {
-//                    // TODO: Тут надо показать, что все норм
-//                    self.dismissVC()
-//                } else {
-//                    // MARK: TODO: Или тут надо показать что не все норм (показать алерт)
-//                }
-//            }
-//        }
+        ApiCampusService().postJoinToArt(
+            artId: artId,
+            fio: fio,
+            phone: phone,
+            vkLink: idVk,
+            experience: experience,
+            comment: comment,
+            completion: { done in
+                print(done)
+                DispatchQueue.main.async {
+                    if done {
+                        self.dismissVC()
+                    } else {
+                        
+                    }
+                }
+            })
     }
     
     // MARK: - Methods For Notification -
