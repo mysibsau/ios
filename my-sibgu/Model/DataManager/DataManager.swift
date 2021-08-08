@@ -516,6 +516,30 @@ extension DataManager {
         }
     }
     
+    func get<T: Object>(_ type: T.Type) -> [T] {
+        Array(downloadedRealm.objects(T.self))
+    }
+    
+    func write<T: Object>(object: T) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(object, update: .all)
+        }
+    }
+    
+    func write<T: Object>(objects: [T]) {
+        try? downloadedRealm.write {
+            downloadedRealm.add(objects, update: .all)
+        }
+    }
+    
+    func deleteAll<T: Object>(_ type: T.Type) {
+        try? userRealm.write {
+            userRealm.delete(userRealm.objects(T.self), cascading: true)
+        }
+        try? downloadedRealm.write {
+            downloadedRealm.delete(downloadedRealm.objects(T.self), cascading: true)
+        }
+    }
 }
 
 // MARK: - Auth

@@ -289,6 +289,9 @@
 		4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */; };
 		7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C34121F26BC576E00EA94FD /* StudentsCollection.strings */; };
 		7C34122626BE948500EA94FD /* ArtListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122526BE948500EA94FD /* ArtListViewController.swift */; };
+		7C34122826BEDA3700EA94FD /* ArtAssociationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122726BEDA3700EA94FD /* ArtAssociationResponse.swift */; };
+		7C34122A26BEDAD000EA94FD /* RArtAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122926BEDACF00EA94FD /* RArtAssociated.swift */; };
+		7C34122C26BEDCED00EA94FD /* ArtAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -626,6 +629,9 @@
 		7C34121E26BC576E00EA94FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122026BC577200EA94FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122526BE948500EA94FD /* ArtListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListViewController.swift; sourceTree = "<group>"; };
+		7C34122726BEDA3700EA94FD /* ArtAssociationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociationResponse.swift; sourceTree = "<group>"; };
+		7C34122926BEDACF00EA94FD /* RArtAssociated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RArtAssociated.swift; sourceTree = "<group>"; };
+		7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociated.swift; sourceTree = "<group>"; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -752,8 +758,8 @@
 		4A07DD9E255D93340022B6A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4AEBE6D3256376D1005F6CBE /* Info */,
 				4AEBE6D2256376C0005F6CBE /* Timetable */,
+				4AEBE6D3256376D1005F6CBE /* Info */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1359,6 +1365,7 @@
 				4AE030E925CD315000E8A9C0 /* RSportClub.swift */,
 				4AE030F725CD44C000E8A9C0 /* RDesingOffice.swift */,
 				4A3C3F4925D432BF00F3A7B1 /* RUser.swift */,
+				7C34122926BEDACF00EA94FD /* RArtAssociated.swift */,
 			);
 			path = "University Info";
 			sourceTree = "<group>";
@@ -1379,6 +1386,7 @@
 				4AB5A6AE25A1F3F400518FEA /* InstituteResponse.swift */,
 				4AE030E525CD2F6700E8A9C0 /* SportClubResponse.swift */,
 				4AE030F325CD443E00E8A9C0 /* DesignOfficeResponse.swift */,
+				7C34122726BEDA3700EA94FD /* ArtAssociationResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -1684,6 +1692,7 @@
 				4A3957ED25DEB368009958BC /* AttestationItem.swift */,
 				4AB9790925E0F2770025B937 /* Cafetefia.swift */,
 				4AB8053A25E7CE3A0080CBE8 /* Book.swift */,
+				7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */,
 				4AE5889D26089CD10036D9CA /* Tickets */,
 			);
 			path = Info;
@@ -2120,6 +2129,7 @@
 				4AC1918B25B6181A00325142 /* UIColor+Pallete.swift in Sources */,
 				4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */,
 				4A07DDB7255D966A0022B6A9 /* Realm+CascadeDeleting.swift in Sources */,
+				7C34122A26BEDAD000EA94FD /* RArtAssociated.swift in Sources */,
 				4AC1914D25B449EE00325142 /* SurveyViewController.swift in Sources */,
 				4A3C3F3A25D4246700F3A7B1 /* UserResponse.swift in Sources */,
 				4AE588AC26089D5B0036D9CA /* ApiTickets.swift in Sources */,
@@ -2208,6 +2218,7 @@
 				4AC1914725B443F500325142 /* OneLabelTableViewCell.swift in Sources */,
 				4AF3EC6325A9A63700AF0367 /* Buildings+Equatable.swift in Sources */,
 				4A238C16257B74F700CB861E /* CenterLabelView.swift in Sources */,
+				7C34122826BEDA3700EA94FD /* ArtAssociationResponse.swift in Sources */,
 				4AD21F8525C2E0A50018D4F0 /* TimetableViewModelTranslator.swift in Sources */,
 				4AC1914025B4425600325142 /* SurveysTableViewController.swift in Sources */,
 				4A54F5682599EF9000184BC0 /* DepartmentView.swift in Sources */,
@@ -2300,6 +2311,7 @@
 				4AB8055025E7CFE60080CBE8 /* ApiLibrary.swift in Sources */,
 				4A3F72C6260DAA6100946388 /* TicketPriceCollectionViewCell.swift in Sources */,
 				4A07DD87255D89020022B6A9 /* SceneDelegate.swift in Sources */,
+				7C34122C26BEDCED00EA94FD /* ArtAssociated.swift in Sources */,
 				4AE3431D2598D25100AB368C /* ImageAndLabelButton.swift in Sources */,
 				4AEBE6EC25637BF9005F6CBE /* Union.swift in Sources */,
 				4AB9790A25E0F2770025B937 /* Cafetefia.swift in Sources */,

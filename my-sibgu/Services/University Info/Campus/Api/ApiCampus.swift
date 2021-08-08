@@ -43,6 +43,10 @@ struct ApiCampus {
         return urlRequest
     }
     
+    static func arts() -> URLRequest {
+        URLRequest(url: URL(string: "\(address)/campus/ensembles")!, cachePolicy: .reloadIgnoringLocalCacheData)
+    }
+    
     static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
         let parameters = [
             "fio": fio,

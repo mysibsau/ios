@@ -65,6 +65,12 @@ class CampusService {
         }
     }
     
+    func getArtsFromLocal() -> [ArtAssociation]? {
+        let arts = Translator.shared.converteArts(from: DataManager.shared.get(RArtAssociated.self))
+        if arts.isEmpty { return nil }
+        return arts
+    }
+    
     // MARK: - From Local or From API -
     func getBuildings(completion: @escaping ([Building]?) -> Void) {
         let buildingsFromLocal = DataManager.shared.getBuildings()
@@ -189,4 +195,26 @@ class CampusService {
         }
     }
     
+    func getArts(completion: @escaping ([ArtAssociation]?) -> Void) {
+        let artsFromLocal = DataManager.shared.get(RArtAssociated.self)
+        
+        ApiCampusService().loadArts { optArts in
+            guard let arts = optArts else {
+                if artsFromLocal.isEmpty {
+                    completion(nil)
+                } else {
+                    DispatchQueue.main.async {
+                        completion(Translator.shared.converteArts(from: artsFromLocal))
+                    }
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                DataManager.shared.deleteAll(RArtAssociated.self)
+                DataManager.shared.write(objects: arts.map { $0.converteToRealm() })
+                completion(Translator.shared.converteArts(from: DataManager.shared.get(RArtAssociated.self)))
+            }
+        }
+    }
 }
