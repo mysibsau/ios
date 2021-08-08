@@ -222,6 +222,12 @@ class PersonViewController: UIViewController {
             
             addLabel(text: "contacts".localized(using: tableName))
             addTextView(text: art.contacts, tappable: true)
+            
+            addButton(text: "join.to".localized(using: tableName), imageName: "add_circle", action: {
+                let vc = JoinToArtViewController()
+                vc.artId = art.id
+                self.present(vc, animated: true, completion: nil)
+            })
         }
     }
     

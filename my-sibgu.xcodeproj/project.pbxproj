@@ -292,6 +292,8 @@
 		7C34122826BEDA3700EA94FD /* ArtAssociationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122726BEDA3700EA94FD /* ArtAssociationResponse.swift */; };
 		7C34122A26BEDAD000EA94FD /* RArtAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122926BEDACF00EA94FD /* RArtAssociated.swift */; };
 		7C34122C26BEDCED00EA94FD /* ArtAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */; };
+		7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */; };
+		7C34123026BFD54F00EA94FD /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -632,6 +634,8 @@
 		7C34122726BEDA3700EA94FD /* ArtAssociationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociationResponse.swift; sourceTree = "<group>"; };
 		7C34122926BEDACF00EA94FD /* RArtAssociated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RArtAssociated.swift; sourceTree = "<group>"; };
 		7C34122B26BEDCED00EA94FD /* ArtAssociated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociated.swift; sourceTree = "<group>"; };
+		7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToArtViewController.swift; sourceTree = "<group>"; };
+		7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1170,6 +1174,7 @@
 				4AF3EC5825A99BE700AF0367 /* Extensions */,
 				4A7A56F2256BF5BF00E2CE0F /* UnionsTableViewController.swift */,
 				4A736BF525A4DBF60040BBED /* JoinToUnionViewController.swift */,
+				7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */,
 				4AE030FF25CD714100E8A9C0 /* SportClubsTableViewController.swift */,
 				4AE0310725CD7F9000E8A9C0 /* DesignOfficesTableViewController.swift */,
 				7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */,
@@ -1788,6 +1793,7 @@
 		4AF3EC5825A99BE700AF0367 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */,
 				4AF3EC5925A99BF600AF0367 /* Union+Equatable.swift */,
 				4AE0310325CD72A600E8A9C0 /* SportClub+Equatable.swift */,
 				4AE0310B25CD80DB00E8A9C0 /* DesignOffice+Equatable.swift */,
@@ -2195,6 +2201,7 @@
 				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
 				4AB8054825E7CF840080CBE8 /* DigitalBookResponse.swift in Sources */,
 				4AE5889A26089CCA0036D9CA /* Performance.swift in Sources */,
+				7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */,
 				4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */,
 				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4AE588D32608C8F40036D9CA /* PerformanceConcertResponse.swift in Sources */,
@@ -2244,6 +2251,7 @@
 				4A3957D225DEA5BB009958BC /* MarksResponse.swift in Sources */,
 				4AF0303225E2B68F0045D032 /* ApiCafeteriaService.swift in Sources */,
 				4A91D68D2573D82700EA1E47 /* Date+Extensions.swift in Sources */,
+				7C34123026BFD54F00EA94FD /* TextViewWithPlaceholder.swift in Sources */,
 				4A21AA42257AA0EF00BA203A /* InstituteTableViewCell.swift in Sources */,
 				4AEA296425E6A767005B47DD /* SavedEntity.swift in Sources */,
 				4A71011A25F0D12B00549146 /* TicketDatesViewController.swift in Sources */,
