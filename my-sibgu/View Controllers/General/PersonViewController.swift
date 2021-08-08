@@ -88,6 +88,14 @@ class PersonViewController: UIViewController {
         backgroupndImageView.image = UIImage(named: "back_main_logo")
         personImageView.isHidden = true
     }
+    
+    convenience init(art: ArtAssociation) {
+        self.init()
+        self.person = art
+        personImageView.isHidden = true
+        backgroupndImageView.loadImage(at: art.logo)
+        updateText()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,6 +214,20 @@ class PersonViewController: UIViewController {
             if let email = designOffice.email {
                 addView(text: email, imageName: "email")
             }
+        } else if let art = person as? ArtAssociation {
+            navigationItem.setCenterTitle(title: art.name)
+            
+            addLabel(text: "about".localized(using: tableName))
+            addTextView(text: art.description)
+            
+            addLabel(text: "contacts".localized(using: tableName))
+            addTextView(text: art.contacts, tappable: true)
+            
+            addButton(text: "join.to".localized(using: tableName), imageName: "add_circle", action: {
+                let vc = JoinToArtViewController()
+                vc.artId = art.id
+                self.present(vc, animated: true, completion: nil)
+            })
         }
     }
     
@@ -273,7 +295,7 @@ class PersonViewController: UIViewController {
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             // В спорт нет круглого изображения
-            if self.person is SportClub || self.person is DesignOffice {
+            if self.person is SportClub || self.person is DesignOffice || self.person is ArtAssociation {
                 make.top.equalTo(separateLine.snp.bottom).offset(30)
             } else {
                 make.top.equalTo(personImageView.snp.bottom).offset(30)
@@ -294,8 +316,8 @@ class PersonViewController: UIViewController {
         addArrangedSubviewToStackView(view: label, additionalPading: 0)
     }
     
-    private func addTextView(text: String) {
-        let textView = CenterLabelView(text: text)
+    private func addTextView(text: String, tappable: Bool = false) {
+        let textView = CenterLabelView(text: text, tappable: tappable)
         textView.centerLabel.textAlignment = .left
         textView.centerLabel.font = UIFont.systemFont(ofSize: 16)
         addArrangedSubviewToStackView(view: textView, additionalPading: 0)

@@ -13,6 +13,9 @@
 "fio" = "Full name";
 "institute" = "Institute";
 "group" = "Group";
-"vk.id" = "VK id";
+"vk.id" = "VK link";
 "hobby" = "Hobby";
 "reason" = "Reason to join";
+"comment" = "Comment";
+"experience" = "Experience";
+"phone" = "Phone number";

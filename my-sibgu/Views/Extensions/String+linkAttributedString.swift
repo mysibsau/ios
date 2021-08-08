@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 
 extension NSMutableAttributedString {
+    
+    func addAttributesWithPhoneNumbers() -> [NSRange: URL] {
+        let phoneNumberRegex = #"(\+7|8) ?[\( -]?\d{3}[\) -]? ?\d{3}[ -]?\d{2}[ -]?\d{2}"#
+        return addAttributesAndGetParsePhoneNumber(stringRegex: phoneNumberRegex, attrString: self)
+    }
 
     func addAttributesWithLinkAndLinkRangesWithUrl() -> [NSRange: URL] {
         let stringLinkRegex = "https?://(www\\.)?[-a-zA-ZА-Яа-я0-9@:%._\\+~#=]{2,256}\\.[А-Яа-яa-z]{2,4}\\b([-a-zA-ZА-Яа-я0-9@:%_\\+.~#?&//=]*)"
@@ -28,6 +33,26 @@ extension NSMutableAttributedString {
         var rangesAndUrlByLink = addAttributesAndGetParseEmail(stringEmailRegex: stringEmailRegex, attrString: self)
         
         return rangesAndUrlByLink
+    }
+    
+    private func addAttributesAndGetParsePhoneNumber(stringRegex: String,
+                                                     attrString: NSMutableAttributedString) -> [NSRange: URL] {
+        let phoneRegex = try! NSRegularExpression(pattern: stringRegex)
+        
+        let ranges = phoneRegex
+            .matches(in: attrString.string,
+                     range: NSRange(attrString.string.startIndex..., in: attrString.string))
+            .map(\.range)
+        
+        var rangesAndUrls: [NSRange: URL] = [:]
+        for range in ranges {
+            if let url = String(attrString.string[Range(range, in: attrString.string)!]).phoneUrl {
+                attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: range)
+                attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+                rangesAndUrls[range] = url
+            }
+        }
+        return rangesAndUrls
     }
 
     private func addAttributesAndGetParseLink(stringLinkRegex: String, attrString: NSMutableAttributedString) -> [NSRange: URL] {
@@ -125,5 +150,16 @@ extension String{
     
     var decodeUrl : String {
         return self.removingPercentEncoding!
+    }
+}
+
+extension String {
+
+    var phoneUrl: URL? {
+        let digitFiltered = self.filter {
+            ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(String.init) + ["+"])
+                .contains(String($0))
+        }
+        return URL(string: "tel://\(digitFiltered)")
     }
 }

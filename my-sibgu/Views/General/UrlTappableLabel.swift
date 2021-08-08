@@ -28,8 +28,10 @@ class UrlTappableLabel: TappableLabel {
         let mutAtrString = NSMutableAttributedString(string: newValue)
         
         let linkUrls = mutAtrString.addAttributesWithLinkAndLinkRangesWithUrl()
+        let phoneUrls = mutAtrString.addAttributesWithPhoneNumbers()
         var emailUrls = mutAtrString.addAttributesWithEmailAndEmailRangesWithUrl()
         emailUrls.merge(dict: linkUrls)
+        emailUrls.merge(dict: phoneUrls)
         
         self.rangesAndUrls = emailUrls
         self.attributedText = mutAtrString

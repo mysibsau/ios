@@ -12,7 +12,7 @@ class ArtListViewController: UITableViewController {
     private let campusService = CampusService()
     private let activityIndicatorView = UIActivityIndicatorView(style: .medium)
     
-    private var designOffices: [DesignOffice] = []
+    private var arts: [ArtAssociation] = []
 
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ArtListViewController: UITableViewController {
         
         configurateTableView()
         
-        setDesignOffices()
+        setArts()
         
         updateText(isFirst: true)
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
@@ -48,8 +48,8 @@ class ArtListViewController: UITableViewController {
     
     private func configurateTableView() {
         tableView.register(
-            DesignOfficeTableCell.self,
-            forCellReuseIdentifier: DesignOfficeTableCell.reuseIdentifier
+            UnionTableViewCell.self,
+            forCellReuseIdentifier: UnionTableViewCell.reuseIdentifier
         )
         
         tableView.showsVerticalScrollIndicator = false
@@ -58,61 +58,60 @@ class ArtListViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
     
-    private func setDesignOffices() {
-        let designOfficesFromLocal = campusService.getDesignOfficesFromLocal()
+    private func setArts() {
+        let artFromLocal = campusService.getArtsFromLocal()
         
-        if let designOfficesFromLocal = designOfficesFromLocal {
-            set(designOffices: designOfficesFromLocal)
-            loadDesignOffices()
+        if let artFromLocal = artFromLocal {
+            set(arts: artFromLocal)
+            loadArts()
         } else {
             self.startActivityIndicator()
-            loadDesignOffices()
+            loadArts()
         }
     }
     
-    private func loadDesignOffices() {
-        campusService.getDesignOffice { optionalDesignOffices in
-            guard let desO = optionalDesignOffices else {
+    private func loadArts() {
+        campusService.getArts { arts in
+            guard let arts = arts else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()
                 }
                 return
             }
-            
+
             DispatchQueue.main.async {
-                self.set(designOffices: desO)
+                self.set(arts: arts)
                 self.stopActivityIndicator()
             }
         }
     }
     
-    private func set(designOffices: [DesignOffice]) {
-        let newDesignOffices = designOffices
-        if newDesignOffices != self.designOffices {
-            self.designOffices = newDesignOffices
+    private func set(arts: [ArtAssociation]) {
+        if arts != self.arts {
+            self.arts = arts
             self.tableView.reloadData()
         }
     }
     
     // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return designOffices.count
+        return arts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DesignOfficeTableCell.reuseIdentifier, for: indexPath) as! DesignOfficeTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UnionTableViewCell.reuseIdentifier, for: indexPath) as! UnionTableViewCell
         
-        let designOffice = designOffices[indexPath.row]
+        let sportClub = arts[indexPath.row]
         
-        cell.nameLabel.text = designOffice.name
+        cell.nameLabel.text = sportClub.name
+        cell.logoImageView.loadImage(at: sportClub.logo)
         
         return cell
     }
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let personVC = PersonViewController(designOffice: designOffices[indexPath.row])
-        
+        let personVC = PersonViewController(art: arts[indexPath.row])
         navigationController?.pushViewController(personVC, animated: true)
     }
 

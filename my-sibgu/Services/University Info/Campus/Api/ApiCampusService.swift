@@ -12,32 +12,27 @@ class ApiCampusService {
     private let baseApiService = BaseApiService()
 
     
-    func postJoinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String,
+    func postJoinToUnion(unionId: Int, fio: String, institute: String,
+                         group: String, vk: String, hobby: String, reason: String,
                          completion: @escaping (_ isDone: Bool) -> Void) {
-        let task = baseApiService.session.dataTask(with: ApiCampus.joinToUnion(unionId: unionId,
-                                                                               fio: fio,
-                                                                               institute: institute,
-                                                                               group: group,
-                                                                               vk: vk,
-                                                                               hobby: hobby,
-                                                                               reason: reason)) { data, response, error in
-            guard error == nil else {
-                completion(false)
-                return
-            }
-
-            guard
-                let httpResponse = response as? HTTPURLResponse,
-                (200..<300).contains(httpResponse.statusCode)
-            else {
-                completion(false)
-                return
-            }
-            
-            completion(true)
-        }
         
-        task.resume()
+        baseApiService.sendPost(request: ApiCampus.joinToUnion(unionId: unionId,
+                                                               fio: fio,
+                                                               institute: institute,
+                                                               group: group,
+                                                               vk: vk,
+                                                               hobby: hobby,
+                                                               reason: reason),
+                                completion: completion)
+    }
+    
+    func postJoinToArt(artId: Int, fio: String, phone: String,
+                       vkLink: String, experience: String, comment: String,
+                       completion: @escaping (_ done: Bool) -> Void) {
+        baseApiService.sendPost(request: ApiCampus.joinToArt(artId: artId, fio: fio, phone: phone,
+                                                             vkLink: vkLink, experience: experience,
+                                                             comment: comment),
+                                completion: completion)
     }
     
     
@@ -61,6 +56,10 @@ class ApiCampusService {
     
     func loadDesingOffices(completion: @escaping (_ desingOffices: [DesignOfficeResponse]?) -> Void) {
         baseApiService.load([DesignOfficeResponse].self, url: ApiCampus.desingOffices(), completion: completion)
+    }
+    
+    func loadArts(completion: @escaping (_ arts: [ArtAssociationResponse]?) -> Void) {
+        baseApiService.load([ArtAssociationResponse].self, url: ApiCampus.arts(), completion: completion)
     }
     
     

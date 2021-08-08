@@ -43,6 +43,10 @@ struct ApiCampus {
         return urlRequest
     }
     
+    static func arts() -> URLRequest {
+        URLRequest(url: URL(string: "\(address)/campus/ensembles")!, cachePolicy: .reloadIgnoringLocalCacheData)
+    }
+    
     static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
         let parameters = [
             "fio": fio,
@@ -58,4 +62,25 @@ struct ApiCampus {
         return request
     }
     
+    static func joinToArt(artId: Int, fio: String, phone: String,
+                          vkLink: String, experience: String, comment: String) -> URLRequest {
+        let token: String?
+        if let t = UserService().getCurrUser()?.token {
+            token = "?token=\(t)"
+        } else { token = nil }
+        
+        let request =  ApiUniversityInfo.postRequest(
+            with: URL(string: "\(address)/campus/ensembles/join/\(token ?? "")")!,
+            json: [
+                "ensemble": artId,
+                "fio": fio,
+                "phone": phone,
+                "link_on_vk": vkLink,
+                "experience": experience,
+                "comment": comment,
+            ])
+        
+        print(request)
+        return request
+    }
 }

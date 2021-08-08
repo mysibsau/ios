@@ -1,16 +1,15 @@
 //
-//  JoinToUnionViewController.swift
+//  JoinToArtViewController.swift
 //  my-sibgu
 //
-//  Created by art-off on 06.01.2021.
+//  Created by Artem Rylov on 08.08.2021.
 //
 
 import UIKit
-import SnapKit
 
-class JoinToUnionViewController: UIViewController {
+class JoinToArtViewController: UIViewController {
     
-    var unionId: Int!
+    var artId: Int!
     
     
     private let scrollView = UIScrollView()
@@ -23,7 +22,7 @@ class JoinToUnionViewController: UIViewController {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 40
+        stackView.spacing = 20
         return stackView
     }()
     
@@ -34,16 +33,9 @@ class JoinToUnionViewController: UIViewController {
         return textField
     }()
     
-    private let instituteTextField: UITextField = {
+    private let phoneTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Институт"
-        textField.font = UIFont.systemFont(ofSize: 20)
-        return textField
-    }()
-    
-    private let groupTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Группа"
+        textField.placeholder = "Телефон"
         textField.font = UIFont.systemFont(ofSize: 20)
         return textField
     }()
@@ -55,17 +47,19 @@ class JoinToUnionViewController: UIViewController {
         return textField
     }()
     
-    private let hobbyTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Какие у вас увлечения?"
+    private let experienceTextField: TextViewWithPlaceholder = {
+        let textField = TextViewWithPlaceholder()
+        textField.placeholder = "Опыт творческой деятельности"
         textField.font = UIFont.systemFont(ofSize: 20)
+        textField.snp.makeConstraints { $0.height.equalTo(100) }
         return textField
     }()
     
-    private let reasonTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Почему хотите вступить?"
+    private let commentTextField: TextViewWithPlaceholder = {
+        let textField = TextViewWithPlaceholder()
+        textField.placeholder = "Коментарий"
         textField.font = UIFont.systemFont(ofSize: 20)
+        textField.snp.makeConstraints { $0.height.equalTo(100) }
         return textField
     }()
 
@@ -100,11 +94,10 @@ class JoinToUnionViewController: UIViewController {
         setupNavigationItems()
         
         fioTextField.placeholder = "fio".localized(using: tableName)
-        instituteTextField.placeholder = "institute".localized(using: tableName)
-        groupTextField.placeholder = "group".localized(using: tableName)
+        phoneTextField.placeholder = "phone".localized(using: tableName)
         idVkTextField.placeholder = "vk.id".localized(using: tableName)
-        hobbyTextField.placeholder = "hobby".localized(using: tableName)
-        reasonTextField.placeholder = "reason".localized(using: tableName)
+        experienceTextField.placeholder = "experience".localized(using: tableName)
+        commentTextField.placeholder = "comment".localized(using: tableName)
     }
     
     private func setupScrollView() {
@@ -149,29 +142,21 @@ class JoinToUnionViewController: UIViewController {
         }
         
         addArrangedSubviewToStackView(view: fioTextField)
-        addArrangedSubviewToStackView(view: instituteTextField)
-        addArrangedSubviewToStackView(view: groupTextField)
+        addArrangedSubviewToStackView(view: phoneTextField)
         addArrangedSubviewToStackView(view: idVkTextField)
-        addArrangedSubviewToStackView(view: hobbyTextField)
-        addArrangedSubviewToStackView(view: reasonTextField)
+        addArrangedSubviewToStackView(view: experienceTextField)
+        addArrangedSubviewToStackView(view: commentTextField)
     }
     
     private func addArrangedSubviewToStackView(view: UIView) {
-        let lineView = UIView()
         let wrapView = UIView()
         wrapView.addSubview(view)
         view.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview()
+            make.edges.equalToSuperview().inset(view is UITextView ? 5 : 10)
         }
-        wrapView.addSubview(lineView)
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.bottom).offset(1)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(2)
-            make.bottom.equalToSuperview()
-        }
-        lineView.backgroundColor = UIColor.Pallete.sibsuBlue
+        
+        wrapView.layer.cornerRadius = 5
+        wrapView.makeBorder(color: UIColor.Pallete.sibsuBlue)
         
         stackView.addArrangedSubview(wrapView)
     }
@@ -183,11 +168,10 @@ class JoinToUnionViewController: UIViewController {
     @objc private func doneAction() {
         guard
             let fio = fioTextField.text, !fio.isEmpty,
-            let institute = instituteTextField.text, !institute.isEmpty,
-            let group = groupTextField.text, !group.isEmpty,
+            let phone = phoneTextField.text, !phone.isEmpty,
             let idVk = idVkTextField.text, !idVk.isEmpty,
-            let hobby = hobbyTextField.text, !hobby.isEmpty,
-            let reason = reasonTextField.text, !reason.isEmpty
+            let experience = experienceTextField.text, !experience.isEmpty,
+            let comment = commentTextField.text, !comment.isEmpty
         else {
             let alert = UIAlertController(title: "Не все поля заполнены",
                                          message: nil,
@@ -196,27 +180,25 @@ class JoinToUnionViewController: UIViewController {
             alert.addAction(.init(title: "Ок", style: .default, handler: nil))
             present(alert, animated: true)
             return
-            return
         }
         
-        ApiCampusService().postJoinToUnion(
-            unionId: unionId,
+        ApiCampusService().postJoinToArt(
+            artId: artId,
             fio: fio,
-            institute: institute,
-            group: group,
-            vk: idVk,
-            hobby: hobby,
-            reason: reason) { isDone in
-            
-            DispatchQueue.main.async {
-                if isDone {
-                    // TODO: Тут надо показать, что все норм
-                    self.dismissVC()
-                } else {
-                    // MARK: TODO: Или тут надо показать что не все норм (показать алерт)
+            phone: phone,
+            vkLink: idVk,
+            experience: experience,
+            comment: comment,
+            completion: { done in
+                print(done)
+                DispatchQueue.main.async {
+                    if done {
+                        self.dismissVC()
+                    } else {
+                        
+                    }
                 }
-            }
-        }
+            })
     }
     
     // MARK: - Methods For Notification -
