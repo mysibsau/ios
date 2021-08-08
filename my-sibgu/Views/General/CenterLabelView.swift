@@ -10,7 +10,7 @@ import SnapKit
 
 class CenterLabelView: UIView {
     
-    let centerLabel = UILabel()
+    let centerLabel = UrlTappableLabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,9 +22,14 @@ class CenterLabelView: UIView {
         setupView()
     }
     
-    init(text: String) {
+    init(text: String, tappable: Bool = false) {
         self.init()
-        centerLabel.text = text
+        if tappable {
+            centerLabel.makeTappable()
+            centerLabel.setTextWithUrls(text: text)
+        } else {
+            centerLabel.text = text
+        }
     }
     
     private func setupView() {
