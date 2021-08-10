@@ -71,9 +71,7 @@ class DownloadOperation: Operation {
         }
         
         task = session.dataTask(with: urlRequest) { [weak self] data, response, error in
-            if let completionHandler = self?.completionHandler {
-                completionHandler(data, response, error)
-            }
+            self?.completionHandler?(data, response, error)
             self?.state = .finished
         }
         
