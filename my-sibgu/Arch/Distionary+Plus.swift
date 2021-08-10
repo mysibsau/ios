@@ -12,5 +12,9 @@ extension Dictionary {
     static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         lhs.merging(rhs, uniquingKeysWith: { $1 })
     }
+    
+    static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
+        lhs = lhs + rhs
+    }
 }
 
