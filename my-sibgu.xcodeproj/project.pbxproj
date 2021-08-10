@@ -157,7 +157,6 @@
 		4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67325A107C300518FEA /* ApiCampus.swift */; };
 		4AB5A67725A1091900518FEA /* ApiUniversityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */; };
 		4AB5A67D25A10DA500518FEA /* ApiCampusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67C25A10DA500518FEA /* ApiCampusService.swift */; };
-		4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */; };
 		4AB5A68625A1C14D00518FEA /* RBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A68525A1C14D00518FEA /* RBuilding.swift */; };
 		4AB5A68E25A1C70D00518FEA /* ConvertableToRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A68D25A1C70D00518FEA /* ConvertableToRealm.swift */; };
 		4AB5A69225A1C79700518FEA /* BudlingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5A69125A1C79700518FEA /* BudlingResponse.swift */; };
@@ -300,6 +299,7 @@
 		7C44571326C1A7000001EB58 /* RequestServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571226C1A7000001EB58 /* RequestServise.swift */; };
 		7C44571526C2539D0001EB58 /* RequestWithDefaultParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571426C2539D0001EB58 /* RequestWithDefaultParams.swift */; };
 		7C44571726C254910001EB58 /* Distionary+Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571626C254910001EB58 /* Distionary+Plus.swift */; };
+		7C44571B26C2D4750001EB58 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571A26C2D4750001EB58 /* BaseApiService.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -498,7 +498,6 @@
 		4AB5A67325A107C300518FEA /* ApiCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampus.swift; sourceTree = "<group>"; };
 		4AB5A67625A1091900518FEA /* ApiUniversityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUniversityInfo.swift; sourceTree = "<group>"; };
 		4AB5A67C25A10DA500518FEA /* ApiCampusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCampusService.swift; sourceTree = "<group>"; };
-		4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiService.swift; sourceTree = "<group>"; };
 		4AB5A68525A1C14D00518FEA /* RBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBuilding.swift; sourceTree = "<group>"; };
 		4AB5A68D25A1C70D00518FEA /* ConvertableToRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertableToRealm.swift; sourceTree = "<group>"; };
 		4AB5A69125A1C79700518FEA /* BudlingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudlingResponse.swift; sourceTree = "<group>"; };
@@ -648,6 +647,7 @@
 		7C44571226C1A7000001EB58 /* RequestServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServise.swift; sourceTree = "<group>"; };
 		7C44571426C2539D0001EB58 /* RequestWithDefaultParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWithDefaultParams.swift; sourceTree = "<group>"; };
 		7C44571626C254910001EB58 /* Distionary+Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Distionary+Plus.swift"; sourceTree = "<group>"; };
+		7C44571A26C2D4750001EB58 /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = "my-sibgu/Services/BaseApiService.swift"; sourceTree = SOURCE_ROOT; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1390,6 +1390,7 @@
 		4AB5A68C25A1C64A00518FEA /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				7C44571A26C2D4750001EB58 /* BaseApiService.swift */,
 				4AB5A68D25A1C70D00518FEA /* ConvertableToRealm.swift */,
 			);
 			path = Protocols;
@@ -1881,7 +1882,6 @@
 			children = (
 				7C44571926C260910001EB58 /* RequestService */,
 				7C44571826C2607E0001EB58 /* Requets */,
-				4AB5A67F25A10E8F00518FEA /* BaseApiService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -2153,6 +2153,7 @@
 				4A7A56F9256C017500E2CE0F /* UIView+shadow.swift in Sources */,
 				4AE5889026087FD30036D9CA /* RoomItem.swift in Sources */,
 				4AEBE6DF25637977005F6CBE /* Institute.swift in Sources */,
+				7C44571B26C2D4750001EB58 /* BaseApiService.swift in Sources */,
 				4A3C3F4A25D432BF00F3A7B1 /* RUser.swift in Sources */,
 				4AB8055825E7D07D0080CBE8 /* BooksResponse.swift in Sources */,
 				4AEE181F2570203100DD7D9F /* PopableViewController.swift in Sources */,
@@ -2265,7 +2266,6 @@
 				4AE5889A26089CCA0036D9CA /* Performance.swift in Sources */,
 				7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */,
 				4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */,
-				4AB5A68025A10E8F00518FEA /* BaseApiService.swift in Sources */,
 				4AE588D32608C8F40036D9CA /* PerformanceConcertResponse.swift in Sources */,
 				4AB8054025E7CF560080CBE8 /* LibraryService.swift in Sources */,
 				4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */,
