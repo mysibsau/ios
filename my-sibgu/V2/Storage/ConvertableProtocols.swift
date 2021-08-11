@@ -10,9 +10,9 @@ import RealmSwift
 
 protocol ConvertableToSrore {
     
-    associatedtype RealmProtocol: Object
+    associatedtype StoreProtocol: Object
     
-    var toStoreModel: RealmProtocol { get }
+    var toStoreModel: StoreProtocol { get }
 }
 
 protocol ConvertableToApp {
