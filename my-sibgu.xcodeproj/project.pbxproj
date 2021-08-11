@@ -743,6 +743,7 @@
 		4A07DD83255D89020022B6A9 /* my-sibgu */ = {
 			isa = PBXGroup;
 			children = (
+				7C44572326C37AF80001EB58 /* V2 */,
 				4A38D0B125B87C57006EE06F /* LocalizableTables */,
 				7C44570F26C1944C0001EB58 /* Arch */,
 				4AF3ECA425AC761C00AF0367 /* my-sibgu.entitlements */,
@@ -756,8 +757,6 @@
 				4A7A56E5256BF4A900E2CE0F /* View Controllers */,
 				4A7A56F6256C015F00E2CE0F /* Views */,
 				4A07DDDD255DA2F90022B6A9 /* Services */,
-				7C44571E26C2D9A70001EB58 /* Storage */,
-				7C44570C26C18BC60001EB58 /* Networking */,
 				4A07DD99255D8DBF0022B6A9 /* Model */,
 				4AEBE6F425639326005F6CBE /* Resourses */,
 				4AD21F2D25C04ABB0018D4F0 /* Storyboards */,
@@ -1925,6 +1924,15 @@
 				7C44572126C2F9900001EB58 /* DatabaseManager.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		7C44572326C37AF80001EB58 /* V2 */ = {
+			isa = PBXGroup;
+			children = (
+				7C44571E26C2D9A70001EB58 /* Storage */,
+				7C44570C26C18BC60001EB58 /* Networking */,
+			);
+			path = V2;
 			sourceTree = "<group>";
 		};
 		8202915E8C5B172EB76B9257 /* Pods */ = {
