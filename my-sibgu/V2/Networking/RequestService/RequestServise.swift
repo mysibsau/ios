@@ -25,28 +25,105 @@ class RequestServise {
         downloadingQueue.cancelAllOperations()
     }
     
-    // MARK: - Функция загрузки
-    func perform<T: Request>(_ request: T, completion: @escaping (T.Response?) -> Void) {
-        var downloadedObject: T.Response?
+    // MARK: - Функции загрузки
+    // Ниже функции для разного кол-ва аргументов
+    
+    func perform<R1: Request>(_ request1: R1,
+                              completion: @escaping (R1.Response?) -> Void) {
+        _perform(request1,
+                 nil as R1?, nil as R1?, nil as R1?, nil as R1?, nil as R1?) { r1, _,_,_,_, _ in
+            completion(r1)
+        }
+    }
+    
+    func perform<R1: Request, R2: Request>(_ request1: R1, _ request2: R2,
+                                           completion: @escaping (R1.Response?, R2.Response?) -> Void) {
+        _perform(request1, request2,
+                 nil as R1?, nil as R1?, nil as R1?, nil as R1?) { r1, r2, _,_,_,_ in
+            completion(r1, r2)
+        }
+    }
+    
+    func perform<R1: Request,
+                 R2: Request,
+                 R3: Request>(_ request1: R1, _ request2: R2, _ request3: R3,
+                              completion: @escaping (R1.Response?, R2.Response?, R3.Response?) -> Void) {
+        _perform(request1, request2, request3,
+                 nil as R1?, nil as R1?, nil as R1?) { r1, r2, r3 ,_,_,_ in
+            completion(r1, r2, r3)
+        }
+    }
+}
+
+// MARK: - Private methods for loading
+extension RequestServise {
+    
+    private func _perform<R1: Request, R2: Request, R3: Request,
+                          R4: Request, R5: Request, R6: Request>(
+        _ request1: R1?, _ request2: R2?, _ request3: R3?,
+        _ request4: R4?, _ request5: R5?, _ request6: R6?,
+        completion: @escaping (R1.Response?,
+                               R2.Response?,
+                               R3.Response?,
+                               R4.Response?,
+                               R5.Response?,
+                               R6.Response?) -> Void) {
+        
+        var downloadedObject1: R1.Response?
+        var downloadedObject2: R2.Response?
+        var downloadedObject3: R3.Response?
+        var downloadedObject4: R4.Response?
+        var downloadedObject5: R5.Response?
+        var downloadedObject6: R6.Response?
         
         let completionOperation = BlockOperation {
-            completion(downloadedObject)
+            completion(downloadedObject1, downloadedObject2, downloadedObject3,
+                       downloadedObject4, downloadedObject5, downloadedObject6)
         }
         
-        let downloadingOperation = DownloadOperation(session: session, urlRequest: request.finalUrlRequest) { data, response, error in
-            guard let response = Self.handleResponse(T.Response.self, data, response, error) else {
-                completion(nil)
-                self.cancelAllDownloading()
-                return
-            }
-            
-            downloadedObject = response
+        request1.let {
+            _addDownloadOperation(request: $0, completionOperation: completionOperation, completion: {
+                downloadedObject1 = $0
+            })
+        }
+        request2.let {
+            _addDownloadOperation(request: $0, completionOperation: completionOperation, completion: {
+                downloadedObject2 = $0
+            })
+        }
+        request3.let {
+            _addDownloadOperation(request: $0, completionOperation: completionOperation, completion: {
+                downloadedObject3 = $0
+            })
+        }
+        request4.let {
+            _addDownloadOperation(request: $0, completionOperation: completionOperation, completion: {
+                downloadedObject4 = $0
+            })
+        }
+        request5.let {
+            _addDownloadOperation(request: $0, completionOperation: completionOperation, completion: {
+                downloadedObject5 = $0
+            })
+        }
+        request6.let {
+            _addDownloadOperation(request: $0, completionOperation: completionOperation, completion: {
+                downloadedObject6 = $0
+            })
+        }
+        
+        downloadingQueue.addOperation(completionOperation)
+    }
+    
+    private func _addDownloadOperation<R: Request>(request: R,
+                                                completionOperation: BlockOperation,
+                                                completion: @escaping (R.Response?) -> Void) {
+        let downloadingOperation = DownloadOperation(session: session, urlRequest: request.finalUrlRequest) {  data, response, error in
+            completion(Self.handleResponse(R.Response.self, data, response, error))
         }
         
         completionOperation.addDependency(downloadingOperation)
-        
         downloadingQueue.addOperation(downloadingOperation)
-        downloadingQueue.addOperation(completionOperation)
     }
     
     private static func handleResponse<T: Decodable>(_ type: T.Type, _ data: Data?, _ response: URLResponse?, _ error: Error?) -> T? {
