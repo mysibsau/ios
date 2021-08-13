@@ -303,6 +303,7 @@
 		7C44572026C2F7910001EB58 /* ConvertableProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571F26C2F7910001EB58 /* ConvertableProtocols.swift */; };
 		7C44572226C2F9900001EB58 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44572126C2F9900001EB58 /* DatabaseManager.swift */; };
 		7C44572626C37CBC0001EB58 /* GetModelsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44572526C37CBC0001EB58 /* GetModelsService.swift */; };
+		7C84086C26C5A22F0092F3E0 /* Unreachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C84086B26C5A22F0092F3E0 /* Unreachable.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -654,6 +655,7 @@
 		7C44571F26C2F7910001EB58 /* ConvertableProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertableProtocols.swift; sourceTree = "<group>"; };
 		7C44572126C2F9900001EB58 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7C44572526C37CBC0001EB58 /* GetModelsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModelsService.swift; sourceTree = "<group>"; };
+		7C84086B26C5A22F0092F3E0 /* Unreachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unreachable.swift; sourceTree = "<group>"; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -747,7 +749,6 @@
 			children = (
 				7C44572326C37AF80001EB58 /* V2 */,
 				4A38D0B125B87C57006EE06F /* LocalizableTables */,
-				7C44570F26C1944C0001EB58 /* Arch */,
 				4AF3ECA425AC761C00AF0367 /* my-sibgu.entitlements */,
 				4A91D6882573CB3F00EA1E47 /* Common.swift */,
 				4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */,
@@ -1897,6 +1898,7 @@
 				4A07DE03255DA64B0022B6A9 /* UserDefaults */,
 				7C44571026C194660001EB58 /* Optional+Ext.swift */,
 				7C44571626C254910001EB58 /* Distionary+Plus.swift */,
+				7C84086B26C5A22F0092F3E0 /* Unreachable.swift */,
 			);
 			path = Arch;
 			sourceTree = "<group>";
@@ -1931,6 +1933,7 @@
 		7C44572326C37AF80001EB58 /* V2 */ = {
 			isa = PBXGroup;
 			children = (
+				7C44570F26C1944C0001EB58 /* Arch */,
 				7C44572426C37B5C0001EB58 /* Service */,
 				7C44571E26C2D9A70001EB58 /* Storage */,
 				7C44570C26C18BC60001EB58 /* Networking */,
@@ -2289,6 +2292,7 @@
 				4AD21F4325C15C370018D4F0 /* Timetable.swift in Sources */,
 				4AD21F3D25C154BD0018D4F0 /* TimetableResponse.swift in Sources */,
 				4A5A164C2574F6DB00F5D652 /* DateFormatter+shortDateFormatter.swift in Sources */,
+				7C84086C26C5A22F0092F3E0 /* Unreachable.swift in Sources */,
 				4AE030F425CD443E00E8A9C0 /* DesignOfficeResponse.swift in Sources */,
 				4A3957EE25DEB368009958BC /* AttestationItem.swift in Sources */,
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,

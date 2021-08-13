@@ -30,13 +30,13 @@ class DatabaseManager {
         Array(realm.objects(type))
     }
     
-    func write<T: Object>(object: T) {
+    func write<T: Object>(_ object: T) {
         try? realm.write {
             realm.add(object, update: .all)
         }
     }
     
-    func write<T: Object>(objects: [T]) {
+    func write<T: Object>(_ objects: [T]) {
         try? realm.write {
             realm.add(objects, update: .all)
         }

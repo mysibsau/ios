@@ -58,7 +58,7 @@ class RequestServise {
 // MARK: - Private methods for loading
 extension RequestServise {
     
-    private func _perform<R1: Request, R2: Request, R3: Request,
+    func _perform<R1: Request, R2: Request, R3: Request,
                           R4: Request, R5: Request, R6: Request>(
         _ request1: R1?, _ request2: R2?, _ request3: R3?,
         _ request4: R4?, _ request5: R5?, _ request6: R6?,

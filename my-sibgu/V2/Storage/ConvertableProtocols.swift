@@ -10,9 +10,7 @@ import RealmSwift
 
 protocol ConvertableToSrore {
     
-    associatedtype StoreProtocol: Object
-    
-    var toStoreModel: StoreProtocol { get }
+    var toStoreModel: Object { get }
 }
 
 protocol ConvertableToApp {
@@ -20,4 +18,14 @@ protocol ConvertableToApp {
     associatedtype AppProtocol: ConvertableToSrore
     
     var toAppModel: AppProtocol { get }
+}
+
+
+protocol Storable: ConvertableToSrore {
+    
+    associatedtype StoreType: Object, ConvertableToApp where StoreType.AppProtocol == Self
+    var storeModel: StoreType { get }
+}
+extension Storable {
+    var toStoreModel: Object { storeModel }
 }
