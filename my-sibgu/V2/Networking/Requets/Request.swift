@@ -31,10 +31,6 @@ protocol Request {
     var queryParams: [String: String]? { get }
     var jsonParams: [String: Any]? { get }
     
-    // It's for extension like RequestWithParams
-    var finalQueryParams: [String: String]? { get }
-    var finalJsonParams: [String: Any]? { get }
-    
     // All to Path
     var baseUrlString: String { get }
     var apiVersion: RequestModel.Version { get }
@@ -45,19 +41,20 @@ protocol Request {
 extension Request {
     
     var baseUrlString: String { "https://mysibsau.ru" }
+    var method: RequestModel.Method { .get }
     var apiVersion: RequestModel.Version { .v2 }
     
     // this is necessary in order not to implement properties
     // where it is no needed
     var queryParams: [String: String]? { nil }
     var jsonParams: [String: Any]? { nil }
+}
+
+// MARK: - Additional Property
+extension Request {
     
     var finalQueryParams: [String: String]? { queryParams }
     var finalJsonParams: [String: Any]? { jsonParams }
-}
-
-// MARK: - FinalUrlRequest
-extension Request {
     
     var finalUrlRequest: URLRequest {
         let finalUrlString = baseUrlString
@@ -89,13 +86,4 @@ extension Request {
         
         return urlRequest
     }
-}
-
-
-struct SomeRequest: Request {
-    
-    typealias Response = String
-    
-    var method: RequestModel.Method { .get }
-    var path: String { "" }
 }

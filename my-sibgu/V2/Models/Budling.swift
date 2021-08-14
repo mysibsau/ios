@@ -13,7 +13,6 @@ class BuildingRequest: Request, RequestWithDefaultParams {
     
     typealias Response = [Building]
     
-    var method: RequestModel.Method { .get }
     var path: String { "/campus/buildings/" }
 }
 
@@ -106,9 +105,7 @@ class RBuilding: Object, ConvertableToApp {
     @objc dynamic var urlTo2gis = ""
     
     
-    override class func primaryKey() -> String? {
-        return "id"
-    }
+    override class func primaryKey() -> String? { "id" }
     
     var toAppModel: Building {
         Building(id: id,
