@@ -37,9 +37,6 @@ class ApiCampusService {
     
     
     // TODO: Надо удалить функцию ниже и юзать ту, что в `baseApiService`
-    func loadBuidlings(completion: @escaping (_ buildings: [BuidlingResponse]?) -> Void) {
-        load([BuidlingResponse].self, urlRequest: ApiCampus.buildings(), completion: completion)
-    }
     
     func loadInstitutes(completion: @escaping (_ institutes: [InstituteResponse]?) -> Void) {
         load([InstituteResponse].self, urlRequest: ApiCampus.institutes(), completion: completion)

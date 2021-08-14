@@ -7,6 +7,13 @@
 
 import Foundation
 
+class UnionRequest: Request, RequestWithDefaultParams {
+    typealias Response = [UnionResponse]
+    
+    var method: RequestModel.Method { .get }
+    var path: String { "/campus/unions/" }
+}
+
 class UnionResponse: Decodable {
     
     let id: Int
