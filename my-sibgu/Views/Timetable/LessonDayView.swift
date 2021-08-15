@@ -64,7 +64,14 @@ class LessonDayView: UIView {
         
         todayLabel.textColor = .white
         todayLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        todayLabel.text = "Сегодня"
+        todayLabel.text = "today".localized(using: "Uncatecorized")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+    }
+    
+    @objc
+    private func updateText() {
+        todayLabel.text = "today".localized(using: "Uncatecorized")
     }
     
     // MARK: - Setup Views

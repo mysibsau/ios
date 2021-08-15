@@ -304,6 +304,7 @@
 		7CBAC26C26C9192100C89FE9 /* ArtAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26B26C9192100C89FE9 /* ArtAssociation.swift */; };
 		7CBAC26E26C91B1200C89FE9 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26D26C91B1200C89FE9 /* NetworkingConstants.swift */; };
 		7CBAC27026C91D3100C89FE9 /* ArtAssociationGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */; };
+		7CBAC27326C9415600C89FE9 /* Uncatecorized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CBAC27526C9415600C89FE9 /* Uncatecorized.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -655,6 +656,8 @@
 		7CBAC26B26C9192100C89FE9 /* ArtAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociation.swift; sourceTree = "<group>"; };
 		7CBAC26D26C91B1200C89FE9 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociationGeneral.swift; sourceTree = "<group>"; };
+		7CBAC27426C9415600C89FE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Uncatecorized.strings; sourceTree = "<group>"; };
+		7CBAC27626C9415C00C89FE9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Uncatecorized.strings; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1047,6 +1050,7 @@
 				4A3D14E625E12981006895E1 /* Cafeteria.strings */,
 				4AB8056825E7E4920080CBE8 /* Library.strings */,
 				7C34121F26BC576E00EA94FD /* StudentsCollection.strings */,
+				7CBAC27526C9415600C89FE9 /* Uncatecorized.strings */,
 			);
 			path = LocalizableTables;
 			sourceTree = "<group>";
@@ -2095,6 +2099,7 @@
 				4A051BCA25BDAFB600287FD5 /* Surveys.strings in Resources */,
 				4AEB721425C84D7600161E32 /* Tickets.strings in Resources */,
 				7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */,
+				7CBAC27326C9415600C89FE9 /* Uncatecorized.strings in Resources */,
 				4AD21F3525C073E50018D4F0 /* Corols.xcassets in Resources */,
 				4A07DD8E255D89050022B6A9 /* Assets.xcassets in Resources */,
 				4A051BA425BD6F7100287FD5 /* Buildings.strings in Resources */,
@@ -2681,6 +2686,15 @@
 				7C34122026BC577200EA94FD /* ru */,
 			);
 			name = StudentsCollection.strings;
+			sourceTree = "<group>";
+		};
+		7CBAC27526C9415600C89FE9 /* Uncatecorized.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CBAC27426C9415600C89FE9 /* en */,
+				7CBAC27626C9415C00C89FE9 /* ru */,
+			);
+			name = Uncatecorized.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
