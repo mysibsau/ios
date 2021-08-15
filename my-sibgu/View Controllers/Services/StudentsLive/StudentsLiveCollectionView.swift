@@ -77,7 +77,7 @@ class StudentsLiveCollectionView: UICollectionViewController {
                     imageColor: UIColor.Pallete.content
                 ),
                 "4",
-                { ArtListViewController() }
+                { DetailViewController(presenter: ArtInfoPresenter()) }
             ),
         ]
         

@@ -55,10 +55,6 @@ class ApiCampusService {
         baseApiService.load([DesignOfficeResponse].self, url: ApiCampus.desingOffices(), completion: completion)
     }
     
-    func loadArts(completion: @escaping (_ arts: [ArtAssociationResponse]?) -> Void) {
-        baseApiService.load([ArtAssociationResponse].self, url: ApiCampus.arts(), completion: completion)
-    }
-    
     
     private func load<T: Decodable>(_ type: [T].Type, urlRequest: URLRequest, completion: @escaping ([T]?) -> Void) where T: ConvertableToRealm {
         var downloadedObjects: [T]?

@@ -40,7 +40,7 @@ protocol Request {
 // MARK: - Defalut
 extension Request {
     
-    var baseUrlString: String { "https://mysibsau.ru" }
+    var baseUrlString: String { NetworkingConstants.mysibsauServerAddress }
     var method: RequestModel.Method { .get }
     var apiVersion: RequestModel.Version { .v2 }
     

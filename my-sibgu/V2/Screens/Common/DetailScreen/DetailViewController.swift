@@ -10,22 +10,25 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     
-    var viewModel: DetailViewModel
-    var person: Any?
+    var viewModel: DetailViewModel?
+    weak var presenter: DetailPresenter?
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
+    private let alertView = AlertView()
+    private let activityIndicatorView = UIActivityIndicatorView()
+    
 
-    private let backgroupndImageView: BlurImageView = {
+    let backgroupndImageView: BlurImageView = {
         let imageView = BlurImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.Pallete.white
         imageView.clipsToBounds = true
         return imageView
     }()
-    private let separateLine = UIView()
-    private let personImageView: UIImageView = {
+    let separateLine = UIView()
+    let personImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.Pallete.content
@@ -43,6 +46,13 @@ class DetailViewController: UIViewController {
     
     private let positionLabel = UILabel()
     
+    init(presenter: DetailPresenter) {
+        super.init(nibName: nil, bundle: nil)
+        self.presenter = presenter
+        self.presenter?.detailViewController = self
+        self.presenter?.start()
+    }
+    
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -53,7 +63,10 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViewModel(viewModel: DetailViewModel) {
+    func setupViewModel(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+        setupStackView()
+        separateLine.isHidden = false
         if let title = viewModel.navigationTitle {
             navigationItem.setCenterTitle(title: title)
         }
@@ -82,6 +95,8 @@ class DetailViewController: UIViewController {
     
     @objc
     private func updateText() {
+        guard let viewModel = viewModel else { return }
+        
         stackView.removeAllArrangedSubviews()
         
         for contentItem in viewModel.contentList(onPresenting: self) {
@@ -161,10 +176,13 @@ class DetailViewController: UIViewController {
     }
     
     private func setupStackView() {
+        if contentView.subviews.contains(stackView) {
+            stackView.removeFromSuperview()
+        }
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             // В спорт нет круглого изображения
-            if viewModel.foregroundImage.type == .hide {
+            if viewModel?.foregroundImage.type == .hide {
                 make.top.equalTo(separateLine.snp.bottom).offset(30)
             } else {
                 make.top.equalTo(personImageView.snp.bottom).offset(30)
@@ -218,4 +236,13 @@ class DetailViewController: UIViewController {
         stackView.addArrangedSubview(wrapView)
     }
 
+}
+
+extension DetailViewController: AlertingViewController, AnimatingNetworkProtocol {
+    
+    func alertingSuperViewForDisplay() -> UIView { view }
+    func alertingAlertView() -> AlertView { alertView }
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView { activityIndicatorView }
+    func animatingSuperViewForDisplay() -> UIView { view }
 }
