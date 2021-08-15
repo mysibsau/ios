@@ -142,7 +142,7 @@ extension SportClub: DetailViewModel {
         let tn = "Person"
         
         return [
-            .title("head".localized(using: tn)),
+            .title("trainer".localized(using: tn)),
             .textView(.init(text: fio)),
             .title("training.dates".localized(using: tn)),
             .textView(.init(text: dates)),

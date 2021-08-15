@@ -63,6 +63,7 @@ class DetailViewController: UIViewController {
     }
     
     func setupViewModel(viewModel: DetailViewModel) {
+        loadViewIfNeeded()
         self.viewModel = viewModel
         setupStackView()
         separateLine.isHidden = false
