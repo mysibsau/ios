@@ -68,10 +68,10 @@ class BuildingsViewController: UITableViewController {
             "Левый берег",
         ]
         
-        let buildingsFromLocal = campusService.getBuildingsFromLocal()
+        let buildingsFromLocal = GetModelsService.shared.getFromStore(type: Building.self) //campusService.getBuildingsFromLocal()
         
         // Если в БД были объединения - то показываем их и без спинера качаем и обновляем
-        if let buildingsFromLocal = buildingsFromLocal {
+        if !buildingsFromLocal.isEmpty {
             set(buildings: buildingsFromLocal)
             loadBuildings()
         // Если в БД ничего нет - то показываем спинет и качаем
@@ -82,17 +82,12 @@ class BuildingsViewController: UITableViewController {
     }
     
     private func loadBuildings() {
-        campusService.getBuildings { optionalBuildings in
-            guard let b = optionalBuildings else {
-                DispatchQueue.main.async {
-                    self.stopActivityIndicator()
-                }
-                return
-            }
-
+        GetModelsService.shared.loadAndStoreIfPossible(BuildingRequest()) { response in
             DispatchQueue.main.async {
-                self.set(buildings: b)
                 self.stopActivityIndicator()
+            }
+            if let buildings = response {
+                self.set(buildings: buildings)
             }
         }
     }

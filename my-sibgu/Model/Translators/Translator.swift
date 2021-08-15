@@ -166,23 +166,6 @@ class Translator {
         return Place(id: rPlace.id, name: rPlace.name, address: rPlace.address)
     }
     
-    func converteBuildings(from rBuildings: [RBuilding]) -> [Building] {
-        var builginds = [Building]()
-        rBuildings.forEach { rBuilding in
-            let building = Building(
-                id: rBuilding.id,
-                name: rBuilding.name,
-                type: rBuilding.type,
-                address: rBuilding.address,
-                coast: rBuilding.coast == 0 ? .left : .right,
-                urlTo2gis: URL(string: rBuilding.urlTo2gis
-                                .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
-            builginds.append(building)
-        }
-        
-        return builginds
-    }
-    
     func converteInstitutes(from rInstitutes: [RInstitute]) -> [Institute] {
         var institutes = [Institute]()
         rInstitutes.forEach { rInstitute in

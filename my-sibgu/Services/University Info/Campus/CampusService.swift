@@ -9,18 +9,6 @@ import Foundation
 
 class CampusService {
     
-    // MARK: - From Local -
-    func getBuildingsFromLocal() -> [Building]? {
-        let rBuildings = DataManager.shared.getBuildings()
-        let buildings = Translator.shared.converteBuildings(from: rBuildings)
-        
-        if buildings.isEmpty {
-            return nil
-        } else {
-            return buildings
-        }
-    }
-    
     func getInstitutesFromLocal() -> [Institute]? {
         let rInstitutes = DataManager.shared.getInstitutes()
         let institutes = Translator.shared.converteInstitutes(from: rInstitutes)
@@ -72,31 +60,6 @@ class CampusService {
     }
     
     // MARK: - From Local or From API -
-    func getBuildings(completion: @escaping ([Building]?) -> Void) {
-        let buildingsFromLocal = DataManager.shared.getBuildings()
-        ApiCampusService().loadBuidlings { buildingsResponse in
-            // Если не вышло скачать - пытаемся показать то, что сохранено в БД
-            guard let buildingsResponse = buildingsResponse else {
-                if buildingsFromLocal.isEmpty {
-                    completion(nil)
-                } else {
-                    DispatchQueue.main.async {
-                        completion(Translator.shared.converteBuildings(from: buildingsFromLocal))
-                    }
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                DataManager.shared.deleteAllBuildings()
-                let buildings = buildingsResponse.map { $0.converteToRealm() }
-                DataManager.shared.write(buildings: buildings)
-                let buildingsForShowing = DataManager.shared.getBuildings()
-                completion(Translator.shared.converteBuildings(from: buildingsForShowing))
-            }
-        }
-    }
-    
     func getInstitutes(completion: @escaping ([Institute]?) -> Void) {
         let institutsFromLocal = DataManager.shared.getInstitutes()
         ApiCampusService().loadInstitutes { institutesResponse in
