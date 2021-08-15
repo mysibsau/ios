@@ -11,7 +11,7 @@ import SnapKit
 class DetailViewController: UIViewController {
     
     var viewModel: DetailViewModel?
-    weak var presenter: DetailPresenter?
+    var presenter: DetailPresenter?
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -50,7 +50,6 @@ class DetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.presenter = presenter
         self.presenter?.detailViewController = self
-        self.presenter?.start()
     }
     
     init(viewModel: DetailViewModel) {
@@ -91,6 +90,8 @@ class DetailViewController: UIViewController {
         setupStackView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        
+        presenter?.start()
     }
     
     @objc
@@ -111,6 +112,8 @@ class DetailViewController: UIViewController {
                 addView(text: model.text, imageName: model.imageName)
             case .button(let model):
                 addButton(text: model.text, imageName: model.imageName, action: model.action)
+            case .cornerImageWithText(let model):
+                addCornerImageWithTextView(text: model.text, imageUrl: model.imageUrl, action: model.action)
             }
         }
     }
@@ -224,8 +227,12 @@ class DetailViewController: UIViewController {
         addArrangedSubviewToStackView(view: b, additionalPading: 0)
     }
     
+    private func addCornerImageWithTextView(text: String, imageUrl: URL, action: @escaping () -> Void) {
+        addArrangedSubviewToStackView(view: CornerImageWithTitleView(text: text, imageUrl: imageUrl))
+    }
     
-    private func addArrangedSubviewToStackView(view: UIView, additionalPading: Int) {
+    
+    private func addArrangedSubviewToStackView(view: UIView, additionalPading: Int = 0) {
         let wrapView = UIView()
         wrapView.addSubview(view)
         view.snp.makeConstraints { make in
