@@ -46,7 +46,14 @@ enum DetailModel {
              nameView(String),
              textView(TextViewModel),
              imageAndTextView(ImageAndTextViewModel),
-             button(ButtonViewModel)
+             button(ButtonViewModel),
+             cornerImageWithText(CornerImageWithTextModel)
+    }
+    
+    struct CornerImageWithTextModel {
+        let text: String
+        let imageUrl: URL
+        let action: () -> Void
     }
     
     struct ImageAndTextViewModel {

@@ -8,9 +8,25 @@
 import UIKit
 
 class CornerImageWithTitleView: UIView {
-
-    let imageView = UIImageView()
-    let label = UILabel()
+    
+    let logoImageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFill
+        imgView.backgroundColor = UIColor.Pallete.white
+        imgView.clipsToBounds = true
+        return imgView
+    }()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.numberOfLines = 2
+        label.textColor = UIColor.Pallete.sibsuBlue
+        return label
+    }()
+    
+    var action: () -> Void = { }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,10 +38,11 @@ class CornerImageWithTitleView: UIView {
         setupView()
     }
     
-    public init(text: String, imageName: String) {
+    public init(text: String, imageUrl: URL, action: @escaping () -> Void) {
         self.init()
-        self.label.text = text
-        self.imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        self.nameLabel.text = text
+        logoImageView.loadImage(at: imageUrl)
+        self.action = action
     }
     
     func setupView() {
@@ -34,25 +51,28 @@ class CornerImageWithTitleView: UIView {
         makeShadow()
         makeBorder()
         
-        self.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.size.equalTo(30)
-            make.leading.equalToSuperview().offset(10)
-            make.centerY.equalToSuperview()
+        addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
+            make.top.bottom.leading.equalToSuperview().inset(5)
+            make.size.equalTo(60)
         }
+        logoImageView.layer.borderColor = UIColor.Pallete.gray.cgColor
+        logoImageView.layer.borderWidth = 1
+        logoImageView.layer.cornerRadius = 30
+        // (60 + 5 + 5) / 2 = 35
+        layer.cornerRadius = 35
         
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = UIColor.Pallete.sibsuGreen
         
-        self.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalToSuperview().inset(20)
-            make.leading.equalTo(imageView.snp.trailing).offset(10)
+        addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(logoImageView.snp.trailing).offset(10)
+            make.centerY.equalTo(logoImageView)
+            make.trailing.equalToSuperview().offset(-10)
         }
-        
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        label.textColor = UIColor.Pallete.sibsuBlue
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        action()
     }
 }

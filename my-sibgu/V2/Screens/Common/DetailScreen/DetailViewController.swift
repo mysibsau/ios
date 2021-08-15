@@ -228,7 +228,7 @@ class DetailViewController: UIViewController {
     }
     
     private func addCornerImageWithTextView(text: String, imageUrl: URL, action: @escaping () -> Void) {
-        addArrangedSubviewToStackView(view: CornerImageWithTitleView(text: text, imageUrl: imageUrl))
+        addArrangedSubviewToStackView(view: CornerImageWithTitleView(text: text, imageUrl: imageUrl, action: action))
     }
     
     

@@ -16,9 +16,28 @@ class ArtInfoPresenter: DetailPresenter {
     func start() {
         hideAllElements()
         
-        detailViewController?.startActivityIndicator()
-        set(arts: GetModelsService.shared.getFromStore(type: ArtAssociation.self))
-        detailViewController?.stopActivityIndicator()
+//        detailViewController?.startActivityIndicator()
+//        set(arts: GetModelsService.shared.getFromStore(type: ArtAssociation.self))
+//        detailViewController?.stopActivityIndicator()
+        
+        DispatchQueue.main.async {
+            self.detailViewController?.setupViewModel(
+                viewModel: AnyDetailViewModel(
+                    navigationTitle: "Hello",
+                    backgroundImage: .init(type: .local("back_main_logo")),
+                    foregroundImage: .init(type: .hide),
+                    content: { viewController in
+                        return [
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
+                        ]
+                    }))
+        }
     }
     
     private func set(arts: [ArtAssociation]) {
