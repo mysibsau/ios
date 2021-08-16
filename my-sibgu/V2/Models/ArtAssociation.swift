@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-struct ArtAssociationRequest: Request, RequestWithDefaultParams {
+struct ArtAssociationRequest: Request, RequestWithDefaultQueryParams, RequestWithDefaultHeaderParams {
     typealias Response = [ArtAssociation]
     
     var path: String { "/campus/ensembles" }

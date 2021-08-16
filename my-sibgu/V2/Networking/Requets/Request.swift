@@ -30,11 +30,16 @@ protocol Request {
     
     var queryParams: [String: String]? { get }
     var jsonParams: [String: Any]? { get }
+    var headerParams: [String: String]? { get }
     
     // All to Path
     var baseUrlString: String { get }
     var apiVersion: RequestModel.Version { get }
     var path: String { get }
+    
+    var finalQueryParams: [String: String]? { get }
+    var finalJsonParams: [String: Any]? { get }
+    var finalHeaderParams: [String: String]?  { get }
 }
 
 // MARK: - Defalut
@@ -48,13 +53,15 @@ extension Request {
     // where it is no needed
     var queryParams: [String: String]? { nil }
     var jsonParams: [String: Any]? { nil }
+    var headerParams: [String: String]? { nil }
+    
+    var finalQueryParams: [String: String]? { queryParams }
+    var finalJsonParams: [String: Any]? { jsonParams }
+    var finalHeaderParams: [String: String]?  { headerParams }
 }
 
 // MARK: - Additional Property
 extension Request {
-    
-    var finalQueryParams: [String: String]? { queryParams }
-    var finalJsonParams: [String: Any]? { jsonParams }
     
     var finalUrlRequest: URLRequest {
         let finalUrlString = baseUrlString
@@ -79,6 +86,12 @@ extension Request {
             }
             urlRequest.setValue("Application/json", forHTTPHeaderField: "Content-Type")
             urlRequest.httpBody = jsonData
+        }
+        
+        finalHeaderParams.let { params in
+            params.forEach { key, value in
+                urlRequest.setValue(value, forHTTPHeaderField: key)
+            }
         }
         
         // set method

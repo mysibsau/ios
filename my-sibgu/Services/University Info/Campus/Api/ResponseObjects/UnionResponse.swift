@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UnionRequest: Request, RequestWithDefaultParams {
+class UnionRequest: Request, RequestWithDefaultQueryParams {
     typealias Response = [UnionResponse]
     
     var method: RequestModel.Method { .get }

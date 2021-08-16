@@ -290,7 +290,7 @@
 		7C44570E26C18D4F0001EB58 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44570D26C18D4F0001EB58 /* Request.swift */; };
 		7C44571126C194660001EB58 /* Optional+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571026C194660001EB58 /* Optional+Ext.swift */; };
 		7C44571326C1A7000001EB58 /* RequestServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571226C1A7000001EB58 /* RequestServise.swift */; };
-		7C44571526C2539D0001EB58 /* RequestWithDefaultParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571426C2539D0001EB58 /* RequestWithDefaultParams.swift */; };
+		7C44571526C2539D0001EB58 /* RequestWithDefaultQueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571426C2539D0001EB58 /* RequestWithDefaultQueryParams.swift */; };
 		7C44571726C254910001EB58 /* Distionary+Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571626C254910001EB58 /* Distionary+Plus.swift */; };
 		7C44571B26C2D4750001EB58 /* BaseApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571A26C2D4750001EB58 /* BaseApiService.swift */; };
 		7C44572026C2F7910001EB58 /* ConvertableProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44571F26C2F7910001EB58 /* ConvertableProtocols.swift */; };
@@ -305,6 +305,8 @@
 		7CBAC26E26C91B1200C89FE9 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26D26C91B1200C89FE9 /* NetworkingConstants.swift */; };
 		7CBAC27026C91D3100C89FE9 /* ArtAssociationGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */; };
 		7CBAC27326C9415600C89FE9 /* Uncatecorized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CBAC27526C9415600C89FE9 /* Uncatecorized.strings */; };
+		7CBAC27826CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC27726CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift */; };
+		7CBAC27B26CA22C500C89FE9 /* DictableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC27A26CA22C500C89FE9 /* DictableType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -642,7 +644,7 @@
 		7C44570D26C18D4F0001EB58 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		7C44571026C194660001EB58 /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
 		7C44571226C1A7000001EB58 /* RequestServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServise.swift; sourceTree = "<group>"; };
-		7C44571426C2539D0001EB58 /* RequestWithDefaultParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWithDefaultParams.swift; sourceTree = "<group>"; };
+		7C44571426C2539D0001EB58 /* RequestWithDefaultQueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWithDefaultQueryParams.swift; sourceTree = "<group>"; };
 		7C44571626C254910001EB58 /* Distionary+Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Distionary+Plus.swift"; sourceTree = "<group>"; };
 		7C44571A26C2D4750001EB58 /* BaseApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiService.swift; path = "my-sibgu/Services/BaseApiService.swift"; sourceTree = SOURCE_ROOT; };
 		7C44571F26C2F7910001EB58 /* ConvertableProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertableProtocols.swift; sourceTree = "<group>"; };
@@ -658,6 +660,8 @@
 		7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAssociationGeneral.swift; sourceTree = "<group>"; };
 		7CBAC27426C9415600C89FE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Uncatecorized.strings; sourceTree = "<group>"; };
 		7CBAC27626C9415C00C89FE9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Uncatecorized.strings; sourceTree = "<group>"; };
+		7CBAC27726CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWithDefaultHeaderParams.swift; sourceTree = "<group>"; };
+		7CBAC27A26CA22C500C89FE9 /* DictableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictableType.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1894,8 +1898,10 @@
 		7C44571826C2607E0001EB58 /* Requets */ = {
 			isa = PBXGroup;
 			children = (
+				7CBAC27A26CA22C500C89FE9 /* DictableType.swift */,
 				7C44570D26C18D4F0001EB58 /* Request.swift */,
-				7C44571426C2539D0001EB58 /* RequestWithDefaultParams.swift */,
+				7C44571426C2539D0001EB58 /* RequestWithDefaultQueryParams.swift */,
+				7CBAC27726CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift */,
 			);
 			path = Requets;
 			sourceTree = "<group>";
@@ -2346,6 +2352,7 @@
 				4AC1916A25B577A600325142 /* SurveyAnswerPost.swift in Sources */,
 				4A3957EA25DEB328009958BC /* Marks.swift in Sources */,
 				4A0049B625CEBB1800F59CB3 /* VacancyViewController.swift in Sources */,
+				7CBAC27B26CA22C500C89FE9 /* DictableType.swift in Sources */,
 				4AB5A67425A107C300518FEA /* ApiCampus.swift in Sources */,
 				4A3F72BA260CAE0B00946388 /* CancertTableViewCell.swift in Sources */,
 				4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */,
@@ -2373,7 +2380,7 @@
 				4AC1919925B6D1B000325142 /* Theme.swift in Sources */,
 				4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */,
 				4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */,
-				7C44571526C2539D0001EB58 /* RequestWithDefaultParams.swift in Sources */,
+				7C44571526C2539D0001EB58 /* RequestWithDefaultQueryParams.swift in Sources */,
 				4A3C3F4625D42DD600F3A7B1 /* User.swift in Sources */,
 				4AEBE6E325637B41005F6CBE /* Institute+Director.swift in Sources */,
 				4AC1911925B3231B00325142 /* ApiSurveysService.swift in Sources */,
@@ -2416,6 +2423,7 @@
 				7C44572226C2F9900001EB58 /* DatabaseManager.swift in Sources */,
 				4AB8054C25E7CFC90080CBE8 /* PhysicalBook.swift in Sources */,
 				7CBAC26E26C91B1200C89FE9 /* NetworkingConstants.swift in Sources */,
+				7CBAC27826CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift in Sources */,
 				4A9FEF3325EFD111005DD121 /* PerformanceViewController.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
