@@ -68,7 +68,7 @@ class DetailViewController: UIViewController {
         setupStackView()
         separateLine.isHidden = false
         if let title = viewModel.navigationTitle {
-            navigationItem.setCenterTitle(title: title)
+            navigationItem.setLeftTitle(title: title)
         }
         viewModel.backgroundImage.setup(imageView: backgroupndImageView)
         viewModel.foregroundImage.setup(imageView: personImageView)
