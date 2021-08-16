@@ -21,16 +21,17 @@ class GetModelsService {
         self.requestService = requestService
     }
     
-    func loadAndStoreIfPossible<R1: Request>(_ request1: R1, completion: @escaping (R1.Response?) -> Void) {
-        _loadAndStoreIfPossible(request1, nil as R1?, nil as R1?) { r1, _,_ in
+    func loadAndStoreIfPossible<R1: Request>(_ request1: R1, deleteActionBeforeWriting: (() -> Void)?, completion: @escaping (R1.Response?) -> Void) {
+        _loadAndStoreIfPossible(request1, nil as R1?, nil as R1?, deleteActionBeforeWriting: deleteActionBeforeWriting) { r1, _,_ in
             completion(r1)
         }
     }
     
     func loadAndStoreIfPossible<R1: Request,
                                 R2: Request>(_ request1: R1, _ request2: R2,
+                                             deleteActionBeforeWriting: (() -> Void)?,
                                              completion: @escaping (R1.Response?, R2.Response?) -> Void) {
-        _loadAndStoreIfPossible(request1, request2, nil as R1?) { r1, r2, _ in
+        _loadAndStoreIfPossible(request1, request2, nil as R1?, deleteActionBeforeWriting: deleteActionBeforeWriting) { r1, r2, _ in
             completion(r1, r2)
         }
     }
@@ -38,10 +39,11 @@ class GetModelsService {
     func loadAndStoreIfPossible<R1: Request,
                                 R2: Request,
                                 R3: Request>(_ request1: R1, _ request2: R2, _ request3: R3,
+                                             deleteActionBeforeWriting: (() -> Void)?,
                                              completion: @escaping (R1.Response?,
                                                                     R2.Response?,
                                                                     R3.Response?) -> Void) {
-        _loadAndStoreIfPossible(request1, request2, request3) { r1, r2, r3 in
+        _loadAndStoreIfPossible(request1, request2, request3, deleteActionBeforeWriting: deleteActionBeforeWriting) { r1, r2, r3 in
             completion(r1, r2, r3)
         }
     }
@@ -58,6 +60,7 @@ extension GetModelsService {
     private func _loadAndStoreIfPossible<R1: Request,
                                          R2: Request,
                                          R3: Request>(_ request1: R1?, _ request2: R2?, _ request3: R3?,
+                                                      deleteActionBeforeWriting: (() -> Void)?,
                                                       completion: @escaping (R1.Response?,
                                                                              R2.Response?,
                                                                              R3.Response?) -> Void) {
@@ -66,6 +69,9 @@ extension GetModelsService {
             
             // TODO: now store only `ConvertableToSrore` and `[ConvertableToSrore]`
             // TODO: if `[[ConvertableToSrore]]`, it will not store
+            DispatchQueue.main.async {
+                deleteActionBeforeWriting?()
+            }
             [r1, r2, r3]
                 .compactMap { (model) -> [ConvertableToSrore]? in
                     if let con = model as? ConvertableToSrore {

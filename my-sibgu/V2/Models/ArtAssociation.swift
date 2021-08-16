@@ -8,12 +8,14 @@
 import Foundation
 import RealmSwift
 
+// MARK: - Request
 struct ArtAssociationRequest: Request, RequestWithDefaultQueryParams, RequestWithDefaultHeaderParams {
     typealias Response = [ArtAssociation]
     
     var path: String { "/campus/ensembles" }
 }
 
+// MARK: - Model
 struct ArtAssociation: Decodable {
     
     let id: Int
@@ -58,6 +60,7 @@ extension ArtAssociation: Storable {
     }
 }
 
+// MARK: - RModel
 class RArtAssociation: Object, ConvertableToApp {
     
     @objc dynamic var id = 0

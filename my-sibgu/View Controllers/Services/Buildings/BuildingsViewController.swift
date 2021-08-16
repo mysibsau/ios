@@ -82,7 +82,9 @@ class BuildingsViewController: UITableViewController {
     }
     
     private func loadBuildings() {
-        GetModelsService.shared.loadAndStoreIfPossible(BuildingRequest()) { response in
+        GetModelsService.shared.loadAndStoreIfPossible(BuildingRequest(), deleteActionBeforeWriting: {
+            DatabaseManager.shared.deleteAll(RBuilding.self)
+        }) { response in
             DispatchQueue.main.async {
                 self.stopActivityIndicator()
             }
