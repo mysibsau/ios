@@ -15,8 +15,6 @@ class FAQViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
     
-    private let addQuestionButton = UIButton()
-    
     private let activityIndicatorView = UIActivityIndicatorView()
     private let alertView = AlertView()
     
@@ -58,11 +56,9 @@ class FAQViewController: UIViewController {
         let tableName = "FAQ"
         
         self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
-        addQuestionButton.setTitle("ask.another.question".localized(using: tableName), for: .normal)
     }
     
     private func setFaq() {
-        addQuestionButton.isHidden = true
         startActivityIndicator()
         GetModelsService.shared.loadAndStoreIfPossible(
             FAQListRequest(),
@@ -80,7 +76,6 @@ class FAQViewController: UIViewController {
                         self.stackView.addArrangedSubview(v)
                     }
                     self.stopActivityIndicator()
-                    self.addQuestionButton.isHidden = false
                 }
             })
     }
@@ -113,36 +108,15 @@ class FAQViewController: UIViewController {
     }
     
     private func setupAddQeustionButton() {
-        addQuestionButton.backgroundColor = UIColor.Pallete.content
-        addQuestionButton.setTitle("Задать другой вопрос", for: .normal)
-        addQuestionButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        addQuestionButton.setTitleColor(UIColor.Pallete.sibsuBlue, for: .normal)
-        addQuestionButton.layer.cornerRadius = 15
-        addQuestionButton.makeShadow()
-        addQuestionButton.makeBorder()
-        
-        scrollView.addSubview(addQuestionButton)
-        addQuestionButton.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
-        }
-        
-        addQuestionButton.addTarget(self, action: #selector(didTapAddQuestionButton), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = .init(image: .init(systemName: "square.and.pencil"),
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(didTapAddQuestionButton))
     }
     
     @objc
     private func didTapAddQuestionButton() {
         present(AskQuestionViewController(), animated: true, completion: nil)
-    }
-    
-}
-
-extension FAQViewController {
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        addQuestionButton.makeBorder()
-        addQuestionButton.makeShadow()
     }
     
 }
