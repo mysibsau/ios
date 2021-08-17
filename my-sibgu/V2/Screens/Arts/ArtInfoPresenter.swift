@@ -69,10 +69,36 @@ class ArtInfoPresenter: DetailPresenter {
             backgroundImage: .init(type: .url(general.logo)),
             foregroundImage: .init(type: .hide),
             content: { viewController in
-                return arts
+                let tn = "Person"
+                
+                let groupsContent = arts
                     .sorted { $0.id < $1.id }
-                    .map { DetailModel.Content.title($0.name) }
+                    .map { art in
+                        DetailModel.Content.cornerImageWithText(
+                            .init(text: art.name,
+                                  imageUrl: art.logo,
+                                  action: { self.openDetailScreen(art: art) }))
+                    }
+                
+                return [
+                    .nameView(general.name),
+                    .title("about".localized(using: tn)),
+                    .textView(.init(text: general.description)),
+                    .button(.init(imageName: "vk",
+                                  text: "link.vk".localized(using: tn),
+                                  action: general.vkLink.openIfCan)),
+                    .button(.init(imageName: "vk",
+                                  text: "link.vk".localized(using: tn),
+                                  action: general.instagramLink.openIfCan)),
+                    .textView(.init(text: general.contacts, tappable: true)),
+                    .title("groups".localized(using: tn))
+                ] + groupsContent
             })
+    }
+    
+    private func openDetailScreen(art: ArtAssociation) {
+        detailViewController?.navigationController?.pushViewController(
+            DetailViewController(viewModel: art), animated: true)
     }
 }
 

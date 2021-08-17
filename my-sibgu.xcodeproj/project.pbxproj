@@ -283,6 +283,7 @@
 		4AF3ECAD25AC845100AF0367 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECAC25AC845100AF0367 /* NotificationService.swift */; };
 		4AF3ECB125AC845100AF0367 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AF3ECAA25AC845100AF0367 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */; };
+		7C319F9426CBED62009B8D4D /* URL+openIfCan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C319F9326CBED62009B8D4D /* URL+openIfCan.swift */; };
 		7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C34121F26BC576E00EA94FD /* StudentsCollection.strings */; };
 		7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */; };
 		7C34123026BFD54F00EA94FD /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */; };
@@ -636,6 +637,7 @@
 		4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePushNotificationManager.swift; sourceTree = "<group>"; };
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C319F9326CBED62009B8D4D /* URL+openIfCan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+openIfCan.swift"; sourceTree = "<group>"; };
 		7C34121E26BC576E00EA94FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122026BC577200EA94FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToArtViewController.swift; sourceTree = "<group>"; };
@@ -1891,6 +1893,7 @@
 				7C44571026C194660001EB58 /* Optional+Ext.swift */,
 				7C44571626C254910001EB58 /* Distionary+Plus.swift */,
 				7C84086B26C5A22F0092F3E0 /* Unreachable.swift */,
+				7C319F9326CBED62009B8D4D /* URL+openIfCan.swift */,
 			);
 			path = Arch;
 			sourceTree = "<group>";
@@ -2449,6 +2452,7 @@
 				4AB8053B25E7CE3A0080CBE8 /* Book.swift in Sources */,
 				4A07DDB0255D95DE0022B6A9 /* RGroup.swift in Sources */,
 				4AE588B42608A28E0036D9CA /* PerformanceResponse.swift in Sources */,
+				7C319F9426CBED62009B8D4D /* URL+openIfCan.swift in Sources */,
 				4AEE17FE256E97C400DD7D9F /* TimetableSearchViewController.swift in Sources */,
 				4AD21F6325C1A97E0018D4F0 /* Professor.swift in Sources */,
 				4A7A56F0256BF57B00E2CE0F /* InstitutionsViewController.swift in Sources */,
