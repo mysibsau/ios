@@ -9,9 +9,6 @@ import UIKit
 
 class AskQuestionViewController: UIViewController {
     
-    
-    private let supportService = SupportService()
-    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     

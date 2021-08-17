@@ -110,7 +110,6 @@
 		4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063D425CAA443004C2BC8 /* FAQView.swift */; };
 		4A5063DC25CAABED004C2BC8 /* FAQ.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5063DE25CAABED004C2BC8 /* FAQ.strings */; };
 		4A5063EE25CAFAB5004C2BC8 /* FAQResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */; };
-		4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */; };
 		4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */; };
 		4A5126AB25F3D86D00ED67D2 /* UrlTappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */; };
 		4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */; };
@@ -455,7 +454,6 @@
 		4A5063DD25CAABED004C2BC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FAQ.strings; sourceTree = "<group>"; };
 		4A5063E125CAABF1004C2BC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FAQ.strings; sourceTree = "<group>"; };
 		4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQResponse.swift; sourceTree = "<group>"; };
-		4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuesionPost.swift; sourceTree = "<group>"; };
 		4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
 		4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlTappableLabel.swift; sourceTree = "<group>"; };
 		4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
@@ -1011,7 +1009,6 @@
 				4AF0301C25E2B4500045D032 /* Cafeteria */,
 				4AF3EC6625AA12DC00AF0367 /* Informing */,
 				4AC1910D25B3225100325142 /* Surveys */,
-				4A5063E425CAFA35004C2BC8 /* Support */,
 				4A00498825CEB1F800F59CB3 /* Work */,
 				4AB8053E25E7CF3A0080CBE8 /* Library */,
 				4AE588A026089D2F0036D9CA /* Tickets */,
@@ -1152,38 +1149,6 @@
 				4A5063D425CAA443004C2BC8 /* FAQView.swift */,
 			);
 			path = FAQ;
-			sourceTree = "<group>";
-		};
-		4A5063E425CAFA35004C2BC8 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				4A5063EB25CAFA65004C2BC8 /* Api */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		4A5063EB25CAFA65004C2BC8 /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				4A5063F725CAFD9E004C2BC8 /* PostObjects */,
-				4A5063EC25CAFA75004C2BC8 /* ResponseObjects */,
-			);
-			path = Api;
-			sourceTree = "<group>";
-		};
-		4A5063EC25CAFA75004C2BC8 /* ResponseObjects */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ResponseObjects;
-			sourceTree = "<group>";
-		};
-		4A5063F725CAFD9E004C2BC8 /* PostObjects */ = {
-			isa = PBXGroup;
-			children = (
-				4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */,
-			);
-			path = PostObjects;
 			sourceTree = "<group>";
 		};
 		4A54F56F259A1EAC00184BC0 /* StudentsLive */ = {
@@ -2288,7 +2253,6 @@
 				4A1AC3F425D252B8007116F4 /* AuthViewController.swift in Sources */,
 				4A9FEF3725EFDC00005DD121 /* LabelButton.swift in Sources */,
 				4A71012E25F1F83400549146 /* RoomPlaceCollectionViewCell.swift in Sources */,
-				4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */,
 				4AF3EC5F25A99F6C00AF0367 /* Institution+Equatable.swift in Sources */,
 				4A5A16492574F25D00F5D652 /* UIColor+hex.swift in Sources */,
 				4A07DDD3255DA0640022B6A9 /* String+capitalizinFirstLetter.swift in Sources */,

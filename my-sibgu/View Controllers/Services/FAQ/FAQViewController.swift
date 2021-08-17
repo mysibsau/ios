@@ -9,8 +9,6 @@ import UIKit
 
 class FAQViewController: UIViewController {
     
-    private let supportService = SupportService()
-    
     private var faqs: [FAQResponse] = []
 
     // MARK: - Private UI
