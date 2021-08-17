@@ -17,6 +17,18 @@ protocol DetailViewModel {
     func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content]
 }
 
+struct AnyDetailViewModel: DetailViewModel {
+    
+    let navigationTitle: String?
+    let backgroundImage: DetailModel.Image
+    let foregroundImage: DetailModel.Image
+    let content: (UIViewController) -> [DetailModel.Content]
+    
+    func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
+        content(viewController)
+    }
+}
+
 enum DetailModel {
     
     struct Image {
@@ -34,7 +46,14 @@ enum DetailModel {
              nameView(String),
              textView(TextViewModel),
              imageAndTextView(ImageAndTextViewModel),
-             button(ButtonViewModel)
+             button(ButtonViewModel),
+             cornerImageWithText(CornerImageWithTextModel)
+    }
+    
+    struct CornerImageWithTextModel {
+        let text: String
+        let imageUrl: URL
+        let action: () -> Void
     }
     
     struct ImageAndTextViewModel {
@@ -79,5 +98,8 @@ extension DetailModel.Image {
         case .hide:
             imageView.isHidden = true
         }
+        
+        // Да я знаю что дублирует прошлое но так надо
+        imageView.isHidden = type == .hide
     }
 }

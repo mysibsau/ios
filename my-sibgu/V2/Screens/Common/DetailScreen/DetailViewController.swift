@@ -10,22 +10,25 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     
-    var viewModel: DetailViewModel
-    var person: Any?
+    var viewModel: DetailViewModel?
+    var presenter: DetailPresenter?
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
+    private let alertView = AlertView()
+    private let activityIndicatorView = UIActivityIndicatorView()
+    
 
-    private let backgroupndImageView: BlurImageView = {
+    let backgroupndImageView: BlurImageView = {
         let imageView = BlurImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.Pallete.white
         imageView.clipsToBounds = true
         return imageView
     }()
-    private let separateLine = UIView()
-    private let personImageView: UIImageView = {
+    let separateLine = UIView()
+    let personImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.Pallete.content
@@ -43,8 +46,16 @@ class DetailViewController: UIViewController {
     
     private let positionLabel = UILabel()
     
+    init(presenter: DetailPresenter) {
+        super.init(nibName: nil, bundle: nil)
+        self.presenter = presenter
+        self.presenter?.detailViewController = self
+        presenter.getStoreViewModel().let {
+            setupViewModel(viewModel: $0)
+        }
+    }
+    
     init(viewModel: DetailViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupViewModel(viewModel: viewModel)
     }
@@ -53,9 +64,13 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViewModel(viewModel: DetailViewModel) {
+    func setupViewModel(viewModel: DetailViewModel) {
+        loadViewIfNeeded()
+        self.viewModel = viewModel
+        setupStackView()
+        separateLine.isHidden = false
         if let title = viewModel.navigationTitle {
-            navigationItem.setCenterTitle(title: title)
+            navigationItem.setLeftTitle(title: title)
         }
         viewModel.backgroundImage.setup(imageView: backgroupndImageView)
         viewModel.foregroundImage.setup(imageView: personImageView)
@@ -78,10 +93,14 @@ class DetailViewController: UIViewController {
         setupStackView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
+        
+        presenter?.startLoading()
     }
     
     @objc
     private func updateText() {
+        guard let viewModel = viewModel else { return }
+        
         stackView.removeAllArrangedSubviews()
         
         for contentItem in viewModel.contentList(onPresenting: self) {
@@ -96,6 +115,8 @@ class DetailViewController: UIViewController {
                 addView(text: model.text, imageName: model.imageName)
             case .button(let model):
                 addButton(text: model.text, imageName: model.imageName, action: model.action)
+            case .cornerImageWithText(let model):
+                addCornerImageWithTextView(text: model.text, imageUrl: model.imageUrl, action: model.action)
             }
         }
     }
@@ -112,10 +133,6 @@ class DetailViewController: UIViewController {
         // убираем полосы прокрутки
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        
-        scrollView.alwaysBounceVertical = false
-        scrollView.alwaysBounceHorizontal = false
-        scrollView.bounces = false
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
@@ -161,10 +178,13 @@ class DetailViewController: UIViewController {
     }
     
     private func setupStackView() {
+        if contentView.subviews.contains(stackView) {
+            stackView.removeFromSuperview()
+        }
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             // В спорт нет круглого изображения
-            if viewModel.foregroundImage.type == .hide {
+            if viewModel?.foregroundImage.type == .hide {
                 make.top.equalTo(separateLine.snp.bottom).offset(30)
             } else {
                 make.top.equalTo(personImageView.snp.bottom).offset(30)
@@ -206,8 +226,12 @@ class DetailViewController: UIViewController {
         addArrangedSubviewToStackView(view: b, additionalPading: 0)
     }
     
+    private func addCornerImageWithTextView(text: String, imageUrl: URL, action: @escaping () -> Void) {
+        addArrangedSubviewToStackView(view: CornerImageWithTitleView(text: text, imageUrl: imageUrl, action: action))
+    }
     
-    private func addArrangedSubviewToStackView(view: UIView, additionalPading: Int) {
+    
+    private func addArrangedSubviewToStackView(view: UIView, additionalPading: Int = 0) {
         let wrapView = UIView()
         wrapView.addSubview(view)
         view.snp.makeConstraints { make in
@@ -218,4 +242,13 @@ class DetailViewController: UIViewController {
         stackView.addArrangedSubview(wrapView)
     }
 
+}
+
+extension DetailViewController: AlertingViewController, AnimatingNetworkProtocol {
+    
+    func alertingSuperViewForDisplay() -> UIView { view }
+    func alertingAlertView() -> AlertView { alertView }
+    
+    func animatingActivityIndicatorView() -> UIActivityIndicatorView { activityIndicatorView }
+    func animatingSuperViewForDisplay() -> UIView { view }
 }

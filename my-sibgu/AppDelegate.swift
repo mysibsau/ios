@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Удаляем все badge
         UIApplication.shared.applicationIconBadgeNumber = 0
         
+        GetModelsService.shared.loadAndStoreIfPossible(ArtAssociationGeneralRequest(), deleteActionBeforeWriting: {
+            DatabaseManager.shared.deleteAll(RArtAssociationGeneral.self)
+        }) { response in
+            print(response)
+        }
+        
         return true
     }
 

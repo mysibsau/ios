@@ -10,7 +10,11 @@
 "soviet.head" = "Председатель студ. совета";
 "about" = "Описание";
 "head" = "Председатель";
+"trainer" = "Тренер";
 "group.vk" = "Группа VK";
+"link.vk" = "Страница VK";
+"link.inst" = "Instagram";
 "join.to" = "Подать заявку";
 "training.dates" = "Дни тренировок";
 "contacts" = "Контакты";
+"groups" = "Группы";

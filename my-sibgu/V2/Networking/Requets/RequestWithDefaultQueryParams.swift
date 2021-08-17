@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - QueryDefalutParams
-enum QueryDefaultParam {
+enum QueryDefaultParam: DictableType {
     
     case language
     
@@ -20,35 +20,23 @@ enum QueryDefaultParam {
 }
 
 // MARK: - Request with default pamams
-protocol RequestWithDefaultParams {
+protocol RequestWithDefaultQueryParams {
     var language: Bool { get }
 }
 
-extension RequestWithDefaultParams {
+extension RequestWithDefaultQueryParams {
     var language: Bool { true }
 }
 
-extension Request where Self: RequestWithDefaultParams {
+extension Request where Self: RequestWithDefaultQueryParams {
     
     var finalQueryParams: [String: String]? {
-        guard queryParams != nil || [language].allSatisfy({ $0 }) else { return nil }
+        guard queryParams != nil || language else { return nil }
         
         var defaultParams: [QueryDefaultParam] = []
         if language { defaultParams.append(.language) }
         
         return (queryParams ?? [:])
-            + QueryDefaultParam.allDefaultParamsDict(by: defaultParams)
-    }
-}
-
-// MARK: - Helper
-extension QueryDefaultParam {
-    
-    static func allDefaultParamsDict(by params: [QueryDefaultParam]) -> [String: String] {
-        var dict: [String: String] = [:]
-        params.forEach {
-            dict += $0.dict
-        }
-        return dict
+            + allDefaultParamsDict(by: defaultParams)
     }
 }

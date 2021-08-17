@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 // MARK: - Request
-class BuildingRequest: Request, RequestWithDefaultParams {
+class BuildingRequest: Request, RequestWithDefaultQueryParams, RequestWithDefaultHeaderParams {
     
     typealias Response = [Building]
     

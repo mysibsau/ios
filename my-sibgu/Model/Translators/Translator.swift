@@ -276,16 +276,6 @@ class Translator {
         return designOffices
     }
     
-    func converteArts(from rArts: [RArtAssociated]) -> [ArtAssociation] {
-        rArts.map {
-            ArtAssociation(id: $0.id,
-                           logo: ApiUniversityInfo.download(with: $0.logo),
-                           name: $0.name,
-                           description: $0.description1,
-                           contacts: $0.contacts)
-        }
-    }
-    
     func converteUser(from rUser: RUser) -> User {
         return User(
             token: rUser.token,
