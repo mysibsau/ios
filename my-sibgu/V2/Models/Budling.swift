@@ -79,21 +79,6 @@ extension Building: Storable {
     }
 }
 
-extension Building: ConvertableToRealm {
-
-    func converteToRealm() -> RBuilding {
-        let b = RBuilding()
-        b.id = id
-        b.name = name
-        b.type = type
-        b.address = address
-        b.coast = coast.rawValue
-        b.urlTo2gis = urlTo2gisString
-        return b
-    }
-}
-
-
 // MARK: - Store Model
 class RBuilding: Object, ConvertableToApp {
     

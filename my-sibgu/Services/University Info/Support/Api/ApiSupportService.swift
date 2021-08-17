@@ -11,11 +11,6 @@ class ApiSupportService {
     
     private let baseApiService = BaseApiService()
     
-    
-    func loadFaq(completion: @escaping (_ faq: [FAQResponse]?) -> Void) {
-        baseApiService.load([FAQResponse].self, url: ApiSupport.allFaq(), completion: completion)
-    }
-    
     func viewFaq(withId id: Int, completion: @escaping (_ isFine: Bool?) -> Void) {
         let url = ApiSupport.viewFaq(with: id)
         

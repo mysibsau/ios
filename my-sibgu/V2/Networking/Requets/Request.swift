@@ -18,6 +18,7 @@ enum RequestModel {
     enum Version: String {
         case v1
         case v2
+        case v3
     }
 }
 

@@ -17,7 +17,7 @@ class FAQView: UIView {
     var delegate: FAQViewDelegate?
     
     
-    private var faq: FAQ!
+    private var faq: FAQResponse!
     
     private var isAddInfoMode = false
 
@@ -43,7 +43,7 @@ class FAQView: UIView {
     }()
     
     
-    convenience init(faq: FAQ) {
+    convenience init(faq: FAQResponse) {
         self.init()
         self.faq = faq
         self.questionLabel.text = faq.question

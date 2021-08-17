@@ -107,7 +107,6 @@
 		4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42A517257944D500283459 /* BuildingTableViewCell.swift */; };
 		4A436416255E85C400C11E03 /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A436415255E85C400C11E03 /* TimetableService.swift */; };
 		4A5063CC25CA9BE7004C2BC8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063CB25CA9BE7004C2BC8 /* FAQViewController.swift */; };
-		4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063CF25CAA158004C2BC8 /* FAQ.swift */; };
 		4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063D425CAA443004C2BC8 /* FAQView.swift */; };
 		4A5063DC25CAABED004C2BC8 /* FAQ.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5063DE25CAABED004C2BC8 /* FAQ.strings */; };
 		4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063E525CAFA61004C2BC8 /* SupportService.swift */; };
@@ -453,7 +452,6 @@
 		4A42A517257944D500283459 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
 		4A436415255E85C400C11E03 /* TimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableService.swift; sourceTree = "<group>"; };
 		4A5063CB25CA9BE7004C2BC8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
-		4A5063CF25CAA158004C2BC8 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		4A5063D425CAA443004C2BC8 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		4A5063DD25CAABED004C2BC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FAQ.strings; sourceTree = "<group>"; };
 		4A5063E125CAABF1004C2BC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FAQ.strings; sourceTree = "<group>"; };
@@ -1181,7 +1179,6 @@
 		4A5063EC25CAFA75004C2BC8 /* ResponseObjects */ = {
 			isa = PBXGroup;
 			children = (
-				4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */,
 			);
 			path = ResponseObjects;
 			sourceTree = "<group>";
@@ -1707,7 +1704,6 @@
 				4A077FF125B089E60038D87E /* News.swift */,
 				4AC1912025B324B400325142 /* ShortSurvey.swift */,
 				4AC1912825B32BC300325142 /* Survey.swift */,
-				4A5063CF25CAA158004C2BC8 /* FAQ.swift */,
 				4AE030E125CD2D9800E8A9C0 /* SportClub.swift */,
 				4AE030EF25CD439800E8A9C0 /* DesignOffice.swift */,
 				4A00497E25CEB0ED00F59CB3 /* Vacancy.swift */,
@@ -1951,6 +1947,7 @@
 		7CBAC25A26C7D76E00C89FE9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */,
 				4AB5A69125A1C79700518FEA /* Budling.swift */,
 				7CBAC26B26C9192100C89FE9 /* ArtAssociation.swift */,
 				7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */,
@@ -2341,7 +2338,6 @@
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				7C44572026C2F7910001EB58 /* ConvertableProtocols.swift in Sources */,
-				4A5063D025CAA158004C2BC8 /* FAQ.swift in Sources */,
 				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
 				4AB8054825E7CF840080CBE8 /* DigitalBookResponse.swift in Sources */,
 				7CBAC26626C90D8B00C89FE9 /* ArtInfoPresenter.swift in Sources */,

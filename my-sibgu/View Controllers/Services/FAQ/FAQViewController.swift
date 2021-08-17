@@ -11,7 +11,7 @@ class FAQViewController: UIViewController {
     
     private let supportService = SupportService()
     
-    private var faqs: [FAQ] = []
+    private var faqs: [FAQResponse] = []
 
     // MARK: - Private UI
     private let scrollView = UIScrollView()
@@ -66,25 +66,25 @@ class FAQViewController: UIViewController {
     private func setFaq() {
         addQuestionButton.isHidden = true
         startActivityIndicator()
-        supportService.getAllFaq { faqs in
-            guard let faqs = faqs else {
+        GetModelsService.shared.loadAndStoreIfPossible(
+            FAQListRequest(),
+            deleteActionBeforeWriting: nil,
+            completion: { faqs in
                 DispatchQueue.main.async {
+                    guard let faqs = faqs else {
+                        self.stopActivityIndicator()
+                        self.showNetworkAlert()
+                        return
+                    }
+                    faqs.sorted { $0.views > $1.views }.forEach { faq in
+                        let v = FAQView(faq: faq)
+                        v.delegate = self
+                        self.stackView.addArrangedSubview(v)
+                    }
                     self.stopActivityIndicator()
-                    self.showNetworkAlert()
+                    self.addQuestionButton.isHidden = false
                 }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                for faq in faqs.sorted(by: { $0.rank > $1.rank }) {
-                    let v = FAQView(faq: faq)
-                    v.delegate = self
-                    self.stackView.addArrangedSubview(v)
-                }
-                self.stopActivityIndicator()
-                self.addQuestionButton.isHidden = false
-            }
-        }
+            })
     }
     
     // MARK: - Setup Views
