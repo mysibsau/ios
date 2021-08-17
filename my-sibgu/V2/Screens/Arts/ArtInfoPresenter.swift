@@ -25,17 +25,6 @@ class ArtInfoPresenter: DetailPresenter {
                          arts: arts)
     }
     
-    private func viewModel(general: ArtAssociationGeneral,
-                           arts: [ArtAssociation]) -> DetailViewModel {
-        AnyDetailViewModel(
-            navigationTitle: general.name,
-            backgroundImage: .init(type: .url(general.logo)),
-            foregroundImage: .init(type: .hide),
-            content: { viewController in
-                return arts.map { DetailModel.Content.title($0.name) }
-            })
-    }
-    
     func startLoading() {
         guard let detailViewController = detailViewController else { return }
         if arts.isEmpty || general == nil {
@@ -63,57 +52,27 @@ class ArtInfoPresenter: DetailPresenter {
         }
     }
     
-//    func start() {
-//        guard let detailViewController = detailViewController else { return }
-//
-//        hideAllElements()
-//
-//        DispatchQueue.main.async {
-//            detailViewController.startActivityIndicator()
-//        }
-//
-//        general = GetModelsService.shared.getFromStore(type: ArtAssociationGeneral.self).first
-//        arts = GetModelsService.shared.getFromStore(type: ArtAssociation.self)
-//        if let general = general, !arts.isEmpty {
-//            DispatchQueue.main.async {
-//                detailViewController.stopActivityIndicator()
-//            }
-//            set(general: general, arts: arts)
-//        }
-//
-//        GetModelsService.shared.loadAndStoreIfPossible(
-//            ArtAssociationGeneralRequest(), ArtAssociationRequest(),
-//            deleteActionBeforeWriting: {
-//                DatabaseManager.shared.deleteAll(RArtAssociationGeneral.self)
-//                DatabaseManager.shared.deleteAll(RArtAssociation.self)
-//            }) { general, artsList in
-//            guard let general = general, let artsList = artsList else {
-//                DispatchQueue.main.async {
-//                    detailViewController.stopActivityIndicator()
-//                    detailViewController.showNetworkAlert()
-//                }
-//                return
-//            }
-//            detailViewController.stopActivityIndicator()
-//            self.set(general: general, arts: artsList)
-//        }
-//    }
-    
     private func set(general: ArtAssociationGeneral, arts: [ArtAssociation]) {
         DispatchQueue.main.async {
             guard self.arts != arts || self.general != general else { return }
             self.general = general
             self.arts = arts
-            print("FFFFFFF", self.detailViewController)
             self.detailViewController?.setupViewModel(
-                viewModel: AnyDetailViewModel(
-                    navigationTitle: general.name,
-                    backgroundImage: .init(type: .url(general.logo)),
-                    foregroundImage: .init(type: .hide),
-                    content: { viewController in
-                        return arts.map { DetailModel.Content.title($0.name) }
-                    }))
+                viewModel: self.viewModel(general: general, arts: arts))
         }
+    }
+    
+    private func viewModel(general: ArtAssociationGeneral,
+                           arts: [ArtAssociation]) -> DetailViewModel {
+        AnyDetailViewModel(
+            navigationTitle: "Творчество",
+            backgroundImage: .init(type: .url(general.logo)),
+            foregroundImage: .init(type: .hide),
+            content: { viewController in
+                return arts
+                    .sorted { $0.id < $1.id }
+                    .map { DetailModel.Content.title($0.name) }
+            })
     }
 }
 
