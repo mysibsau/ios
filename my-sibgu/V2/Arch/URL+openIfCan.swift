@@ -11,7 +11,7 @@ extension URL {
     
     func openIfCan() {
         if UIApplication.shared.canOpenURL(self) {
-            UIApplication.shared.canOpenURL(self)
+            UIApplication.shared.open(self)
         }
     }
 }

@@ -24,12 +24,12 @@ struct ArtAssociationGeneral: Decodable {
     let contacts: String
     
     private let vkLinkString: String
-    var vkLink: URL {
-        URL(string: NetworkingConstants.mysibsauServerAddress + vkLinkString)!
+    var vkLink: URL? {
+        URL(string: vkLinkString)
     }
     private let instagramLinkString: String
-    var instagramLink: URL {
-        URL(string: NetworkingConstants.mysibsauServerAddress + instagramLinkString)!
+    var instagramLink: URL? {
+        URL(string: instagramLinkString)
     }
     private let logoString: String
     var logo: URL {

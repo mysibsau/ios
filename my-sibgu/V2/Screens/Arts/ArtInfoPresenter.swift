@@ -86,10 +86,10 @@ class ArtInfoPresenter: DetailPresenter {
                     .textView(.init(text: general.description)),
                     .button(.init(imageName: "vk",
                                   text: "link.vk".localized(using: tn),
-                                  action: general.vkLink.openIfCan)),
-                    .button(.init(imageName: "vk",
-                                  text: "link.vk".localized(using: tn),
-                                  action: general.instagramLink.openIfCan)),
+                                  action: { general.vkLink?.openIfCan() })),
+                    .button(.init(imageName: "instagram",
+                                  text: "link.inst".localized(using: tn),
+                                  action: { general.instagramLink?.openIfCan() })),
                     .textView(.init(text: general.contacts, tappable: true)),
                     .title("groups".localized(using: tn))
                 ] + groupsContent
