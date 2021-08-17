@@ -283,6 +283,8 @@
 		4AF3ECB125AC845100AF0367 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AF3ECAA25AC845100AF0367 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4AF3ECD025ACE29A00AF0367 /* FirebasePushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3ECCF25ACE29A00AF0367 /* FirebasePushNotificationManager.swift */; };
 		7C319F9426CBED62009B8D4D /* URL+openIfCan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C319F9326CBED62009B8D4D /* URL+openIfCan.swift */; };
+		7C319F9B26CC058F009B8D4D /* FAQCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C319F9A26CC058F009B8D4D /* FAQCreateRequest.swift */; };
+		7C319F9D26CC0787009B8D4D /* FAQViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C319F9C26CC0787009B8D4D /* FAQViewRequest.swift */; };
 		7C34121D26BC576E00EA94FD /* StudentsCollection.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C34121F26BC576E00EA94FD /* StudentsCollection.strings */; };
 		7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */; };
 		7C34123026BFD54F00EA94FD /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C34122F26BFD54F00EA94FD /* TextViewWithPlaceholder.swift */; };
@@ -636,6 +638,8 @@
 		4D2AB9E38A8574D012B056D5 /* Pods-my-sibgu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.release.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.release.xcconfig"; sourceTree = "<group>"; };
 		5BEBBA26FA4B1C5342B2DA49 /* Pods_NotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C319F9326CBED62009B8D4D /* URL+openIfCan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+openIfCan.swift"; sourceTree = "<group>"; };
+		7C319F9A26CC058F009B8D4D /* FAQCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCreateRequest.swift; sourceTree = "<group>"; };
+		7C319F9C26CC0787009B8D4D /* FAQViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewRequest.swift; sourceTree = "<group>"; };
 		7C34121E26BC576E00EA94FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122026BC577200EA94FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StudentsCollection.strings; sourceTree = "<group>"; };
 		7C34122D26BFCBDB00EA94FD /* JoinToArtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinToArtViewController.swift; sourceTree = "<group>"; };
@@ -1861,6 +1865,15 @@
 			path = NotificationService;
 			sourceTree = "<group>";
 		};
+		7C319F9926CC0529009B8D4D /* PostRequests */ = {
+			isa = PBXGroup;
+			children = (
+				7C319F9A26CC058F009B8D4D /* FAQCreateRequest.swift */,
+				7C319F9C26CC0787009B8D4D /* FAQViewRequest.swift */,
+			);
+			path = PostRequests;
+			sourceTree = "<group>";
+		};
 		7C34123126C0189000EA94FD /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1927,6 +1940,7 @@
 			isa = PBXGroup;
 			children = (
 				7CBAC25B26C8E00400C89FE9 /* Screens */,
+				7C319F9926CC0529009B8D4D /* PostRequests */,
 				7CBAC25A26C7D76E00C89FE9 /* Models */,
 				7C44570F26C1944C0001EB58 /* Arch */,
 				7C44572426C37B5C0001EB58 /* Service */,
@@ -2341,6 +2355,7 @@
 				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
 				4AB8054825E7CF840080CBE8 /* DigitalBookResponse.swift in Sources */,
 				7CBAC26626C90D8B00C89FE9 /* ArtInfoPresenter.swift in Sources */,
+				7C319F9D26CC0787009B8D4D /* FAQViewRequest.swift in Sources */,
 				4AE5889A26089CCA0036D9CA /* Performance.swift in Sources */,
 				7C34122E26BFCBDB00EA94FD /* JoinToArtViewController.swift in Sources */,
 				4AF0302625E2B53C0045D032 /* CafeteriaResponse.swift in Sources */,
@@ -2377,6 +2392,7 @@
 				7CBAC27026C91D3100C89FE9 /* ArtAssociationGeneral.swift in Sources */,
 				4A07DDFD255DA58F0022B6A9 /* ApiTimetableService.swift in Sources */,
 				4AC1919925B6D1B000325142 /* Theme.swift in Sources */,
+				7C319F9B26CC058F009B8D4D /* FAQCreateRequest.swift in Sources */,
 				4A07DDF5255DA5330022B6A9 /* DownloadOperation.swift in Sources */,
 				4A238C00257AC25100CB861E /* ImageLoader.swift in Sources */,
 				7C44571526C2539D0001EB58 /* RequestWithDefaultQueryParams.swift in Sources */,

@@ -20,12 +20,4 @@ class ApiSupport {
         let request = ApiUniversityInfo.postRequest(with: url, andJsonData: jsonData)
         return request
     }
-    
-    static func viewFaq(with id: Int) -> URLRequest {
-        let url = URL(string: "\(address)/support/faq/\(id)/")!
-        
-        let request = ApiUniversityInfo.postRequest(with: url, andJsonData: Data())
-        return request
-    }
-    
 }

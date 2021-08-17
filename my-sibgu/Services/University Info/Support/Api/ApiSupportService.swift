@@ -11,14 +11,6 @@ class ApiSupportService {
     
     private let baseApiService = BaseApiService()
     
-    func viewFaq(withId id: Int, completion: @escaping (_ isFine: Bool?) -> Void) {
-        let url = ApiSupport.viewFaq(with: id)
-        
-        baseApiService.session.dataTask(with: url) { data, response, error in
-            // MARK: TODO: ТУТ СДЕЛАТЬ completion
-        }.resume()
-    }
-    
     func askQuesiont(question: String, completion: @escaping (Bool) -> Void) {
         let request = ApiSupport.askQuestion(question: question)
         

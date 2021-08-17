@@ -152,9 +152,8 @@ extension FAQViewController {
 extension FAQViewController: FAQViewDelegate {
     
     func didTapToShowInfoOnQuestion(with id: Int) {
-        supportService.viewFaq(with: id, completion: { _ in })
+        RequestServise.shared.perform(FAQViewRequest(faqID: id), completion: { _ in })
     }
-    
 }
 
 
