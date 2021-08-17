@@ -30,6 +30,10 @@ class AskQuestionViewController: UIViewController {
         textField.font = UIFont.systemFont(ofSize: 16)
         return textField
     }()
+    
+    private lazy var isPublicField = AnswerView(answer: .init(id: 0, text: "Публичный вопрос?\n(Его смогут видеть остальные?)"),
+                                                type: .one,
+                                                delegate: self)
 
     
     // MARK: - Life Circle
@@ -108,9 +112,16 @@ class AskQuestionViewController: UIViewController {
         questionTextView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().offset(-40)
             make.height.equalTo(100)
         }
+        
+        contentView.addSubview(isPublicField)
+        isPublicField.snp.makeConstraints { make in
+            make.top.equalTo(questionTextView.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().offset(-40)
+        }
+        
         questionTextView.layer.cornerRadius = 10
         questionTextView.makeBorder(color: .gray)
     }
@@ -126,7 +137,7 @@ class AskQuestionViewController: UIViewController {
         }
         
         RequestServise.shared.performAndReturnStatus(
-            FAQCreateRequest(question: question, theme: "general", isPublic: false)) { isFine in
+            FAQCreateRequest(question: question, theme: "general", isPublic: isPublicField.isSelected)) { isFine in
             guard isFine else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()
@@ -156,7 +167,13 @@ class AskQuestionViewController: UIViewController {
         let contentInset = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
+}
 
+extension AskQuestionViewController: AnswerViewDelegate {
+    
+    func selectedAnswer(with id: Int) {
+        isPublicField.isSelected.toggle()
+    }
 }
 
 extension AskQuestionViewController: AnimatingNetworkProtocol {
