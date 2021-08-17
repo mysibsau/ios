@@ -74,7 +74,7 @@ class RArtAssociation: Object, ConvertableToApp {
     var toAppModel: ArtAssociation {
         ArtAssociation(id: id,
                        name: name,
-                       description: description,
+                       description: description1,
                        contacts: contacts,
                        logoString: logo)
     }

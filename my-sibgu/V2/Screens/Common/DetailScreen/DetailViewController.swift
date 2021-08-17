@@ -50,10 +50,12 @@ class DetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.presenter = presenter
         self.presenter?.detailViewController = self
+        presenter.getStoreViewModel().let {
+            setupViewModel(viewModel: $0)
+        }
     }
     
     init(viewModel: DetailViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupViewModel(viewModel: viewModel)
     }
@@ -92,7 +94,7 @@ class DetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
         
-        presenter?.start()
+        presenter?.startLoading()
     }
     
     @objc

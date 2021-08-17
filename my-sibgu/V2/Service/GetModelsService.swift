@@ -67,31 +67,48 @@ extension GetModelsService {
         requestService._perform(request1, request2, request3,
                                 nil as R1?, nil as R1?, nil as R1?) { r1, r2, r3, _,_,_ in
             
-            // TODO: now store only `ConvertableToSrore` and `[ConvertableToSrore]`
-            // TODO: if `[[ConvertableToSrore]]`, it will not store
             DispatchQueue.main.async {
                 deleteActionBeforeWriting?()
             }
-            [r1, r2, r3]
-                .compactMap { (model) -> [ConvertableToSrore]? in
-                    if let con = model as? ConvertableToSrore {
-                        return [con]
-                    } else if let cons = model as? [ConvertableToSrore] {
-                        return cons
-                    } else {
-                        return nil
-                    }
+            
+//            print("EEEEE", r1, r1 is ConvertableToSrore)
+//            print("EEEEE", r2, r2 is ConvertableToSrore)
+//            print("EEEEE", r3, r3 is ConvertableToSrore)
+            
+            var convertablesToStore: [ConvertableToSrore] = []
+            
+            // TODO: 1. now store only `ConvertableToSrore` and `[ConvertableToSrore]`
+            // TODO: 1. if `[[ConvertableToSrore]]`, it will not store
+            // TODO: 2. What the fuck it
+            if let convertable = r1 as? ConvertableToSrore {
+                convertablesToStore.append(convertable)
+            } else if let convertables = r1 as? [ConvertableToSrore] {
+                convertablesToStore += convertables
+            }
+            if let convertable = r2 as? ConvertableToSrore {
+                convertablesToStore.append(convertable)
+            } else if let convertables = r2 as? [ConvertableToSrore] {
+                convertablesToStore += convertables
+            }
+            if let convertable = r3 as? ConvertableToSrore {
+                convertablesToStore.append(convertable)
+            } else if let convertables = r3 as? [ConvertableToSrore] {
+                convertablesToStore += convertables
+            }
+            
+            convertablesToStore.forEach { convertable in
+                DispatchQueue.main.async {
+                    self.databaseManager.write(convertable.toStoreModel)
                 }
-                .reduce([], +)
-                .forEach { convertable in
-                    DispatchQueue.main.async {
-                        self.databaseManager.write(convertable.toStoreModel)
-                    }
-                }
+            }
             // In 'main' because write in DB should end firstly
             DispatchQueue.main.async {
                 completion(r1, r2, r3)
             }
         }
+    }
+    
+    private static func storeResponse(convertables: [ConvertableToSrore]) {
+        
     }
 }

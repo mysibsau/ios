@@ -11,43 +11,104 @@ class ArtInfoPresenter: DetailPresenter {
     
     var detailViewController: DetailViewController?
     
+    var general: ArtAssociationGeneral?
     var arts: [ArtAssociation] = []
     
-    func start() {
-        hideAllElements()
+    func getStoreViewModel() -> DetailViewModel? {
+        let arts = GetModelsService.shared.getFromStore(type: ArtAssociation.self)
+        guard let general = GetModelsService.shared.getFromStore(type: ArtAssociationGeneral.self).first,
+              !arts.isEmpty
+        else { return nil }
+        self.arts = arts
+        self.general = general
+        return viewModel(general: general,
+                         arts: arts)
+    }
+    
+    private func viewModel(general: ArtAssociationGeneral,
+                           arts: [ArtAssociation]) -> DetailViewModel {
+        AnyDetailViewModel(
+            navigationTitle: general.name,
+            backgroundImage: .init(type: .url(general.logo)),
+            foregroundImage: .init(type: .hide),
+            content: { viewController in
+                return arts.map { DetailModel.Content.title($0.name) }
+            })
+    }
+    
+    func startLoading() {
+        guard let detailViewController = detailViewController else { return }
+        if arts.isEmpty || general == nil {
+            DispatchQueue.main.async {
+                self.hideAllElements()
+                detailViewController.startActivityIndicator()
+            }
+        }
         
-//        detailViewController?.startActivityIndicator()
-//        set(arts: GetModelsService.shared.getFromStore(type: ArtAssociation.self))
-//        detailViewController?.stopActivityIndicator()
-        
-        DispatchQueue.main.async {
-            self.detailViewController?.setupViewModel(
-                viewModel: AnyDetailViewModel(
-                    navigationTitle: "Hello",
-                    backgroundImage: .init(type: .local("back_main_logo")),
-                    foregroundImage: .init(type: .hide),
-                    content: { viewController in
-                        return [
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                            .cornerImageWithText(.init(text: "Hello", imageUrl: URL(string: "https://picsum.photos/200/300")!, action: { print("Hello worklskdfj") })),
-                        ]
-                    }))
+        GetModelsService.shared.loadAndStoreIfPossible(
+            ArtAssociationGeneralRequest(), ArtAssociationRequest(),
+            deleteActionBeforeWriting: {
+                DatabaseManager.shared.deleteAll(RArtAssociationGeneral.self)
+                DatabaseManager.shared.deleteAll(RArtAssociation.self)
+            }) { general, artsList in
+            guard let general = general, let artsList = artsList else {
+                DispatchQueue.main.async {
+                    detailViewController.stopActivityIndicator()
+                    detailViewController.showNetworkAlert()
+                }
+                return
+            }
+            detailViewController.stopActivityIndicator()
+            self.set(general: general, arts: artsList)
         }
     }
     
-    private func set(arts: [ArtAssociation]) {
-        guard self.arts != arts else { return }
-        
+//    func start() {
+//        guard let detailViewController = detailViewController else { return }
+//
+//        hideAllElements()
+//
+//        DispatchQueue.main.async {
+//            detailViewController.startActivityIndicator()
+//        }
+//
+//        general = GetModelsService.shared.getFromStore(type: ArtAssociationGeneral.self).first
+//        arts = GetModelsService.shared.getFromStore(type: ArtAssociation.self)
+//        if let general = general, !arts.isEmpty {
+//            DispatchQueue.main.async {
+//                detailViewController.stopActivityIndicator()
+//            }
+//            set(general: general, arts: arts)
+//        }
+//
+//        GetModelsService.shared.loadAndStoreIfPossible(
+//            ArtAssociationGeneralRequest(), ArtAssociationRequest(),
+//            deleteActionBeforeWriting: {
+//                DatabaseManager.shared.deleteAll(RArtAssociationGeneral.self)
+//                DatabaseManager.shared.deleteAll(RArtAssociation.self)
+//            }) { general, artsList in
+//            guard let general = general, let artsList = artsList else {
+//                DispatchQueue.main.async {
+//                    detailViewController.stopActivityIndicator()
+//                    detailViewController.showNetworkAlert()
+//                }
+//                return
+//            }
+//            detailViewController.stopActivityIndicator()
+//            self.set(general: general, arts: artsList)
+//        }
+//    }
+    
+    private func set(general: ArtAssociationGeneral, arts: [ArtAssociation]) {
         DispatchQueue.main.async {
+            guard self.arts != arts || self.general != general else { return }
+            self.general = general
+            self.arts = arts
+            print("FFFFFFF", self.detailViewController)
             self.detailViewController?.setupViewModel(
                 viewModel: AnyDetailViewModel(
-                    navigationTitle: "Hello",
-                    backgroundImage: .init(type: .local("back_main_logo")),
+                    navigationTitle: general.name,
+                    backgroundImage: .init(type: .url(general.logo)),
                     foregroundImage: .init(type: .hide),
                     content: { viewController in
                         return arts.map { DetailModel.Content.title($0.name) }

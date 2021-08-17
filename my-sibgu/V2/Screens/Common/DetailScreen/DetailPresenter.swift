@@ -10,7 +10,8 @@ import Foundation
 protocol DetailPresenter: AnyObject {
     
     var detailViewController: DetailViewController? { get set }
-    func start()
+    func getStoreViewModel() -> DetailViewModel?
+    func startLoading()
 }
 
 extension DetailPresenter {
