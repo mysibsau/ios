@@ -128,8 +128,8 @@ class AskQuestionViewController: UIViewController {
             return
         }
         
-        startActivityIndicator()
-        supportService.aksQuestion(question: question) { isFine in
+        RequestServise.shared.performAndReturnStatus(
+            FAQCreateRequest(question: question, theme: "general", isPublic: false)) { isFine in
             guard isFine else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()

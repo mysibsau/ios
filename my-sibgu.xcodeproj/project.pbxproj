@@ -109,11 +109,8 @@
 		4A5063CC25CA9BE7004C2BC8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063CB25CA9BE7004C2BC8 /* FAQViewController.swift */; };
 		4A5063D525CAA443004C2BC8 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063D425CAA443004C2BC8 /* FAQView.swift */; };
 		4A5063DC25CAABED004C2BC8 /* FAQ.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5063DE25CAABED004C2BC8 /* FAQ.strings */; };
-		4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063E525CAFA61004C2BC8 /* SupportService.swift */; };
 		4A5063EE25CAFAB5004C2BC8 /* FAQResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */; };
-		4A5063F425CAFB1E004C2BC8 /* ApiSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */; };
 		4A5063F925CAFDD3004C2BC8 /* AskQuesionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */; };
-		4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */; };
 		4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */; };
 		4A5126AB25F3D86D00ED67D2 /* UrlTappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */; };
 		4A54F5622599E69700184BC0 /* DepartmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */; };
@@ -457,11 +454,8 @@
 		4A5063D425CAA443004C2BC8 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		4A5063DD25CAABED004C2BC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FAQ.strings; sourceTree = "<group>"; };
 		4A5063E125CAABF1004C2BC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FAQ.strings; sourceTree = "<group>"; };
-		4A5063E525CAFA61004C2BC8 /* SupportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportService.swift; sourceTree = "<group>"; };
 		4A5063ED25CAFAB5004C2BC8 /* FAQResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQResponse.swift; sourceTree = "<group>"; };
-		4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupport.swift; sourceTree = "<group>"; };
 		4A5063F825CAFDD3004C2BC8 /* AskQuesionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuesionPost.swift; sourceTree = "<group>"; };
-		4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSupportService.swift; sourceTree = "<group>"; };
 		4A50640225CB1B3C004C2BC8 /* AskQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestionViewController.swift; sourceTree = "<group>"; };
 		4A5126AA25F3D86D00ED67D2 /* UrlTappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlTappableLabel.swift; sourceTree = "<group>"; };
 		4A54F5612599E69700184BC0 /* DepartmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsViewController.swift; sourceTree = "<group>"; };
@@ -1163,7 +1157,6 @@
 		4A5063E425CAFA35004C2BC8 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				4A5063E525CAFA61004C2BC8 /* SupportService.swift */,
 				4A5063EB25CAFA65004C2BC8 /* Api */,
 			);
 			path = Support;
@@ -1174,8 +1167,6 @@
 			children = (
 				4A5063F725CAFD9E004C2BC8 /* PostObjects */,
 				4A5063EC25CAFA75004C2BC8 /* ResponseObjects */,
-				4A5063F325CAFB1E004C2BC8 /* ApiSupport.swift */,
-				4A5063FE25CB01B7004C2BC8 /* ApiSupportService.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -2273,7 +2264,6 @@
 				4A9C9A4525B81BD3001F3B0B /* String+localized.swift in Sources */,
 				4A5A16462574EEF100F5D652 /* SubgroupType.swift in Sources */,
 				4AE588A226089D420036D9CA /* TicketsService.swift in Sources */,
-				4A5063F425CAFB1E004C2BC8 /* ApiSupport.swift in Sources */,
 				4AE030F025CD439800E8A9C0 /* DesignOffice.swift in Sources */,
 				4A077FEA25B0660D0038D87E /* SegmentedControl.swift in Sources */,
 				4AF3EC7B25AA47DE00AF0367 /* Event.swift in Sources */,
@@ -2352,7 +2342,6 @@
 				4A07DDC8255D9EFD0022B6A9 /* RGroupDay.swift in Sources */,
 				4AC1912E25B332A100325142 /* ServicesCollectionViewController.swift in Sources */,
 				7C44572026C2F7910001EB58 /* ConvertableProtocols.swift in Sources */,
-				4A5063E625CAFA61004C2BC8 /* SupportService.swift in Sources */,
 				4AB8054825E7CF840080CBE8 /* DigitalBookResponse.swift in Sources */,
 				7CBAC26626C90D8B00C89FE9 /* ArtInfoPresenter.swift in Sources */,
 				7C319F9D26CC0787009B8D4D /* FAQViewRequest.swift in Sources */,
@@ -2447,7 +2436,6 @@
 				4AB8055D25E7E2070080CBE8 /* LibrarySearchViewController.swift in Sources */,
 				7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */,
 				4AE0311025CD936C00E8A9C0 /* DesignOfficeTableCell.swift in Sources */,
-				4A5063FF25CB01B7004C2BC8 /* ApiSupportService.swift in Sources */,
 				4A3149F6257249ED00FB7FC2 /* AnimatingNetworkProtocol.swift in Sources */,
 				4A27A860255EE79D0018186B /* Group.swift in Sources */,
 				4A3957DC25DEA74D009958BC /* AttestationItemResponse.swift in Sources */,
