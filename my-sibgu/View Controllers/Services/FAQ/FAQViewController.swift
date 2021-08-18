@@ -9,6 +9,13 @@ import UIKit
 
 class FAQViewController: UIViewController {
     
+    enum Mode {
+        case faq
+        case myQuestions
+    }
+    
+    var mode: Mode = .faq
+    
     private var faqs: [FAQResponse] = []
 
     // MARK: - Private UI
@@ -31,7 +38,7 @@ class FAQViewController: UIViewController {
         setupScrollView()
         setupStackView()
         
-        if UserService().getCurrUser() != nil {
+        if UserService().getCurrUser() != nil && mode == .faq {
             setupAddQeustionButton()
         }
         
@@ -60,24 +67,48 @@ class FAQViewController: UIViewController {
     
     private func setFaq() {
         startActivityIndicator()
-        GetModelsService.shared.loadAndStoreIfPossible(
-            FAQListRequest(),
-            deleteActionBeforeWriting: nil,
-            completion: { faqs in
-                DispatchQueue.main.async {
-                    guard let faqs = faqs else {
+        
+        switch mode {
+        case .faq:
+            GetModelsService.shared.loadAndStoreIfPossible(
+                FAQListRequest(),
+                deleteActionBeforeWriting: nil,
+                completion: { faqs in
+                    DispatchQueue.main.async {
+                        guard let faqs = faqs else {
+                            self.stopActivityIndicator()
+                            self.showNetworkAlert()
+                            return
+                        }
+                        faqs.sorted { $0.views > $1.views }.forEach { faq in
+                            let v = FAQView(faq: faq)
+                            v.delegate = self
+                            self.stackView.addArrangedSubview(v)
+                        }
                         self.stopActivityIndicator()
-                        self.showNetworkAlert()
-                        return
                     }
-                    faqs.sorted { $0.views > $1.views }.forEach { faq in
-                        let v = FAQView(faq: faq)
-                        v.delegate = self
-                        self.stackView.addArrangedSubview(v)
+                })
+        case .myQuestions:
+            GetModelsService.shared.loadAndStoreIfPossible(
+                FAQMyListRequest(),
+                deleteActionBeforeWriting: nil,
+                completion: { faqs in
+                    DispatchQueue.main.async {
+                        guard let faqs = faqs else {
+                            self.stopActivityIndicator()
+                            self.showNetworkAlert()
+                            return
+                        }
+                        
+                        faqs.sorted { $0.createDate > $1.createDate }.forEach { faq in
+                            let v = FAQView(faq: faq)
+                            v.delegate = self
+                            self.stackView.addArrangedSubview(v)
+                        }
+                        self.stopActivityIndicator()
                     }
-                    self.stopActivityIndicator()
-                }
-            })
+                })
+        }
     }
     
     // MARK: - Setup Views

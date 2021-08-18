@@ -73,6 +73,9 @@ class ProfileViewController: UIViewController {
     private lazy var attestationView = UIView()
     private lazy var marksView = UIView()
     
+    private lazy var myQuestionView = getWrapView()
+    private lazy var myQuestionLabel = getUserLabel()
+    
     private let separateView = UIView()
     
     
@@ -293,6 +296,7 @@ class ProfileViewController: UIViewController {
         stackView.addArrangedSubview(getGroupAndAverageRateSegment())
         stackView.addArrangedSubview(getStudentIdSegment())
         stackView.addArrangedSubview(getPerformanceSegment())
+        stackView.addArrangedSubview(getMyQuestionBlock())
         
         fioTitleLabel.text = "ФИО"
         fioLabel.text = user?.fio
@@ -416,6 +420,30 @@ class ProfileViewController: UIViewController {
         return performanceSegment
     }
     
+    private func getMyQuestionBlock() -> UIView {
+        myQuestionView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
+        myQuestionView.addSubview(myQuestionLabel)
+        myQuestionLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.centerY.equalToSuperview()
+        }
+        myQuestionLabel.text = "lksdjfl;sdkj"
+        
+        let arrow = getArrowImage()
+        myQuestionView.addSubview(arrow)
+        arrow.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-15)
+            make.centerY.equalToSuperview()
+            make.size.equalTo(22)
+        }
+        
+        myQuestionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyQuestions)))
+        
+        return myQuestionView
+    }
+    
     private func getArrowImage() -> UIImageView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -456,6 +484,13 @@ class ProfileViewController: UIViewController {
     }
     
     @objc
+    private func showMyQuestions() {
+        let vc = FAQViewController()
+        vc.mode = .myQuestions
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
     private func updateText() {
         let tableName = "Profile"
         
@@ -474,6 +509,8 @@ class ProfileViewController: UIViewController {
         performanceTitleLabel.text = "performance".localized(using: tableName)
         attestationLabel.text = "attestation".localized(using: tableName)
         marksLabel.text = "marks".localized(using: tableName)
+        
+        myQuestionLabel.text = "my.question".localized(using: tableName)
     }
     
     @objc
@@ -577,6 +614,9 @@ extension ProfileViewController {
         
         performanceView.makeBorder()
         performanceView.makeShadow()
+        
+        myQuestionView.makeBorder()
+        myQuestionView.makeShadow()
     }
     
 }
