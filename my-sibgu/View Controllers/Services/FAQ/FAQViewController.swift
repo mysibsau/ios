@@ -25,6 +25,16 @@ class FAQViewController: UIViewController {
     private let activityIndicatorView = UIActivityIndicatorView()
     private let alertView = AlertView()
     
+    private let dontExistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.Pallete.gray
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.isHidden = true
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +110,12 @@ class FAQViewController: UIViewController {
                             return
                         }
                         
+                        guard !faqs.isEmpty else {
+                            self.showEmplyLabel()
+                            self.stopActivityIndicator()
+                            return
+                        }
+                        
                         faqs.sorted { $0.createDate > $1.createDate }.forEach { faq in
                             let v = FAQView(faq: faq)
                             v.delegate = self
@@ -109,6 +125,18 @@ class FAQViewController: UIViewController {
                     }
                 })
         }
+    }
+    
+    private func showEmplyLabel() {
+        if !self.view.subviews.contains(self.dontExistLabel) {
+            self.view.addSubview(self.dontExistLabel)
+            self.dontExistLabel.snp.makeConstraints { make in
+                make.leading.trailing.equalToSuperview().inset(10)
+                make.centerY.equalTo(self.view.safeAreaLayoutGuide)
+            }
+        }
+        dontExistLabel.text = "У вас нет вопросов, либо на них еще не успели ответить"
+        dontExistLabel.isHidden = false
     }
     
     // MARK: - Setup Views
