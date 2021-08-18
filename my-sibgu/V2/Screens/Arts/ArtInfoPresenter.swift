@@ -18,7 +18,7 @@ class ArtInfoPresenter: DetailPresenter {
         if UserService().getCurrUser() != nil {
             setupAddQeustionButton()
         }
-        
+        detailViewController?.navigationItem.setLeftTitle(title: "art".localized(using: "StudentsCollection"))
         let arts = GetModelsService.shared.getFromStore(type: ArtAssociation.self)
         guard let general = GetModelsService.shared.getFromStore(type: ArtAssociationGeneral.self).first,
               !arts.isEmpty
@@ -69,7 +69,7 @@ class ArtInfoPresenter: DetailPresenter {
     private func viewModel(general: ArtAssociationGeneral,
                            arts: [ArtAssociation]) -> DetailViewModel {
         AnyDetailViewModel(
-            navigationTitle: "Творчество",
+            navigationTitle: "art".localized(using: "StudentsCollection"),
             backgroundImage: .init(type: .url(general.logo)),
             foregroundImage: .init(type: .hide),
             content: { viewController in
