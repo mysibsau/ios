@@ -15,6 +15,10 @@ class ArtInfoPresenter: DetailPresenter {
     var arts: [ArtAssociation] = []
     
     func getStoreViewModel() -> DetailViewModel? {
+        if UserService().getCurrUser() != nil {
+            setupAddQeustionButton()
+        }
+        
         let arts = GetModelsService.shared.getFromStore(type: ArtAssociation.self)
         guard let general = GetModelsService.shared.getFromStore(type: ArtAssociationGeneral.self).first,
               !arts.isEmpty
@@ -99,6 +103,20 @@ class ArtInfoPresenter: DetailPresenter {
     private func openDetailScreen(art: ArtAssociation) {
         detailViewController?.navigationController?.pushViewController(
             DetailViewController(viewModel: art), animated: true)
+    }
+    
+    private func setupAddQeustionButton() {
+        detailViewController?.navigationItem.rightBarButtonItem = .init(image: .init(systemName: "square.and.pencil"),
+                                                                        style: .plain,
+                                                                        target: self,
+                                                                        action: #selector(didTapAddQuestionButton))
+    }
+    
+    @objc
+    private func didTapAddQuestionButton() {
+        let vc = AskQuestionViewController()
+        vc.theme = "ktc"
+        detailViewController?.present(vc, animated: true, completion: nil)
     }
 }
 

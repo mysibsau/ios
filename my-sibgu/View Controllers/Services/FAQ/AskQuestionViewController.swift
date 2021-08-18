@@ -9,6 +9,9 @@ import UIKit
 
 class AskQuestionViewController: UIViewController {
     
+    // `general` - default value
+    var theme: String = "general"
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
@@ -137,7 +140,7 @@ class AskQuestionViewController: UIViewController {
         }
         
         RequestServise.shared.performAndReturnStatus(
-            FAQCreateRequest(question: question, theme: "general", isPublic: isPublicField.isSelected)) { isFine in
+            FAQCreateRequest(question: question, theme: theme, isPublic: isPublicField.isSelected)) { isFine in
             guard isFine else {
                 DispatchQueue.main.async {
                     self.stopActivityIndicator()
