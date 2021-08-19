@@ -62,6 +62,19 @@ class AuthViewController: UIViewController {
     private let signInButton = UIButton()
     private let registrationButton = UIButton()
     
+    private var checked = false {
+        didSet { checkImageView.isHidden = !checked }
+    }
+    private let checkView = UIView()
+    private let checkImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = .init(systemName: "checkmark")?.withTintColor(UIColor.Pallete.sibsuBlue)
+        iv.isHidden = true
+        iv.isUserInteractionEnabled = false
+        return iv
+    }()
+    private let checkLabel = UrlTappableLabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +85,7 @@ class AuthViewController: UIViewController {
         
         setupEmblem()
         setupTextFields()
+        setupCkeckSenment()
         setupSignInButton()
         setupSingInAsGuestButton()
         
@@ -160,10 +174,48 @@ class AuthViewController: UIViewController {
         passwordTextFiled.isUserInteractionEnabled = true
     }
     
+    private func setupCkeckSenment() {
+        contentView.addSubview(checkView)
+        checkView.snp.makeConstraints { make in
+            make.size.equalTo(20)
+//            make.top.equalTo(textFieldsView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(30)
+        }
+        checkView.makeBorder(color: UIColor.Pallete.blackOrWhite, width: 1)
+        checkView.backgroundColor = UIColor.Pallete.background
+        checkView.layer.cornerRadius = 2
+        
+        checkView.addSubview(checkImageView)
+        checkImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentView.addSubview(checkLabel)
+        checkLabel.snp.makeConstraints { make in
+            make.top.equalTo(textFieldsView.snp.bottom).offset(15)
+            make.leading.equalTo(checkView.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        checkLabel.numberOfLines = 0
+        checkLabel.setTextWithUrls(text: "Принимаю какую то дич [Условия](https://mysibsau.ru/download/)")
+        checkLabel.makeTappable()
+        
+        checkView.snp.makeConstraints { make in
+            make.centerY.equalTo(checkLabel)
+        }
+        
+        checkView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectCheck)))
+    }
+    
+    @objc
+    private func didSelectCheck() {
+        checked.toggle()
+    }
+    
     private func setupSignInButton() {
         contentView.addSubview(signInButton)
         signInButton.snp.makeConstraints { make in
-            make.top.equalTo(textFieldsView.snp.bottom).offset(20)
+            make.top.equalTo(checkLabel.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         signInButton.setTitle("Войти", for: .normal)
@@ -191,6 +243,16 @@ class AuthViewController: UIViewController {
     // MARK: - Actions
     @objc
     private func didTapSignInButton() {
+        guard checked else {
+            let alert = UIAlertController(title: nil,
+                                         message: "Поставьте согласие на пользовательское соглашение",
+                                         preferredStyle: .alert)
+            
+            alert.addAction(.init(title: "Ок", style: .default, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
         guard
             let number = numberTextField.text, !number.isEmpty,
             let password = passwordTextFiled.text, !password.isEmpty
@@ -218,6 +280,17 @@ class AuthViewController: UIViewController {
     
     @objc
     private func didTapSingIsAsGuestButton() {
+        guard checked else {
+            let alert = UIAlertController(title: nil,
+                                         message: "Поставьте согласие на пользовательское соглашение",
+                                         preferredStyle: .alert)
+            
+            alert.addAction(.init(title: "Ок", style: .default, handler: nil))
+            present(alert, animated: true)
+            return
+            return
+        }
+        
         userService.outCurrUser()
         delegate?.showMainModule()
     }
