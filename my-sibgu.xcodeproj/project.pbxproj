@@ -305,6 +305,7 @@
 		7CBAC27326C9415600C89FE9 /* Uncatecorized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CBAC27526C9415600C89FE9 /* Uncatecorized.strings */; };
 		7CBAC27826CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC27726CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift */; };
 		7CBAC27B26CA22C500C89FE9 /* DictableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC27A26CA22C500C89FE9 /* DictableType.swift */; };
+		7CF5F40326CE4152005BFB44 /* HashRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF5F40226CE4152005BFB44 /* HashRequests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -658,6 +659,7 @@
 		7CBAC27626C9415C00C89FE9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Uncatecorized.strings; sourceTree = "<group>"; };
 		7CBAC27726CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWithDefaultHeaderParams.swift; sourceTree = "<group>"; };
 		7CBAC27A26CA22C500C89FE9 /* DictableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictableType.swift; sourceTree = "<group>"; };
+		7CF5F40226CE4152005BFB44 /* HashRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashRequests.swift; sourceTree = "<group>"; };
 		816E241BBA66CAC9F35E0F3F /* Pods_my_sibgu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_my_sibgu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C462AC2B67E96C101876BF /* Pods-my-sibgu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my-sibgu.debug.xcconfig"; path = "Target Support Files/Pods-my-sibgu/Pods-my-sibgu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1921,6 +1923,7 @@
 				4AB5A69125A1C79700518FEA /* Budling.swift */,
 				7CBAC26B26C9192100C89FE9 /* ArtAssociation.swift */,
 				7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */,
+				7CF5F40226CE4152005BFB44 /* HashRequests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2219,6 +2222,7 @@
 				7C44571326C1A7000001EB58 /* RequestServise.swift in Sources */,
 				4AD21F8D25C305900018D4F0 /* TimetableElemTableViewCell.swift in Sources */,
 				4A42A518257944D500283459 /* BuildingTableViewCell.swift in Sources */,
+				7CF5F40326CE4152005BFB44 /* HashRequests.swift in Sources */,
 				4A7A56E7256BF4F100E2CE0F /* EventsViewController.swift in Sources */,
 				4AD21F6725C1A9D30018D4F0 /* Place.swift in Sources */,
 				4AB9791025E0F5740025B937 /* MenuTableViewController.swift in Sources */,

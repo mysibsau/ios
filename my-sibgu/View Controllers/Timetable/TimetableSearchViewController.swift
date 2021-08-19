@@ -75,48 +75,65 @@ class TimetableSearchViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
+    private func checkHashAndLoadAllEntries() {
+        RequestServise.shared.perform(GroupsHashRequest(), ProfessorsHashRequest(), PlacesHashRequest()) { groupsHash, professorsHash, placesHash in
+            guard let groupH = groupsHash?.hash,
+                  let professorH = professorsHash?.hash,
+                  let placesH = placesHash?.hash
+            else {
+                return
+            }
+            
+            guard (UserDefaultsConfig.groupsHash ?? "") != groupH
+                    || (UserDefaultsConfig.professorsHash ?? "") != professorH
+                    || (UserDefaultsConfig.placesHash ?? "") != placesH
+            else {
+                return
+            }
+            
+            self.loadAllEntries()
+        }
+    }
+    
+    private func loadAllEntries() {
+        DispatchQueue.main.async {
+            self.startActivityIndicator()
+            self.textField.isUserInteractionEnabled = false
+            self.goToTimetableButton.isUserInteractionEnabled = false
+        }
+        
+        self.timetableService.getEntities(ofTypes: [.group, .professor, .place]) { entities in
+            DispatchQueue.main.async {
+                self.stopActivityIndicator()
+                self.textField.isUserInteractionEnabled = true
+                self.goToTimetableButton.isUserInteractionEnabled = true
+                
+                self.groups = entities.groups
+                self.professors = entities.professors
+                self.places = entities.places
+                
+                self.setFavorite(self.currType)
+                print("FFFFFF", self.groups)
+                self.helpTableView.reloadData()
+            }
+        }
+    }
+    
     private func setEntriesAndTryShowTimetable() {
         let groupsFromLocal = timetableService.getGroupsFromLocal()
         let professorsFromLocal = timetableService.getProfessorsFromLocal()
         let placesFromLocal = timetableService.getPlacesFromLocal()
         
+        print(groupsFromLocal)
+        
         if !groupsFromLocal.isEmpty && !professorsFromLocal.isEmpty && !placesFromLocal.isEmpty {
+            checkHashAndLoadAllEntries()
             self.groups = groupsFromLocal
             self.professors = professorsFromLocal
             self.places = placesFromLocal
-            tryLoadFromUserDefaults()
+            self.tryLoadFromUserDefaults()
         } else {
-            startActivityIndicator()
-            textField.isUserInteractionEnabled = false
-            goToTimetableButton.isUserInteractionEnabled = false
-            timetableService.getEntities(ofTypes: [.group, .professor, .place]) { entitiesSet in
-                DispatchQueue.main.async {
-                    self.stopActivityIndicator()
-                    self.textField.isUserInteractionEnabled = true
-                    self.goToTimetableButton.isUserInteractionEnabled = true
-                }
-                guard
-                    !entitiesSet.groups.isEmpty,
-                    !entitiesSet.professors.isEmpty,
-                    !entitiesSet.places.isEmpty
-                else {
-                    DispatchQueue.main.async {
-                        self.showNetworkAlert()
-                    }
-                    return
-                }
-                
-                self.groups = entitiesSet.groups
-                self.professors = entitiesSet.professors
-                self.places = entitiesSet.places
-                
-                DispatchQueue.main.async {
-                    self.stopActivityIndicator()
-                    self.textField.isUserInteractionEnabled = true
-                    self.goToTimetableButton.isUserInteractionEnabled = true
-                    self.tryLoadFromUserDefaults()
-                }
-            }
+            loadAllEntries()
         }
     }
     
