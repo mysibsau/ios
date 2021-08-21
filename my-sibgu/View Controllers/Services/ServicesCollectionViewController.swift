@@ -60,16 +60,6 @@ class ServicesCollectionViewController: UICollectionViewController {
                 { InstitutionsViewController() }
             ),
             (
-                // Раньше переходил на экран со всеми вопросами,
-                // Но Илье не понравилось и теперь только один экран с одним опросом
-                CollectionViewHelper.getFeedbackView(
-                    backgroundColor: UIColor.Pallete.sibsuGreen,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "Обратная связь",
-                { SurveyViewController() }
-            ),
-            (
                 CollectionViewHelper.getViewWithImage(
                     image: UIImage(systemName: "person.2.fill")!,
                     backgroundColor: UIColor.Pallete.green,
@@ -77,14 +67,6 @@ class ServicesCollectionViewController: UICollectionViewController {
                 ),
                 "Студ. жизнь",
                 { StudentsLiveCollectionView(collectionViewLayout: .init()) }
-            ),
-            (
-                CollectionViewHelper.getFAQView(
-                    backgroundColor: UIColor.Pallete.sibsuBlue,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "FAQ",
-                { FAQViewController() }
             ),
             (
                 CollectionViewHelper.getViewWithImage(
@@ -133,11 +115,9 @@ class ServicesCollectionViewController: UICollectionViewController {
         
         services[0].name = "buildings".localized(using: tableName)
         services[1].name = "institutes".localized(using: tableName)
-        services[2].name = "feedback".localized(using: tableName)
-        services[3].name = "student.life".localized(using: tableName)
-        services[4].name = "faq".localized(using: tableName)
-        services[5].name = "work".localized(using: tableName)
-        services[6].name = "library".localized(using: tableName)
+        services[2].name = "student.life".localized(using: tableName)
+        services[3].name = "work".localized(using: tableName)
+        services[4].name = "library".localized(using: tableName)
 //        services[7].name = "tickets".localized(using: tableName)
         
         collectionView.reloadData()
@@ -167,10 +147,10 @@ extension ServicesCollectionViewController {
         // For SE
         if UIScreen.main.bounds.size.width < 375 {
             cell.nameLabel.font = .systemFont(ofSize: 13, weight: .medium)
-            if indexPath.row == 3 {
+            if indexPath.row == 2 {
                 cell.nameLabel.font = .systemFont(ofSize: 11, weight: .medium)
             }
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 2 {
             cell.nameLabel.font = .systemFont(ofSize: 13, weight: .bold)
         } else {
             cell.nameLabel.font = .systemFont(ofSize: 16, weight: .bold)
