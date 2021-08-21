@@ -64,7 +64,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.height.equalTo(40)
-            make.top.leading.trailing.equalToSuperview().inset(10)
+            make.top.leading.trailing.equalToSuperview().inset(5)
         }
         
         contentView.addSubview(viewWithImage)

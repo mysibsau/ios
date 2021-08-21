@@ -162,6 +162,19 @@ extension ServicesCollectionViewController {
 //        cell.imageView.tintColor = service.color
         cell.configure(viewWithImage: service.viewWithImage)
         cell.nameLabel.text = service.name
+        print(UIScreen.main.bounds.size.width)
+        
+        // For SE
+        if UIScreen.main.bounds.size.width < 375 {
+            cell.nameLabel.font = .systemFont(ofSize: 13, weight: .medium)
+            if indexPath.row == 3 {
+                cell.nameLabel.font = .systemFont(ofSize: 11, weight: .medium)
+            }
+        } else if indexPath.row == 3 {
+            cell.nameLabel.font = .systemFont(ofSize: 13, weight: .bold)
+        } else {
+            cell.nameLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        }
         
         return cell
     }
