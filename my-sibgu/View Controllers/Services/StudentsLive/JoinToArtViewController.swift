@@ -141,7 +141,9 @@ class JoinToArtViewController: UIViewController {
             make.bottom.equalTo(contentView).offset(-40)
         }
         
-        addArrangedSubviewToStackView(view: fioTextField)
+        if UserService().getCurrUser() == nil {
+            addArrangedSubviewToStackView(view: fioTextField)
+        }
         addArrangedSubviewToStackView(view: phoneTextField)
         addArrangedSubviewToStackView(view: idVkTextField)
         addArrangedSubviewToStackView(view: experienceTextField)
@@ -167,7 +169,7 @@ class JoinToArtViewController: UIViewController {
     
     @objc private func doneAction() {
         guard
-            let fio = fioTextField.text, !fio.isEmpty,
+//            let fio = fioTextField.text, !fio.isEmpty,
             let phone = phoneTextField.text, !phone.isEmpty,
             let idVk = idVkTextField.text, !idVk.isEmpty,
             let experience = experienceTextField.text, !experience.isEmpty,
@@ -180,6 +182,22 @@ class JoinToArtViewController: UIViewController {
             alert.addAction(.init(title: "Ок", style: .default, handler: nil))
             present(alert, animated: true)
             return
+        }
+        
+        let fio: String
+        if let currUser = UserService().getCurrUser() {
+            fio = currUser.fio
+        } else {
+            guard let optFio = fioTextField.text, !optFio.isEmpty else {
+                let alert = UIAlertController(title: "Не все поля заполнены",
+                                             message: nil,
+                                             preferredStyle: .alert)
+                
+                alert.addAction(.init(title: "Ок", style: .default, handler: nil))
+                present(alert, animated: true)
+                return
+            }
+            fio = optFio
         }
         
         ApiCampusService().postJoinToArt(
@@ -195,7 +213,12 @@ class JoinToArtViewController: UIViewController {
                     if done {
                         self.dismissVC()
                     } else {
+                        let alert = UIAlertController(title: "Проблемы с сервером, попробуйте позже",
+                                                     message: nil,
+                                                     preferredStyle: .alert)
                         
+                        alert.addAction(.init(title: "Ок", style: .default, handler: nil))
+                        self.present(alert, animated: true)
                     }
                 }
             })

@@ -58,7 +58,7 @@ class BaseApiService {
             
             print(response)
             
-            print(try! JSONSerialization.jsonObject(with: data ?? Data()))
+            print(try? JSONSerialization.jsonObject(with: data ?? Data()))
 
             guard
                 let httpResponse = response as? HTTPURLResponse,
