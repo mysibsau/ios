@@ -132,6 +132,12 @@ extension ArtAssociation: DetailViewModel {
         return [
             .title("about".localized(using: tn)),
             .textView(.init(text: description)),
+            .button(.init(imageName: "vk",
+                          text: "link.vk".localized(using: tn),
+                          action: { vkLink?.openIfCan() })),
+            .button(.init(imageName: "instagram",
+                          text: "link.inst".localized(using: tn),
+                          action: { instagramLink?.openIfCan() })),
             .title("contacts".localized(using: tn)),
             .textView(.init(text: contacts, tappable: true)),
             .button(.init(imageName: "add_circle", text: "join.to".localized(using: tn), action: {

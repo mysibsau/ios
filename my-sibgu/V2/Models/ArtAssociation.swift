@@ -27,13 +27,23 @@ struct ArtAssociation: Decodable {
     var logo: URL {
         URL(string: NetworkingConstants.mysibsauServerAddress + logoString)!
     }
+    private let vkLinkString: String
+    var vkLink: URL? {
+        URL(string: vkLinkString)
+    }
+    private let instagramLinkString: String
+    var instagramLink: URL? {
+        URL(string: instagramLinkString)
+    }
     
-    init(id: Int, name: String, description: String, contacts: String, logoString: String) {
+    init(id: Int, name: String, description: String, contacts: String, logoString: String, vkLinkString: String, instagramLinkString: String) {
         self.id = id
         self.name = name
         self.description = description
         self.contacts = contacts
         self.logoString = logoString
+        self.vkLinkString = vkLinkString
+        self.instagramLinkString = instagramLinkString
     }
     
     enum CodingKeys: String, CodingKey {
@@ -41,7 +51,9 @@ struct ArtAssociation: Decodable {
              logoString = "logo",
              name,
              description = "about",
-             contacts
+             contacts,
+             vkLinkString = "vk_link",
+             instagramLinkString = "instagram_link"
     }
 }
 
@@ -56,6 +68,8 @@ extension ArtAssociation: Storable {
         rAA.logo = logoString
         rAA.description1 = description
         rAA.contacts = contacts
+        rAA.vkLink = vkLinkString
+        rAA.instaLink = instagramLinkString
         return rAA
     }
 }
@@ -68,14 +82,18 @@ class RArtAssociation: Object, ConvertableToApp {
     @objc dynamic var name = ""
     @objc dynamic var description1 = ""
     @objc dynamic var contacts = ""
+    @objc dynamic var vkLink = ""
+    @objc dynamic var instaLink = ""
     
-    override class func primaryKey() -> String? { return "id" }
+    override class func primaryKey() -> String? { "id" }
     
     var toAppModel: ArtAssociation {
         ArtAssociation(id: id,
                        name: name,
                        description: description1,
                        contacts: contacts,
-                       logoString: logo)
+                       logoString: logo,
+                       vkLinkString: vkLink,
+                       instagramLinkString: instaLink)
     }
 }
