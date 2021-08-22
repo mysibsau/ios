@@ -48,7 +48,12 @@ class FAQView: UIView {
         self.faq = faq
         self.questionLabel.text = faq.question
         self.answerLabel.makeUrlTappable()
-        self.answerLabel.setTextWithUrls(text: faq.answer)
+        if let answer = faq.answer {
+            self.answerLabel.setTextWithUrls(text: answer)
+        } else {
+            self.answerLabel.textColor = UIColor.Pallete.gray
+            self.answerLabel.text = "Ответа пока что нет. Мы работаем над тем, чтобы вы получили ответ на свой вопрос"
+        }
         
         updateText()
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)

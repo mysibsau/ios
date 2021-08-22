@@ -29,7 +29,7 @@ struct FAQResponse: Decodable, Equatable {
     
     let id: Int
     let question: String
-    let answer: String
+    let answer: String?
     let views: Int
     let createDate: Date
     
@@ -45,7 +45,7 @@ struct FAQResponse: Decodable, Equatable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         question = try container.decode(String.self, forKey: .question)
-        answer = try container.decode(String.self, forKey: .answer)
+        answer = try container.decode(Optional<String>.self, forKey: .answer)
         views = try container.decode(Int.self, forKey: .views)
         let stringDate = try container.decode(String.self, forKey: .createDate)
         createDate = Self.dateFormatter.date(from: stringDate)!
