@@ -297,7 +297,9 @@ class ProfileViewController: UIViewController {
                 ("feedback".localized(using: tableName), {
                     self.navigationController?.pushViewController(SurveyViewController(), animated: true)
                 }),
-                // HERE LICENSE
+                ("user.agreement".localized(using: tableName), {
+                    URL(string: "https://mysibsau.ru/user-agreement/")?.openIfCan()
+                })
             ])
         ])
     }

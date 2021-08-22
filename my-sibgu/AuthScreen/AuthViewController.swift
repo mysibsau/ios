@@ -197,7 +197,7 @@ class AuthViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-20)
         }
         checkLabel.numberOfLines = 0
-        checkLabel.setTextWithUrls(text: "Принимаю какую то дич [Условия](https://mysibsau.ru/download/)")
+        checkLabel.setTextWithUrls(text: "Я принимаю условия [пользовательского соглашения](https://mysibsau.ru/user-agreement/)")
         checkLabel.makeTappable()
         
         checkView.snp.makeConstraints { make in
