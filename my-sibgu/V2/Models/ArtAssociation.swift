@@ -27,16 +27,16 @@ struct ArtAssociation: Decodable {
     var logo: URL {
         URL(string: NetworkingConstants.mysibsauServerAddress + logoString)!
     }
-    private let vkLinkString: String
+    private let vkLinkString: String?
     var vkLink: URL? {
-        URL(string: vkLinkString)
+        URL(string: vkLinkString ?? "")
     }
-    private let instagramLinkString: String
+    private let instagramLinkString: String?
     var instagramLink: URL? {
-        URL(string: instagramLinkString)
+        URL(string: instagramLinkString ?? "")
     }
     
-    init(id: Int, name: String, description: String, contacts: String, logoString: String, vkLinkString: String, instagramLinkString: String) {
+    init(id: Int, name: String, description: String, contacts: String, logoString: String, vkLinkString: String?, instagramLinkString: String?) {
         self.id = id
         self.name = name
         self.description = description
@@ -82,8 +82,8 @@ class RArtAssociation: Object, ConvertableToApp {
     @objc dynamic var name = ""
     @objc dynamic var description1 = ""
     @objc dynamic var contacts = ""
-    @objc dynamic var vkLink = ""
-    @objc dynamic var instaLink = ""
+    @objc dynamic var vkLink: String? = nil
+    @objc dynamic var instaLink: String? = nil
     
     override class func primaryKey() -> String? { "id" }
     

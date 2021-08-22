@@ -84,16 +84,23 @@ class ArtInfoPresenter: DetailPresenter {
                                   action: { self.openDetailScreen(art: art) }))
                     }
                 
+                var instaVkLink: [DetailModel.Content] = []
+                general.vkLink.let { link in
+                    instaVkLink.append(.button(.init(imageName: "vk",
+                                                     text: "link.vk".localized(using: tn),
+                                                     action: { link.openIfCan() })))
+                }
+                general.instagramLink.let { link in
+                    instaVkLink.append(.button(.init(imageName: "instagram",
+                                                     text: "link.inst".localized(using: tn),
+                                                     action: { link.openIfCan() })))
+                }
+                
                 return [
                     .nameView(general.name),
                     .title("about".localized(using: tn)),
-                    .textView(.init(text: general.description)),
-                    .button(.init(imageName: "vk",
-                                  text: "link.vk".localized(using: tn),
-                                  action: { general.vkLink?.openIfCan() })),
-                    .button(.init(imageName: "instagram",
-                                  text: "link.inst".localized(using: tn),
-                                  action: { general.instagramLink?.openIfCan() })),
+                    .textView(.init(text: general.description))
+                ] + instaVkLink + [
                     .textView(.init(text: general.contacts, tappable: true)),
                     .title("groups".localized(using: tn))
                 ] + groupsContent
@@ -129,15 +136,23 @@ extension ArtAssociation: DetailViewModel {
     
     func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
         let tn = "Person"
+        
+        var instaVkLink: [DetailModel.Content] = []
+        vkLink.let { link in
+            instaVkLink.append(.button(.init(imageName: "vk",
+                                             text: "link.vk".localized(using: tn),
+                                             action: { link.openIfCan() })))
+        }
+        instagramLink.let { link in
+            instaVkLink.append(.button(.init(imageName: "instagram",
+                                             text: "link.inst".localized(using: tn),
+                                             action: { link.openIfCan() })))
+        }
+        
         return [
             .title("about".localized(using: tn)),
-            .textView(.init(text: description)),
-            .button(.init(imageName: "vk",
-                          text: "link.vk".localized(using: tn),
-                          action: { vkLink?.openIfCan() })),
-            .button(.init(imageName: "instagram",
-                          text: "link.inst".localized(using: tn),
-                          action: { instagramLink?.openIfCan() })),
+            .textView(.init(text: description))
+        ] + instaVkLink + [
             .title("contacts".localized(using: tn)),
             .textView(.init(text: contacts, tappable: true)),
             .button(.init(imageName: "add_circle", text: "join.to".localized(using: tn), action: {
