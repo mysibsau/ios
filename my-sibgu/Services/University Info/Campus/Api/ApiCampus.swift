@@ -32,9 +32,8 @@ struct ApiCampus {
     
     static func sportClubs() -> URLRequest {
         let lang = Localize.currentLanguage
-        let urlRequest = URLRequest(url: URL(string: "\(address)/campus/sport_clubs/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
+        let urlRequest = URLRequest(url: URL(string: "\(ApiUniversityInfo.address)/v3/campus/sport_clubs/?language=\(lang)")!, cachePolicy: .reloadIgnoringLocalCacheData)
         return urlRequest
-        
     }
     
     static func desingOffices() -> URLRequest {

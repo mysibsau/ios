@@ -141,18 +141,22 @@ extension SportClub: DetailViewModel {
     func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
         let tn = "Person"
         
+        var phoneContent: [DetailModel.Content] = []
+        if let phone = phone {
+            phoneContent.append(.button(.init(imageName: "phone", text: phone, action: {
+                guard let url = phone.phoneUrl else { return }
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })))
+        }
+        
         return [
             .title("trainer".localized(using: tn)),
             .textView(.init(text: fio)),
             .title("training.dates".localized(using: tn)),
             .textView(.init(text: dates)),
-            .imageAndTextView(.init(imageName: "place", text: address)),
-            .button(.init(imageName: "phone", text: phone, action: {
-                guard let url = phone.phoneUrl else { return }
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
-            }))
-        ]
+            .imageAndTextView(.init(imageName: "place", text: address))
+        ] + phoneContent
     }
 }

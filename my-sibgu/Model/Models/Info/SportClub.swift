@@ -12,7 +12,7 @@ struct SportClub {
     let id: Int
     let name: String
     let fio: String
-    let phone: String
+    let phone: String?
     let address: String
     let dates: String
     
