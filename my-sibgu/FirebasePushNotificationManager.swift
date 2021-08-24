@@ -47,8 +47,8 @@ extension FirebasePushNotificationManager: MessagingDelegate {
             print("Subscribe to topic `allUsers_ios`, error - \(String(describing: error))")
         }
         #if DEBUG
-        Messaging.messaging().subscribe(toTopic: "debug_ios") { error in
-            print("SUBSCRIBE TO DEBUG `debug_ios`, error \(String(describing: error))")
+        Messaging.messaging().subscribe(toTopic: "debug") { error in
+            print("SUBSCRIBE TO DEBUG `debug`, error \(String(describing: error))")
         }
         #endif
     }
@@ -74,10 +74,6 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         // Print full message.
         print(userInfo)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            MAIN_NAVIGATION_CONTROLLER?.pushViewController(TestTestViewController(), animated: true)
-//        }
-        
         // Change this to your preferred presentation option
         completionHandler([[.alert, .sound]])
     }
@@ -93,13 +89,37 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         print("hello2222")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            MAIN_NAVIGATION_CONTROLLER?.pushViewController(TestTestViewController(), animated: true)
+            if let clickAction = userInfo["click_action"] as? String {
+                CODE_TO_SCREEN_OPENING[clickAction]?(MAIN_NAVIGATION_CONTROLLER!)
+            }
         }
         
         completionHandler()
     }
     
 }
+
+private let CODE_TO_SCREEN_OPENING: [String: (UINavigationController) -> Void] = [
+    "FEED": { navController in
+        (navController.viewControllers.first as? UITabBarController)?.selectedIndex = 0
+    },
+    "TIMETABLE": { navController in
+        (navController.viewControllers.first as? UITabBarController)?.selectedIndex = 2
+    },
+    "ATTESTATION": { navController in
+        let vc = AttestaionViewController()
+        navController.pushViewController(vc, animated: true)
+    },
+    "RECORD_BOOK": { navController in
+        let vc = MarksViewController()
+        navController.pushViewController(vc, animated: true)
+    },
+    "MY_QUESTIONS": { navController in
+        let vc = FAQViewController()
+        vc.mode = .myQuestions
+        navController.pushViewController(vc, animated: true)
+    }
+]
 
 
 extension UIApplication {

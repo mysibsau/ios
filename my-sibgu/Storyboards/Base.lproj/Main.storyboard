@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="1750.7246376811595" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="vNu-7i-zwo">
             <objects>
-                <navigationController storyboardIdentifier="MainNavController" navigationBarHidden="YES" id="xpq-r8-HtG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavController" navigationBarHidden="YES" id="xpq-r8-HtG" customClass="CustomNavigationController" customModule="my_sibgu" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TKV-vF-Qgn">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

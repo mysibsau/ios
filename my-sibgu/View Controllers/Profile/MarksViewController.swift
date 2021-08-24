@@ -36,6 +36,11 @@ class MarksViewController: UIViewController {
         loadMarks()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     // MARK: - Setup Views
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
