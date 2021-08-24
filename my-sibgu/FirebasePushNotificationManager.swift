@@ -43,9 +43,11 @@ extension FirebasePushNotificationManager: MessagingDelegate {
     }
     
     @objc private func subscribeToTopics() {
-        Messaging.messaging().subscribe(toTopic: "allUsers_ios") { error in
-            print("Subscribe to topic `allUsers_ios`, error - \(String(describing: error))")
-        }
+        ["allUsers_ios", UserService().getCurrUser()?.token]
+            .compactMap { $0 }
+            .forEach { topic in
+                Self.subscribe(to: topic)
+            }
         #if DEBUG
         Messaging.messaging().subscribe(toTopic: "debug") { error in
             print("SUBSCRIBE TO DEBUG `debug`, error \(String(describing: error))")
@@ -53,6 +55,17 @@ extension FirebasePushNotificationManager: MessagingDelegate {
         #endif
     }
     
+    static func subscribe(to topic: String) {
+        Messaging.messaging().subscribe(toTopic: topic) { error in
+            print("Subscribe to topic `\(topic)`, error - \(String(describing: error))")
+        }
+    }
+    
+    static func unsubscribe(from topic: String) {
+        Messaging.messaging().unsubscribe(fromTopic: topic) { error in
+            print("Unsubscribe from topic `\(topic)`, error - \(String(describing: error))")
+        }
+    }
 }
 
 extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {

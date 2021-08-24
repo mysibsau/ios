@@ -14,6 +14,10 @@ class UserService {
     }
     
     func outCurrUser() {
+        if let token = getCurrUser()?.token {
+            FirebasePushNotificationManager.unsubscribe(from: token)
+        }
+        
         DataManager.shared.replaceCurrUser(on: nil)
         UserDefaultsConfig.userStudentId = nil
         UserDefaultsConfig.userPassword = nil
