@@ -46,6 +46,11 @@ extension FirebasePushNotificationManager: MessagingDelegate {
         Messaging.messaging().subscribe(toTopic: "allUsers_ios") { error in
             print("Subscribe to topic `allUsers_ios`, error - \(String(describing: error))")
         }
+        #if DEBUG
+        Messaging.messaging().subscribe(toTopic: "debug_ios") { error in
+            print("SUBSCRIBE TO DEBUG `debug_ios`, error \(String(describing: error))")
+        }
+        #endif
     }
     
 }
@@ -67,7 +72,11 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         // Print message ID.
         
         // Print full message.
-//        print(userInfo)
+        print(userInfo)
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            MAIN_NAVIGATION_CONTROLLER?.pushViewController(TestTestViewController(), animated: true)
+//        }
         
         // Change this to your preferred presentation option
         completionHandler([[.alert, .sound]])
@@ -83,12 +92,40 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         // MARK: Или оно срабатывает, когда чел тыкает на уведомление, даже внутри приложения
         print("hello2222")
         
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        // Print full message.
-//        print(userInfo)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            MAIN_NAVIGATION_CONTROLLER?.pushViewController(TestTestViewController(), animated: true)
+        }
         
         completionHandler()
     }
     
+}
+
+
+extension UIApplication {
+    var currentWindow: UIWindow? {
+        connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+    }
+}
+
+
+class TestTestViewController: UIViewController {
+    
+    let label = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
 }

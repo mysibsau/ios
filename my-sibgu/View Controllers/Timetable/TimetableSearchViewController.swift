@@ -124,8 +124,6 @@ class TimetableSearchViewController: UIViewController {
         let professorsFromLocal = timetableService.getProfessorsFromLocal()
         let placesFromLocal = timetableService.getPlacesFromLocal()
         
-        print(groupsFromLocal)
-        
         if !groupsFromLocal.isEmpty && !professorsFromLocal.isEmpty && !placesFromLocal.isEmpty {
             checkHashAndLoadAllEntries()
             self.groups = groupsFromLocal

@@ -7,6 +7,8 @@
 
 import UIKit
 
+var MAIN_NAVIGATION_CONTROLLER: UINavigationController?
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -51,9 +53,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func showMainModule() {
-        let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainTabBarVC") as! UITabBarController
+        MAIN_NAVIGATION_CONTROLLER = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainNavController") as! UINavigationController
+        let tabBarVC = MAIN_NAVIGATION_CONTROLLER!.topViewController as! UITabBarController
         tabBarVC.selectedIndex = 2
-        window?.rootViewController = tabBarVC
+        window?.rootViewController = MAIN_NAVIGATION_CONTROLLER
         window?.makeKeyAndVisible()
         
         UIView.transition(

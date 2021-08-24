@@ -18,6 +18,11 @@ class CustomViewController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     @objc
     private func updateText() {
         let tableName = "TabBar"
@@ -28,13 +33,4 @@ class CustomViewController: UITabBarController {
         tabBar.items?[3].title = "services".localized(using: tableName)
         tabBar.items?[4].title = "profile".localized(using: tableName)
     }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        if tabBar.barTintColor == .green {
-//            tabBar.barTintColor = .red
-//        } else {
-//            tabBar.barTintColor = .green
-//        }
-//    }
-
 }
