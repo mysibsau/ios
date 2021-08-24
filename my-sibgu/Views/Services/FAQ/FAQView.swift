@@ -46,13 +46,22 @@ class FAQView: UIView {
     convenience init(faq: FAQResponse) {
         self.init()
         self.faq = faq
-        self.questionLabel.text = faq.question
+        let inProgressText = "[" + "in.processing".localized(using: "Uncatecorized") + "]"
+        var attrString: NSMutableAttributedString
+        if faq.answer == nil {
+            attrString = .init(string: faq.question + " " + inProgressText)
+            attrString.setAttributes([.foregroundColor: UIColor.Pallete.gray],
+                                     range: NSRange(location: faq.question.count + 1, length: inProgressText.count))
+        } else {
+            attrString = .init(string: faq.question)
+        }
+        self.questionLabel.attributedText = attrString
         self.answerLabel.makeUrlTappable()
         if let answer = faq.answer {
             self.answerLabel.setTextWithUrls(text: answer)
         } else {
             self.answerLabel.textColor = UIColor.Pallete.gray
-            self.answerLabel.text = "Ответа пока что нет. Мы работаем над тем, чтобы вы получили ответ на свой вопрос"
+            self.answerLabel.text = "in.processing.text".localized(using: "Uncatecorized")
         }
         
         updateText()

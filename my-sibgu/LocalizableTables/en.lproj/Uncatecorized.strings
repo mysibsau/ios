@@ -7,3 +7,6 @@
 */
 
 "today" = "Today";
+
+"in.processing" = "In Processing";
+"in.processing.text" = "There is no answer yet. We are working to ensure that you receive an answer to your question.";
