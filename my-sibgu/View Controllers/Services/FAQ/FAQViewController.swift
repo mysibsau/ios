@@ -9,18 +9,31 @@ import UIKit
 
 class FAQViewController: UIViewController {
     
-    private let supportService = SupportService()
+    enum Mode {
+        case faq
+        case myQuestions
+    }
     
-    private var faqs: [FAQ] = []
+    var mode: Mode = .faq
+    
+    private var faqs: [FAQResponse] = []
 
     // MARK: - Private UI
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
     
-    private let addQuestionButton = UIButton()
-    
     private let activityIndicatorView = UIActivityIndicatorView()
     private let alertView = AlertView()
+    
+    private let dontExistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = UIColor.Pallete.gray
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.isHidden = true
+        return label
+    }()
     
     
     override func viewDidLoad() {
@@ -35,7 +48,7 @@ class FAQViewController: UIViewController {
         setupScrollView()
         setupStackView()
         
-        if UserService().getCurrUser() != nil {
+        if UserService().getCurrUser() != nil && mode == .faq {
             setupAddQeustionButton()
         }
         
@@ -49,6 +62,11 @@ class FAQViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateText), name: .languageChanged, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     private func setupNavBar() {
         self.navigationController?.configurateNavigationBar()
         self.navigationItem.configurate()
@@ -60,31 +78,70 @@ class FAQViewController: UIViewController {
         let tableName = "FAQ"
         
         self.navigationItem.setLeftTitle(title: "nav.bar.title".localized(using: tableName))
-        addQuestionButton.setTitle("ask.another.question".localized(using: tableName), for: .normal)
     }
     
     private func setFaq() {
-        addQuestionButton.isHidden = true
         startActivityIndicator()
-        supportService.getAllFaq { faqs in
-            guard let faqs = faqs else {
-                DispatchQueue.main.async {
-                    self.stopActivityIndicator()
-                    self.showNetworkAlert()
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                for faq in faqs.sorted(by: { $0.rank > $1.rank }) {
-                    let v = FAQView(faq: faq)
-                    v.delegate = self
-                    self.stackView.addArrangedSubview(v)
-                }
-                self.stopActivityIndicator()
-                self.addQuestionButton.isHidden = false
+        
+        switch mode {
+        case .faq:
+            GetModelsService.shared.loadAndStoreIfPossible(
+                FAQListRequest(),
+                deleteActionBeforeWriting: nil,
+                completion: { faqs in
+                    DispatchQueue.main.async {
+                        guard let faqs = faqs else {
+                            self.stopActivityIndicator()
+                            self.showNetworkAlert()
+                            return
+                        }
+                        faqs.sorted { $0.views > $1.views }.forEach { faq in
+                            let v = FAQView(faq: faq)
+                            v.delegate = self
+                            self.stackView.addArrangedSubview(v)
+                        }
+                        self.stopActivityIndicator()
+                    }
+                })
+        case .myQuestions:
+            GetModelsService.shared.loadAndStoreIfPossible(
+                FAQMyListRequest(),
+                deleteActionBeforeWriting: nil,
+                completion: { faqs in
+                    DispatchQueue.main.async {
+                        guard let faqs = faqs else {
+                            self.stopActivityIndicator()
+                            self.showNetworkAlert()
+                            return
+                        }
+                        
+                        guard !faqs.isEmpty else {
+                            self.showEmplyLabel()
+                            self.stopActivityIndicator()
+                            return
+                        }
+                        
+                        faqs.sorted { $0.createDate > $1.createDate }.forEach { faq in
+                            let v = FAQView(faq: faq)
+                            v.delegate = self
+                            self.stackView.addArrangedSubview(v)
+                        }
+                        self.stopActivityIndicator()
+                    }
+                })
+        }
+    }
+    
+    private func showEmplyLabel() {
+        if !self.view.subviews.contains(self.dontExistLabel) {
+            self.view.addSubview(self.dontExistLabel)
+            self.dontExistLabel.snp.makeConstraints { make in
+                make.leading.trailing.equalToSuperview().inset(10)
+                make.centerY.equalTo(self.view.safeAreaLayoutGuide)
             }
         }
+        dontExistLabel.text = "У вас нет вопросов, либо на них еще не успели ответить"
+        dontExistLabel.isHidden = false
     }
     
     // MARK: - Setup Views
@@ -115,22 +172,10 @@ class FAQViewController: UIViewController {
     }
     
     private func setupAddQeustionButton() {
-        addQuestionButton.backgroundColor = UIColor.Pallete.content
-        addQuestionButton.setTitle("Задать другой вопрос", for: .normal)
-        addQuestionButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        addQuestionButton.setTitleColor(UIColor.Pallete.sibsuBlue, for: .normal)
-        addQuestionButton.layer.cornerRadius = 15
-        addQuestionButton.makeShadow()
-        addQuestionButton.makeBorder()
-        
-        scrollView.addSubview(addQuestionButton)
-        addQuestionButton.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
-        }
-        
-        addQuestionButton.addTarget(self, action: #selector(didTapAddQuestionButton), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = .init(image: .init(systemName: "square.and.pencil"),
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(didTapAddQuestionButton))
     }
     
     @objc
@@ -140,21 +185,11 @@ class FAQViewController: UIViewController {
     
 }
 
-extension FAQViewController {
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        addQuestionButton.makeBorder()
-        addQuestionButton.makeShadow()
-    }
-    
-}
-
 extension FAQViewController: FAQViewDelegate {
     
     func didTapToShowInfoOnQuestion(with id: Int) {
-        supportService.viewFaq(with: id, completion: { _ in })
+        RequestServise.shared.perform(FAQViewRequest(faqID: id), completion: { _ in })
     }
-    
 }
 
 

@@ -148,7 +148,9 @@ class JoinToUnionViewController: UIViewController {
             make.bottom.equalTo(contentView).offset(-40)
         }
         
-        addArrangedSubviewToStackView(view: fioTextField)
+        if UserService().getCurrUser() == nil {
+            addArrangedSubviewToStackView(view: fioTextField)
+        }
         addArrangedSubviewToStackView(view: instituteTextField)
         addArrangedSubviewToStackView(view: groupTextField)
         addArrangedSubviewToStackView(view: idVkTextField)
@@ -182,7 +184,7 @@ class JoinToUnionViewController: UIViewController {
     
     @objc private func doneAction() {
         guard
-            let fio = fioTextField.text, !fio.isEmpty,
+//            let fio = fioTextField.text, !fio.isEmpty,
             let institute = instituteTextField.text, !institute.isEmpty,
             let group = groupTextField.text, !group.isEmpty,
             let idVk = idVkTextField.text, !idVk.isEmpty,
@@ -196,6 +198,22 @@ class JoinToUnionViewController: UIViewController {
             alert.addAction(.init(title: "Ок", style: .default, handler: nil))
             present(alert, animated: true)
             return
+        }
+        
+        let fio: String
+        if let currUser = UserService().getCurrUser() {
+            fio = currUser.fio
+        } else {
+            guard let optFio = fioTextField.text, !optFio.isEmpty else {
+                let alert = UIAlertController(title: "Не все поля заполнены",
+                                             message: nil,
+                                             preferredStyle: .alert)
+                
+                alert.addAction(.init(title: "Ок", style: .default, handler: nil))
+                present(alert, animated: true)
+                return
+            }
+            fio = optFio
         }
         
         ApiCampusService().postJoinToUnion(

@@ -53,6 +53,13 @@ class RequestServise {
             completion(r1, r2, r3)
         }
     }
+    
+    func performAndReturnStatus<R1: Request>(_ request1: R1, completion: @escaping (Bool) -> Void) {
+        session.dataTask(with: request1.finalUrlRequest) { data, resopnse, error in
+            completion(error == nil
+                        && (200...300).contains((resopnse as? HTTPURLResponse)?.statusCode ?? -1))
+        }.resume()
+    }
 }
 
 // MARK: - Private methods for loading

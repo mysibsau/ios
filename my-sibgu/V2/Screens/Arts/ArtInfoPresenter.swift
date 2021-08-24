@@ -15,6 +15,10 @@ class ArtInfoPresenter: DetailPresenter {
     var arts: [ArtAssociation] = []
     
     func getStoreViewModel() -> DetailViewModel? {
+        if UserService().getCurrUser() != nil {
+            setupAddQeustionButton()
+        }
+        detailViewController?.navigationItem.setLeftTitle(title: "art".localized(using: "StudentsCollection"))
         let arts = GetModelsService.shared.getFromStore(type: ArtAssociation.self)
         guard let general = GetModelsService.shared.getFromStore(type: ArtAssociationGeneral.self).first,
               !arts.isEmpty
@@ -65,7 +69,7 @@ class ArtInfoPresenter: DetailPresenter {
     private func viewModel(general: ArtAssociationGeneral,
                            arts: [ArtAssociation]) -> DetailViewModel {
         AnyDetailViewModel(
-            navigationTitle: "Творчество",
+            navigationTitle: "art".localized(using: "StudentsCollection"),
             backgroundImage: .init(type: .url(general.logo)),
             foregroundImage: .init(type: .hide),
             content: { viewController in
@@ -80,16 +84,23 @@ class ArtInfoPresenter: DetailPresenter {
                                   action: { self.openDetailScreen(art: art) }))
                     }
                 
+                var instaVkLink: [DetailModel.Content] = []
+                general.vkLink.let { link in
+                    instaVkLink.append(.button(.init(imageName: "vk",
+                                                     text: "link.vk".localized(using: tn),
+                                                     action: { link.openIfCan() })))
+                }
+                general.instagramLink.let { link in
+                    instaVkLink.append(.button(.init(imageName: "instagram",
+                                                     text: "link.inst".localized(using: tn),
+                                                     action: { link.openIfCan() })))
+                }
+                
                 return [
                     .nameView(general.name),
                     .title("about".localized(using: tn)),
-                    .textView(.init(text: general.description)),
-                    .button(.init(imageName: "vk",
-                                  text: "link.vk".localized(using: tn),
-                                  action: { general.vkLink?.openIfCan() })),
-                    .button(.init(imageName: "instagram",
-                                  text: "link.inst".localized(using: tn),
-                                  action: { general.instagramLink?.openIfCan() })),
+                    .textView(.init(text: general.description))
+                ] + instaVkLink + [
                     .textView(.init(text: general.contacts, tappable: true)),
                     .title("groups".localized(using: tn))
                 ] + groupsContent
@@ -99,6 +110,20 @@ class ArtInfoPresenter: DetailPresenter {
     private func openDetailScreen(art: ArtAssociation) {
         detailViewController?.navigationController?.pushViewController(
             DetailViewController(viewModel: art), animated: true)
+    }
+    
+    private func setupAddQeustionButton() {
+        detailViewController?.navigationItem.rightBarButtonItem = .init(image: .init(systemName: "square.and.pencil"),
+                                                                        style: .plain,
+                                                                        target: self,
+                                                                        action: #selector(didTapAddQuestionButton))
+    }
+    
+    @objc
+    private func didTapAddQuestionButton() {
+        let vc = AskQuestionViewController()
+        vc.theme = "ktc"
+        detailViewController?.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -111,9 +136,23 @@ extension ArtAssociation: DetailViewModel {
     
     func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
         let tn = "Person"
+        
+        var instaVkLink: [DetailModel.Content] = []
+        vkLink.let { link in
+            instaVkLink.append(.button(.init(imageName: "vk",
+                                             text: "link.vk".localized(using: tn),
+                                             action: { link.openIfCan() })))
+        }
+        instagramLink.let { link in
+            instaVkLink.append(.button(.init(imageName: "instagram",
+                                             text: "link.inst".localized(using: tn),
+                                             action: { link.openIfCan() })))
+        }
+        
         return [
             .title("about".localized(using: tn)),
-            .textView(.init(text: description)),
+            .textView(.init(text: description))
+        ] + instaVkLink + [
             .title("contacts".localized(using: tn)),
             .textView(.init(text: contacts, tappable: true)),
             .button(.init(imageName: "add_circle", text: "join.to".localized(using: tn), action: {

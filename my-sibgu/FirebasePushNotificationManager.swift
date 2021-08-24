@@ -43,11 +43,29 @@ extension FirebasePushNotificationManager: MessagingDelegate {
     }
     
     @objc private func subscribeToTopics() {
-        Messaging.messaging().subscribe(toTopic: "allUsers_ios") { error in
-            print("Subscribe to topic `allUsers_ios`, error - \(String(describing: error))")
+        ["allUsers_ios", UserService().getCurrUser()?.token]
+            .compactMap { $0 }
+            .forEach { topic in
+                Self.subscribe(to: topic)
+            }
+        #if DEBUG
+        Messaging.messaging().subscribe(toTopic: "debug") { error in
+            print("SUBSCRIBE TO DEBUG `debug`, error \(String(describing: error))")
+        }
+        #endif
+    }
+    
+    static func subscribe(to topic: String) {
+        Messaging.messaging().subscribe(toTopic: topic) { error in
+            print("Subscribe to topic `\(topic)`, error - \(String(describing: error))")
         }
     }
     
+    static func unsubscribe(from topic: String) {
+        Messaging.messaging().unsubscribe(fromTopic: topic) { error in
+            print("Unsubscribe from topic `\(topic)`, error - \(String(describing: error))")
+        }
+    }
 }
 
 extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
@@ -67,7 +85,7 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         // Print message ID.
         
         // Print full message.
-//        print(userInfo)
+        print(userInfo)
         
         // Change this to your preferred presentation option
         completionHandler([[.alert, .sound]])
@@ -83,12 +101,64 @@ extension FirebasePushNotificationManager: UNUserNotificationCenterDelegate {
         // MARK: Или оно срабатывает, когда чел тыкает на уведомление, даже внутри приложения
         print("hello2222")
         
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        // Print full message.
-//        print(userInfo)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if let clickAction = userInfo["click_action"] as? String {
+                CODE_TO_SCREEN_OPENING[clickAction]?(MAIN_NAVIGATION_CONTROLLER!)
+            }
+        }
         
         completionHandler()
     }
     
+}
+
+private let CODE_TO_SCREEN_OPENING: [String: (UINavigationController) -> Void] = [
+    "FEED": { navController in
+        (navController.viewControllers.first as? UITabBarController)?.selectedIndex = 0
+    },
+    "TIMETABLE": { navController in
+        (navController.viewControllers.first as? UITabBarController)?.selectedIndex = 2
+    },
+    "ATTESTATION": { navController in
+        let vc = AttestaionViewController()
+        navController.pushViewController(vc, animated: true)
+    },
+    "RECORD_BOOK": { navController in
+        let vc = MarksViewController()
+        navController.pushViewController(vc, animated: true)
+    },
+    "MY_QUESTIONS": { navController in
+        let vc = FAQViewController()
+        vc.mode = .myQuestions
+        navController.pushViewController(vc, animated: true)
+    }
+]
+
+
+extension UIApplication {
+    var currentWindow: UIWindow? {
+        connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+    }
+}
+
+
+class TestTestViewController: UIViewController {
+    
+    let label = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
 }

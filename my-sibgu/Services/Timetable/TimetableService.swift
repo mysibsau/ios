@@ -20,44 +20,38 @@ class TimetableService {
     
     // MARK: - Get Groups
     func getEntities(ofTypes: Set<EntitiesType>, completion: @escaping EntitiesCallback) {
-        var groups = DataManager.shared.getGroups()
-        var professors = DataManager.shared.getProfessors()
-        var places = DataManager.shared.getPlaces()
-        
-        var missingEntities: Set<EntitiesType> = []
-        if groups.isEmpty {
-            missingEntities.insert(.group)
-        }
-        if professors.isEmpty {
-            missingEntities.insert(.professor)
-        }
-        if places.isEmpty {
-            missingEntities.insert(.place)
-        }
-        
-        // Если все есть - возвращаем
-        if missingEntities.isEmpty {
-            completion((groups, professors, places))
-            return
-        }
+//        var groups = DataManager.shared.getGroups()
+//        var professors = DataManager.shared.getProfessors()
+//        var places = DataManager.shared.getPlaces()
+//
+//        var missingEntities: Set<EntitiesType> = []
+//        if groups.isEmpty {
+//            missingEntities.insert(.group)
+//        }
+//        if professors.isEmpty {
+//            missingEntities.insert(.professor)
+//        }
+//        if places.isEmpty {
+//            missingEntities.insert(.place)
+//        }
+//
+//        // Если все есть - возвращаем
+//        if missingEntities.isEmpty {
+//            completion((groups, professors, places))
+//            return
+//        }
+        var missingEntities: Set<EntitiesType> = ofTypes
         
         // Иначе качаем недостающие
         ApiTimetableService().loadEntities(entities: missingEntities) { result in
-            self.saveEntities(entitiesTypes: missingEntities, result: result)
             // Лучше не вытаскивать из main, потому что в предыдущей функции почти все запускатеся
             // в main потоке и нижний код может выполниться быстрее
             DispatchQueue.main.async {
-                if missingEntities.contains(.group) {
-                    groups = DataManager.shared.getGroups()
+                self.saveEntities(entitiesTypes: missingEntities, result: result)
+                // Await save entities hehehehe
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    completion((DataManager.shared.getGroups(), DataManager.shared.getProfessors(), DataManager.shared.getPlaces()))
                 }
-                if missingEntities.contains(.professor) {
-                    professors = DataManager.shared.getProfessors()
-                }
-                if missingEntities.contains(.place) {
-                    places = DataManager.shared.getPlaces()
-                }
-                
-                completion((groups, professors, places))
             }
         }
         
@@ -238,49 +232,38 @@ class TimetableService {
     
     private func saveEntities(entitiesTypes: Set<EntitiesType>, result: EntitiesResponse?) {
         if entitiesTypes.contains(.group) {
-            guard
-                let groups = result?.groups,
-                let groupsHash = result?.groupsHash
-            else {
-                return
-            }
-            DispatchQueue.main.async {
-                DataManager.shared.deleteAllGroups()
-                let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
-                DataManager.shared.write(groups: rGroups)
-                UserDefaultsConfig.groupsHash = groupsHash
+            if let groups = result?.groups,
+               let groupsHash = result?.groupsHash {
+                DispatchQueue.main.async {
+                    DataManager.shared.deleteAllGroups()
+                    let rGroups = ResponseTranslator.converteGroupResponseToRGroup(groupsResponse: groups)
+                    DataManager.shared.write(groups: rGroups)
+                    UserDefaultsConfig.groupsHash = groupsHash
+                }
             }
         }
         
         if entitiesTypes.contains(.professor) {
-            guard
-                let professors = result?.professors,
-                let professorsHash = result?.professorsHash
-            else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                DataManager.shared.deleteAllProfessors()
-                let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
-                DataManager.shared.write(professors: rProfessors)
-                UserDefaultsConfig.professorsHash = professorsHash
+            if let professors = result?.professors,
+               let professorsHash = result?.professorsHash {
+                DispatchQueue.main.async {
+                    DataManager.shared.deleteAllProfessors()
+                    let rProfessors = ResponseTranslator.converteProfessorResponseToRProfessor(professorsResponse: professors)
+                    DataManager.shared.write(professors: rProfessors)
+                    UserDefaultsConfig.professorsHash = professorsHash
+                }
             }
         }
         
         if entitiesTypes.contains(.place) {
-            guard
-                let places = result?.places,
-                let placesHash = result?.placesHash
-            else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                DataManager.shared.deleteAllPlaces()
-                let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
-                DataManager.shared.write(places: rPlaces)
-                UserDefaultsConfig.placesHash = placesHash
+            if let places = result?.places,
+               let placesHash = result?.placesHash {
+                DispatchQueue.main.async {
+                    DataManager.shared.deleteAllPlaces()
+                    let rPlaces = ResponseTranslator.convertePlaceResponseToRPlace(placesResponse: places)
+                    DataManager.shared.write(places: rPlaces)
+                    UserDefaultsConfig.placesHash = placesHash
+                }
             }
         }
     }

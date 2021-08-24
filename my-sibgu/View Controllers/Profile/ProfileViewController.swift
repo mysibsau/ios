@@ -15,6 +15,12 @@ class ProfileViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        return stackView
+    }()
     
     private let alertView = AlertView()
     private let activityIndicatorView = UIActivityIndicatorView()
@@ -49,33 +55,6 @@ class ProfileViewController: UIViewController {
     }()
     private let signInButton = UIButton()
     
-    // MARK: User
-    
-    private lazy var fioTitleLabel = getUserTitleLabel()
-    private lazy var groupTitleLabel = getUserTitleLabel()
-    private lazy var averageRateTitleLabel = getUserTitleLabel()
-    private lazy var studentIdTitleLabel = getUserTitleLabel()
-    private lazy var performanceTitleLabel = getUserTitleLabel()
-    
-    private lazy var fioLabel = getUserLabel()
-    private lazy var groupLabel = getUserLabel()
-    private lazy var averageRateLabel = getUserLabel()
-    private lazy var studentIdLabel = getUserLabel()
-    private lazy var attestationLabel = getUserLabel()
-    private lazy var marksLabel = getUserLabel()
-    
-    private lazy var fioView = getWrapView()
-    private lazy var groupView = getWrapView()
-    private lazy var averageRateView = getWrapView()
-    private lazy var studentIdView = getWrapView()
-    private lazy var performanceView = getWrapView()
-    private lazy var performanceStackView = getPerformanceStackView()
-    private lazy var attestationView = UIView()
-    private lazy var marksView = UIView()
-    
-    private let separateView = UIView()
-    
-    
     private func getUserLabel() -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
@@ -96,13 +75,6 @@ class ProfileViewController: UIViewController {
         view.layer.cornerRadius = 10
         view.backgroundColor = UIColor.Pallete.content
         return view
-    }
-    
-    private func getPerformanceStackView() -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 0
-        return stackView
     }
     
     
@@ -132,15 +104,33 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        user = userService.getCurrUser()
-        
-        if user == nil {
-            setupSignInView()
-        } else {
-            setupUserViews()
+        updateText()
+    }
+    
+    enum ViewType {
+        case titleWithText(String, String)
+        case twoTitleWithTwoText(String, String, String, String)
+        case titleWithButtonsBlock(String, [(String, () -> Void)])
+    }
+    
+    private func setupModels(views: [ViewType]) {
+        stackView.removeAllArrangedSubviews()
+        if !contentView.subviews.contains(stackView) {
+            contentView.addSubview(stackView)
+            stackView.snp.makeConstraints { make in
+                make.edges.equalToSuperview().inset(20)
+            }
         }
-        
-        self.updateText()
+        for viewType in views {
+            switch viewType {
+            case .titleWithText(let title, let text):
+                stackView.addArrangedSubview(titleWithText(title: title, text: text))
+            case .twoTitleWithTwoText(let title1, let text1, let title2, let text2):
+                stackView.addArrangedSubview(titlesWithTexts(models: [(title1, text1), (title2, text2)]))
+            case .titleWithButtonsBlock(let title, let buttons):
+                stackView.addArrangedSubview(titleWithButtons(title: title, buttons: buttons))
+            }
+        }
     }
     
     // MARK: - Setup Views
@@ -269,151 +259,106 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: User
-    private func setupUserViews() {
+    private func setupUserViews(tableName: String) {
+        guard let user = user else { return }
+        
         for subview in contentView.subviews {
             subview.removeFromSuperview()
         }
-        fioLabel.removeFromSuperview()
-        groupLabel.removeFromSuperview()
-        studentIdLabel.removeFromSuperview()
-        averageRateLabel.removeFromSuperview()
-        numberTextField.text?.removeAll()
-        passwordTextFiled.text?.removeAll()
-
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 15
         
-        contentView.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(20)
-        }
-        
-        stackView.addArrangedSubview(getFioSegment())
-        stackView.addArrangedSubview(getGroupAndAverageRateSegment())
-        stackView.addArrangedSubview(getStudentIdSegment())
-        stackView.addArrangedSubview(getPerformanceSegment())
-        
-        fioTitleLabel.text = "ФИО"
-        fioLabel.text = user?.fio
-        
-        groupTitleLabel.text = "Группа"
-        groupLabel.text = user?.group
-        
-        averageRateTitleLabel.text = "Средний балл"
-        averageRateLabel.text = String(user?.averageRating ?? 0)
-        
-        studentIdTitleLabel.text = "Номер зачетки"
-        studentIdLabel.text = user?.zachotka
-        
-        performanceTitleLabel.text = "Успеваемость"
+        setupModels(views: [
+            .titleWithText("fio".localized(using: tableName), user.fio),
+            .twoTitleWithTwoText("group".localized(using: tableName),
+                                 user.group,
+                                 "average.rate".localized(using: tableName),
+                                 String(user.averageRating)),
+            .titleWithText("student.id".localized(using: tableName), user.zachotka),
+            .titleWithButtonsBlock("performance".localized(using: tableName), [
+                ("attestation".localized(using: tableName), {
+                    let vc = AttestaionViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }),
+                ("marks".localized(using: tableName), {
+                    let vc = MarksViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            ]),
+            .titleWithButtonsBlock("help".localized(using: tableName), [
+                ("my.question".localized(using: tableName), {
+                    let vc = FAQViewController()
+                    vc.mode = .myQuestions
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }),
+                ("FAQ", {
+                    let vc = FAQViewController()
+                    vc.mode = .faq
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }),
+                ("feedback".localized(using: tableName), {
+                    self.navigationController?.pushViewController(SurveyViewController(), animated: true)
+                }),
+                ("user.agreement".localized(using: tableName), {
+                    URL(string: "https://mysibsau.ru/user-agreement/")?.openIfCan()
+                })
+            ])
+        ])
     }
     
-    private func getFioSegment() -> UIView {
-        let fioSegment = getViewWithTitleAndInfo(
-            titleLabel: fioTitleLabel,
-            infoView: fioView,
-            infoLabel: fioLabel
-        )
-        return fioSegment
-    }
-    
-    private func getGroupAndAverageRateSegment() -> UIView {
-        let groupSegment = getViewWithTitleAndInfo(
-            titleLabel: groupTitleLabel,
-            infoView: groupView,
-            infoLabel: groupLabel
-        )
-        let averageRateSegment = getViewWithTitleAndInfo(
-            titleLabel: averageRateTitleLabel,
-            infoView: averageRateView,
-            infoLabel: averageRateLabel
-        )
+    private func titleWithButtons(title: String, buttons: [(test: String, action: () -> Void)]) -> UIView {
+        let titleLabel = getUserTitleLabel()
+        let wrapView = getWrapView()
         
-        let hStackView = UIStackView()
-        hStackView.axis = .horizontal
-        hStackView.distribution = .fillEqually
-        hStackView.spacing = 20
+        let vStackView = UIStackView()
+        vStackView.axis = .vertical
+        vStackView.spacing = 0
+        vStackView.clipsToBounds = true
         
-        hStackView.addArrangedSubview(groupSegment)
-        hStackView.addArrangedSubview(averageRateSegment)
-        
-        return hStackView
-    }
-    
-    private func getStudentIdSegment() -> UIView {
-        let studentIdSegment = getViewWithTitleAndInfo(
-            titleLabel: studentIdTitleLabel,
-            infoView: studentIdView,
-            infoLabel: studentIdLabel
-        )
-        return studentIdSegment
-    }
-    
-    private func getPerformanceSegment() -> UIView {
-        attestationView.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
-        attestationView.addSubview(attestationLabel)
-        attestationLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.centerY.equalToSuperview()
-        }
-        let attestationArrow = getArrowImage()
-        attestationView.addSubview(attestationArrow)
-        attestationArrow.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-15)
-            make.centerY.equalToSuperview()
-            make.size.equalTo(22)
+        for (index, buttonModel) in buttons.enumerated() {
+            let view = TappableView()
+            let label = getUserLabel()
+            let arrow = getArrowImage()
+            
+            view.addSubview(label)
+            view.addSubview(arrow)
+            
+            view.snp.makeConstraints { make in
+                make.height.equalTo(50)
+            }
+            label.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(20)
+                make.centerY.equalToSuperview()
+            }
+            arrow.snp.makeConstraints { make in
+                make.trailing.equalToSuperview().offset(-15)
+                make.centerY.equalToSuperview()
+                make.size.equalTo(22)
+            }
+            
+            label.text = buttonModel.test
+            view.action(buttonModel.action)
+            view.isUserInteractionEnabled = true
+            
+            vStackView.addArrangedSubview(view)
+            
+            if index != buttons.count - 1 {
+                let separator = UIView()
+                separator.snp.makeConstraints { make in
+                    make.height.equalTo(0.5)
+                }
+                separator.backgroundColor = UIColor.Pallete.gray
+                vStackView.addArrangedSubview(separator)
+            }
         }
         
-        attestationLabel.text = "Аттестация"
-
-        marksView.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
-        marksView.addSubview(marksLabel)
-        marksLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.centerY.equalToSuperview()
-        }
-        let marksArrow = getArrowImage()
-        marksView.addSubview(marksArrow)
-        marksArrow.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-15)
-            make.centerY.equalToSuperview()
-            make.size.equalTo(22)
-        }
-        
-        separateView.snp.makeConstraints { make in
-            make.height.equalTo(0.3)
-        }
-        separateView.backgroundColor = UIColor.Pallete.gray
-        
-        marksLabel.text = "Оценки"
-        
-        performanceStackView.addArrangedSubview(attestationView)
-        performanceStackView.addArrangedSubview(separateView)
-        performanceStackView.addArrangedSubview(marksView)
-        performanceStackView.clipsToBounds = true
-        
-        performanceView.addSubview(performanceStackView)
-        performanceStackView.snp.makeConstraints { make in
+        wrapView.addSubview(vStackView)
+        vStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        let performanceSegment = getViewWithTitleAndInfo(
-            titleLabel: performanceTitleLabel,
-            infoView: performanceView
-        )
+        titleLabel.text = title
         
-        let attestationGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapToAttestation))
-        let marksGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapToMarks))
-        
-        attestationView.addGestureRecognizer(attestationGestureRecognizer)
-        marksView.addGestureRecognizer(marksGestureRecognizer)
-        
-        return performanceSegment
+        return getViewWithTitleAndInfo(titleLabel: titleLabel,
+                                       infoView: wrapView)
     }
     
     private func getArrowImage() -> UIImageView {
@@ -422,6 +367,48 @@ class ProfileViewController: UIViewController {
         imageView.image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.Pallete.sibsuBlue
         return imageView
+    }
+    
+    private func titlesWithTexts(models: [(title: String, text: String)]) -> UIView {
+        let hStackView = UIStackView()
+        hStackView.axis = .horizontal
+        hStackView.distribution = .fillEqually
+        hStackView.spacing = 20
+        
+        for model in models {
+            hStackView.addArrangedSubview(titleWithText(title: model.title, text: model.text))
+        }
+        
+        return hStackView
+    }
+    
+    private func titleWithText(title: String, text: String) -> UIView {
+        let view = UIView()
+        let titleLabel = getUserTitleLabel()
+        let textView = getWrapView()
+        let textLabel = getUserLabel()
+        
+        view.addSubview(titleLabel)
+        view.addSubview(textView)
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        textView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        textView.addSubview(textLabel)
+        textLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(12)
+        }
+        
+        titleLabel.text = title
+        textLabel.text = text
+        
+        return view
     }
     
     private func getViewWithTitleAndInfo(titleLabel: UILabel, infoView: UIView, infoLabel: UILabel? = nil) -> UIView {
@@ -461,19 +448,17 @@ class ProfileViewController: UIViewController {
         
         self.navigationItem.setBarLeftMainLogoAndLeftTitle(title: "navBarTitle".localized(using: tableName))
         
-        numberTextField.placeholder = "number".localized(using: tableName)
-        passwordTextFiled.placeholder = "password".localized(using: tableName)
-        signInButton.setTitle("sign.in".localized(using: tableName), for: .normal)
-        descriptionLabel.text = "sign.in.description".localized(using: tableName)
-        
-        fioTitleLabel.text = "fio".localized(using: tableName)
-        groupTitleLabel.text = "group".localized(using: tableName)
-        averageRateTitleLabel.text = "average.rate".localized(using: tableName)
-        studentIdTitleLabel.text = "student.id".localized(using: tableName)
-        
-        performanceTitleLabel.text = "performance".localized(using: tableName)
-        attestationLabel.text = "attestation".localized(using: tableName)
-        marksLabel.text = "marks".localized(using: tableName)
+        user = userService.getCurrUser()
+
+        if user == nil {
+            setupSignInView()
+            numberTextField.placeholder = "number".localized(using: tableName)
+            passwordTextFiled.placeholder = "password".localized(using: tableName)
+            signInButton.setTitle("sign.in".localized(using: tableName), for: .normal)
+            descriptionLabel.text = "sign.in.description".localized(using: tableName)
+        } else {
+            setupUserViews(tableName: tableName)
+        }
     }
     
     @objc
@@ -499,21 +484,9 @@ class ProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 self.user = user
                 self.stopActivityIndicator()
-                self.setupUserViews()
+                self.updateText()
             }
         }
-    }
-    
-    @objc
-    private func didTapToMarks() {
-        let vc = MarksViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc
-    private func didTapToAttestation() {
-        let vc = AttestaionViewController()
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Notification
@@ -562,21 +535,6 @@ extension ProfileViewController {
         
         textFieldsView.makeBorder()
         textFieldsView.makeShadow(opacity: 0.2, radius: 6)
-        
-        fioView.makeBorder()
-        fioView.makeShadow()
-        
-        groupView.makeBorder()
-        groupView.makeShadow()
-        
-        studentIdView.makeBorder()
-        studentIdView.makeShadow()
-        
-        averageRateView.makeBorder()
-        averageRateView.makeShadow()
-        
-        performanceView.makeBorder()
-        performanceView.makeShadow()
     }
     
 }
