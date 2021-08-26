@@ -71,7 +71,7 @@ class ServicesCollectionViewController: UICollectionViewController {
             (
                 CollectionViewHelper.getViewWithImage(
                     image: UIImage(named: "work")!,
-                    backgroundColor: UIColor.Pallete.gray,
+                    backgroundColor: UIColor.Pallete.sibsuGreen,
                     imageColor: UIColor.Pallete.content
                 ),
                 "Работа",
@@ -80,7 +80,7 @@ class ServicesCollectionViewController: UICollectionViewController {
             (
                 CollectionViewHelper.getViewWithImage(
                     image: UIImage(systemName: "book.fill")!,
-                    backgroundColor: UIColor.Pallete.gray,
+                    backgroundColor: UIColor.Pallete.sibsuBlue,
                     imageColor: UIColor.Pallete.content
                 ),
                 "Библиотека",
