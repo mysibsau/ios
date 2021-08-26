@@ -66,7 +66,10 @@ extension NSMutableAttributedString {
         
         var rangesAndUrls: [NSRange: URL] = [:]
         for range in ranges {
-            let stringUrl = String(attrString.string[Range(range, in: attrString.string)!])
+            var stringUrl = String(attrString.string[Range(range, in: attrString.string)!])
+            while [".", ",", ":"].contains(stringUrl.last) {
+                stringUrl.removeLast()
+            }
             attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: range)
             attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             rangesAndUrls[range] = URL(string: stringUrl)!
@@ -94,7 +97,10 @@ extension NSMutableAttributedString {
             let linkRangeWitoutFirstAndLast = NSRange(location: linkRange.location + 1, length: linkRange.length - 2)
             
             let name = String(nameAndLink[Range(nameRangeWitoutFirstAndLast, in: nameAndLink)!])
-            let stringUrl = String(nameAndLink[Range(linkRangeWitoutFirstAndLast, in: nameAndLink)!])
+            var stringUrl = String(nameAndLink[Range(linkRangeWitoutFirstAndLast, in: nameAndLink)!])
+            while [".", ",", ":"].contains(stringUrl.last) {
+                stringUrl.removeLast()
+            }
             let url = URL(string: stringUrl.encodeUrl) ?? URL(string: "https://www.google.com/?client=safari")!
             
             attrString.replaceCharacters(in: nameAndLinkRange!, with: name)
