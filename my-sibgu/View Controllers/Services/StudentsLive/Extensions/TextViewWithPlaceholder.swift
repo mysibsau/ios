@@ -53,7 +53,7 @@ class TextViewWithPlaceholder: UITextView, UITextViewDelegate {
             make.leading.equalToSuperview().offset(5)
             topConstraint = make.top.equalToSuperview().constraint
         }
-        placeholderLabel.textColor = .systemGray3
+        placeholderLabel.textColor = .systemGray2
         placeholderLabel.font = font
         placeholderLabel.textAlignment = .left
     }

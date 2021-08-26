@@ -51,6 +51,7 @@ class JoinToArtViewController: UIViewController {
         let textField = TextViewWithPlaceholder()
         textField.placeholder = "Опыт творческой деятельности"
         textField.font = UIFont.systemFont(ofSize: 20)
+        textField.backgroundColor = .clear
         textField.snp.makeConstraints { $0.height.equalTo(100) }
         return textField
     }()
@@ -59,6 +60,7 @@ class JoinToArtViewController: UIViewController {
         let textField = TextViewWithPlaceholder()
         textField.placeholder = "Коментарий"
         textField.font = UIFont.systemFont(ofSize: 20)
+        textField.backgroundColor = .clear
         textField.snp.makeConstraints { $0.height.equalTo(100) }
         return textField
     }()
