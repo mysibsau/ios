@@ -247,7 +247,6 @@ extension DataManager {
         try? downloadedRealm.write {
             downloadedRealm.delete(downloadedGroups, cascading: true)
         }
-        favoriteIdsData = Data()
     }
     
     func deleteAllProfessors() {
@@ -259,7 +258,6 @@ extension DataManager {
         try? downloadedRealm.write {
             downloadedRealm.delete(downloadedProfessors, cascading: true)
         }
-        favoriteIdsData = Data()
     }
     
     func deleteAllPlaces() {
@@ -271,7 +269,6 @@ extension DataManager {
         try? downloadedRealm.write {
             downloadedRealm.delete(downloadedPlaces, cascading: true)
         }
-        favoriteIdsData = Data()
     }
     
 }
