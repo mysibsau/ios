@@ -68,15 +68,15 @@ class ServicesCollectionViewController: UICollectionViewController {
                 "Студ. жизнь",
                 { StudentsLiveCollectionView(collectionViewLayout: .init()) }
             ),
-            (
-                CollectionViewHelper.getViewWithImage(
-                    image: UIImage(named: "work")!,
-                    backgroundColor: UIColor.Pallete.sibsuGreen,
-                    imageColor: UIColor.Pallete.content
-                ),
-                "Работа",
-                { VacanciesTableViewController() }
-            ),
+//            (
+//                CollectionViewHelper.getViewWithImage(
+//                    image: UIImage(named: "work")!,
+//                    backgroundColor: UIColor.Pallete.sibsuGreen,
+//                    imageColor: UIColor.Pallete.content
+//                ),
+//                "Работа",
+//                { VacanciesTableViewController() }
+//            ),
             (
                 CollectionViewHelper.getViewWithImage(
                     image: UIImage(systemName: "book.fill")!,
@@ -116,8 +116,8 @@ class ServicesCollectionViewController: UICollectionViewController {
         services[0].name = "buildings".localized(using: tableName)
         services[1].name = "institutes".localized(using: tableName)
         services[2].name = "student.life".localized(using: tableName)
-        services[3].name = "work".localized(using: tableName)
-        services[4].name = "library".localized(using: tableName)
+//        services[3].name = "work".localized(using: tableName)
+        services[3].name = "library".localized(using: tableName)
 //        services[7].name = "tickets".localized(using: tableName)
         
         collectionView.reloadData()
