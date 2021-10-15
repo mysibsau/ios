@@ -12,6 +12,13 @@ class CustomViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 15, *) {
+            let tabbarAppearance = UITabBarAppearance()
+            tabbarAppearance.configureWithOpaqueBackground()
+            tabBar.standardAppearance = tabbarAppearance
+            tabBar.scrollEdgeAppearance = tabbarAppearance
+        }
+        
         self.tabBar.barTintColor = UIColor.Pallete.Special.tabNavBar
         
         updateText()
