@@ -296,6 +296,9 @@
 		7C44572626C37CBC0001EB58 /* GetModelsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44572526C37CBC0001EB58 /* GetModelsService.swift */; };
 		7C84086C26C5A22F0092F3E0 /* Unreachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C84086B26C5A22F0092F3E0 /* Unreachable.swift */; };
 		7C8DB07826BC5173001504E0 /* StudentsLiveCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */; };
+		7C96BEB82719252B00349995 /* FacultiesInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C96BEB72719252B00349995 /* FacultiesInfoPresenter.swift */; };
+		7C96BEBA271925BB00349995 /* Faculity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C96BEB9271925BB00349995 /* Faculity.swift */; };
+		7C96BEBC27192E5E00349995 /* FaculityGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C96BEBB27192E5E00349995 /* FaculityGeneral.swift */; };
 		7CBAC25F26C8FFE600C89FE9 /* CornerImageWithTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC25E26C8FFE600C89FE9 /* CornerImageWithTitleView.swift */; };
 		7CBAC26626C90D8B00C89FE9 /* ArtInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26526C90D8B00C89FE9 /* ArtInfoPresenter.swift */; };
 		7CBAC26826C90E0800C89FE9 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBAC26726C90E0800C89FE9 /* DetailPresenter.swift */; };
@@ -650,6 +653,9 @@
 		7C44572526C37CBC0001EB58 /* GetModelsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModelsService.swift; sourceTree = "<group>"; };
 		7C84086B26C5A22F0092F3E0 /* Unreachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unreachable.swift; sourceTree = "<group>"; };
 		7C8DB07726BC5173001504E0 /* StudentsLiveCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLiveCollectionView.swift; sourceTree = "<group>"; };
+		7C96BEB72719252B00349995 /* FacultiesInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultiesInfoPresenter.swift; sourceTree = "<group>"; };
+		7C96BEB9271925BB00349995 /* Faculity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faculity.swift; sourceTree = "<group>"; };
+		7C96BEBB27192E5E00349995 /* FaculityGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaculityGeneral.swift; sourceTree = "<group>"; };
 		7CBAC25E26C8FFE600C89FE9 /* CornerImageWithTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImageWithTitleView.swift; sourceTree = "<group>"; };
 		7CBAC26526C90D8B00C89FE9 /* ArtInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtInfoPresenter.swift; sourceTree = "<group>"; };
 		7CBAC26726C90E0800C89FE9 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
@@ -1926,6 +1932,8 @@
 				7CBAC26B26C9192100C89FE9 /* ArtAssociation.swift */,
 				7CBAC26F26C91D3100C89FE9 /* ArtAssociationGeneral.swift */,
 				7CF5F40226CE4152005BFB44 /* HashRequests.swift */,
+				7C96BEB9271925BB00349995 /* Faculity.swift */,
+				7C96BEBB27192E5E00349995 /* FaculityGeneral.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1960,6 +1968,7 @@
 			isa = PBXGroup;
 			children = (
 				7CBAC26526C90D8B00C89FE9 /* ArtInfoPresenter.swift */,
+				7C96BEB72719252B00349995 /* FacultiesInfoPresenter.swift */,
 			);
 			path = Arts;
 			sourceTree = "<group>";
@@ -2305,6 +2314,7 @@
 				7C44570E26C18D4F0001EB58 /* Request.swift in Sources */,
 				7CBAC25F26C8FFE600C89FE9 /* CornerImageWithTitleView.swift in Sources */,
 				4A50640325CB1B3D004C2BC8 /* AskQuestionViewController.swift in Sources */,
+				7C96BEB82719252B00349995 /* FacultiesInfoPresenter.swift in Sources */,
 				4AC191DA25B784D000325142 /* Notification.Name+Localize.swift in Sources */,
 				4A3D7D59259C614600B6D38A /* ShortEventCollectionViewCell.swift in Sources */,
 				4A91D6892573CB3F00EA1E47 /* Common.swift in Sources */,
@@ -2356,6 +2366,7 @@
 				4AC1917B25B5E5E900325142 /* ProfileViewController.swift in Sources */,
 				4AF3EC6C25AA161500AF0367 /* ApiInformingService.swift in Sources */,
 				4A7A56EA256BF52000E2CE0F /* BuildingsViewController.swift in Sources */,
+				7C96BEBA271925BB00349995 /* Faculity.swift in Sources */,
 				4A9C9D7C25BF25C30054E011 /* CustomNavigationController.swift in Sources */,
 				4AC1911525B3229C00325142 /* ApiSurveys.swift in Sources */,
 				7CBAC27026C91D3100C89FE9 /* ArtAssociationGeneral.swift in Sources */,
@@ -2409,6 +2420,7 @@
 				7CBAC26E26C91B1200C89FE9 /* NetworkingConstants.swift in Sources */,
 				7CBAC27826CA1FD400C89FE9 /* RequestWithDefaultHeaderParams.swift in Sources */,
 				4A9FEF3325EFD111005DD121 /* PerformanceViewController.swift in Sources */,
+				7C96BEBC27192E5E00349995 /* FaculityGeneral.swift in Sources */,
 				4A3149FC257255AD00FB7FC2 /* LessonDayView.swift in Sources */,
 				4AEE180C256EB73100DD7D9F /* GroupSubgroupVIew.swift in Sources */,
 				4AD21F9525C337090018D4F0 /* FavoriteTimetableElemView.swift in Sources */,

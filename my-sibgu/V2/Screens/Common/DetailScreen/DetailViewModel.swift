@@ -34,10 +34,17 @@ enum DetailModel {
     struct Image {
         let useBlur: Bool
         let type: ImageType
+        let imageContentMode: UIImageView.ContentMode
+        let imageHeightMultiply: CGFloat
         
-        init(type: ImageType, useBlur: Bool = false) {
+        init(type: ImageType,
+             useBlur: Bool = false,
+             imageContentMode: UIImageView.ContentMode = .scaleAspectFill,
+             imageHeightMultiply: CGFloat = 0.3) {
             self.type = type
             self.useBlur = useBlur
+            self.imageContentMode = imageContentMode
+            self.imageHeightMultiply = imageHeightMultiply
         }
     }
     
@@ -98,6 +105,8 @@ extension DetailModel.Image {
         case .hide:
             imageView.isHidden = true
         }
+        
+        imageView.contentMode = imageContentMode
         
         // Да я знаю что дублирует прошлое но так надо
         imageView.isHidden = type == .hide

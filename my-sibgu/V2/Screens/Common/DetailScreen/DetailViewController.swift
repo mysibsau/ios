@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     let backgroupndImageView: BlurImageView = {
         let imageView = BlurImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = UIColor.Pallete.white
+        imageView.backgroundColor = UIColor.Pallete.background
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -54,6 +54,8 @@ class DetailViewController: UIViewController {
             setupViewModel(viewModel: $0)
         }
     }
+    
+    private var imageHeightMultiply: CGFloat?
     
     init(viewModel: DetailViewModel) {
         super.init(nibName: nil, bundle: nil)
@@ -149,7 +151,7 @@ class DetailViewController: UIViewController {
         contentView.addSubview(backgroupndImageView)
         backgroupndImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.3)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(imageHeightMultiply ?? 0.3)
         }
     }
     

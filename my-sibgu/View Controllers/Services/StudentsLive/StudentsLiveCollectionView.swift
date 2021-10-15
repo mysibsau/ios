@@ -68,7 +68,7 @@ class StudentsLiveCollectionView: UICollectionViewController {
                     imageColor: UIColor.Pallete.content
                 ),
                 "3",
-                { DesignOfficesTableViewController() }
+                { DetailViewController(presenter: FacultiesInfoPresenter()) }
             ),
             (
                 CollectionViewHelper.getViewWithImage(
