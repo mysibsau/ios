@@ -135,7 +135,7 @@ extension Faculity: DetailViewModel {
 
     var navigationTitle: String? { name }
 
-    var backgroundImage: DetailModel.Image { .init(type: .url(logo), imageContentMode: .scaleAspectFill, imageHeightMultiply: 0.5) }
+    var backgroundImage: DetailModel.Image { .init(type: .url(logo), imageContentMode: .scaleAspectFill, imageHeightMultiply: 0.7) }
     var foregroundImage: DetailModel.Image { .init(type: .hide) }
 
     func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {

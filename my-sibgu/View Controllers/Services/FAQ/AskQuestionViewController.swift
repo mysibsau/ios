@@ -34,7 +34,7 @@ class AskQuestionViewController: UIViewController {
         return textField
     }()
     
-    private lazy var isPublicField = AnswerView(answer: .init(id: 0, text: "Публичный вопрос?\n(Его смогут видеть остальные?)"),
+    private lazy var isPublicField = AnswerView(answer: .init(id: 0, text: "Публичный вопрос?\n(Его смогут видеть остальные)"),
                                                 type: .one,
                                                 delegate: self)
 
