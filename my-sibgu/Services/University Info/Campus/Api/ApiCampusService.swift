@@ -26,6 +26,20 @@ class ApiCampusService {
                                 completion: completion)
     }
     
+    func postJoinToFaculty(facultyId: Int, fio: String, institute: String,
+                           group: String, vk: String, hobby: String, reason: String,
+                           completion: @escaping (_ isDone: Bool) -> Void) {
+        
+        baseApiService.sendPost(request: ApiCampus.joinToFaculty(facultyId: facultyId,
+                                                                 fio: fio,
+                                                                 institute: institute,
+                                                                 group: group,
+                                                                 vk: vk,
+                                                                 hobby: hobby,
+                                                                 reason: reason),
+                                completion: completion)
+    }
+    
     func postJoinToArt(artId: Int, fio: String, phone: String,
                        vkLink: String, experience: String, comment: String,
                        completion: @escaping (_ done: Bool) -> Void) {

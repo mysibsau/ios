@@ -63,7 +63,7 @@ class StudentsLiveCollectionView: UICollectionViewController {
             ),
             (
                 CollectionViewHelper.getViewWithImage(
-                    image: UIImage(named: "science")!,
+                    image: UIImage(named: "processor")!,
                     backgroundColor: UIColor.Pallete.orange,
                     imageColor: UIColor.Pallete.content
                 ),

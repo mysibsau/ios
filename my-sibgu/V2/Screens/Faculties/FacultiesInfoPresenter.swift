@@ -19,7 +19,6 @@ class FacultiesInfoPresenter: DetailPresenter {
             setupAddQeustionButton()
         }
         detailViewController?.navigationItem.setLeftTitle(title: "art".localized(using: "StudentsCollection"))
-
         let facultiets = GetModelsService.shared.getFromStore(type: Faculity.self)
         guard let general = GetModelsService.shared.getFromStore(type: FaculityGeneral.self).first,
               !facultiets.isEmpty
@@ -70,8 +69,8 @@ class FacultiesInfoPresenter: DetailPresenter {
     private func viewModel(general: FaculityGeneral,
                            faculitys: [Faculity]) -> DetailViewModel {
         AnyDetailViewModel(
-            navigationTitle: "art".localized(using: "StudentsCollection"),
-            backgroundImage: .init(type: .url(general.logo), imageContentMode: .scaleAspectFit, imageHeightMultiply: 0.15),
+            navigationTitle: "sdo".localized(using: "StudentsCollection"),
+            backgroundImage: .init(type: .url(general.logo), imageContentMode: .scaleAspectFill, imageHeightMultiply: 0.15),
             foregroundImage: .init(type: .hide),
             content: { viewController in
                 let tn = "Person"
@@ -107,7 +106,7 @@ class FacultiesInfoPresenter: DetailPresenter {
                     .title("about".localized(using: tn)),
                     .textView(.init(text: general.description))
                 ] + instaVkLink + contactsGroup + [
-                    .title("groups".localized(using: tn))
+                    .title("faculties".localized(using: tn))
                 ] + groupsContent
             })
     }
@@ -136,7 +135,7 @@ extension Faculity: DetailViewModel {
 
     var navigationTitle: String? { name }
 
-    var backgroundImage: DetailModel.Image { .init(type: .url(logo), imageContentMode: .scaleAspectFit, imageHeightMultiply: 0.7) }
+    var backgroundImage: DetailModel.Image { .init(type: .url(logo), imageContentMode: .scaleAspectFill, imageHeightMultiply: 0.5) }
     var foregroundImage: DetailModel.Image { .init(type: .hide) }
 
     func contentList(onPresenting viewController: UIViewController) -> [DetailModel.Content] {
@@ -166,8 +165,8 @@ extension Faculity: DetailViewModel {
             .title("contacts".localized(using: tn))
         ] + contactsGroup + [
             .button(.init(imageName: "add_circle", text: "join.to".localized(using: tn), action: {
-                let vc = JoinToArtViewController()
-                vc.artId = id
+                let vc = JoinToFacultieViewController()
+                vc.unionId = id
                 viewController.present(vc, animated: true)
             }))
         ]

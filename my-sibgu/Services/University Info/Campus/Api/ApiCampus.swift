@@ -46,6 +46,21 @@ struct ApiCampus {
         URLRequest(url: URL(string: "\(address)/campus/ensembles")!, cachePolicy: .reloadIgnoringLocalCacheData)
     }
     
+    static func joinToFaculty(facultyId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
+        let parameters = [
+            "fio": fio,
+            "institute": institute,
+            "group": group,
+            "vk": vk,
+            "hobby": hobby,
+            "reason": reason
+        ]
+        
+        let request = ApiUniversityInfo.multipartRequest(withUrl: URL(string: "\(ApiUniversityInfo.address)/v3/campus/faculties/\(facultyId)/join/")!, parameters: parameters)
+        
+        return request
+    }
+    
     static func joinToUnion(unionId: Int, fio: String, institute: String, group: String, vk: String, hobby: String, reason: String) -> URLRequest {
         let parameters = [
             "fio": fio,

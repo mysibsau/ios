@@ -67,6 +67,7 @@ class DetailViewController: UIViewController {
     }
     
     func setupViewModel(viewModel: DetailViewModel) {
+        self.imageHeightMultiply = viewModel.backgroundImage.imageHeightMultiply
         loadViewIfNeeded()
         self.viewModel = viewModel
         setupStackView()
