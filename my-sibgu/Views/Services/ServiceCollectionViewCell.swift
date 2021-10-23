@@ -25,7 +25,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.textColor = UIColor.Pallete.sibsuBlue
         return label
     }()
@@ -63,7 +63,7 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
+            make.height.equalTo(50)
             make.top.leading.trailing.equalToSuperview().inset(5)
         }
         
