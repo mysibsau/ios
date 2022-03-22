@@ -72,7 +72,7 @@ extension NSMutableAttributedString {
             }
             attrString.addAttribute(.foregroundColor, value: UIColor.Pallete.sibsuBlue, range: range)
             attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
-            rangesAndUrls[range] = URL(string: stringUrl)!
+            rangesAndUrls[range] = URL(string: stringUrl.encodeUrl)!
         }
         
         return rangesAndUrls
